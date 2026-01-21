@@ -21,6 +21,11 @@ The easiest way to run Strudel in Colab is to use the `%%html` magic command to 
   font-family: 'Orbitron', sans-serif;
   position: relative;
   overflow: hidden;
+  animation: border-pulse 4s infinite alternate;
+}
+@keyframes border-pulse {
+  0% { box-shadow: 0 0 20px #ff00de, inset 0 0 20px #00eaff; }
+  100% { box-shadow: 0 0 40px #ff00de, inset 0 0 40px #00eaff; }
 }
 .retro-container::before {
   content: '';
@@ -32,6 +37,19 @@ The easiest way to run Strudel in Colab is to use the `%%html` magic command to 
   background-size: 30px 30px;
   pointer-events: none;
   z-index: 0;
+}
+.retro-container::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
 }
 .glass-panel {
   background: rgba(255, 255, 255, 0.05);
@@ -53,6 +71,16 @@ The easiest way to run Strudel in Colab is to use the `%%html` magic command to 
   letter-spacing: 3px;
   font-weight: 700;
   text-transform: uppercase;
+  animation: text-flicker 3s infinite alternate;
+}
+@keyframes text-flicker {
+  0% { text-shadow: 0 0 5px #00eaff, 0 0 10px #00eaff; opacity: 1; }
+  95% { text-shadow: 0 0 20px #00eaff, 0 0 40px #00eaff; opacity: 1; }
+  96% { opacity: 0.8; }
+  97% { opacity: 1; }
+  98% { opacity: 0.5; }
+  99% { opacity: 1; }
+  100% { text-shadow: 0 0 5px #00eaff, 0 0 10px #00eaff; opacity: 1; }
 }
 .retro-iframe {
   width: 100%;
@@ -125,6 +153,8 @@ s("bd sd").fast(2)
 encoded_code = urllib.parse.quote(code)
 url = f"https://strudel.cc/?embed=1#{encoded_code}"
 
+print(f"Generated Kunguru Algo URL: {url}")
+
 # CSS for Retrofuturist Glassmorphism
 style = """
 <style>
@@ -137,6 +167,11 @@ style = """
   font-family: 'Orbitron', sans-serif;
   position: relative;
   overflow: hidden;
+  animation: border-pulse 4s infinite alternate;
+}
+@keyframes border-pulse {
+  0% { box-shadow: 0 0 20px #ff00de, inset 0 0 20px #00eaff; }
+  100% { box-shadow: 0 0 40px #ff00de, inset 0 0 40px #00eaff; }
 }
 .retro-container::before {
   content: '';
@@ -148,6 +183,19 @@ style = """
   background-size: 30px 30px;
   pointer-events: none;
   z-index: 0;
+}
+.retro-container::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
 }
 .glass-panel {
   background: rgba(255, 255, 255, 0.05);
@@ -169,6 +217,16 @@ style = """
   letter-spacing: 3px;
   font-weight: 700;
   text-transform: uppercase;
+  animation: text-flicker 3s infinite alternate;
+}
+@keyframes text-flicker {
+  0% { text-shadow: 0 0 5px #00eaff, 0 0 10px #00eaff; opacity: 1; }
+  95% { text-shadow: 0 0 20px #00eaff, 0 0 40px #00eaff; opacity: 1; }
+  96% { opacity: 0.8; }
+  97% { opacity: 1; }
+  98% { opacity: 0.5; }
+  99% { opacity: 1; }
+  100% { text-shadow: 0 0 5px #00eaff, 0 0 10px #00eaff; opacity: 1; }
 }
 .retro-iframe {
   width: 100%;
