@@ -44,25 +44,25 @@ note("c4/1.5 c4/0.5 c4/1.5 d4/0.5 e4")
 ### 5. Frere Jacques
 ```javascript
 setcps(1.4)
-note("c4 d4 e4 c4").s("piano").slow(2)
+note("c4 d4 e4 c4 c4 d4 e4 c4 e4 f4 g4/2 e4 f4 g4/2").s("piano")
 ```
 
 ### 6. London Bridge
 ```javascript
 setcps(1.3)
-note("g4 a4 g4 f4 e4 f4 g4/2").s("piano")
+note("g4/1.5 a4/0.5 g4 f4 e4 f4 g4/2 d4 e4 f4/2 e4 f4 g4/2").s("piano")
 ```
 
 ### 7. Old MacDonald
 ```javascript
 setcps(1.2)
-note("g4 g4 g4 d4 e4 e4 d4/2").s("piano")
+note("g4 g4 g4 d4 e4 e4 d4/2 b4 b4 a4 a4 g4/2").s("piano")
 ```
 
 ### 8. Baa Baa Black Sheep
 ```javascript
 setcps(1)
-note("c4 c4 g4 g4 a4 b4 c5 a4 g4/2").s("piano")
+note("c4 c4 g4 g4 a4 a4 a4 a4 g4/2").s("piano")
 ```
 
 ### 9. Itsy Bitsy Spider
@@ -86,7 +86,7 @@ note("c4 c4 f4 f4 f4 f4 f4 f4 e4 f4 g4").s("piano")
 ### 12. Humpty Dumpty
 ```javascript
 setcps(1)
-note("c4 c4 d4 d4 e4 e4 c4").s("piano")
+note("g3 g3 a3 a3 g3/2 e3/2 g3 g3 a3 a3 g3/2 e3/2").s("piano")
 ```
 
 ### 13. Hickory Dickory Dock
@@ -98,7 +98,7 @@ note("a3 b3 c4 a3 e4 c4 a3").s("piano")
 ### 14. Hot Cross Buns
 ```javascript
 setcps(1)
-note("e4 d4 c4/2 e4 d4 c4/2").s("piano")
+note("e4 d4 c4/2 e4 d4 c4/2 c4 c4 c4 c4 d4 d4 d4 d4 e4 d4 c4/2").s("piano")
 ```
 
 ### 15. Jack and Jill
@@ -140,19 +140,19 @@ note("e4 g4 a4/2 e4 g4 a4/2").s("piano")
 ### 21. This Old Man
 ```javascript
 setcps(1.2)
-note("g4 e4 g4 g4 e4 g4").s("piano")
+note("g4 e4 g4/2 g4 e4 g4/2").s("piano")
 ```
 
 ### 22. Three Blind Mice
 ```javascript
 setcps(1)
-note("e4 d4 c4/2 e4 d4 c4/2").s("piano")
+note("e4 d4 c4/2 e4 d4 c4/2 g4 f4 f4 e4/2 g4 f4 f4 e4/2").s("piano")
 ```
 
 ### 23. Farmer in the Dell
 ```javascript
 setcps(1.2)
-note("g3 c4 c4 c4 c4").s("piano")
+note("g3 c4 c4 c4 c4 d4 e4 c4").s("piano")
 ```
 
 ### 24. Bingo
@@ -164,7 +164,7 @@ note("g4 g4 c4 c4 g4 g4 c4").s("piano")
 ### 25. Head, Shoulders, Knees and Toes
 ```javascript
 setcps(1.2)
-note("c4 e4 g4 g4 g4 g4").s("piano")
+note("c4 e4 g4/2 g4/2 c4 e4 g4/2 g4/2").s("piano")
 ```
 
 ---
@@ -186,7 +186,7 @@ note("c4 f4/1.5 f4/0.5 f4 a4 g4/1.5 a4/0.5 g4 a4 f4/1.5 f4/0.5 a4 c5 d5/2").s("p
 ### 28. Danny Boy
 ```javascript
 setcps(0.8)
-note("e4 f4 g4 a4 b4 c5").s("piano")
+note("b3 c4 d4 b3/2 g3/2 b3/2 c4 d4 b3/2 g3/2 e3/2").s("piano")
 ```
 
 ### 29. Greensleeves
@@ -216,13 +216,13 @@ note("c4 d4 e4 g4 g4 a4 g4 e4 c4 d4 e4 e4 d4 c4 d4/2").s("piano")
 ### 33. Camptown Races
 ```javascript
 setcps(1.2)
-note("g4 g4 e4 g4 a4 g4 e4").s("piano")
+note("g4 g4 e4 g4 a4 g4 e4/2").s("piano")
 ```
 
 ### 34. Home on the Range
 ```javascript
 setcps(1)
-note("d4 d4 g4 a4 b4 g4").s("piano")
+note("d4 d4 g4 g4 a4 b4 g4").s("piano")
 ```
 
 ### 35. She'll Be Coming 'Round the Mountain
@@ -252,7 +252,7 @@ note("g3 e4 d4 c4 d4 c4 a3").s("piano")
 ### 39. Clementine
 ```javascript
 setcps(1)
-note("c4 c4 c4 g3 e4 e4 e4 c4").s("piano")
+note("g3 g3 g3 c4 c4 c4 e4 c4").s("piano")
 ```
 
 ### 40. I've Been Working on the Railroad
@@ -264,19 +264,19 @@ note("c4 c4 c4 d4 e4 e4 d4").s("piano")
 ### 41. Red River Valley
 ```javascript
 setcps(1)
-note("d4 e4 g4 g4 g4 g4").s("piano")
+note("d4 g4 b4 b4 b4 a4 g4 a4").s("piano")
 ```
 
 ### 42. House of the Rising Sun
 ```javascript
 setcps(1)
-note("a3 c4 d4 f4 a4 e4").s("guitar")
+note("a2 c3 d3 f3 a3 e3 a2 e3").s("guitar")
 ```
 
 ### 43. Waltzing Matilda
 ```javascript
 setcps(1.2)
-note("c4 e4 g4 g4 a4 g4").s("piano")
+note("c4 e4 g4 g4 a4 b4 a4 g4").s("piano")
 ```
 
 ### 44. Bella Ciao
@@ -443,7 +443,7 @@ note("f#4 a4 g4 f#4 c#4 b3 c#4 d4").s("piano")
 ### 70. Ave Maria (Schubert)
 ```javascript
 setcps(0.8)
-note("c5 c5 b4 a4 g4").s("voice")
+note("g4/2 a4/4 c5/1.5 a4/0.5 g4/2 e4/2").s("voice")
 ```
 
 ### 71. Brahm's Lullaby
@@ -619,7 +619,7 @@ note("g4 a4 b4 d5 c5 c5 e5 d5 d5 g5 f#5 g5").s("organ")
 ### 98. Chopsticks
 ```javascript
 setcps(1.4)
-note("g4 g4 g4 g4 e4 e4").s("piano")
+note("[f4,g4]*4 [e4,g4]*4").s("piano")
 ```
 
 ### 99. Heart and Soul
@@ -631,8 +631,7 @@ note("c4 c4 c4 a3 a3 a3 f3 f3 f3 g3 g3 g3").s("piano")
 ### 100. Happy Birthday (Variation)
 ```javascript
 setcps(1)
-note("g3/1.5 g3/0.5 a3 b3 g3")
-  .add(note("c4 b3 ~").slow(2))
+note("g3/1.5 g3/0.5 a3 g3 c4 b3/2 g3/1.5 g3/0.5 a3 g3 d4 c4/2")
   .s("sawtooth")
   .lpf(1000)
 ```
