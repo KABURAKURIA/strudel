@@ -305,14 +305,19 @@ import subprocess
 import time
 from google.colab import output
 
-# 1. Clone the repository (using the Codeberg mirror as it's the active one)
+# 1. Clone the repository (correct active mirror)
 if not os.path.exists("strudel"):
     print("Cloning Strudel repository...")
-    !git clone https://codeberg.org/tidalcycles/strudel.git
+    !git clone https://codeberg.org/uzu/strudel.git
+
+    # Verify clone success
+    if not os.path.exists("strudel"):
+        raise Exception("Failed to clone repository! Please check your internet connection.")
 
 # 2. Install dependencies
 print("Installing dependencies (this may take a few minutes)...")
-%cd strudel
+# Ensure we operate inside the directory
+os.chdir("strudel")
 !npm install
 
 # 3. Rebrand to Kunguru Algo
@@ -324,10 +329,11 @@ print("Applying Kunguru Algo branding...")
 # We bind to 0.0.0.0 to ensure it's accessible externally via proxy
 print("Starting Kunguru Algo server...")
 PORT = 3000
+# Run npm in the current directory (which is now 'strudel')
 subprocess.Popen(["npm", "run", "dev", "--", "--port", str(PORT), "--host", "0.0.0.0"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 # Wait a moment for Vite to start
-time.sleep(5)
+time.sleep(8)
 
 # 5. Expose via Colab Proxy
 output.serve_kernel_port_as_window(PORT)
