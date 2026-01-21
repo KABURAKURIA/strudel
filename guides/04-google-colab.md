@@ -289,6 +289,103 @@ html = f"""
 display(HTML(html))
 ```
 
+## Method 3: Native Colab Hosting (For Full Screen URL)
+
+If you want a **dedicated URL** to view your Kunguru Algo interface in full screen (branded correctly in the browser tab) and have it hosted directly from your Colab instance (without using Ngrok or Cloudflare), you can use Colab's built-in proxy.
+
+1.  This method creates a local HTML file with your Kunguru Algo branding.
+2.  It starts a simple Python web server in the background.
+3.  It generates a proxy URL that points to this server.
+
+```python
+import urllib.parse
+from google.colab import output
+import subprocess
+import time
+
+# 1. Prepare your Strudel code
+code = """
+s("bd sd").fast(2)
+"""
+encoded_code = urllib.parse.quote(code)
+strudel_url = f"https://strudel.cc/?embed=1#{encoded_code}"
+
+# 2. Create the HTML file locally
+html_content = f"""
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kunguru Algo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+body, html {{ margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }}
+.retro-container {{
+  background: linear-gradient(135deg, #120458, #000000);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Orbitron', sans-serif;
+  position: relative;
+}}
+.retro-container::before {{
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(255, 0, 222, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 234, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 0;
+}}
+.retro-header {{
+  color: #00eaff;
+  text-shadow: 0 0 5px #00eaff, 0 0 10px #00eaff;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.5em;
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 1;
+  border-bottom: 1px solid rgba(0, 234, 255, 0.3);
+}}
+.retro-iframe {{
+  flex-grow: 1;
+  width: 100%;
+  border: none;
+  position: relative;
+  z-index: 1;
+}}
+</style>
+</head>
+<body>
+<div class="retro-container">
+  <div class="retro-header">KUNGURU ALGO // REPL</div>
+  <iframe class="retro-iframe" src="{strudel_url}" allow="midi; fullscreen"></iframe>
+</div>
+</body>
+</html>
+"""
+
+with open("kunguru.html", "w") as f:
+    f.write(html_content)
+
+# 3. Start the server (if not already running)
+# We use a specific port, e.g., 8000
+PORT = 8000
+subprocess.Popen(["python3", "-m", "http.server", str(PORT)])
+time.sleep(1) # Wait for server to start
+
+# 4. Serve it!
+# This function opens the port in a new tab using Colab's proxy
+output.serve_kernel_port_as_window(PORT, path="/kunguru.html")
+
+# 5. Get the URL explicitly
+proxy_url = output.eval_js(f"google.colab.kernel.proxyPort({PORT})") + "kunguru.html"
+print(f"Your Kunguru Algo is hosted at: {proxy_url}")
+```
+
 ## Why Free Tier?
 
 Strudel runs **client-side** (in your browser). It does not rely on the Google Colab backend (GPU/TPU/CPU) to generate audio. Therefore, the **Free Tier of Colab is perfectly sufficient**. You are essentially using Colab as a hosting platform for the interface.
