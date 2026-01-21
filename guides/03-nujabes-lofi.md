@@ -63,7 +63,40 @@ note("d3 g3 c3")
   .shape(0.3)     // Slight distortion
 ```
 
-## 4. Putting it all together (Nujabes Vibe)
+## 4. Using External Samples
+
+While synths are great, Lo-Fi often relies on specific samples. You can load your own samples from URLs.
+
+```javascript
+// Load a sample map
+samples({
+  'mykick': 'https://example.com/kick.wav',
+  'mysnare': 'https://example.com/snare.wav',
+  'jazz_loop': 'https://example.com/piano_loop.mp3'
+})
+
+// Use them
+stack(
+  s("mykick mysnare"),
+  s("jazz_loop").legato(1) // Play the full loop
+)
+```
+
+## 5. Sidechain Compression (Ducking)
+
+To get that "pumping" effect where the music ducks when the kick hits, you can automate the gain.
+
+```javascript
+const kick = s("bd*2")
+const chords = note("c:minor7").s("piano")
+
+stack(
+  kick,
+  chords.gain(s("0.2 0.8").fast(2)) // Duck volume on the beat
+)
+```
+
+## 6. Putting it all together (Nujabes Vibe)
 
 Here is a recipe for a track. We will use `setcps` to set a tempo around 90 BPM.
 
@@ -99,7 +132,7 @@ stack(
 )
 ```
 
-## 5. Tips for Authenticity
+## 7. Tips for Authenticity
 
 - **Offset**: Use `.nudge(0.02)` on the snare to make it drag slightly behind the beat.
 - **Silence**: Don't fill every frequency. Leave space (`~`).
