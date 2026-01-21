@@ -61,16 +61,49 @@ The easiest way to run Strudel in Colab is to use the `%%html` magic command to 
   border-radius: 5px;
   display: block;
 }
+.fullscreen-btn {
+  display: block;
+  margin: 0 auto 15px;
+  padding: 10px 20px;
+  background: rgba(0, 234, 255, 0.1);
+  border: 1px solid #00eaff;
+  color: #00eaff;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.fullscreen-btn:hover {
+  background: rgba(0, 234, 255, 0.3);
+  box-shadow: 0 0 15px #00eaff;
+  text-shadow: 0 0 5px #00eaff;
+}
 </style>
 <div class="retro-container">
-  <div class="retro-header">STRUDEL // REPL</div>
+  <div class="retro-header">KUNGURU ALGO // REPL</div>
+  <button class="fullscreen-btn" onclick="toggleFullScreen()">Full Screen</button>
   <div class="glass-panel">
     <iframe class="retro-iframe"
       src="https://strudel.cc/?embed=1"
-      allow="midi"
+      allow="midi; fullscreen"
     ></iframe>
   </div>
 </div>
+<script>
+function toggleFullScreen() {
+  const elem = document.querySelector('.retro-iframe');
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+</script>
 ```
 
 3. Run the cell. You will see the Strudel editor appear. You can type code and play it directly there!
@@ -144,18 +177,51 @@ style = """
   border-radius: 5px;
   display: block;
 }
+.fullscreen-btn {
+  display: block;
+  margin: 0 auto 15px;
+  padding: 10px 20px;
+  background: rgba(0, 234, 255, 0.1);
+  border: 1px solid #00eaff;
+  color: #00eaff;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.fullscreen-btn:hover {
+  background: rgba(0, 234, 255, 0.3);
+  box-shadow: 0 0 15px #00eaff;
+  text-shadow: 0 0 5px #00eaff;
+}
 </style>
+<script>
+function toggleFullScreen() {
+  const elem = document.querySelector('.retro-iframe');
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+</script>
 """
 
 # Generate HTML
 html = f"""
 {style}
 <div class="retro-container">
-  <div class="retro-header">STRUDEL // REPL</div>
+  <div class="retro-header">KUNGURU ALGO // REPL</div>
+  <button class="fullscreen-btn" onclick="toggleFullScreen()">Full Screen</button>
   <div class="glass-panel">
     <iframe class="retro-iframe"
       src="{url}"
-      allow="midi"
+      allow="midi; fullscreen"
     ></iframe>
   </div>
 </div>
