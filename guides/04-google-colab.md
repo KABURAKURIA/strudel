@@ -289,101 +289,50 @@ html = f"""
 display(HTML(html))
 ```
 
-## Method 3: Native Colab Hosting (For Full Screen URL)
+## Method 3: Full Local Installation (Kunguru Algo Edition)
 
-If you want a **dedicated URL** to view your Kunguru Algo interface in full screen (branded correctly in the browser tab) and have it hosted directly from your Colab instance (without using Ngrok or Cloudflare), you can use Colab's built-in proxy.
+If you prefer to **download and run the full application** within Colab (avoiding iframes and external `strudel.cc` dependencies completely), you can clone the official repository, install it, and run it locally. This also allows you to rebrand the application deeply.
 
-1.  This method creates a local HTML file with your Kunguru Algo branding.
-2.  It starts a simple Python web server in the background.
-3.  It generates a proxy URL that points to this server.
+1.  This method clones the Strudel source code.
+2.  It modifies the source to brand it as "Kunguru Algo".
+3.  It runs the full development server on the Colab instance.
+
+**Run this in a code cell:**
 
 ```python
-import urllib.parse
-from google.colab import output
+import os
 import subprocess
 import time
+from google.colab import output
 
-# 1. Prepare your Strudel code
-code = """
-s("bd sd").fast(2)
-"""
-encoded_code = urllib.parse.quote(code)
-strudel_url = f"https://strudel.cc/?embed=1#{encoded_code}"
+# 1. Clone the repository (using the Codeberg mirror as it's the active one)
+if not os.path.exists("strudel"):
+    print("Cloning Strudel repository...")
+    !git clone https://codeberg.org/tidalcycles/strudel.git
 
-# 2. Create the HTML file locally
-html_content = f"""
-<!DOCTYPE html>
-<html>
-<head>
-<title>Kunguru Algo</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-body, html {{ margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }}
-.retro-container {{
-  background: linear-gradient(135deg, #120458, #000000);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Orbitron', sans-serif;
-  position: relative;
-}}
-.retro-container::before {{
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image:
-    linear-gradient(rgba(255, 0, 222, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 234, 255, 0.1) 1px, transparent 1px);
-  background-size: 30px 30px;
-  pointer-events: none;
-  z-index: 0;
-}}
-.retro-header {{
-  color: #00eaff;
-  text-shadow: 0 0 5px #00eaff, 0 0 10px #00eaff;
-  padding: 15px;
-  text-align: center;
-  font-size: 1.5em;
-  letter-spacing: 3px;
-  font-weight: 700;
-  text-transform: uppercase;
-  z-index: 1;
-  border-bottom: 1px solid rgba(0, 234, 255, 0.3);
-}}
-.retro-iframe {{
-  flex-grow: 1;
-  width: 100%;
-  border: none;
-  position: relative;
-  z-index: 1;
-}}
-</style>
-</head>
-<body>
-<div class="retro-container">
-  <div class="retro-header">KUNGURU ALGO // REPL</div>
-  <iframe class="retro-iframe" src="{strudel_url}" allow="midi; fullscreen"></iframe>
-</div>
-</body>
-</html>
-"""
+# 2. Install dependencies
+print("Installing dependencies (this may take a few minutes)...")
+%cd strudel
+!npm install
 
-with open("kunguru.html", "w") as f:
-    f.write(html_content)
+# 3. Rebrand to Kunguru Algo
+# We programmatically find index.html and replace the title
+print("Applying Kunguru Algo branding...")
+!find . -name "index.html" -exec sed -i 's/<title>.*<\/title>/<title>Kunguru Algo<\/title>/g' {} +
 
-# 3. Start the server (if not already running)
-# We use a specific port, e.g., 8000
-PORT = 8000
-subprocess.Popen(["python3", "-m", "http.server", str(PORT)])
-time.sleep(1) # Wait for server to start
+# 4. Run the development server in the background
+# We bind to 0.0.0.0 to ensure it's accessible externally via proxy
+print("Starting Kunguru Algo server...")
+PORT = 3000
+subprocess.Popen(["npm", "run", "dev", "--", "--port", str(PORT), "--host", "0.0.0.0"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-# 4. Serve it!
-# This function opens the port in a new tab using Colab's proxy
-output.serve_kernel_port_as_window(PORT, path="/kunguru.html")
+# Wait a moment for Vite to start
+time.sleep(5)
 
-# 5. Get the URL explicitly
-proxy_url = output.eval_js(f"google.colab.kernel.proxyPort({PORT})") + "kunguru.html"
-print(f"Your Kunguru Algo is hosted at: {proxy_url}")
+# 5. Expose via Colab Proxy
+output.serve_kernel_port_as_window(PORT)
+proxy_url = output.eval_js(f"google.colab.kernel.proxyPort({PORT})")
+print(f"Your full local Kunguru Algo instance is running at: {proxy_url}")
 ```
 
 ## Why Free Tier?
