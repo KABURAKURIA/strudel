@@ -58,6 +58,8 @@ display(HTML(html))
 
 Strudel runs **client-side** (in your browser). It does not rely on the Google Colab backend (GPU/TPU/CPU) to generate audio. Therefore, the **Free Tier of Colab is perfectly sufficient**. You are essentially using Colab as a hosting platform for the interface.
 
+**Note on Runtime:** Since Strudel runs in the browser, you don't even need to "Connect" to a runtime for the iframe to load, but for the `%%html` magic to execute, you just need the basic CPU runtime which is free.
+
 ## Limitations
 
 - **Audio Recording**: Recording the audio output directly to a file in Colab's file system is difficult because the audio is generated in your browser, not on the Python server. You would need to use Strudel's built-in recording feature to download the audio to your local machine.
