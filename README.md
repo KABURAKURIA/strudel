@@ -12,6 +12,8 @@ This repository contains comprehensive guides and examples for using **Strudel**
     *   Jazz chords, swing, sampling techniques, and a full genre breakdown.
 4.  **[Google Colab Setup](guides/04-google-colab.md)**
     *   How to run Strudel inside a free Google Colab notebook.
+5.  **[100 Simple Songs](guides/05-100-famous-songs.md)**
+    *   A massive collection of code snippets for famous melodies and songs.
 
 ## Examples
 
