@@ -329,7 +329,22 @@ print("Applying Kunguru Algo branding...")
 # 4. Run the development server in the background
 print("Starting Kunguru Algo server...")
 PORT = 3000
-subprocess.Popen(["npm", "run", "dev", "--", "--port", str(PORT)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+# Important: We must ensure Vite listens on all interfaces (0.0.0.0) or explicitly localhost so cloudflared can see it.
+# We also redirect output to a file to debug if needed.
+subprocess.Popen(["npm", "run", "dev", "--", "--port", str(PORT), "--host", "0.0.0.0"], stdout=open('server.log', 'w'), stderr=subprocess.STDOUT)
+
+# Wait for the port to be open (up to 30 seconds)
+print("Waiting for server to start...")
+for _ in range(30):
+    try:
+        import socket
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            if s.connect_ex(('localhost', PORT)) == 0:
+                print("Server is up!")
+                break
+    except:
+        pass
+    time.sleep(1)
 
 # 5. Expose via Cloudflare Tunnel (Robust & Public URL)
 # The user can choose to use Ngrok or Cloudflare. Here we use TryCloudflare for zero-config.
@@ -339,7 +354,7 @@ print("Starting Cloudflare Tunnel...")
 # Start the tunnel in the background and log to a file
 subprocess.Popen(["./cloudflared-linux-amd64", "tunnel", "--url", f"http://localhost:{PORT}"], stdout=open('tunnel.log', 'w'), stderr=subprocess.STDOUT)
 
-time.sleep(5)
+time.sleep(10)
 # Extract and print the URL
 print("SEARCHING FOR URL...")
 !grep -o 'https://.*\.trycloudflare.com' tunnel.log | head -n 1
