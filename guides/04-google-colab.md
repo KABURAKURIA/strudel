@@ -305,40 +305,59 @@ import subprocess
 import time
 from google.colab import output
 
-# 1. Clone the repository (correct active mirror)
+# 1. Clone the repository
 if not os.path.exists("strudel"):
     print("Cloning Strudel repository...")
-    !git clone https://codeberg.org/uzu/strudel.git
+    !git clone https://github.com/tidalcycles/strudel.git
 
     # Verify clone success
     if not os.path.exists("strudel"):
         raise Exception("Failed to clone repository! Please check your internet connection.")
 
 # 2. Install dependencies
-print("Installing dependencies (this may take a few minutes)...")
+# We update npm first to support the 'workspace:' protocol used by the repo
+print("Updating npm and installing dependencies (this may take a few minutes)...")
+!npm install -g npm@latest
 # Ensure we operate inside the directory
 os.chdir("strudel")
 !npm install
 
 # 3. Rebrand to Kunguru Algo
-# We programmatically find index.html and replace the title
 print("Applying Kunguru Algo branding...")
 !find . -name "index.html" -exec sed -i 's/<title>.*<\/title>/<title>Kunguru Algo<\/title>/g' {} +
 
 # 4. Run the development server in the background
-# We bind to 0.0.0.0 to ensure it's accessible externally via proxy
 print("Starting Kunguru Algo server...")
 PORT = 3000
-# Run npm in the current directory (which is now 'strudel')
-subprocess.Popen(["npm", "run", "dev", "--", "--port", str(PORT), "--host", "0.0.0.0"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+# Important: We must ensure Vite listens on all interfaces (0.0.0.0) or explicitly localhost so cloudflared can see it.
+# We also redirect output to a file to debug if needed.
+subprocess.Popen(["npm", "run", "dev", "--", "--port", str(PORT), "--host", "0.0.0.0"], stdout=open('server.log', 'w'), stderr=subprocess.STDOUT)
 
-# Wait a moment for Vite to start
-time.sleep(8)
+# Wait for the port to be open (up to 30 seconds)
+print("Waiting for server to start...")
+for _ in range(30):
+    try:
+        import socket
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            if s.connect_ex(('localhost', PORT)) == 0:
+                print("Server is up!")
+                break
+    except:
+        pass
+    time.sleep(1)
 
-# 5. Expose via Colab Proxy
-output.serve_kernel_port_as_window(PORT)
-proxy_url = output.eval_js(f"google.colab.kernel.proxyPort({PORT})")
-print(f"Your full local Kunguru Algo instance is running at: {proxy_url}")
+# 5. Expose via Cloudflare Tunnel (Robust & Public URL)
+# The user can choose to use Ngrok or Cloudflare. Here we use TryCloudflare for zero-config.
+print("Starting Cloudflare Tunnel...")
+!wget -q -nc https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+!chmod +x cloudflared-linux-amd64
+# Start the tunnel in the background and log to a file
+subprocess.Popen(["./cloudflared-linux-amd64", "tunnel", "--url", f"http://localhost:{PORT}"], stdout=open('tunnel.log', 'w'), stderr=subprocess.STDOUT)
+
+time.sleep(10)
+# Extract and print the URL
+print("SEARCHING FOR URL...")
+!grep -o 'https://.*\.trycloudflare.com' tunnel.log | head -n 1
 ```
 
 ## Why Free Tier?
