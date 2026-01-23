@@ -175,7 +175,7 @@ const melody = note(cat(
   "g4@1 c5@1 b4@1 a4@3"
 ))
   .s("clean")
-  .tremolo(4, 0.4)
+  .gain(sine.range(0.5, 1).fast(4))
   .velocity(0.9)
 
 // 2. CHORDS (G Major)
@@ -292,7 +292,7 @@ const melody = note(cat(
   "c5@1 c5@1 b4@1 a4@1 g4@1"
 ))
   .s("clean")
-  .distort(0.2)
+  .shape(0.4)
   .velocity(0.9)
 
 // 2. CHORDS (C -> G -> C)
@@ -463,7 +463,7 @@ const melody = note(cat(
   "c5@1 g4@1 e4@2"
 ))
   .s("trumpet")
-  .staccato(0.5)
+  .legato(0.5)
   .velocity(0.9)
 
 // 2. CHORDS (C Major)
@@ -563,7 +563,7 @@ const melody = note(cat(
   "g4@1 b4@1 d5@2"
 ))
   .s("guitar")
-  .highpass(1000)
+  .hpf(1000)
   .velocity(0.8)
 
 // 2. CHORDS (G Major)
@@ -765,7 +765,7 @@ const melody = note(cat(
   "a4@1 g4@1 f4@2"
 ))
   .s("rhodes")
-  .tremolo(2, 0.4)
+  .gain(sine.range(0.5, 1).fast(4))
   .velocity(0.8)
 
 // 2. CHORDS (F -> C -> Bb)
@@ -1057,7 +1057,7 @@ const melody = note(cat(
   "a3@1 c4@1 e4@1 a4@1"
 ))
   .s("organ")
-  .staccato(0.5)
+  .legato(0.5)
   .velocity(0.8)
 
 // 2. CHORDS (Am)
@@ -1165,7 +1165,7 @@ const chords = note("e3 b2 e3")
 const slap = note("0")
   .scale("E:minor")
   .s("bass")
-  .slap(0.5)
+  .shape(0.5)
   .gain(0.4)
 
 stack(
@@ -1344,7 +1344,7 @@ const melody = note(cat(
   "c3@1 eb3@1 g3@1 c4@1"
 ))
   .s("strings")
-  .staccato(0.5)
+  .legato(0.5)
   .velocity(0.9)
 
 // 2. CHORDS (Cm)
@@ -1475,7 +1475,7 @@ const melody = note(cat(
   "g4@1 b4@1 d5@1 g5@1"
 ))
   .s("guitar")
-  .wah(0.4)
+  .lpf(sine.range(500, 2000).slow(2))
   .velocity(0.8)
 
 // 2. CHORDS (G Major)
@@ -1488,7 +1488,7 @@ const chords = note("g3 c3 d3 g3")
 const slide = note("0")
   .scale("G:major")
   .s("bass")
-  .slide(0.2)
+  .portamento(0.2)
   .gain(0.4)
 
 stack(
@@ -1509,7 +1509,7 @@ const melody = note(cat(
   "c4@1 e4@1 g4@1 c5@1"
 ))
   .s("rhodes")
-  .tremolo(4, 0.4)
+  .gain(sine.range(0.5, 1).fast(4))
   .velocity(0.8)
 
 // 2. CHORDS (C Major)
@@ -1646,7 +1646,7 @@ const chords = note("d3 g3 a3 d3")
 const growl = note("0")
   .scale("D:minor")
   .s("bass")
-  .distort(0.4)
+  .shape(0.4)
   .gain(0.4)
 
 stack(
@@ -1728,7 +1728,7 @@ const melody = note(cat(
   "f4@1 a4@1 c5@1 f5@1"
 ))
   .s("piano")
-  .arpeggio()
+  .arp("up")
   .velocity(0.7)
 
 // 2. CHORDS (F Major)
@@ -1977,7 +1977,7 @@ const melody = note(cat(
   "f4@1 a4@1 c5@1 f5@1"
 ))
   .s("organ")
-  .staccato(0.5)
+  .legato(0.5)
   .velocity(0.8)
 
 // 2. CHORDS (F Major)
@@ -2012,7 +2012,7 @@ const melody = note(cat(
   "c5@1 c5@1 b4@1 a4@1"
 ))
   .s("guitar")
-  .highpass(1000)
+  .hpf(1000)
   .fast(2)
   .velocity(0.9)
 
@@ -2044,7 +2044,7 @@ const melody = note(cat(
   "g4@1 b4@1 d5@1 g5@1"
 ))
   .s("brass")
-  .staccato(0.5)
+  .legato(0.5)
   .velocity(0.9)
 
 // 2. CHORDS (G Major)
@@ -2170,7 +2170,7 @@ const melody = note(cat(
   "d4@1 f#4@1 a4@1 d5@1"
 ))
   .s("piano")
-  .arpeggio()
+  .arp("up")
   .velocity(0.7)
 
 // 2. CHORDS (D Major)
@@ -2201,7 +2201,7 @@ const melody = note(cat(
   "c4@1 eb4@1 g4@1 c5@1"
 ))
   .s("guitar")
-  .distort(0.3)
+  .shape(0.4)
   .velocity(0.8)
 
 // 2. CHORDS (Cm)
@@ -2424,7 +2424,7 @@ const melody = note(cat(
   "e4@1 g#4@1 b4@1 e5@1"
 ))
   .s("brass")
-  .staccato(0.6)
+  .legato(0.5)
   .velocity(0.9)
 
 // 2. CHORDS (E Major)
@@ -2613,7 +2613,7 @@ const melody = note(cat(
   "c4@1 eb4@1 g4@1 c5@1"
 ))
   .s("rhodes")
-  .tremolo(2, 0.4)
+  .gain(sine.range(0.5, 1).fast(4))
   .velocity(0.7)
 
 // 2. CHORDS (Cm)
@@ -2716,7 +2716,7 @@ const melody = note(cat(
   "a3@1 c4@1 e4@1 a4@1"
 ))
   .s("organ")
-  .staccato(0.5)
+  .legato(0.5)
   .velocity(0.8)
 
 // 2. CHORDS (Am)
@@ -2779,7 +2779,7 @@ const melody = note(cat(
   "e4@1 g4@1 b4@1 e5@1"
 ))
   .s("sawtooth")
-  .distort(0.4)
+  .shape(0.4)
   .velocity(0.8)
 
 // 2. CHORDS (Em)
@@ -2812,7 +2812,7 @@ const melody = note(cat(
   "c4@1 eb4@1 g4@1 c5@1"
 ))
   .s("synth")
-  .arpeggio()
+  .arp("up")
   .velocity(0.7)
 
 // 2. CHORDS (Cm)
@@ -2969,7 +2969,7 @@ const melody = note(cat(
   "e4@1 g#4@1 b4@1 e5@1"
 ))
   .s("organ")
-  .staccato(0.5)
+  .legato(0.5)
   .velocity(0.8)
 
 // 2. CHORDS (E Major)
@@ -3128,7 +3128,7 @@ const melody = note(cat(
   "g4@1 b4@1 d5@1 g5@1"
 ))
   .s("piano")
-  .staccato(0.6)
+  .legato(0.5)
   .velocity(0.8)
 
 // 2. CHORDS (G Major)
@@ -3229,7 +3229,7 @@ const melody = note(cat(
   "a3@1 c4@1 e4@1 a4@1"
 ))
   .s("sine")
-  .distort(0.2)
+  .shape(0.4)
   .velocity(0.8)
 
 // 2. CHORDS (Am)
