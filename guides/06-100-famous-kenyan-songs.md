@@ -215,7 +215,7 @@ const melody = note(cat(
   "~ b4@1 a4@1 g4@4"              // Nzuri sana
 ))
   .s("organ")
-  .bright(0.5)
+  .lpf(2000)
   .velocity(0.9)
 
 // 2. CHORDS (G -> D -> G -> C)
@@ -326,7 +326,7 @@ const melody = note(cat(
   "d5@1 b4@1 g4@2"
 ))
   .s("guitar")
-  .pluck(0.5)
+
   .velocity(0.9)
 
 // 2. CHORDS (G Major)
@@ -429,7 +429,7 @@ const melody = note(cat(
   "c5@1 b4@1 a4@2"
 ))
   .s("brass")
-  .bright(0.4)
+  .lpf(2000)
   .velocity(0.9)
 
 // 2. CHORDS (G -> C -> D -> G)
@@ -1186,7 +1186,7 @@ const melody = note(cat(
   "c4@1 e4@1 g4@1 c5@1"
 ))
   .s("brass")
-  .bright(0.6)
+  .lpf(2000)
   .velocity(0.9)
 
 // 2. CHORDS (C Major)
@@ -1250,7 +1250,7 @@ const melody = note(cat(
   "g4@1 b4@1 d5@1 b4@1"
 ))
   .s("guitar")
-  .clean(0.5)
+
   .velocity(0.8)
 
 // 2. CHORDS (G Major)
@@ -1382,7 +1382,7 @@ const melody = note(cat(
   "a4@1 g4@3"
 ))
   .s("guitar")
-  .bright(0.5)
+  .lpf(2000)
   .velocity(0.9)
 
 // 2. CHORDS (C Major)
@@ -1540,7 +1540,7 @@ const melody = note(cat(
   "e4@1 g#4@1 b4@1 e5@1"
 ))
   .s("guitar")
-  .pluck(0.5)
+
   .velocity(0.8)
 
 // 2. CHORDS (E Major)
@@ -1882,7 +1882,7 @@ const melody = note(cat(
   "g4@1 b4@1 d5@1 g5@1"
 ))
   .s("guitar")
-  .clean(0.5)
+
   .velocity(0.8)
 
 // 2. CHORDS (G Major)
@@ -1946,7 +1946,7 @@ const melody = note(cat(
   "c4@1 e4@1 g4@1 c5@1"
 ))
   .s("synth")
-  .bright(0.4)
+  .lpf(2000)
   .velocity(0.8)
 
 // 2. CHORDS (C Major)
@@ -2108,7 +2108,7 @@ const melody = note(cat(
   "c4@1 e4@1 g4@1 c5@1"
 ))
   .s("organ")
-  .bright(0.6)
+  .lpf(2000)
   .velocity(0.8)
 
 // 2. CHORDS (C Major)
@@ -2360,7 +2360,7 @@ const melody = note(cat(
   "c4@1 e4@1 g4@1 c5@1"
 ))
   .s("sawtooth")
-  .bright(0.8)
+  .lpf(2000)
   .velocity(0.8)
 
 // 2. CHORDS (C Major)
@@ -2391,7 +2391,7 @@ const melody = note(cat(
   "d4@1 f#4@1 a4@1 d5@1"
 ))
   .s("synth")
-  .pluck(0.4)
+
   .velocity(0.8)
 
 // 2. CHORDS (D Major)
@@ -2651,7 +2651,7 @@ const melody = note(cat(
   "d5@1 b4@1 g4@2"
 ))
   .s("guitar")
-  .clean(0.6)
+
   .fast(2)
   .velocity(0.9)
 
@@ -2843,7 +2843,7 @@ const melody = note(cat(
   "f4@1 a4@1 c5@1 f5@1"
 ))
   .s("square")
-  .bright(0.5)
+  .lpf(2000)
   .velocity(0.8)
 
 // 2. CHORDS (F Major)
@@ -2938,7 +2938,7 @@ const melody = note(cat(
   "c4@1 e4@1 g4@1 c5@1"
 ))
   .s("guitar")
-  .clean(0.4)
+
   .velocity(0.8)
 
 // 2. CHORDS (C Major)
@@ -3194,7 +3194,7 @@ const melody = note(cat(
   "g4@1 e4@3"
 ))
   .s("guitar")
-  .bright(0.8)
+  .lpf(2000)
   .fast(2)
   .velocity(0.9)
 
