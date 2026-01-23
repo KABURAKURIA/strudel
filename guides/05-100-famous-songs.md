@@ -11,269 +11,647 @@ Copy the code block for the song you want to hear. These examples use more resou
 
 ### 1. Happy Birthday (Glitch Hop Style)
 ```javascript
-// Happy Birthday - Glitch Style
+// Happy Birthday - Authentic Melody
 setcps(1)
+
+// 1. THE MELODY (Accurate)
+const melody = note(cat(
+  "g3@1.5 g3@0.5 a3@2 g3@2 c4@2 b3@4",
+  "g3@1.5 g3@0.5 a3@2 g3@2 d4@2 c4@4",
+  "g3@1.5 g3@0.5 g4@2 e4@2 c4@2 b3@2 a3@4",
+  "f4@1.5 f4@0.5 e4@2 c4@2 d4@2 c4@4"
+))
+  .s("sawtooth")
+  .lpf(2000)
+  .velocity(0.8)
+
+// 2. THE CHORDS (C -> G -> C -> F)
+const chords = note(cat(
+  "c3@6 g3@6",
+  "g3@6 c3@6",
+  "c3@6 f3@6",
+  "f3@4 c3@2 g3@2 c3@4"
+))
+  .chord("major")
+  .s("piano")
+  .velocity(0.6)
+
+// 3. IMPROV (Glitch Fills)
+const glitch = note("0 12")
+  .scale("C:major")
+  .s("sawtooth")
+  .lpf(3000)
+  .gain(0.3)
+  .struct("t(3,16)")
+
 stack(
-  // Melody with delay and reverb
-  note("g3@1.5 g3@0.5 a3 g3 c4 b3@2 g3@1.5 g3@0.5 a3 g3 d4 c4@2")
-    .s("sawtooth").lpf(2000).lpq(2).delay(0.5).decay(0.1).room(0.5).gain(0.6),
-  // Chords
-  note("c3 g2 c3 f2").chord("major").s("piano").velocity(0.6).strum(0.05).slow(2),
-  // Bass
-  note("c2 g1 c2 f1").s("bass").shape(0.5).lpf(400),
-  // Glitchy Drums
-  s("bd sd").jux(rev),
-  s("hh*8").velocity(rand.range(0.2, 0.6))
+  melody,
+  chords,
+  glitch,
+  s("bd sd").jux(rev)
 )
 ```
 
 ### 2. Twinkle Twinkle (Ambient Space)
 ```javascript
+// Twinkle Twinkle - Authentic Melody
 setcps(0.6)
+
+// 1. MELODY
+const melody = note(cat(
+  "c4@1 c4@1 g4@1 g4@1 a4@1 a4@1 g4@2",
+  "f4@1 f4@1 e4@1 e4@1 d4@1 d4@1 c4@2"
+))
+  .s("triangle")
+  .room(0.9)
+  .velocity(0.8)
+
+// 2. CHORDS (C -> F -> C -> G -> C)
+const chords = note(cat(
+  "c3@2 f3@1 c3@1 f3@1 c3@1 g3@2",
+  "f3@1 c3@1 g3@1 c3@1 g3@1 c3@1 g3@2"
+))
+  .chord("major7")
+  .s("superpiano")
+  .velocity(0.5)
+
+// 3. IMPROV (Sparkles)
+const sparkles = note("7 9 11")
+  .scale("C:major")
+  .add(24)
+  .s("sine")
+  .gain(0.2)
+
 stack(
-  note("c4 c4 g4 g4 a4 a4 g4@2 f4 f4 e4 e4 d4 d4 c4@2")
-    .s("triangle").slow(2).vowel("a o e").room(0.9).size(0.9),
-  note("c3 f3 c3 g3").chord("major7").s("superpiano").velocity(0.4).slow(4),
-  s("noise").lpf(200).slow(4).gain(0.2).slow(8)
+  melody,
+  chords,
+  sparkles,
+  s("noise").gain(0.1)
 )
 ```
 
 ### 3. Mary Had a Little Lamb (Techno)
 ```javascript
+// Mary Had a Little Lamb - Accurate
 setcps(1.4)
+
+// 1. MELODY
+const melody = note(cat(
+  "e4@1 d4@1 c4@1 d4@1 e4@1 e4@1 e4@2",
+  "d4@1 d4@1 d4@2 e4@1 g4@1 g4@2"
+))
+  .s("square")
+  .lpf(sine.range(500, 3000).slow(4))
+  .velocity(0.8)
+
+// 2. CHORDS (C -> G -> C)
+const chords = note(cat(
+  "c3@4 c3@4",
+  "g3@4 c3@4"
+))
+  .chord("major")
+  .s("supersaw")
+  .gain(0.5)
+
+// 3. IMPROV (Acid)
+const acid = note("0 12")
+  .scale("C:major")
+  .s("303")
+  .gain(0.3)
+
 stack(
-  note("e4 d4 c4 d4 e4 e4 e4@2").s("square").lpf(sine.range(500, 3000).slow(4)),
-  s("bd*4").gain(0.8),
-  s("hh*8").pan(sine.range(-0.5, 0.5)),
-  note("c2 g2").s("bass").sawtooth().lpf(800)
+  melody,
+  chords,
+  acid,
+  s("bd*4")
 )
 ```
 
 ### 4. Row Row Row Your Boat (Round/Canon)
 ```javascript
+// Row Row Row Your Boat - Canon
 setcps(1.2)
-note("c4@1.5 c4@0.5 c4@1.5 d4@0.5 e4")
-  .add(note("e4@1.5 d4@0.5 e4@1.5 f4@0.5 g4@2").slow(2))
-  .s("flute").room(0.5)
-  .off(0.5, x => x.add(12).gain(0.5)) // Harmony layer
-  .stack(
-     s("bd ~ sd ~"),
-     note("c2").s("sub").sustain(2)
-  )
+
+const phrase = "c4@1.5 c4@0.5 c4@1 d4@0.5 e4@1.5 e4@0.5 d4@1 e4@0.5 f4@1 g4@3"
+
+const melody = note(phrase)
+  .s("flute")
+  .room(0.5)
+  .velocity(0.9)
+
+const round = note(phrase)
+  .s("flute")
+  .delay(2) // Delay by 2 cycles (approx 2 bars)
+  .velocity(0.7)
+
+stack(
+  melody,
+  round,
+  s("bd ~ sd ~")
+)
 ```
 
 ### 5. Frere Jacques (Poly-Rhythm)
 ```javascript
+// Frere Jacques - Accurate
 setcps(1.4)
+
+const melody = note(cat(
+  "c4@1 d4@1 e4@1 c4@1",
+  "c4@1 d4@1 e4@1 c4@1",
+  "e4@1 f4@1 g4@2",
+  "e4@1 f4@1 g4@2"
+))
+  .s("vibraphone")
+  .velocity(0.8)
+
+const harmony = note(cat(
+  "c3@4", "c3@4", "c3@4", "c3@4"
+))
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
 stack(
-  note("c4 d4 e4 c4").s("piano").slow(2).jux(rev),
-  note("e4 f4 g4@2").s("vibraphone").delay(0.25).room(0.6),
-  s("bd(3,8) sd(5,8)"), // Euclidean rhythm
-  note("c2").s("bass").octave(2).shape(0.4)
+  melody,
+  harmony,
+  s("bd(3,8)")
 )
 ```
 
 ### 6. London Bridge (Industrial)
 ```javascript
+// London Bridge - Accurate
 setcps(1.3)
+
+const melody = note(cat(
+  "g4@1.5 a4@0.5 g4@1 f4@1 e4@1 f4@1 g4@2",
+  "d4@1 e4@1 f4@2",
+  "e4@1 f4@1 g4@2"
+))
+  .s("sawtooth")
+  .distort(0.5)
+  .velocity(0.9)
+
+const bass = note(cat(
+  "c3@4 c3@4",
+  "g2@4",
+  "c3@4"
+))
+  .s("fmsynth")
+  .gain(0.7)
+
 stack(
-  note("g4 a4 g4 f4 e4 f4 g4@2").s("sawtooth").distort(0.5).lpf(1500),
-  s("bd*2 [~ sd]"),
-  s("hh*8").gain(0.4).pan(rand),
-  note("g1").s("fmsynth").modindex(10)
+  melody,
+  bass,
+  s("bd*2 sd")
 )
 ```
 
 ### 7. Old MacDonald (Farm Step)
 ```javascript
+// Old MacDonald
 setcps(1.2)
+
+const melody = note(cat(
+  "g4@1 g4@1 g4@1 d4@1 e4@1 e4@1 d4@2",
+  "b4@1 b4@1 a4@1 a4@1 g4@2"
+))
+  .s("square")
+  .velocity(0.8)
+
+const chords = note("g3 c3 g3 d3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
 stack(
-  note("g4 g4 g4 d4 e4 e4 d4@2").s("square").decay(0.1),
-  s("cb*4").gain(0.6),
-  s("bd ~ sd ~"),
-  note("g2 d2").s("bass").slow(2)
+  melody,
+  chords,
+  s("bd ~ sd ~")
 )
 ```
 
 ### 8. Baa Baa Black Sheep (Lo-Fi)
 ```javascript
+// Baa Baa Black Sheep
 setcps(1)
+
+const melody = note(cat(
+  "c4@1 c4@1 g4@1 g4@1 a4@0.5 b4@0.5 c5@0.5 a4@0.5 g4@2",
+  "f4@1 f4@1 e4@1 e4@1 d4@1 d4@1 c4@2"
+))
+  .s("rhodes")
+  .tremolo(4, 0.5)
+  .velocity(0.8)
+
+const chords = note("c3 g3 f3 c3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
 stack(
-  note("c4 c4 g4 g4 a4 b4 c5 a4 g4@2").s("rhodes").tremolo(4, 0.5),
-  s("hh*4").velocity("0.8 0.4 0.6 0.4").swing(0.1),
-  s("bd ~ sd ~").sound("lofi"),
-  s("noise").gain(0.1).gain(0.2)
+  melody,
+  chords,
+  s("hh*4"),
+  s("noise").gain(0.1)
 )
 ```
 
 ### 9. Itsy Bitsy Spider (Arpeggiated)
 ```javascript
+// Itsy Bitsy Spider
 setcps(1.2)
+
+const melody = note(cat(
+  "g3@1 c4@1 c4@1 c4@1 d4@1 e4@1 e4@1 e4@1",
+  "d4@1 c4@1 d4@1 e4@1 c4@2"
+))
+  .s("sine")
+  .velocity(0.8)
+
+const arp = note("c3 g3")
+  .arp("up")
+  .s("harp")
+  .gain(0.5)
+
 stack(
-  note("g3 c4 c4 c4 d4 e4 e4 e4").s("sine").arp("updown").fast(2),
-  note("c3 g3").s("cello").legato(1),
-  s("noise").hpf(1000).gain(0.2).gain(0.15)
-).room(0.8)
+  melody,
+  arp,
+  s("noise").gain(0.1)
+)
 ```
 
 ### 10. The Wheels on the Bus (Funk)
 ```javascript
+// The Wheels on the Bus
 setcps(1.2)
+
+const melody = note(cat(
+  "c4@1 f4@1 f4@1 f4@1 f4@2 a4@2",
+  "c5@1 a4@1 f4@2"
+))
+  .s("clav")
+  .wah(0.5)
+  .velocity(0.9)
+
+const chords = note("f3 c3 f3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
 stack(
-  note("c4 f4 f4 f4 f4 a4 c5 a4 f4").s("clav").wah(sine.range(0,1).slow(2)),
-  s("bd sd bd [sd bd]"),
-  note("f2 c3 f2 c3").s("slap").velocity(0.8)
+  melody,
+  chords,
+  s("bd sd")
 )
 ```
 
 ### 11. If You're Happy (Clap Trap)
 ```javascript
+// If You're Happy
 setcps(1.4)
+
+const melody = note(cat(
+  "c4@1 c4@1 f4@1 f4@1 f4@1 f4@1 f4@2",
+  "c4@1 c4@1 g4@1 g4@1 g4@1 g4@1 g4@2"
+))
+  .s("supersaw")
+  .lpf(2000)
+  .velocity(0.8)
+
+const clap = s("cp*2")
+  .gain(1.2)
+
 stack(
-  note("c4 c4 f4 f4 f4 f4 f4@2").s("supersaw").lpf(2000),
-  s("cp*2").slow(4).gain(1.2), // Claps
-  s("bd(3,8)"),
-  s("hh*16").pan(sine)
+  melody,
+  clap,
+  s("bd(3,8)")
 )
 ```
 
 ### 12. Humpty Dumpty (Wobble Bass)
 ```javascript
+// Humpty Dumpty
 setcps(1)
+
+const melody = note(cat(
+  "c4@1 c4@1 d4@1 d4@1 e4@2 c4@2",
+  "e4@1 e4@1 f4@1 f4@1 g4@2 e4@2"
+))
+  .s("lead")
+  .velocity(0.8)
+
+const wobble = note("c2 g2")
+  .s("wobble")
+  .lpf(sine.range(100, 1000).fast(4))
+  .gain(1.2)
+
 stack(
-  note("c4 c4 d4 d4 e4 e4 c4").s("lead").portamento(0.1),
-  note("c2").s("wobble").lpf(sine.range(100, 1000).fast(4)),
-  s("bd*2 sd")
+  melody,
+  wobble,
+  s("bd sd")
 )
 ```
 
 ### 13. Hickory Dickory Dock (Clockwork)
 ```javascript
+// Hickory Dickory Dock
 setcps(1.2)
+
+const melody = note(cat(
+  "a3@1 b3@1 c4@2 a3@2",
+  "e4@1 c4@1 a3@2"
+))
+  .s("pluck")
+  .velocity(0.8)
+
+const tick = s("woodblock")
+  .gain(0.8)
+
 stack(
-  note("a3 b3 c4 a3 e4 c4 a3").s("pluck").room(0.3),
-  s("woodblock").loopAt(1),
-  note("a1").s("sine").gain(0.8)
+  melody,
+  tick,
+  note("a2").s("sine")
 )
 ```
 
 ### 14. Hot Cross Buns (Drone)
 ```javascript
+// Hot Cross Buns
 setcps(0.8)
+
+const melody = note(cat(
+  "e4@1 d4@1 c4@2",
+  "e4@1 d4@1 c4@2",
+  "c4@0.5 c4@0.5 c4@0.5 c4@0.5 d4@0.5 d4@0.5 d4@0.5 d4@0.5"
+))
+  .s("sitar")
+  .velocity(0.8)
+
+const drone = note("c2")
+  .s("drone")
+  .gain(0.6)
+
 stack(
-  note("e4 d4 c4@2").s("sitar").slow(2),
-  note("c2").s("drone").lpf(500),
-  s("tom*4").gain(0.6)
+  melody,
+  drone,
+  s("tom*4")
 )
 ```
 
 ### 15. Jack and Jill (Up & Down)
 ```javascript
+// Jack and Jill
 setcps(1.2)
+
+const melody = note(cat(
+  "c4@1 d4@1 e4@1 c4@1",
+  "e4@1 f4@1 g4@2"
+))
+  .s("flute")
+  .velocity(0.8)
+
+const harp = note("c3 g3")
+  .arp("up")
+  .s("harp")
+  .gain(0.5)
+
 stack(
-  note("c4 d4 e4 c4").s("flute").echo(0.5, 0.5),
-  note("c3 g3").arp("up").fast(4).s("harp"),
+  melody,
+  harp,
   s("bd sd")
 )
 ```
 
 ### 16. Little Bo Peep (Lost & Found)
 ```javascript
+// Little Bo Peep
 setcps(1.2)
+
+const melody = note(cat(
+  "c4@1 d4@1 e4@2 c4@2",
+  "d4@1 e4@1 f4@2 d4@2"
+))
+  .s("voice")
+  .vowel("o")
+  .velocity(0.8)
+
+const bass = note("c2 g2")
+  .s("bass")
+  .gain(0.6)
+
 stack(
-  note("c4 d4 e4 c4").s("voice").vowel("o"),
-  s("vowel").vowel("e").rarely(x=>x.gain(0.5)),
-  note("c2 g2").s("bass").slow(2)
+  melody,
+  bass,
+  s("hh")
 )
 ```
 
 ### 17. Muffin Man (Baker's Beat)
 ```javascript
+// Muffin Man
 setcps(1.3)
+
+const melody = note(cat(
+  "g3@1 c4@1 c4@2 d4@1 e4@1 c4@2",
+  "a3@1 g3@1 g3@2"
+))
+  .s("square")
+  .velocity(0.8)
+
+const chords = note("c3 g3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
 stack(
-  note("g3 c4 c4 d4 e4 c4").s("square").width(0.5),
-  s("bd sd bd sd"),
-  note("c2").s("moog").lpf(800)
+  melody,
+  chords,
+  s("bd sd")
 )
 ```
 
 ### 18. Pop Goes the Weasel (Surprise!)
 ```javascript
+// Pop Goes the Weasel
 setcps(1.2)
+
+const melody = note(cat(
+  "c4@0.5 c4@0.5 d4@0.5 d4@0.5 e4@0.5 g4@0.5 c4@2",
+  "c4@0.5 c4@0.5 d4@0.5 d4@0.5 e4@2 c4@1"
+))
+  .s("calliope")
+  .velocity(0.8)
+
+const kick = s("bd")
+  .slow(8)
+  .gain(1.5)
+
 stack(
-  note("c4 c4 d4 d4 e4 g4 c4").s("calliope"),
-  s("bd").slow(8).gain(1.2),
+  melody,
+  kick,
   s("hh*8")
 )
 ```
 
 ### 19. Ring Around the Rosie (Spooky)
 ```javascript
+// Ring Around the Rosie
 setcps(1)
+
+const melody = note(cat(
+  "g4@1 g4@1 e4@1 a4@1 g4@1 e4@2",
+  "g4@1 g4@1 e4@1 a4@1 g4@1 e4@2"
+))
+  .s("piano")
+  .detune(2)
+  .velocity(0.6)
+
+const noise = s("noise")
+  .gain(0.3)
+
 stack(
-  note("g4 g4 e4 a4 g4 e4").s("piano").detune(2).room(0.9),
-  s("noise").lpf(200).slow(4).gain(0.3),
-  note("e2").s("sub").slow(4)
+  melody,
+  noise,
+  note("e2").s("sub")
 )
 ```
 
 ### 20. Rock-a-bye Baby (Lullaby)
 ```javascript
+// Rock-a-bye Baby
 setcps(0.8)
+
+const melody = note(cat(
+  "e4@1.5 g4@0.5 a4@2",
+  "e4@1.5 g4@0.5 a4@2"
+))
+  .s("celesta")
+  .velocity(0.6)
+
+const pad = note("c3 g3")
+  .s("pad")
+  .gain(0.4)
+
 stack(
-  note("e4 g4 a4@2").s("celesta").velocity(0.5),
-  note("c3 g3").s("pad").slow(4).gain(0.4),
-  s("chimes").slow(8)
+  melody,
+  pad,
+  s("chimes")
 )
 ```
 
 ### 21. This Old Man (March)
 ```javascript
+// This Old Man
 setcps(1.2)
+
+const melody = note(cat(
+  "g4@1 e4@1 g4@2",
+  "g4@1 e4@1 g4@2",
+  "a4@1 g4@1 f4@1 e4@1 d4@1 e4@1 f4@1 g4@1"
+))
+  .s("brass")
+  .velocity(0.8)
+
+const snare = s("snare*4")
+  .velocity("0.8 0.4 0.6 0.4")
+
 stack(
-  note("g4 e4 g4 g4 e4 g4").s("brass").legato(0.8),
-  s("snare*4").velocity("0.8 0.4 0.6 0.4"),
+  melody,
+  snare,
   s("bd*2")
 )
 ```
 
 ### 22. Three Blind Mice (Chase)
 ```javascript
+// Three Blind Mice
 setcps(1.4)
+
+const melody = note(cat(
+  "e4@1 d4@1 c4@2",
+  "e4@1 d4@1 c4@2",
+  "g4@0.5 f4@0.5 f4@0.5 e4@0.5 c4@2"
+))
+  .s("oboe")
+  .velocity(0.8)
+
+const pizz = note("c3")
+  .s("pizzicato")
+  .gain(0.6)
+
 stack(
-  note("e4 d4 c4@2").s("oboe").fast(2),
-  note("c3 c3 c3").s("pizzicato").fast(4),
-  s("hh*16").pan(rand)
+  melody,
+  pizz,
+  s("hh*16")
 )
 ```
 
 ### 23. Farmer in the Dell (Pastoral)
 ```javascript
+// Farmer in the Dell
 setcps(1.2)
+
+const melody = note(cat(
+  "g3@1 c4@1 c4@1 c4@1",
+  "c4@1 d4@1 e4@1 c4@1"
+))
+  .s("acoustic")
+  .velocity(0.8)
+
+const flute = s("flute")
+  .gain(0.3)
+
 stack(
-  note("g3 c4 c4 c4 c4").s("acoustic").velocity(0.8),
-  s("flute").fast(8).gain(0.2).gain(0.2),
-  note("c2 g2").s("upright").slow(2)
+  melody,
+  flute,
+  note("c2 g2").s("upright")
 )
 ```
 
 ### 24. Bingo (Spelling)
 ```javascript
+// Bingo
 setcps(1.3)
+
+const melody = note(cat(
+  "g4@1 c4@1 c4@1 g4@1 g4@1 a4@1 a4@1",
+  "g4@1 g4@1 f4@1 f4@1 e4@1 e4@1 d4@1 d4@1 c4@2"
+))
+  .s("vowel")
+  .vowel("o")
+  .velocity(0.8)
+
+const clap = s("clap*5")
+  .gain(1.1)
+
 stack(
-  note("g4 g4 c4 c4 g4 g4 c4").s("vowel").vowel("o").vowel("a i o"),
-  s("clap*5").slow(4),
+  melody,
+  clap,
   s("bd sd")
 )
 ```
 
 ### 25. Head, Shoulders, Knees (Exercise)
 ```javascript
+// Head, Shoulders, Knees
 setcps(1.4)
+
+const melody = note(cat(
+  "c4@1 c4@1 e4@1 e4@1 g4@1 g4@1 g4@2",
+  "f4@1 f4@1 d4@1 d4@1 b3@1 b3@1 b3@2"
+))
+  .s("sawtooth")
+  .velocity(0.8)
+
+const kick = s("bd*4")
+  .gain(1.2)
+
 stack(
-  note("c4 c4 e4 e4 g4 g4 g4@2").s("sawtooth"), // Head, shoulders, knees and toes
-  s("bd*4"),
-  s("hh*8").open()
+  melody,
+  kick,
+  s("hh*8")
 )
 ```
 
@@ -283,255 +661,572 @@ stack(
 
 ### 26. Amazing Grace (Gospel Organ)
 ```javascript
+// Amazing Grace - Gospel
 setcps(0.6)
+
+const melody = note(cat(
+  "d4@1 g4@2 b4@0.5 a4@0.5 g4@2 e4@1 d4@2",
+  "d4@1 g4@2 b4@0.5 a4@0.5 g4@2 b4@1 d5@3"
+))
+  .s("organ")
+  .tremolo(3, 0.4)
+  .velocity(0.8)
+
+const chords = note("g2 c3 g3 d3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
 stack(
-  note("d4 g4@2 b4@0.5 a4@0.5 g4@2 e4@0.5 d4@2")
-    .s("organ").tremolo(3, 0.4).room(0.8),
-  note("g2 b2 d3").chord("major").s("pad").slow(4).gain(0.5),
-  s("choir").slow(8).gain(0.3)
+  melody,
+  chords,
+  s("choir").slow(8)
 )
 ```
 
 ### 27. Auld Lang Syne (Synthwave)
 ```javascript
+// Auld Lang Syne
 setcps(1)
+
+const melody = note(cat(
+  "c4@1 f4@1.5 f4@0.5 f4@1 a4@1 g4@1.5 f4@0.5 g4@1 a4@1",
+  "f4@1.5 f4@0.5 a4@1 c5@1 d5@2"
+))
+  .s("supersaw")
+  .velocity(0.8)
+
+const drums = s("bd*4 sd*2")
+  .gain(1.1)
+
 stack(
-  note("c4 f4@1.5 f4@0.5 f4 a4 g4@1.5 a4@0.5 g4 a4 f4@1.5 f4@0.5 a4 c5 d5@2")
-    .s("supersaw").lpf(1500).delay(0.25),
-  s("bd*4 sd*2"),
-  note("f1 c2").s("moog").shape(0.5).arp("up")
+  melody,
+  drums,
+  note("f1 c2").s("moog")
 )
 ```
 
 ### 28. Danny Boy (Ethereal)
 ```javascript
+// Danny Boy
 setcps(0.8)
+
+const melody = note(cat(
+  "b3@0.5 c4@0.5 d4@1 b3@1.5 g3@0.5 g3@1 b3@1",
+  "c4@1 d4@1 e4@1 c4@1"
+))
+  .s("flute")
+  .velocity(0.8)
+
+const strings = note("g2 c3")
+  .s("strings")
+  .gain(0.6)
+
 stack(
-  note("b3 c4 d4 b3@2 g3@2 b3@2 c4 d4 b3@2 g3@2 e3@2")
-    .s("flute").room(0.9).gain(0.8),
-  note("g2 d3").s("strings").slow(4).attack(0.5),
-  s("noise").lpf(200).slow(4).gain(0.1)
+  melody,
+  strings,
+  s("noise").gain(0.1)
 )
 ```
 
 ### 29. Greensleeves (Renaissance)
 ```javascript
+// Greensleeves
 setcps(1.2)
+
+const melody = note(cat(
+  "a3@1 c4@2 d4@1 e4@1.5 f4@0.5 e4@1",
+  "d4@2 b3@1 g3@1.5 a3@0.5 b3@1"
+))
+  .s("lute")
+  .velocity(0.8)
+
+const bass = note("a2 g2")
+  .s("acoustic")
+  .gain(0.7)
+
 stack(
-  note("a3 c4 d4 e4@1.5 f4@0.5 e4 d4@2 b3 g3 a3@2").s("lute").velocity(0.8),
-  note("a2 e3").s("acoustic").slow(2),
-  s("tambourine*4").velocity("0.3 0.5")
+  melody,
+  bass,
+  s("tambourine*4")
 )
 ```
 
 ### 30. Scarborough Fair (Folk Guitar)
 ```javascript
+// Scarborough Fair
 setcps(1)
+
+const melody = note(cat(
+  "d4@2 d4@2 a4@2 a4@1 e4@1",
+  "f4@1.5 e4@0.5 d4@2"
+))
+  .s("guitar")
+  .velocity(0.8)
+
+const bass = note("d2 a2")
+  .s("bass")
+  .gain(0.6)
+
 stack(
-  note("d4 d4 a4 a4 a4 e4 f4@2").s("guitar").strum(0.05).velocity(0.7),
-  note("d2 a2").s("bass").slow(4),
-  s("shaker*8").gain(0.3)
+  melody,
+  bass,
+  s("shaker")
 )
 ```
 
 ### 31. Yankee Doodle (Marching Band)
 ```javascript
+// Yankee Doodle
 setcps(1.2)
+
+const melody = note(cat(
+  "c4@1 c4@1 d4@1 e4@1 c4@1 e4@1 d4@2",
+  "c4@1 c4@1 d4@1 e4@1 c4@1 b3@1 g3@2"
+))
+  .s("piccolo")
+  .velocity(0.8)
+
+const snare = s("snare*4")
+  .velocity("0.8 0.4")
+
 stack(
-  note("c4 c4 d4 e4 c4 e4 d4 g3").s("piccolo").highpass(1000),
-  s("snare*4"),
+  melody,
+  snare,
   s("bd*2")
 )
 ```
 
 ### 32. Oh! Susanna (Bluegrass)
 ```javascript
+// Oh! Susanna
 setcps(1.3)
+
+const melody = note(cat(
+  "c4@0.5 d4@0.5 e4@1 g4@1 g4@1 a4@1 g4@1 e4@1 c4@1",
+  "d4@1 e4@1 e4@1 d4@1 c4@1 d4@2"
+))
+  .s("banjo")
+  .velocity(0.8)
+
+const bass = note("c2 g2")
+  .s("upright")
+  .gain(0.7)
+
 stack(
-  note("c4 d4 e4 g4 g4 a4 g4 e4 c4 d4 e4 e4 d4 c4 d4@2").s("banjo").fast(2),
-  note("c2 g2").s("upright").slow(2),
-  s("fiddle").gain(0.4).slow(8)
+  melody,
+  bass,
+  s("fiddle")
 )
 ```
 
 ### 33. Camptown Races (Ragtime)
 ```javascript
+// Camptown Races
 setcps(1.2)
+
+const melody = note(cat(
+  "g4@1 g4@1 e4@1 g4@1 a4@1 g4@1 e4@2",
+  "e4@1 d4@1 d4@2 e4@1 d4@1 d4@2"
+))
+  .s("piano")
+  .swing(0.2)
+  .velocity(0.8)
+
+const tuba = note("c2 g2")
+  .s("tuba")
+  .gain(0.6)
+
 stack(
-  note("g4 g4 e4 g4 a4 g4 e4@2").s("piano").swing(0.2),
-  note("c2 g2").s("tuba").slow(2),
-  s("rim*4")
+  melody,
+  tuba,
+  s("rim")
 )
 ```
 
 ### 34. Home on the Range (Cowboy)
 ```javascript
+// Home on the Range
 setcps(0.9)
+
+const melody = note(cat(
+  "d4@1 d4@1 g4@1 g4@1 a4@1 b4@1 g4@1",
+  "a4@1 b4@1 g4@1"
+))
+  .s("harmonica")
+  .velocity(0.8)
+
+const guitar = note("g2 d3")
+  .s("guitar")
+  .gain(0.6)
+
 stack(
-  note("d4 d4 g4 g4 a4 b4 g4").s("harmonica").vibrato(2),
-  note("g2 d3").s("guitar").strum(0.1).slow(2),
-  s("crickets").gain(0.2)
+  melody,
+  guitar,
+  s("crickets")
 )
 ```
 
 ### 35. She'll Be Coming 'Round the Mountain
 ```javascript
+// She'll Be Coming 'Round the Mountain
 setcps(1.3)
+
+const melody = note(cat(
+  "c4@1 d4@1 e4@1 g4@1 g4@1 g4@3",
+  "a4@1 g4@1 e4@1 c4@1"
+))
+  .s("fiddle")
+  .velocity(0.8)
+
+const banjo = s("banjo")
+  .gain(0.4)
+
 stack(
-  note("c4 d4 e4 g4 g4 g4").s("fiddle").legato(0.8),
-  s("banjo").arp("updown").fast(4).gain(0.4),
+  melody,
+  banjo,
   s("stomp clap")
 )
 ```
 
 ### 36. Swing Low, Sweet Chariot (Soul)
 ```javascript
+// Swing Low, Sweet Chariot
 setcps(0.9)
+
+const melody = note(cat(
+  "e4@2 g4@2 g4@4",
+  "g4@1 e4@1 d4@1 c4@1 d4@1 e4@1 g4@2"
+))
+  .s("rhodes")
+  .velocity(0.8)
+
+const bass = note("c2 f2")
+  .s("bass")
+  .gain(0.6)
+
 stack(
-  note("e4 g4 g4 g4 g4 e4 d4 c4").s("rhodes").tremolo(4, 0.5),
-  s("snap*2").delay(0.2),
-  note("c2 f2").s("bass").slow(2)
+  melody,
+  bass,
+  s("snap")
 )
 ```
 
 ### 37. When the Saints (New Orleans)
 ```javascript
+// When the Saints
 setcps(1.3)
+
+const melody = note(cat(
+  "c4@1 e4@1 f4@1 g4@4",
+  "c4@1 e4@1 f4@1 g4@4"
+))
+  .s("trumpet")
+  .velocity(0.9)
+
+const tuba = note("c2 g2")
+  .s("tuba")
+  .gain(0.7)
+
 stack(
-  note("c4 e4 f4 g4@2 c4 e4 f4 g4@2").s("trumpet").wah(0.5),
-  note("c2 g2").s("tuba").slow(2),
+  melody,
+  tuba,
   s("sd*4").swing(0.3)
 )
 ```
 
 ### 38. My Bonnie (Waltz)
 ```javascript
+// My Bonnie
 setcps(0.9)
+
+const melody = note(cat(
+  "g3@1 e4@1 d4@1 c4@1 d4@1 c4@1 a3@2",
+  "a3@1 g3@1 e3@1 g3@2"
+))
+  .s("accordion")
+  .velocity(0.8)
+
+const drums = s("bd hh hh")
+  .gain(1.0)
+
 stack(
-  note("g3 e4 d4 c4 d4 c4 a3").s("accordion").slow(2),
-  s("bd hh hh"),
-  note("c2").s("bass").slow(3)
+  melody,
+  drums,
+  note("c2").s("bass")
 )
 ```
 
 ### 39. Clementine (Miner's Song)
 ```javascript
+// Clementine
 setcps(1.1)
+
+const melody = note(cat(
+  "g3@1.5 g3@0.5 g3@1 c4@2 c4@1",
+  "c4@1 e4@1 c4@1 g3@2"
+))
+  .s("harmonica")
+  .velocity(0.8)
+
+const bass = note("c2 g2")
+  .s("bass")
+  .gain(0.6)
+
 stack(
-  note("g3 g3 g3 c4 c4 c4 e4 c4").s("harmonica").distort(0.2),
-  s("pickaxe").slow(2).gain(0.4),
-  note("c2").s("bass")
+  melody,
+  bass,
+  s("pickaxe")
 )
 ```
 
 ### 40. Railroad (Train Beat)
 ```javascript
+// Railroad
 setcps(1.4)
+
+const melody = note(cat(
+  "c4@2 c4@2 c4@2 d4@1 e4@3",
+  "e4@2 d4@2 e4@2 f4@1 g4@3"
+))
+  .s("banjo")
+  .velocity(0.8)
+
+const train = s("snare*8")
+  .gain("0.4 0.2 0.6 0.2")
+
 stack(
-  note("c4 c4 c4 d4 e4 e4 d4").s("banjo"),
-  s("snare*8").gain("0.4 0.2 0.6 0.2").speed(2), // Train chug
-  s("whistle").rarely(x=>x.gain(0.6))
+  melody,
+  train,
+  s("whistle")
 )
 ```
 
 ### 41. Red River Valley (Country)
 ```javascript
+// Red River Valley
 setcps(1)
+
+const melody = note(cat(
+  "d4@1 g4@1 b4@1 b4@1 b4@1 a4@1 g4@1 a4@1",
+  "b4@2 a4@2 g4@4"
+))
+  .s("steelguitar")
+  .velocity(0.8)
+
+const guitar = note("g2 d3")
+  .s("acoustic")
+  .gain(0.6)
+
 stack(
-  note("d4 g4 b4 b4 b4 a4 g4 a4").s("steelguitar").slide(0.2),
-  note("g2 d3").s("acoustic").strum(0.1),
-  s("brush*4")
+  melody,
+  guitar,
+  s("brush")
 )
 ```
 
 ### 42. House of the Rising Sun (Arpeggio)
 ```javascript
+// House of the Rising Sun
 setcps(1)
+
+const melody = note(cat(
+  "a2@1 c3@1 d3@1 f3@2 a3@1 e3@2",
+  "a2@1 e3@2"
+))
+  .s("guitar")
+  .velocity(0.8)
+
+const bass = note("a1 c2 d2 f2")
+  .s("bass")
+  .gain(0.7)
+
 stack(
-  note("a2 c3 d3 f3 a3 e3 a2 e3").s("guitar").arp("up").fast(3),
-  note("a1").s("bass").slow(4),
-  s("organ").gain(0.3).slow(2)
+  melody,
+  bass,
+  s("organ")
 )
 ```
 
 ### 43. Waltzing Matilda (Outback)
 ```javascript
+// Waltzing Matilda
 setcps(1.2)
+
+const melody = note(cat(
+  "c4@1.5 e4@0.5 g4@1 g4@2 a4@1 b4@1 a4@1 g4@2",
+  "g4@1 e4@1 c4@1"
+))
+  .s("flute")
+  .velocity(0.8)
+
+const didge = s("didgeridoo")
+  .gain(0.5)
+
 stack(
-  note("c4 e4 g4 g4 a4 b4 a4 g4").s("flute").room(0.5),
-  s("didgeridoo").slow(4).gain(0.6),
-  s("sticks*4")
+  melody,
+  didge,
+  s("sticks")
 )
 ```
 
 ### 44. Bella Ciao (Resistance)
 ```javascript
+// Bella Ciao
 setcps(1.3)
+
+const melody = note(cat(
+  "e4@1 a4@1 b4@1 c5@1 a4@2",
+  "e4@1 a4@1 b4@1 c5@1 a4@2",
+  "e4@1 a4@1 b4@1 c5@1 b4@1 a4@1 c5@1"
+))
+  .s("accordion")
+  .velocity(0.8)
+
+const kick = s("bd*2")
+  .gain(1.2)
+
 stack(
-  note("e4 a4 b4 c5 a4 e4 a4 b4 c5 a4").s("accordion").fast(1),
-  s("clap*2").slow(2),
-  s("bd*2")
+  melody,
+  kick,
+  s("clap")
 )
 ```
 
 ### 45. Kalinka (Accelerating)
 ```javascript
+// Kalinka
 setcps(1.2)
+
+const melody = note(cat(
+  "e4@1.5 c4@0.5 b3@1 a3@1 e4@1.5 c4@0.5 b3@1 a3@1",
+  "a3@1 b3@1 c4@1 d4@1 e4@2"
+))
+  .s("balalaika")
+  .velocity(0.8)
+
+const kick = s("bd*2")
+  .gain(1.1)
+
 stack(
-  note("e4 c4 b3 a3 e4 c4 b3 a3").s("balalaika").fast(2),
-  s("bd*2").gain(1.2),
-  s("hey").slow(4)
+  melody,
+  kick,
+  s("hey")
 ).fast(sine.range(1, 1.5).slow(8))
 ```
 
 ### 46. Tetris Theme (8-Bit)
 ```javascript
+// Tetris Theme
 setcps(1.4)
+
+const melody = note(cat(
+  "e5@2 b4@1 c5@1 d5@2 c5@1 b4@1 a4@2 a4@1 c5@1 e5@2 d5@1 c5@1",
+  "b4@3 c5@1 d5@2 e5@2"
+))
+  .s("pulse")
+  .velocity(0.8)
+
+const tri = note("e2 a2")
+  .s("triangle")
+  .arp("down")
+  .gain(0.6)
+
 stack(
-  note("e5 b4 c5 d5 c5 b4 a4 a4 c5 e5 d5 c5 b4@2 c5 d5 e5 c5 a4 a4@2")
-    .s("pulse").width(0.5),
-  note("e2 a2").s("triangle").arp("down").fast(4),
-  s("noise*8").decay(0.05).gain(0.3)
+  melody,
+  tri,
+  s("noise*8").decay(0.1)
 )
 ```
 
 ### 47. La Bamba (Latin)
 ```javascript
+// La Bamba
 setcps(1.4)
+
+const melody = note(cat(
+  "c4@0.5 d4@0.5 e4@1 f4@0.5 g4@3",
+  "c4@0.5 d4@0.5 e4@1 f4@0.5 g4@3"
+))
+  .s("guitar")
+  .distort(0.2)
+  .velocity(0.8)
+
+const congas = s("conga*4")
+  .gain(0.7)
+
 stack(
-  note("c4 d4 e4 f4 g4").s("guitar").distort(0.2),
-  s("conga*4").gain(0.8),
-  s("cowbell").off(0.25, x=>x)
+  melody,
+  congas,
+  s("cowbell")
 )
 ```
 
 ### 48. Guantanamera (Cuban)
 ```javascript
+// Guantanamera
 setcps(1.1)
+
+const melody = note(cat(
+  "g3@2 a3@2 b3@3",
+  "b3@0.5 a3@0.5 b3@2 a3@2 g3@2"
+))
+  .s("piano")
+  .velocity(0.8)
+
+const bongo = s("bongo*4")
+  .gain(0.6)
+
 stack(
-  note("g3 a3 b3 g3 a3 b3").s("piano").chord("major").slow(2),
-  s("bongo*4").pan(rand),
-  s("guiro").slow(2)
+  melody,
+  bongo,
+  s("guiro")
 )
 ```
 
 ### 49. Cielito Lindo (Mariachi)
 ```javascript
+// Cielito Lindo
 setcps(1.2)
+
+const melody = note(cat(
+  "c4@1 c4@1 a3@1 b3@1 g3@2 c4@1",
+  "c4@1 c4@1 a3@1 b3@1 g3@2"
+))
+  .s("trumpet")
+  .velocity(0.9)
+
+const guitaron = note("c3 g3")
+  .s("guitaron")
+  .gain(0.7)
+
 stack(
-  note("c4 c4 a3 b3 g3 c4 c4 a3 b3 g3").s("trumpet").vibrato(1.5),
-  note("c3 g3").s("guitaron").slow(2),
-  s("shaker*8")
+  melody,
+  guitaron,
+  s("shaker")
 )
 ```
 
 ### 50. Aloha Oe (Hawaiian)
 ```javascript
+// Aloha Oe
 setcps(0.8)
+
+const melody = note(cat(
+  "g3@1 c4@1 e4@1 g4@2.5 a4@0.5",
+  "a4@1 g4@3"
+))
+  .s("lapsteel")
+  .velocity(0.8)
+
+const uke = note("c3 g3")
+  .s("ukulele")
+  .gain(0.6)
+
 stack(
-  note("g3 c4 e4 g4 a4").s("lapsteel").slide(0.5),
-  s("noise").lpf(300).slow(8).gain(0.2).slow(4),
-  note("c3 g3").s("ukulele").strum(0.1)
+  melody,
+  uke,
+  s("noise").gain(0.2)
 )
 ```
 
@@ -541,256 +1236,566 @@ stack(
 
 ### 51. Ode to Joy (Orchestral)
 ```javascript
+// Ode to Joy
 setcps(1)
+
+const melody = note(cat(
+  "e4@1 e4@1 f4@1 g4@1 g4@1 f4@1 e4@1 d4@1",
+  "c4@1 c4@1 d4@1 e4@1 e4@1.5 d4@0.5 d4@2"
+))
+  .s("strings")
+  .velocity(0.8)
+
+const bass = note("c2 g2")
+  .s("cello")
+  .gain(0.7)
+
 stack(
-  note("e4 e4 f4 g4 g4 f4 e4 d4 c4 c4 d4 e4 e4@1.5 d4@0.5 d4@2")
-    .s("strings").attack(0.1).release(0.5),
-  note("c3 g2 c3 g2").s("cello").slow(2).gain(0.8),
-  note("c2").s("contrabass").slow(4).gain(0.6),
-  s("timpani").slow(8).gain(1)
+  melody,
+  bass,
+  s("timpani")
 )
 ```
 
 ### 52. Fur Elise (Music Box)
 ```javascript
+// Fur Elise
 setcps(1)
+
+const melody = note(cat(
+  "e5@0.5 d#5@0.5 e5@0.5 d#5@0.5 e5@0.5 b4@0.5 d5@0.5 c5@0.5",
+  "a4@2"
+))
+  .s("celesta")
+  .velocity(0.8)
+
+const piano = note("a2 e3 a3")
+  .s("piano")
+  .gain(0.5)
+
 stack(
-  note("e5 d#5 e5 d#5 e5 b4 d5 c5 a4@2")
-    .s("celesta").room(0.5).velocity(0.7),
-  note("a2 e3 a3").arp("up").slow(2).s("piano").gain(0.4),
-  s("noise").gain(0.05).lpf(2000) // Vinyl crackle
+  melody,
+  piano,
+  s("noise").gain(0.05)
 )
 ```
 
 ### 53. Symphony No. 5 (Cinematic)
 ```javascript
+// Symphony No. 5
 setcps(1.2)
+
+const melody = note(cat(
+  "g4@0.5 g4@0.5 g4@0.5 eb4@4",
+  "~ f4@0.5 f4@0.5 f4@0.5 d4@4"
+))
+  .s("brass")
+  .velocity(0.9)
+
+const bass = note("g2")
+  .s("bass")
+  .gain(0.7)
+
 stack(
-  note("g4 g4 g4 eb4@4").s("brass").slow(2).shape(0.6).room(1),
-  note("g2 g2 g2 eb2@4").s("bass").slow(2).distort(0.4).lpf(400),
-  s("bd").slow(2).gain(1.5)
+  melody,
+  bass,
+  s("bd").gain(1.5)
 )
 ```
 
 ### 54. Canon in D (Pachelbel)
 ```javascript
+// Canon in D
 setcps(0.8)
+
+const melody = note(cat(
+  "f#5@2 e5@2 d5@2 c#5@2",
+  "b4@2 a4@2 b4@2 c#5@2"
+))
+  .s("violin")
+  .velocity(0.8)
+
+const cello = note("d3 a2 b2 f#2 g2 d2 g2 a2")
+  .s("cello")
+  .gain(0.6)
+
 stack(
-  note("f#5 e5 d5 c#5 b4 a4 b4 c#5").s("violin").legato(1),
-  note("d3 a2 b2 f#2 g2 d2 g2 a2").s("cello").slow(4).gain(0.7),
-  note("d4 f#4 a4").arp("updown").fast(4).s("harp").gain(0.4)
+  melody,
+  cello,
+  s("harp").gain(0.4)
 )
 ```
 
 ### 55. Eine Kleine Nachtmusik (String Quartet)
 ```javascript
+// Eine Kleine Nachtmusik
 setcps(1.3)
+
+const melody = note(cat(
+  "g4@1.5 d4@0.5 g4@1.5 d4@0.5 g4@0.5 d4@0.5 g4@0.5 b4@0.5 d5@2",
+  "c5@1.5 a4@0.5 c5@1.5 a4@0.5"
+))
+  .s("violin")
+  .staccato(0.5)
+  .velocity(0.8)
+
+const viola = note("g3 d3")
+  .s("viola")
+  .gain(0.6)
+
 stack(
-  note("g4@1.5 d4@0.5 g4@1.5 d4@0.5 g4 d4 g4 b4 d5@2")
-    .s("violin").staccato(0.5),
-  note("g2 d3 g3").s("viola").slow(2).gain(0.6),
-  note("g1").s("cello").slow(4)
+  melody,
+  viola,
+  note("g2").s("cello")
 )
 ```
 
 ### 56. Rondo Alla Turca (Mechanical)
 ```javascript
+// Rondo Alla Turca
 setcps(1.5)
+
+const melody = note(cat(
+  "b4@0.5 a4@0.5 g#4@0.5 a4@0.5 c5@2",
+  "d5@0.5 c5@0.5 b4@0.5 c5@0.5 e5@2"
+))
+  .s("piano")
+  .velocity(0.8)
+
+const bass = note("a2 e3")
+  .s("bass")
+  .gain(0.6)
+
 stack(
-  note("b4 a4 g#4 a4 c5").s("piano").fast(1),
-  s("hh*4").velocity("0.8 0.4").pan(sine),
-  note("a2 e3").s("bass").sawtooth().lpf(600).fast(2)
+  melody,
+  bass,
+  s("hh*4")
 )
 ```
 
 ### 57. Morning Mood (Sunrise)
 ```javascript
+// Morning Mood
 setcps(1)
+
+const melody = note(cat(
+  "g4@1 e4@1 d4@1 c4@1 d4@1 e4@1 g4@1 e4@1",
+  "d4@1 c4@1 d4@1 e4@1 g4@1 e4@1 g4@1 a4@1"
+))
+  .s("flute")
+  .velocity(0.8)
+
+const strings = note("c3")
+  .s("strings")
+  .gain(0.6)
+
 stack(
-  note("g4 e4 d4 c4 d4 e4 g4 e4 d4 c4").s("flute").room(0.8),
-  note("c3 g3 c4").s("strings").slow(4).attack(2),
-  s("flute").fast(8).gain(0.2).rarely(x=>x.gain(0.4))
+  melody,
+  strings,
+  s("flute").gain(0.2)
 )
 ```
 
 ### 58. Mountain King (Building Up)
 ```javascript
+// Mountain King
 setcps(1.1)
+
+const melody = note(cat(
+  "b2@0.5 c#3@0.5 d3@0.5 e3@0.5 f#3@0.5 d3@0.5 f#3@1"
+))
+  .s("bassoon")
+  .staccato(0.8)
+  .velocity(0.8)
+
+const tuba = note("b1")
+  .s("tuba")
+  .gain(0.7)
+
 stack(
-  note("b2 c#3 d3 e3 f#3 d3 f#3").s("bassoon").staccato(0.8),
-  note("b1").s("tuba").slow(2).gain(sine.range(0.4, 0.8).slow(16)),
-  s("pizzicato").arp("random").gain(0.3)
-).fast(sine.range(1, 1.4).slow(16))
+  melody,
+  tuba,
+  s("pizzicato")
+)
 ```
 
 ### 59. Spring (Vivaldi)
 ```javascript
+// Spring
 setcps(1.2)
+
+const melody = note(cat(
+  "e5@2 g#5@2 g#5@2 g#5@0.5 f#5@0.5 e5@0.5 b4@0.5",
+  "e5@1 b4@1 g#4@1 b4@1 e5@2"
+))
+  .s("violin")
+  .velocity(0.8)
+
+const harpsi = note("e3")
+  .s("harpsichord")
+  .gain(0.5)
+
 stack(
-  note("e5@2 g#5@2 g#5@2 g#5 f#5 e5 b4").s("violin").vibrato(2),
-  note("e3 b3").s("harpsichord").slow(2).gain(0.5),
-  s("flute").fast(8).gain(0.2).gain(0.2)
+  melody,
+  harpsi,
+  s("flute")
 )
 ```
 
 ### 60. Blue Danube (Waltz)
 ```javascript
+// Blue Danube
 setcps(1.2)
+
+const melody = note(cat(
+  "c4@1 c4@1 e4@1 g4@1 g4@2",
+  "~ ~ g4@2",
+  "e5@1 e5@2"
+))
+  .s("strings")
+  .velocity(0.8)
+
+const drums = s("bd hh hh")
+  .gain(1.0)
+
 stack(
-  note("c4 c4 e4 g4 g4@2 g4@2").s("strings").legato(0.9),
-  s("bd hh hh"),
-  note("c3 g3 e3").s("horn").slow(2).gain(0.4)
+  melody,
+  drums,
+  note("c3").s("horn")
 )
 ```
 
 ### 61. Ride of the Valkyries (Epic)
 ```javascript
+// Ride of the Valkyries
 setcps(1.4)
+
+const melody = note(cat(
+  "b3@1.5 e4@0.5 g4@1.5 b4@0.5 g4@2"
+))
+  .s("brass")
+  .velocity(0.9)
+
+const bass = note("e2 b2")
+  .s("sawtooth")
+  .gain(0.7)
+
 stack(
-  note("b3@1.5 e4@0.5 g4@1.5 b4@0.5 g4").s("brass").shape(0.4),
-  s("snare*8").gain(sine.range(0.2, 0.6)),
-  note("e2 b2").s("sawtooth").lpf(300).gain(0.8)
+  melody,
+  bass,
+  s("snare")
 )
 ```
 
 ### 62. Swan Lake (Tragic)
 ```javascript
+// Swan Lake
 setcps(1)
+
+const melody = note(cat(
+  "f#4@1 b4@1 c#5@1 d5@1 e5@1 f#5@3"
+))
+  .s("oboe")
+  .velocity(0.8)
+
+const harp = note("b2")
+  .s("harp")
+  .gain(0.6)
+
 stack(
-  note("f#4 b4 c#5 d5 e5 f#5").s("oboe").vibrato(2),
-  note("b2 f#3").s("harp").arp("up").fast(4),
-  s("strings").note("b1").slow(4).gain(0.5)
+  melody,
+  harp,
+  s("strings")
 )
 ```
 
 ### 63. Nutcracker March (Toy Soldiers)
 ```javascript
+// Nutcracker March
 setcps(1.3)
+
+const melody = note(cat(
+  "g4@1 e4@1 e4@1 f4@1 d4@1 d4@1",
+  "c4@1 d4@1 c4@1 b3@1 c4@2"
+))
+  .s("trumpet")
+  .velocity(0.8)
+
+const snare = s("snare*4")
+  .velocity("0.8 0.4")
+
 stack(
-  note("g4 e4 e4 f4 d4 d4").s("trumpet").staccato(0.6),
-  s("snare*4").velocity("0.8 0.4 0.9 0.4"),
-  note("c3 g3").s("pizzicato").slow(2)
+  melody,
+  snare,
+  note("c3").s("pizzicato")
 )
 ```
 
 ### 64. William Tell (Galop)
 ```javascript
+// William Tell
 setcps(1.6)
+
+const melody = note(cat(
+  "e4@0.5 e4@0.5 e4@0.5 f4@0.5 g4@2",
+  "g4@0.5 g4@0.5 f4@0.5 e4@0.5 d4@2"
+))
+  .s("trumpet")
+  .velocity(0.9)
+
+const drums = s("bd*2 sd*2")
+  .gain(1.1)
+
 stack(
-  note("e4 e4 e4 f4 g4").s("trumpet").fast(1),
-  s("bd*2 sd*2"),
-  note("e2 b2").s("strings").fast(4).gain(0.6)
+  melody,
+  drums,
+  note("e2").s("strings")
 )
 ```
 
 ### 65. Habanera (Tango)
 ```javascript
+// Habanera
 setcps(1)
+
+const melody = note(cat(
+  "d4@1.5 eb4@0.5 f4@1.5 f#4@0.5 g4@4"
+))
+  .s("violin")
+  .velocity(0.8)
+
+const piano = note("d3 a3")
+  .s("piano")
+  .pattern("x ~ x x")
+
 stack(
-  note("d4@1.5 eb4@0.5 f4@1.5 f#4@0.5 g4").s("violin").legato(0.8),
-  note("d3 a3").s("piano").staccato(0.5).pattern("x ~ x x"),
-  s("castanets").slow(2)
+  melody,
+  piano,
+  s("castanets")
 )
 ```
 
 ### 66. Toreador Song (Grand)
 ```javascript
+// Toreador Song
 setcps(1.2)
+
+const melody = note(cat(
+  "f4@1 g4@1 a4@1 f4@1 g4@1 a4@1",
+  "bb4@1 a4@1 g4@1 f4@1 e4@1 d4@1"
+))
+  .s("brass")
+  .velocity(0.9)
+
+const cymbal = s("cymbal")
+  .slow(4)
+
 stack(
-  note("f4 g4 a4 f4 g4 a4").s("brass").room(0.7),
-  s("cymbal").slow(4).gain(0.8),
-  note("f2 c3").s("tuba").slow(2)
+  melody,
+  cymbal,
+  note("f2").s("tuba")
 )
 ```
 
 ### 67. Bolero (Repetitive)
 ```javascript
+// Bolero
 setcps(1)
+
+const melody = note(cat(
+  "c4@3 b3@0.5 c4@0.5 d4@0.5 c4@0.5 b3@0.5 a3@0.5",
+  "c4@1 c4@1 a3@2"
+))
+  .s("flute")
+  .velocity(0.8)
+
+const snare = s("snare")
+  .pattern("x x x/3 x/3 x/3 x x x/3 x/3 x/3")
+
 stack(
-  note("c4 b3 c4 d4 c4 b3 a3 c4 c4 a3").s("flute").gain(sine.range(0.2, 0.8).slow(16)),
-  s("snare").pattern("x x x/3 x/3 x/3 x x x/3 x/3 x/3").gain(0.6),
-  note("c2").s("pizzicato").slow(4)
+  melody,
+  snare,
+  note("c2").s("pizzicato")
 )
 ```
 
 ### 68. Clair de Lune (Dreamy)
 ```javascript
+// Clair de Lune
 setcps(0.6)
+
+const melody = note(cat(
+  "f4@2 g#4@2 f4@2 eb4@2"
+))
+  .s("piano")
+  .velocity(0.5)
+
+const pad = note("f3")
+  .s("pad")
+  .gain(0.4)
+
 stack(
-  note("f4 g#4 f4 eb4 f4").s("piano").velocity(0.4).room(0.9),
-  note("f3 c4").s("pad").slow(4).gain(0.3),
-  s("noise").lpf(200).slow(4).gain(0.05)
+  melody,
+  pad,
+  s("noise").gain(0.05)
 )
 ```
 
 ### 69. Gymnopédie No.1 (Minimal)
 ```javascript
+// Gymnopédie No.1
 setcps(0.8)
+
+const melody = note(cat(
+  "f#4@2 a4@2 g4@2 f#4@2 c#4@2 b3@2 c#4@2 d4@2"
+))
+  .s("rhodes")
+  .velocity(0.6)
+
+const piano = note("d3 a3")
+  .s("piano")
+  .gain(0.5)
+
 stack(
-  note("f#4 a4 g4 f#4 c#4 b3 c#4 d4").s("rhodes").tremolo(2, 0.3),
-  note("d3 a3").s("piano").slow(2).gain(0.5),
+  melody,
+  piano,
   s("noise").gain(0.02)
 )
 ```
 
 ### 70. Ave Maria (Choral)
 ```javascript
+// Ave Maria
 setcps(0.8)
+
+const melody = note(cat(
+  "g4@2 a4@4 c5@1.5 a4@0.5",
+  "g4@2 e4@2"
+))
+  .s("voice")
+  .velocity(0.7)
+
+const organ = note("c3 g3")
+  .s("organ")
+  .gain(0.5)
+
 stack(
-  note("g4@2 a4@4 c5@1.5 a4@0.5 g4@2 e4@2").s("voice").vowel("a o").room(1),
-  note("c3 g3").s("organ").slow(2).gain(0.4),
-  note("c2").s("sub").slow(4)
+  melody,
+  organ,
+  note("c2").s("sub")
 )
 ```
 
 ### 71. Brahm's Lullaby (Sleepy)
 ```javascript
+// Brahm's Lullaby
 setcps(0.7)
+
+const melody = note(cat(
+  "e4@0.5 e4@0.5 g4@2 e4@0.5 e4@0.5 g4@2",
+  "e4@0.5 g4@0.5 c5@1 b4@0.5 a4@0.5 a4@0.5 g4@2"
+))
+  .s("celesta")
+  .velocity(0.6)
+
+const harp = note("c3")
+  .s("harp")
+  .gain(0.5)
+
 stack(
-  note("e4 e4 g4 e4 e4 g4").s("celesta").velocity(0.5),
-  note("c3 g3 c4").s("harp").arp("up").slow(2),
-  s("breath").gain(0.2).slow(4)
+  melody,
+  harp,
+  s("breath")
 )
 ```
 
 ### 72. Surprise Symphony (Dynamic)
 ```javascript
+// Surprise Symphony
 setcps(1)
+
+const melody = note(cat(
+  "c4@1 c4@1 e4@1 e4@1 g4@1 g4@1 e4@2",
+  "f4@1 f4@1 d4@1 d4@1 b3@1 b3@1 g3@2"
+))
+  .s("strings")
+  .gain(0.4)
+
+const surprise = s("bd")
+  .slow(8)
+  .gain(2)
+
 stack(
-  note("c4 c4 e4 e4 g4 g4 e4").s("strings").staccato(0.8).gain(0.4),
-  s("bd").slow(8).gain(2) // The surprise!
+  melody,
+  surprise
 )
 ```
 
 ### 73. New World Symphony (Nostalgic)
 ```javascript
+// New World Symphony
 setcps(0.6)
+
+const melody = note(cat(
+  "e4@2 g4@1 g4@3 e4@1 d4@1 c4@2 d4@1 e4@1 d4@4"
+))
+  .s("englishhorn")
+  .velocity(0.8)
+
+const strings = note("c3 g3")
+  .s("strings")
+  .gain(0.5)
+
 stack(
-  note("e4 g4 g4 e4 d4 c4 d4 e4 d4").s("englishhorn").room(0.6),
-  note("c3 g3").s("strings").slow(4).gain(0.4),
-  s("timpani").rarely(x=>x.gain(0.5))
+  melody,
+  strings,
+  s("timpani")
 )
 ```
 
 ### 74. The Entertainer (Ragtime Piano)
 ```javascript
+// The Entertainer
 setcps(1.4)
+
+const melody = note(cat(
+  "d5@0.5 e5@0.5 c5@0.5 a4@1 b4@0.5 g4@0.5",
+  "d4@0.5 e4@0.5 c4@0.5 a3@1 b3@0.5 g3@1.5"
+))
+  .s("piano")
+  .velocity(0.9)
+
+const bass = note("c3")
+  .s("piano")
+  .gain(0.6)
+
 stack(
-  note("d5@0.5 e5@0.5 c5@0.5 a4@1 b4@0.5 g4@0.5 d4@0.5 e4@0.5 c4@0.5 a3@1 b3@0.5 g3@1.5")
-    .s("piano").velocity(0.9),
-  note("c3 g3 c3 g3").s("piano").octave(3).velocity(0.6),
+  melody,
+  bass,
   s("hh").swing(0.2)
 )
 ```
 
 ### 75. Maple Leaf Rag (Saloon)
 ```javascript
+// Maple Leaf Rag
 setcps(1.4)
+
+const melody = note(cat(
+  "eb4@0.5 e4@0.5 g4@0.5 b4@0.5 eb5@1",
+  "eb4@0.5 e4@0.5 g4@0.5 b4@0.5 eb5@2"
+))
+  .s("piano")
+  .velocity(0.8)
+
+const bass = note("eb2")
+  .s("piano")
+  .gain(0.7)
+
 stack(
-  note("eb4@0.5 e4@0.5 g4@0.5 b4@0.5 eb5@1 z/0.5 eb4@0.5 e4@0.5 g4@0.5 b4@0.5 eb5@2")
-    .s("piano").detune(2),
-  note("eb2 bb2").s("piano").octave(2).velocity(0.7),
-  s("foot").slow(2)
+  melody,
+  bass,
+  s("foot")
 )
 ```
 
@@ -800,154 +1805,340 @@ stack(
 
 ### 76. Jingle Bells (Sleigh Ride)
 ```javascript
+// Jingle Bells
 setcps(1.2)
+
+const melody = note(cat(
+  "e4@1 e4@1 e4@2",
+  "e4@1 e4@1 e4@2",
+  "e4@1 g4@1 c4@1.5 d4@0.5 e4@4"
+))
+  .s("piano")
+  .velocity(0.8)
+
+const sleigh = s("hh")
+  .gain(0.6)
+
 stack(
-  note("e4 e4 e4@2 e4 e4 e4@2 e4 g4 c4 d4 e4@4 f4 f4 f4@1.5 f4@0.5 f4 e4 e4 e4 e4 d4 d4 e4 d4@2 g4@2")
-    .s("piano").velocity(0.8),
-  s("hh").gain(0.6).loopAt(1),
-  note("c2 g2").s("tuba").slow(2).staccato(0.5)
+  melody,
+  sleigh,
+  note("c2").s("tuba")
 )
 ```
 
 ### 77. Silent Night (Peaceful)
 ```javascript
+// Silent Night
 setcps(0.6)
+
+const melody = note(cat(
+  "g4@1.5 a4@0.5 g4@1 e4@3",
+  "g4@1.5 a4@0.5 g4@1 e4@3",
+  "d5@2 d5@1 b4@3",
+  "c5@2 c5@1 g4@3"
+))
+  .s("sine")
+  .velocity(0.7)
+
+const pad = note("c3 g3")
+  .s("pad")
+  .gain(0.5)
+
 stack(
-  note("g4@1.5 a4@0.5 g4 e4@3 g4@1.5 a4@0.5 g4 e4@3 d5@2 d5@1 b4@3 c5@2 c5@1 g4@3")
-    .s("sine").vowel("o").room(0.9),
-  note("c3 g3 c4").s("pad").slow(4).gain(0.4),
-  s("noise").lpf(200).slow(4).gain(0.1)
+  melody,
+  pad,
+  s("noise").gain(0.1)
 )
 ```
 
 ### 78. Deck the Halls (Festive)
 ```javascript
+// Deck the Halls
 setcps(1.2)
+
+const melody = note(cat(
+  "c5@1.5 b4@0.5 a4@1 g4@1 f4@1 e4@1 d4@1 c4@1",
+  "d4@0.5 e4@0.5 f4@1 d4@1 e4@1.5 d4@0.5 c4@2"
+))
+  .s("brass")
+  .velocity(0.8)
+
+const bass = note("c2 g2")
+  .s("bass")
+  .gain(0.6)
+
 stack(
-  note("c5 b4 a4 g4 f4 e4 d4 c4").s("brass").bright(0.5),
-  s("vowel").vowel("o").slow(4),
-  s("hh").rarely(x=>x.gain(0.5)),
-  note("c2 g2").s("bass").fast(2)
+  melody,
+  bass,
+  s("hh")
 )
 ```
 
 ### 79. Joy to the World (Majestic)
 ```javascript
+// Joy to the World
 setcps(0.9)
+
+const melody = note(cat(
+  "c5@2 b4@1.5 a4@0.5 g4@3",
+  "f4@1 e4@2 d4@2 c4@2"
+))
+  .s("organ")
+  .velocity(0.8)
+
+const bass = note("c2")
+  .s("organ")
+  .gain(0.7)
+
 stack(
-  note("c5@1.5 b4@0.5 a4@1.5 g4@0.5 f4 e4 d4 c4@2 g4@1.5 a4@0.5").s("organ").room(0.8),
-  note("c2 c3").s("organ").octave(2).gain(0.7),
-  s("bell").slow(8)
+  melody,
+  bass,
+  s("bell")
 )
 ```
 
 ### 80. We Wish You a Merry Christmas (Carolers)
 ```javascript
+// We Wish You a Merry Christmas
 setcps(1.2)
+
+const melody = note(cat(
+  "d4@1 g4@1 g4@0.5 a4@0.5 g4@1 f#4@1 e4@1 e4@1",
+  "e4@1 a4@1 a4@0.5 b4@0.5 a4@1 g4@1 f#4@1 d4@1"
+))
+  .s("choir")
+  .velocity(0.8)
+
+const cello = note("g2")
+  .s("cello")
+  .gain(0.6)
+
 stack(
-  note("d4 g4 g4@0.5 a4@0.5 g4 f#4 e4 e4").s("choir").vowel("a e i"),
-  note("g2 d3").s("cello").slow(2),
-  s("tambourine*4")
+  melody,
+  cello,
+  s("tambourine")
 )
 ```
 
 ### 81. The First Noel (Hymn)
 ```javascript
+// The First Noel
 setcps(1)
+
+const melody = note(cat(
+  "f#4@1.5 e4@0.5 d4@1 e4@1 f#4@2 g4@2",
+  "a4@2 b4@2 c#5@4"
+))
+  .s("organ")
+  .velocity(0.8)
+
+const bass = note("d2")
+  .s("bass")
+  .gain(0.6)
+
 stack(
-  note("f#4 e4 d4 e4 f#4 g4 a4 b4 c#5").s("organ").detune(0.5),
-  note("d2 a2").s("bass").slow(2).shape(0.3),
-  s("vowel").vowel("a").gain(0.2)
+  melody,
+  bass,
+  s("vowel").gain(0.2)
 )
 ```
 
 ### 82. Hark! The Herald Angels (Trumpet)
 ```javascript
+// Hark! The Herald Angels
 setcps(1.1)
+
+const melody = note(cat(
+  "c4@1 f4@1 f4@1.5 g4@0.5 f4@1 e4@1 d4@2",
+  "d4@1 d4@1 d4@1 c4@1 c4@1 bb3@1 a3@2"
+))
+  .s("trumpet")
+  .velocity(0.9)
+
+const snare = s("snare*4")
+  .gain(0.6)
+
 stack(
-  note("c4 f4 f4 g4 f4 e4 d4 d4").s("trumpet").room(0.6),
-  s("snare*4").velocity("0.3 0.6"),
-  note("f2 c3").s("trombone").slow(2)
+  melody,
+  snare,
+  note("f2").s("trombone")
 )
 ```
 
 ### 83. O Christmas Tree (Jazz Waltz)
 ```javascript
+// O Christmas Tree
 setcps(1)
+
+const melody = note(cat(
+  "g3@1 c4@1.5 c4@0.5 c4@2",
+  "d4@1 e4@1.5 e4@0.5 e4@2"
+))
+  .s("vibraphone")
+  .velocity(0.8)
+
+const ride = s("ride*3")
+  .gain(0.6)
+
 stack(
-  note("g3 c4 c4 c4 d4 e4 e4 e4").s("vibraphone").tremolo(4, 0.4),
-  s("ride*3").gain(0.6),
-  note("c2 g2").s("upright").slow(3)
+  melody,
+  ride,
+  note("c2").s("upright")
 )
 ```
 
 ### 84. Rudolph (Red Nose)
 ```javascript
+// Rudolph
 setcps(1.2)
+
+const melody = note(cat(
+  "g4@0.5 a4@0.5 g4@0.5 e4@1 c5@1 a4@1 g4@3"
+))
+  .s("sawtooth")
+  .velocity(0.8)
+
+const drums = s("bd sd")
+  .gain(1.1)
+
 stack(
-  note("g4 a4 g4 e4 c5 a4 g4").s("sawtooth").lpf(1000).portamento(0.1),
-  s("hh").gain(0.4),
-  s("bd sd")
+  melody,
+  drums,
+  s("hh")
 )
 ```
 
 ### 85. 12 Days (Counting)
 ```javascript
+// 12 Days
 setcps(1.2)
+
+const melody = note(cat(
+  "c4@1 c4@1 c4@2 d4@1 e4@1 f4@1 g4@1 f4@1 e4@1 d4@1 c4@4"
+))
+  .s("piano")
+  .velocity(0.8)
+
+const bass = note("c2")
+  .s("bass")
+  .gain(0.6)
+
 stack(
-  note("c4 c4 c4 d4 e4 f4 g4 f4 e4 d4 c4").s("piano").velocity(0.8),
-  s("bd sd").slow(2).gain(0.5), // Imaginary samples
-  note("c2").s("bass").slow(4)
+  melody,
+  bass,
+  s("bd sd")
 )
 ```
 
 ### 86. Frosty (Snowy)
 ```javascript
+// Frosty
 setcps(1.2)
+
+const melody = note(cat(
+  "g4@1.5 e4@0.5 f4@1 g4@1 c5@2 b4@1 c5@1",
+  "d5@1 c5@1 b4@1 a4@1 g4@4"
+))
+  .s("flute")
+  .velocity(0.7)
+
+const shaker = s("shaker")
+  .gain(0.3)
+
 stack(
-  note("g4 e4 f4 g4 c5 b4 c5 d5 c5 b4 a4 g4").s("flute").room(0.5),
-  s("shaker*8").gain(0.3),
-  note("c2 g2").s("tuba").staccato(0.5)
+  melody,
+  shaker,
+  note("c2").s("tuba")
 )
 ```
 
 ### 87. Little Drummer Boy (Percussion)
 ```javascript
+// Little Drummer Boy
 setcps(1)
+
+const melody = note(cat(
+  "c4@1 d4@1 e4@1 e4@1 e4@2",
+  "f4@1 e4@1 f4@1 e4@2"
+))
+  .s("voice")
+  .velocity(0.8)
+
+const snare = s("snare*4")
+  .gain(0.6)
+
 stack(
-  note("c4 d4 e4 e4 e4 f4 e4 f4 e4").s("voice").vowel("u"),
-  s("snare").pattern("x x x x").velocity("0.8 0.4 0.6 0.4"),
-  note("c2").s("bass").slow(4)
+  melody,
+  snare,
+  note("c2").s("bass")
 )
 ```
 
 ### 88. O Holy Night (Night Sky)
 ```javascript
+// O Holy Night
 setcps(0.7)
+
+const melody = note(cat(
+  "e4@3 e4@1 e4@2 g4@2",
+  "g4@3 a4@0.5 a4@0.5 f4@2 a4@2"
+))
+  .s("glass")
+  .velocity(0.6)
+
+const pad = note("c3 g3")
+  .s("pad")
+  .gain(0.4)
+
 stack(
-  note("e4 e4 e4 g4 g4").s("glass").room(0.9),
-  note("c3 g3 c4").s("pad").slow(4).gain(0.4),
-  s("glitch").rarely(x=>x.gain(0.3))
+  melody,
+  pad,
+  s("glitch")
 )
 ```
 
 ### 89. God Rest Ye Merry (Medieval)
 ```javascript
+// God Rest Ye Merry
 setcps(1.2)
+
+const melody = note(cat(
+  "d4@1 d4@1 a4@1 a4@1 g4@1 f4@1 e4@1 d4@1",
+  "e4@1 f4@1 g4@1 a4@3"
+))
+  .s("lute")
+  .velocity(0.7)
+
+const drone = note("d2")
+  .s("drone")
+  .gain(0.5)
+
 stack(
-  note("d4 d4 a4 a4 g4 f4 e4 d4").s("lute").fast(2),
-  note("d2 a2").s("drone").slow(4),
-  s("finger*4").gain(0.4)
+  melody,
+  drone,
+  s("finger")
 )
 ```
 
 ### 90. Good King Wenceslas (Royal)
 ```javascript
+// Good King Wenceslas
 setcps(1.2)
+
+const melody = note(cat(
+  "f4@1 f4@1 f4@1 g4@1 f4@1 f4@1 c4@2",
+  "d4@1 e4@1 f4@1 d4@1 e4@1 f4@1 g4@2"
+))
+  .s("brass")
+  .velocity(0.9)
+
+const timp = s("timpani")
+  .gain(0.7)
+
 stack(
-  note("f4 f4 f4 g4 f4 f4 c4").s("brass").bright(0.4),
-  s("timpani").slow(4),
-  note("f2 c3").s("bass").slow(2)
+  melody,
+  timp,
+  note("f2").s("bass")
 )
 ```
 
@@ -957,108 +2148,236 @@ stack(
 
 ### 91. Star Spangled Banner (Anthem)
 ```javascript
+// Star Spangled Banner
 setcps(0.8)
+
+const melody = note(cat(
+  "g3@1.5 e3@0.5 c3@2 e3@2 g3@2 c4@4",
+  "e4@1.5 d4@0.5 c4@2 e3@2 f#3@2 g3@4"
+))
+  .s("trumpet")
+  .velocity(0.8)
+
+const snare = s("snare*8")
+  .gain(0.5)
+
 stack(
-  note("g3@1.5 e3@0.5 c3 e3 g3 c4@2 e4@1.5 d4@0.5 c4 e3 f3 g3@2").s("trumpet").room(1),
-  s("snare*8").velocity("0.2 0.4 0.3 0.5").pan(sine),
-  note("c2 g2").s("tuba").slow(2)
+  melody,
+  snare,
+  note("c2").s("tuba")
 )
 ```
 
 ### 92. God Save the King (Regal)
 ```javascript
+// God Save the King
 setcps(1)
+
+const melody = note(cat(
+  "c4@1 c4@1 d4@1 b3@1.5 c4@0.5 d4@1",
+  "e4@1 e4@1 f4@1 e4@1 d4@1 c4@1"
+))
+  .s("piano")
+  .velocity(0.8)
+
+const cello = note("c2")
+  .s("cello")
+  .gain(0.6)
+
 stack(
-  note("c4 c4 d4 b3@1.5 c4@0.5 d4 e4 e4 f4 e4 d4 c4").s("piano").velocity(0.8),
-  note("c2 g2").s("cello").slow(2).gain(0.6),
-  s("cymbal").slow(8)
+  melody,
+  cello,
+  s("cymbal")
 )
 ```
 
 ### 93. La Marseillaise (Revolutionary)
 ```javascript
+// La Marseillaise
 setcps(1.2)
+
+const melody = note(cat(
+  "d4@1 d4@1 g4@2 g4@2 a4@2 a4@2",
+  "d5@1.5 b4@0.5 g4@1 d4@1 b3@2 g3@2"
+))
+  .s("brass")
+  .velocity(0.9)
+
+const snare = s("sd*4")
+  .gain(1.1)
+
 stack(
-  note("d4 d4 g4 g4 a4 a4").s("brass").staccato(0.6),
-  s("sd*4"),
-  note("g2 d3").s("bass").slow(2)
+  melody,
+  snare,
+  note("g2").s("bass")
 )
 ```
 
 ### 94. Happy Farmer (Rural)
 ```javascript
+// Happy Farmer
 setcps(1.2)
+
+const melody = note(cat(
+  "c4@0.5 f4@1.5 a4@0.5 c5@1.5 a4@0.5 f4@2",
+  "c4@0.5 f4@1.5 a4@0.5 c5@1.5 a4@0.5 f4@2"
+))
+  .s("piano")
+  .velocity(0.8)
+
+const bass = note("f2")
+  .s("bass")
+  .gain(0.6)
+
 stack(
-  note("c4@0.5 f4@1.5 a4@0.5 c5@1.5 a4@0.5 f4@2").s("piano").velocity(0.8),
-  note("f2 c3").s("bass").slow(2).shape(0.3),
-  s("cp").slow(2)
+  melody,
+  bass,
+  s("cp")
 )
 ```
 
 ### 95. Minuet in G (Baroque)
 ```javascript
+// Minuet in G
 setcps(1)
+
+const melody = note(cat(
+  "d5@1 g4@0.5 a4@0.5 b4@0.5 c5@0.5 d5@1 g4@1 g4@1",
+  "e5@1 c5@0.5 d5@0.5 e5@0.5 f#5@0.5 g5@1 g4@1 g4@1"
+))
+  .s("harpsichord")
+  .velocity(0.8)
+
+const cello = note("g2")
+  .s("cello")
+  .gain(0.7)
+
 stack(
-  note("d5 g4 a4 b4 c5 d5 g4 g4").s("harpsichord").fast(1),
-  note("g2 d3 g3").s("cello").slow(2).staccato(0.5),
-  s("hh*8").gain(0.1)
+  melody,
+  cello,
+  s("hh")
 )
 ```
 
 ### 96. Prelude in C (Arpeggiator)
 ```javascript
+// Prelude in C
 setcps(1)
+
+const melody = note(cat(
+  "c4@0.5 e4@0.5 g4@0.5 c5@0.5 e5@0.5 g4@0.5 c5@0.5 e5@0.5",
+  "c4@0.5 e4@0.5 g4@0.5 c5@0.5 e5@0.5 g4@0.5 c5@0.5 e5@0.5"
+))
+  .s("piano")
+  .velocity(0.8)
+
+const bass = note("c2")
+  .s("sine")
+  .gain(0.3)
+
 stack(
-  note("c4 e4 g4 c5 e5 g4 c5 e5").s("piano").room(0.6),
-  note("c2 g2").s("sine").gain(0.3).slow(4),
-  s("noise").lpf(500).gain(0.1)
+  melody,
+  bass,
+  s("noise").gain(0.1)
 )
 ```
 
 ### 97. Jesu, Joy of Man's Desiring (Flowing)
 ```javascript
+// Jesu, Joy of Man's Desiring
 setcps(0.9)
+
+const melody = note(cat(
+  "g4@0.5 a4@0.5 b4@0.5 d5@0.5 c5@0.5 c5@0.5 e5@0.5 d5@0.5 d5@0.5 g5@0.5 f#5@0.5 g5@0.5"
+))
+  .s("organ")
+  .velocity(0.8)
+
+const strings = note("g3")
+  .s("strings")
+  .gain(0.5)
+
 stack(
-  note("g4 a4 b4 d5 c5 c5 e5 d5 d5 g5 f#5 g5").s("organ").slow(1.5),
-  note("g3 d4").s("strings").slow(2).gain(0.5),
-  s("tri*3")
+  melody,
+  strings,
+  s("tri")
 )
 ```
 
 ### 98. Chopsticks (Duet)
 ```javascript
+// Chopsticks
 setcps(1.4)
+
+const high = note(cat(
+  "f4@0.5 g4@0.5 f4@0.5 g4@0.5 f4@0.5 g4@0.5",
+  "e4@0.5 g4@0.5 e4@0.5 g4@0.5 e4@0.5 g4@0.5"
+))
+  .s("piano")
+  .velocity(0.8)
+
+const drums = s("bd sd")
+  .gain(0.9)
+
 stack(
-  note("[f4,g4]*4 [e4,g4]*4").s("piano").pan(-0.5),
-  note("[f3,g3]*4 [e3,g3]*4").s("piano").pan(0.5).octave(3),
-  s("bd sd").slow(2)
+  high,
+  drums,
+  note("c3").s("piano")
 )
 ```
 
 ### 99. Heart and Soul (Doo Wop)
 ```javascript
+// Heart and Soul
 setcps(1.2)
+
+const melody = note(cat(
+  "c4@1.5 c4@0.5 c4@1 c4@0.5 b3@0.5 a3@1.5 b3@0.5 c4@1 d4@2"
+))
+  .s("piano")
+  .velocity(0.8)
+
+const chords = note("c4 a3 f3 g3")
+  .s("piano")
+  .gain(0.6)
+
 stack(
-  note("c4@1.5 c4@0.5 c4 c4@0.5 b3@0.5 a3@1.5 b3@0.5 c4 d4@2").s("piano").octave(5).gain(0.8), // Melody
-  note("c4 c4 c4 a3 a3 a3 f3 f3 f3 g3 g3 g3").s("piano").swing(0.2), // Chords
-  note("c2 a1 f1 g1").s("bass").slow(1).shape(0.4),
-  s("hh*4").open()
+  melody,
+  chords,
+  s("hh")
 )
 ```
 
 ### 100. Happy Birthday (Future Bass)
 ```javascript
+// Happy Birthday - Future Bass
 setcps(1.4)
+
+// 1. MELODY
+const melody = note(cat(
+  "g3@1.5 g3@0.5 a3@2 g3@2 c4@2 b3@4",
+  "g3@1.5 g3@0.5 a3@2 g3@2 d4@2 c4@4"
+))
+  .s("supersaw")
+  .lpf(sine.range(500, 3000).slow(4))
+  .velocity(0.9)
+
+// 2. CHORDS
+const chords = note("c3 g3 c3 f3")
+  .chord("major9")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Arp)
+const arp = note("0 4 7 11")
+  .scale("C:major")
+  .fast(4)
+  .gain(0.4)
+
 stack(
-  // Lead
-  note("g3@1.5 g3@0.5 a3 g3 c4 b3@2 g3@1.5 g3@0.5 a3 g3 d4 c4@2")
-    .s("supersaw").lpf(sine.range(500, 3000).slow(4)).room(0.8),
-  // Chords
-  note("c3 g2 c3 f2").chord("major9").s("pad").slow(2).gain(0.6),
-  // Risers & FX
-  s("noise").slow(8).gain(sine.range(0, 0.4)),
-  // Beat
-  s("bd(3,8) sd(5,8)"),
-  s("hh*16").pan(rand)
+  melody,
+  chords,
+  arp,
+  s("bd sd")
 )
 ```

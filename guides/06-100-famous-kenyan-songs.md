@@ -12,10 +12,43 @@ Copy the code block for the song you want to hear into the Strudel REPL.
 ### 1. Kenya National Anthem (Ee Mungu Nguvu Yetu)
 ```javascript
 // Kenya National Anthem - Orchestral
+// 1. Set Tempo: Solemn
 setcps(0.4)
+
+// 2. THE MELODY (Accurate)
+// Ee Mungu nguvu yetu (D F# A D) / Ilete baraka kwetu (C# B A F# G A)
+const melody = note(cat(
+  "d4@1.5 f#4@0.5 a4@1 d5@1 c#5@1.5 b4@0.5",
+  "a4@1 f#4@1 g4@1 a4@1",
+  "g4@1.5 f#4@0.5 e4@1 d4@3"
+))
+  .s("brass")
+  .room(1.5)
+  .lpf(2000)
+  .velocity(0.9)
+
+// 3. THE CHORDS (D Major -> A Major -> D Major)
+const chords = note(cat(
+  "d3@4 a2@2",
+  "d3@2 g2@2 a2@2 d3@2",
+  "a2@2 d3@2 a2@2 d3@3"
+))
+  .chord("major")
+  .s("strings")
+  .slow(1)
+  .gain(0.6)
+
+// 4. IMPROV (Background Horns)
+const riffs = note("0 4 7 4 0")
+  .scale("D:major")
+  .s("frenchhorn")
+  .gain(0.4)
+  .struct("t(3,8)")
+
 stack(
-  note("d4@1.5 f#4@0.5 a4 d5 c#5@1.5 b4@0.5 a4 f#4 g4 a4 g4@1.5 f#4@0.5 e4 d4@2").s("brass").room(1).velocity(0.8),
-  note("d3 a3 d4").s("strings").slow(2).gain(0.6),
+  melody,
+  chords,
+  riffs,
   s("timpani").slow(4).gain(0.8)
 )
 ```
@@ -24,9 +57,36 @@ stack(
 ```javascript
 // Daima (Mkenya Daima) - Afro-Fusion
 setcps(0.5)
+
+// 1. MELODY (Daima mimi mkenya...)
+const melody = note(cat(
+  "c4@1 d4@1 e4@1 g4@3",
+  "g4@1 a4@1 g4@1 e4@1 d4@1 c4@3"
+))
+  .s("kalimba")
+  .room(0.5)
+  .velocity(0.8)
+
+// 2. CHORDS (C -> F -> C)
+const chords = note(cat(
+  "c3@3 f3@3",
+  "c3@4 g3@2 c3@2"
+))
+  .chord("major")
+  .s("piano")
+  .velocity(0.6)
+
+// 3. IMPROV (Background Flute)
+const improv = note("4 2 0")
+  .scale("C:pentatonic")
+  .s("flute")
+  .gain(0.3)
+  .delay(0.5)
+
 stack(
-  note("0 1 2 4@1.5 4@0.5 5 4 2 1 0@2").scale("C:major").s("kalimba").room(0.5), // Using scale degree notation
-  note("c3 g3").s("bass").slow(2),
+  melody,
+  chords,
+  improv,
   s("shaker*8").gain(0.4),
   s("bd sd").slow(2)
 )
@@ -34,34 +94,108 @@ stack(
 
 ### 3. Tushangilie Kenya (Mwalimu Thomas Wasonga)
 ```javascript
-// Tushangilie Kenya - Patriotic Choral
+// Tushangilie Kenya
 setcps(0.6)
+
+// 1. MELODY (Tushangilie Kenya...)
+const melody = note(cat(
+  "g4@1 g4@1 c5@2 c5@2",
+  "b4@1 a4@1 g4@4"
+))
+  .s("choir")
+  .vowel("a")
+  .room(2)
+  .velocity(0.9)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 f3 c3 g3")
+  .chord("major")
+  .s("organ")
+  .slow(2)
+  .gain(0.7)
+
+// 3. IMPROV (Trumpet Fanfare)
+const fanfare = note("0 0 0 4")
+  .scale("C:major")
+  .s("trumpet")
+  .gain(0.4)
+  .struct("t(2,8)")
+
 stack(
-  note("g4 g4 c5 c5 b4 a4 g4@2").s("choir").vowel("a"),
-  note("c3 g3").s("organ").slow(2),
+  melody,
+  chords,
+  fanfare,
   s("snare*4").velocity("0.6 0.3")
 )
 ```
 
 ### 4. My Land is Kenya (Roger Whittaker)
 ```javascript
-// My Land is Kenya - Acoustic
+// My Land is Kenya
 setcps(0.45)
+
+// 1. MELODY (You only got one land...)
+const melody = note(cat(
+  "e4@1 g4@1 c5@2",
+  "b4@1 a4@1 g4@1 e4@2"
+))
+  .s("guitar")
+  .velocity(0.8)
+
+// 2. CHORDS (C -> F -> C)
+const chords = note("c3 f3 c3")
+  .chord("major")
+  .s("acoustic")
+  .slow(2)
+  .gain(0.6)
+
+// 3. IMPROV (Whistle)
+const whistle = note("7 4 0")
+  .scale("C:major")
+  .s("whistle")
+  .gain(0.3)
+  .delay(0.5)
+
 stack(
-  note("e4 g4 c5 b4 a4 g4 e4@2").s("guitar").strum(0.1),
-  note("c2 g2").s("bass").slow(2),
+  melody,
+  chords,
+  whistle,
   s("bird").rarely(x=>x.gain(0.3))
 )
 ```
 
 ### 5. Harambee (Daudi Kabaka)
 ```javascript
-// Harambee - Zilizopendwa
+// Harambee
 setcps(0.6)
+
+// 1. MELODY (Harambee, harambee...)
+const melody = note(cat(
+  "g4@1 a4@1 b4@2",
+  "g4@1 c5@1 b4@1 a4@3"
+))
+  .s("clean")
+  .tremolo(4, 0.4)
+  .velocity(0.9)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 c4 d4 g3")
+  .chord("major")
+  .s("guitar")
+  .velocity(0.6)
+
+// 3. IMPROV (Benga Lick)
+const lick = note("4 2 0")
+  .scale("G:major")
+  .s("clean")
+  .gain(0.4)
+  .fast(2)
+
 stack(
-  note("g4 a4 b4 g4 c5 b4 a4@2").s("clean").tremolo(4, 0.4),
-  s("rim*4").gain(0.8),
-  note("g2 d3").s("bass").slow(2)
+  melody,
+  chords,
+  lick,
+  s("rim*4").gain(0.8)
 )
 ```
 
@@ -71,166 +205,512 @@ stack(
 
 ### 6. Jambo Bwana (Them Mushrooms)
 ```javascript
-// Jambo Bwana - Tourism Pop
+// Jambo Bwana - Accurate Melody
 setcps(0.65)
+
+// 1. MELODY (Jambo, Jambo Bwana...)
+const melody = note(cat(
+  "g4@1.5 g4@0.5 f#4@1 g4@1 a4@4", // Jambo, Jambo Bwana
+  "~ g4@1 a4@1 b4@1 c5@4",        // Habari gani
+  "~ b4@1 a4@1 g4@4"              // Nzuri sana
+))
+  .s("organ")
+  .bright(0.5)
+  .velocity(0.9)
+
+// 2. CHORDS (G -> D -> G -> C)
+const chords = note(cat(
+  "g3@8",
+  "d3@8",
+  "g3@4 c4@4"
+))
+  .chord("major")
+  .s("piano")
+  .velocity(0.6)
+
+// 3. IMPROV (Marimba Fill)
+const fill = note("0 2 4 2 0")
+  .scale("G:major")
+  .s("kalimba")
+  .gain(0.4)
+  .struct("t(3,8)")
+
 stack(
-  note("4@1.5 4@0.5 3 4 5@2 ~ 4 5 6 7@2 ~ 6 5 4@2").scale("C:major").s("organ").bright(0.5), // Major scale melody
-  note("c3 g3 c4").s("piano").chord("major").slow(2).velocity(0.6),
+  melody,
+  chords,
+  fill,
   s("shaker*8").gain(0.8)
 )
 ```
 
 ### 7. Malaika (Fadhili William)
 ```javascript
-// Malaika - Romantic Classic
+// Malaika - Accurate Melody
 setcps(0.5)
+
+// 1. MELODY (Malaika, nakupenda Malaika)
+const melody = note(cat(
+  "a4@1.5 g4@0.5 f4@3",
+  "~ f4@0.5 g4@0.5 a4@1 c5@1 a4@1 g4@1 f4@3"
+))
+  .s("guitar")
+  .room(0.8)
+  .velocity(0.9)
+
+// 2. CHORDS (F -> Bb -> C -> F)
+const chords = note(cat(
+  "f3@4",
+  "bb3@2 c4@2 f3@4"
+))
+  .chord("major")
+  .s("piano")
+  .velocity(0.6)
+
+// 3. IMPROV (Guitar Noodle)
+const noodle = note("4 2 0")
+  .scale("F:major")
+  .s("guitar")
+  .gain(0.3)
+  .delay(0.2)
+
 stack(
-  note("a4@1.5 g4@0.5 f4@2 ~ f4 g4 a4 c5 a4 g4 f4@2").s("guitar").room(0.8), // Malaika, nakupenda Malaika
-  note("a2 e3").s("bass").slow(4),
-  s("conga*4").n("<0 1>").pan(rand) // Alternating conga samples
+  melody,
+  chords,
+  noodle,
+  s("conga*4").n("<0 1>").pan(rand)
 )
 ```
 
 ### 8. Helule Helule (Daudi Kabaka)
 ```javascript
-// Helule Helule - Twist
+// Helule Helule
 setcps(0.7)
+
+// 1. MELODY (Chorus)
+const melody = note(cat(
+  "c5@1 c5@1 b4@1 a4@1 g4@1 e4@3",
+  "c5@1 c5@1 b4@1 a4@1 g4@1"
+))
+  .s("clean")
+  .distort(0.2)
+  .velocity(0.9)
+
+// 2. CHORDS (C -> G -> C)
+const chords = note("c3 g3 c3")
+  .chord("major")
+  .s("guitar")
+  .velocity(0.7)
+
+// 3. IMPROV (Twist Riff)
+const riff = note("0 0 4 7")
+  .scale("C:major")
+  .s("clean")
+  .gain(0.4)
+
 stack(
-  note("7 7 6 5 4 2 ~ 7 7 6").scale("C:major").s("clean").distort(0.2), // High register twist guitar
-  s("snare*4").velocity("0.8 0.4"),
-  note("c3 g3").s("bass").fast(2)
+  melody,
+  chords,
+  riff,
+  s("snare*4").velocity("0.8 0.4")
 )
 ```
 
 ### 9. Pole Musa (Daudi Kabaka)
 ```javascript
-// Pole Musa - Storytelling
+// Pole Musa
 setcps(0.6)
+
+// 1. MELODY (Pole Musa...)
+const melody = note(cat(
+  "g4@1 a4@1 b4@2",
+  "d5@1 b4@1 g4@2"
+))
+  .s("guitar")
+  .pluck(0.5)
+  .velocity(0.9)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 d3 g3")
+  .chord("major")
+  .s("guitar")
+  .gain(0.6)
+
+// 3. IMPROV (Bass Run)
+const bassRun = note("0 2 4")
+  .scale("G:major")
+  .s("bass")
+  .gain(0.5)
+
 stack(
-  note("g4 a4 b4 d5 b4 g4 ~ g4 a4 b4").s("guitar").pluck(0.5),
-  s("rim").struct("x ~ x x"),
-  note("g2 d3").s("bass")
+  melody,
+  chords,
+  bassRun,
+  s("rim").struct("x ~ x x")
 )
 ```
 
 ### 10. Taxi Driver (Daudi Kabaka)
 ```javascript
-// Taxi Driver - Benga Rhythm
+// Taxi Driver
 setcps(0.7)
+
+// 1. MELODY (Guitar Lead)
+const melody = note(cat(
+  "c5@1 b4@1 a4@1 g4@1",
+  "f4@1 e4@1 d4@1 c4@1"
+))
+  .s("strat")
+  .delay(0.2)
+  .velocity(0.9)
+
+// 2. CHORDS (C -> F -> G -> C)
+const chords = note("c3 f3 g3 c3")
+  .chord("major")
+  .s("guitar")
+  .velocity(0.7)
+
+// 3. IMPROV (Benga Pick)
+const pick = note("7 0 7 4")
+  .scale("C:major")
+  .s("clean")
+  .gain(0.4)
+
 stack(
-  note("c5 b4 a4 g4 f4 e4 ~ c5").s("strat").delay(0.2),
-  s("hihat*8").open(),
-  note("c3 f3 g3").s("bass").arp("up")
+  melody,
+  chords,
+  pick,
+  s("hh*8").open()
 )
 ```
 
 ### 11. Sina Makosa (Les Wanyika)
 ```javascript
-// Sina Makosa - Swahili Rhumba
+// Sina Makosa
 setcps(0.55)
+
+// 1. MELODY (Sax)
+const melody = note(cat(
+  "e4@1 g4@1 c5@2",
+  "b4@1 a4@1 g4@1 f4@2"
+))
+  .s("sax")
+  .legato(0.8)
+  .velocity(0.9)
+
+// 2. CHORDS (C -> F)
+const chords = note("c3 f3")
+  .chord("major")
+  .s("guitar")
+  .delay(0.1)
+  .gain(0.6)
+
+// 3. IMPROV (Trumpet Fill)
+const fill = note("0 2 4")
+  .scale("C:major")
+  .s("trumpet")
+  .gain(0.4)
+
 stack(
-  note("2 4 7 6 5 4 3@2").scale("C:major").s("sax").legato(0.8).room(0.6),
-  note("c3 g3").s("guitar").strum(0.05).slow(2),
-  s("conga").struct("x x ~ x").gain(0.7).n("<0 2>")
+  melody,
+  chords,
+  fill,
+  s("conga").struct("x x ~ x").n("<0 2>")
 )
 ```
 
 ### 12. Afro (Les Wanyika)
 ```javascript
-// Afro - Golden Era
+// Afro
 setcps(0.55)
+
+// 1. MELODY (Brass)
+const melody = note(cat(
+  "g4@1 b4@1 d5@2",
+  "c5@1 b4@1 a4@2"
+))
+  .s("brass")
+  .bright(0.4)
+  .velocity(0.9)
+
+// 2. CHORDS (G -> C -> D -> G)
+const chords = note("g3 c3 d3 g3")
+  .chord("major")
+  .s("piano")
+  .velocity(0.6)
+
+// 3. IMPROV (High Guitar)
+const highGtr = note("7 12")
+  .scale("G:major")
+  .s("guitar")
+  .gain(0.3)
+
 stack(
-  note("g4 b4 d5 c5 b4 a4 ~ g4").s("brass").bright(0.4),
-  s("guiro").slow(1),
-  note("g2 d3").s("bass").slow(2)
+  melody,
+  chords,
+  highGtr,
+  s("guiro").slow(1)
 )
 ```
 
 ### 13. Charonyi Ni Wasi (Maroon Commandos)
 ```javascript
-// Charonyi Ni Wasi - Military Band
+// Charonyi Ni Wasi
 setcps(0.6)
+
+// 1. MELODY (Trumpet)
+const melody = note(cat(
+  "c4@1 e4@1 g4@2",
+  "c5@1 g4@1 e4@2"
+))
+  .s("trumpet")
+  .staccato(0.5)
+  .velocity(0.9)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 g2 c3")
+  .chord("major")
+  .s("tuba")
+  .gain(0.7)
+
+// 3. IMPROV (Drum Roll)
+const roll = s("snare*8")
+  .gain(0.5)
+
 stack(
-  note("c4 e4 g4 c5 g4 e4 ~ c4").s("trumpet").staccato(0.5),
-  s("snare").struct("x x x/2 x/2 x"),
-  note("c2").s("tuba").slow(2)
+  melody,
+  chords,
+  roll,
+  s("snare").struct("x x x/2 x/2 x")
 )
 ```
 
 ### 14. Amka Kumekucha (Maroon Commandos)
 ```javascript
-// Amka Kumekucha - Morning Call
+// Amka Kumekucha
 setcps(0.65)
+
+// 1. MELODY (Organ)
+const melody = note(cat(
+  "e4@1 g4@1 c5@2",
+  "g4@1 e4@3"
+))
+  .s("organ")
+  .fast(2)
+  .velocity(0.8)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 f3 c3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Cowbell Solo)
+const cb = s("cowbell*4")
+  .gain(0.4)
+
 stack(
-  note("e4 g4 c5 g4 e4 ~ e4 g4").s("organ").fast(2),
-  s("cowbell*4"),
-  note("c3 g3").s("bass")
+  melody,
+  chords,
+  cb,
+  s("cowbell*4")
 )
 ```
 
 ### 15. Stella Wangu (Freshley Mwamburi)
 ```javascript
-// Stella Wangu - Heartbreak
+// Stella Wangu - Reggae
 setcps(0.6)
+
+// 1. MELODY
+const melody = note(cat(
+  "a4@1 c5@1 e5@2",
+  "d5@1 c5@1 b4@1 a4@2"
+))
+  .s("synth")
+  .vibrato(2)
+  .velocity(0.9)
+
+// 2. CHORDS (Am -> G -> Am)
+const chords = note("a3 g3 a3")
+  .chord("minor")
+  .s("organ")
+  .chop(2)
+  .gain(0.6)
+
+// 3. IMPROV (Dub Echo)
+const dub = note("0")
+  .scale("A:minor")
+  .s("sine")
+  .delay(0.8)
+  .gain(0.3)
+
 stack(
-  note("a4 c5 e5 d5 c5 b4 a4@2").s("synth").vibrato(2), // Reggae feel
-  s("bd").slow(2),
-  s("hh").slow(2).delay(0.5)
+  melody,
+  chords,
+  dub,
+  s("bd").slow(2)
 )
 ```
 
 ### 16. Shauri Yako (Orchestra Super Mazembe)
 ```javascript
-// Shauri Yako - Congolese Influence
+// Shauri Yako
 setcps(0.55)
+
+// 1. MELODY (Guitar)
+const melody = note(cat(
+  "g4@1 b4@1 d5@2",
+  "g4@1 b4@1 d5@2"
+))
+  .s("guitar")
+  .highpass(1000)
+  .velocity(0.8)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 d3 g3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Sebene)
+const sebene = note("0 2 4 2")
+  .scale("G:major")
+  .s("clean")
+  .gain(0.4)
+
 stack(
-  note("g4 b4 d5 ~ g4 b4 d5 ~").s("guitar").highpass(1000),
-  s("snare").struct("x ~ x ~ x x ~ x"), // Cavacha rhythm
-  note("g2").s("bass").slow(2)
+  melody,
+  chords,
+  sebene,
+  s("snare").struct("x ~ x ~ x x ~ x")
 )
 ```
 
 ### 17. Lunch Time (Gabriel Omollo)
 ```javascript
-// Lunch Time - Social Commentary
+// Lunch Time
 setcps(0.6)
+
+// 1. MELODY (Whistle)
+const melody = note(cat(
+  "c4@1 d4@1 e4@1 g4@1",
+  "a4@1 g4@3"
+))
+  .s("whistle")
+  .room(0.4)
+  .velocity(0.9)
+
+// 2. CHORDS (C -> F -> C)
+const chords = note("c3 f3 c3")
+  .chord("major")
+  .s("guitar")
+  .gain(0.6)
+
+// 3. IMPROV (Shout)
+const shout = s("hey")
+  .gain(0.3)
+
 stack(
-  note("c4 d4 e4 g4 a4 g4 ~ c4").s("whistle").room(0.4),
-  s("foot").slow(1),
-  note("c2 g2").s("bass").slow(2)
+  melody,
+  chords,
+  shout,
+  s("foot").slow(1)
 )
 ```
 
 ### 18. Dereva Kombo (Fundi Konde)
 ```javascript
-// Dereva Kombo - Highlife Feel
+// Dereva Kombo
 setcps(0.6)
+
+// 1. MELODY (Clarinet)
+const melody = note(cat(
+  "f4@1 a4@1 c5@2",
+  "a4@1 f4@3"
+))
+  .s("clarinet")
+  .velocity(0.8)
+
+// 2. CHORDS (F -> Bb -> C -> F)
+const chords = note("f3 bb3 c3 f3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Clarinet Trill)
+const trill = note("2 3 2 3")
+  .scale("F:major")
+  .s("clarinet")
+  .gain(0.4)
+
 stack(
-  note("f4 a4 c5 a4 f4 ~ f4 a4").s("clarinet"),
-  s("shaker*8"),
-  note("f2 c3").s("bass")
+  melody,
+  chords,
+  trill,
+  s("shaker*8")
 )
 ```
 
 ### 19. Bwana Nipe Pesa (Super Mazembe)
 ```javascript
-// Bwana Nipe Pesa - Request
+// Bwana Nipe Pesa
 setcps(0.55)
+
+// 1. MELODY (Sax)
+const melody = note(cat(
+  "d4@1 f#4@1 a4@1 d5@1"
+))
+  .s("sax")
+  .gain(0.8)
+  .velocity(0.9)
+
+// 2. CHORDS (D Major)
+const chords = note("d3 a3 d3")
+  .chord("major")
+  .s("guitar")
+  .gain(0.6)
+
+// 3. IMPROV (Cowbell)
+const cb = s("cowbell*2")
+  .gain(0.4)
+
 stack(
-  note("d4 f#4 a4 d5 ~ d4 f#4").s("sax").gain(0.8),
-  s("cowbell").struct("x x ~ x"),
-  note("d3 a3").s("bass")
+  melody,
+  chords,
+  cb,
+  s("cowbell").struct("x x ~ x")
 )
 ```
 
 ### 20. Kasongo (Les Wanyika)
 ```javascript
-// Kasongo - Dance Floor
+// Kasongo
 setcps(0.6)
+
+// 1. MELODY (Organ)
+const melody = note(cat(
+  "e4@1 g4@1 c5@2",
+  "b4@1 a4@1 g4@2"
+))
+  .s("organ")
+  .room(0.5)
+  .velocity(0.8)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 g3 c3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Conga Roll)
+const roll = s("conga*4")
+  .gain(0.5)
+
 stack(
-  note("e4 g4 c5 b4 a4 g4 ~ e4").s("organ").room(0.5),
-  s("conga*4").n("<0 1 2 1>"),
-  note("c2 g2").s("bass").slow(2)
+  melody,
+  chords,
+  roll,
+  s("conga*4").n("<0 1 2 1>")
 )
 ```
 
@@ -240,224 +720,650 @@ stack(
 
 ### 21. Ninanoki (Nameless)
 ```javascript
-// Ninanoki - Ogopa Beat
+// Ninanoki - Authentic Kapuka
 setcps(0.7)
+
+// 1. MELODY (Synth Lead)
+const melody = note(cat(
+  "c4@1 c4@1 ~ e4@1",
+  "g4@1 ~ c5@1 c5@1"
+))
+  .s("sawtooth")
+  .lpf(1500)
+  .velocity(0.8)
+
+// 2. CHORDS (C -> F -> G)
+const chords = note("c3 f3 g3 c3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Filter Sweep)
+const sweep = note("0@4")
+  .scale("C:major")
+  .s("sawtooth")
+  .lpf(sine.range(500, 3000).slow(4))
+  .gain(0.4)
+
 stack(
-  note("0 0 ~ 2 4 ~ 7 7").scale("C:major").s("sawtooth").lpf(1500),
-  s("bd*2"), // Kapuka kick
-  s("clap").slow(2).delay(0.5),
-  note("c2").s("bass").slow(4)
+  melody,
+  chords,
+  sweep,
+  s("bd*2"),
+  s("clap").slow(2).delay(0.5)
 )
 ```
 
 ### 22. Sinzia (Nameless)
 ```javascript
-// Sinzia - Smooth
+// Sinzia - R&B
 setcps(0.5)
+
+// 1. MELODY (Rhodes)
+const melody = note(cat(
+  "f4@1 a4@1 c5@2",
+  "a4@1 g4@1 f4@2"
+))
+  .s("rhodes")
+  .tremolo(2, 0.4)
+  .velocity(0.8)
+
+// 2. CHORDS (F -> C -> Bb)
+const chords = note("f3 c3 bb2 c3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Vocal Adlib)
+const adlib = s("vowel")
+  .vowel("o")
+  .gain(0.3)
+
 stack(
-  note("f4 a4 c5 a4 g4 f4 ~ f4").s("rhodes").tremolo(2, 0.4),
-  s("rim*4").n("<0 1>"),
-  note("f2 c3").s("sub").slow(2)
+  melody,
+  chords,
+  adlib,
+  s("rim*4")
 )
 ```
 
 ### 23. Boomba Train (E-Sir)
 ```javascript
-// Boomba Train - Party Anthem
+// Boomba Train
 setcps(0.72)
+
+// 1. MELODY (Square Lead)
+const melody = note(cat(
+  "g3@1 b3@1 d4@1 b3@1"
+))
+  .s("square")
+  .fast(2)
+  .velocity(0.8)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 d3 g3")
+  .chord("major")
+  .s("synth")
+  .gain(0.6)
+
+// 3. IMPROV (Hype)
+const hype = s("shout")
+  .gain(0.5)
+
 stack(
-  note("g3 b3 d4 b3 ~ g3 b3 d4").s("square").fast(2),
-  s("bd [sd sd] bd sd"), // Double snare hit
-  s("hh*8").open(),
-  s("vowel").vowel("o").slow(4).gain(0.8) // "Whoa"
+  melody,
+  chords,
+  hype,
+  s("bd sd bd sd")
 )
 ```
 
 ### 24. Mos Mos (E-Sir)
 ```javascript
-// Mos Mos - Laid Back
+// Mos Mos
 setcps(0.47)
+
+// 1. MELODY (Piano)
+const melody = note(cat(
+  "e4@1 g4@1 b4@1 a4@1"
+))
+  .s("piano")
+  .room(0.8)
+  .velocity(0.8)
+
+// 2. CHORDS (Em -> D -> C -> B7)
+const chords = note("e3 d3 c3 b2")
+  .chord("minor")
+  .s("pad")
+  .gain(0.5)
+
+// 3. IMPROV (Guitar Lick)
+const lick = note("0 2 4")
+  .scale("E:minor")
+  .s("guitar")
+  .gain(0.4)
+
 stack(
-  note("e4 g4 b4 a4 ~ e4 g4").s("piano").room(0.8),
-  s("kick").slow(2),
-  s("snap").slow(2).delay(0.5),
-  note("e2").s("bass").slow(2)
+  melody,
+  chords,
+  lick,
+  s("kick").slow(2)
 )
 ```
 
 ### 25. Leo ni Leo (E-Sir)
 ```javascript
-// Leo ni Leo - Club Banger
+// Leo ni Leo
 setcps(0.7)
+
+// 1. MELODY (Supersaw)
+const melody = note(cat(
+  "c4@1 c4@1 e4@1 g4@1"
+))
+  .s("supersaw")
+  .decay(0.1)
+  .velocity(0.9)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 g3 c3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Synth Stab)
+const stab = note("0 4 7")
+  .scale("C:major")
+  .s("sawtooth")
+  .gain(0.4)
+
 stack(
-  note("0 0 2 4 ~ 0 2 4").scale("C:major").s("supersaw").decay(0.1),
-  s("bd*4").gain(1.2),
-  s("clap").slow(2).delay(0.5)
+  melody,
+  chords,
+  stab,
+  s("bd*4")
 )
 ```
 
 ### 26. Hamunitishi (E-Sir)
 ```javascript
-// Hamunitishi - Attitude
+// Hamunitishi
 setcps(0.5)
+
+// 1. MELODY (Strings)
+const melody = note(cat(
+  "a3@1 c4@1 e4@1 a4@1"
+))
+  .s("strings")
+  .attack(0.1)
+  .velocity(0.9)
+
+// 2. CHORDS (Am)
+const chords = note("a2 e2 a2")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Orch Hit)
+const hit = note("0")
+  .scale("A:minor")
+  .s("strings")
+  .gain(0.5)
+
 stack(
-  note("a3 c4 e4 a4 ~ a3 c4").s("strings").attack(0.1),
-  s("kick snare"),
-  note("a1").s("bass").distort(0.3)
+  melody,
+  chords,
+  hit,
+  s("kick snare")
 )
 ```
 
 ### 27. Tuendelee (Kleptomaniax)
 ```javascript
-// Tuendelee - Diss Track
+// Tuendelee
 setcps(0.47)
+
+// 1. MELODY (Pluck)
+const melody = note(cat(
+  "c4@1 eb4@1 g4@1 c5@1"
+))
+  .s("pluck")
+  .room(0.4)
+  .velocity(0.8)
+
+// 2. CHORDS (Cm -> Bb -> Ab)
+const chords = note("c3 bb2 ab2 g2")
+  .chord("minor")
+  .s("pad")
+  .gain(0.5)
+
+// 3. IMPROV (Echo)
+const echo = note("7 ~")
+  .scale("C:minor")
+  .delay(0.5)
+  .gain(0.4)
+
 stack(
-  note("c4 eb4 g4 c5 ~ c4 eb4").s("pluck").room(0.4),
-  s("bd ~ sd ~").s("bd sd"),
-  note("c2").s("bass").slow(2)
+  melody,
+  chords,
+  echo,
+  s("bd sd")
 )
 ```
 
 ### 28. Swing Swing (Kleptomaniax)
 ```javascript
-// Swing Swing - Pop Rap
+// Swing Swing
 setcps(0.6)
+
+// 1. MELODY (Synth)
+const melody = note(cat(
+  "g4@1 b4@1 d5@1 b4@1"
+))
+  .s("synth")
+  .fast(2)
+  .velocity(0.8)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 d3 g3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (High Lead)
+const lead = note("7 7")
+  .scale("G:major")
+  .add(12)
+  .gain(0.4)
+
 stack(
-  note("g4 b4 d5 b4 ~ g4").s("synth").fast(2),
-  s("bd sd"),
-  s("hh*8")
+  melody,
+  chords,
+  lead,
+  s("bd sd")
 )
 ```
 
 ### 29. Unbwogable (Gidi Gidi Maji Maji)
 ```javascript
-// Unbwogable - Luo Rap
+// Unbwogable
 setcps(0.47)
+
+// 1. MELODY (Chant)
+const melody = note(cat(
+  "e4@1 g4@1 e4@1 d4@1"
+))
+  .s("voice")
+  .vowel("o")
+  .gain(0.8)
+
+// 2. CHORDS (Em)
+const chords = note("e3 b2 e3")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Bass Fill)
+const fill = note("0 2 0")
+  .scale("E:minor")
+  .s("bass")
+  .gain(0.5)
+
 stack(
-  note("e4 g4 e4 d4 ~ e4").s("voice").vowel("o").gain(0.8),
-  s("bd sd"),
-  note("e2").s("bass").slow(4)
+  melody,
+  chords,
+  fill,
+  s("bd sd")
 )
 ```
 
 ### 30. Manyake (Circuit & Joel)
 ```javascript
-// Manyake - Humor
+// Manyake
 setcps(0.65)
+
+// 1. MELODY (Lead)
+const melody = note(cat(
+  "c4@1 e4@1 g4@1 c5@1"
+))
+  .s("lead")
+  .portamento(0.2)
+  .velocity(0.8)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 f3 g3 c3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Cowbell)
+const cb = s("cowbell*4")
+  .gain(0.5)
+
 stack(
-  note("c4 e4 g4 c5 ~ c4").s("lead").portamento(0.2),
-  s("bd*4"),
-  s("cowbell").slow(2)
+  melody,
+  chords,
+  cb,
+  s("bd*4")
 )
 ```
 
 ### 31. Githurai (Mr. Google)
 ```javascript
-// Githurai - Hood Anthem
+// Githurai
 setcps(0.5)
+
+// 1. MELODY (Organ)
+const melody = note(cat(
+  "a3@1 c4@1 e4@1 a4@1"
+))
+  .s("organ")
+  .staccato(0.5)
+  .velocity(0.8)
+
+// 2. CHORDS (Am)
+const chords = note("a2 e2 a2")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Siren)
+const siren = s("siren")
+  .slow(8)
+  .gain(0.2)
+
 stack(
-  note("a3 c4 e4 a4 ~ a3").s("organ").staccato(0.5),
-  s("bd sd"),
-  s("siren").slow(8).gain(0.2)
+  melody,
+  chords,
+  siren,
+  s("bd sd")
 )
 ```
 
 ### 32. Morale (Pilipili)
 ```javascript
-// Morale - High Energy
+// Morale
 setcps(0.7)
+
+// 1. MELODY (Trance)
+const melody = note(cat(
+  "g4@1 b4@1 d5@1 g5@1"
+))
+  .s("trance")
+  .fast(4)
+  .velocity(0.8)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 c4 d4 g3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Clap Roll)
+const roll = s("clap*4")
+  .gain(0.5)
+
 stack(
-  note("g4 b4 d5 g5 ~ g4").s("trance").fast(4),
-  s("bd*4"),
-  s("clap").slow(2)
+  melody,
+  chords,
+  roll,
+  s("bd*4")
 )
 ```
 
 ### 33. Ukimwona (Pilipili)
 ```javascript
-// Ukimwona - Love Song
+// Ukimwona
 setcps(0.6)
+
+// 1. MELODY (Pads)
+const melody = note(cat(
+  "c4@2 f4@2",
+  "a4@2 c5@2"
+))
+  .s("pad")
+  .room(0.8)
+  .velocity(0.8)
+
+// 2. CHORDS (F Major)
+const chords = note("f3 c3 f3")
+  .chord("major")
+  .s("piano")
+  .gain(0.5)
+
+// 3. IMPROV (Rim Fill)
+const fill = s("rim*4")
+  .gain(0.5)
+
 stack(
-  note("c4 f4 a4 c5 ~ c4 f4").s("pad").slow(2),
-  s("rim*4"),
-  note("c2").s("bass").slow(2)
+  melody,
+  chords,
+  fill,
+  s("rim*4")
 )
 ```
 
 ### 34. Vuta Pumz (Longombas)
 ```javascript
-// Vuta Pumz - Catchy
+// Vuta Pumz
 setcps(0.65)
+
+// 1. MELODY (Synth)
+const melody = note(cat(
+  "e4@1 g4@1 b4@1 e5@1"
+))
+  .s("synth")
+  .arp("up")
+  .velocity(0.7)
+
+// 2. CHORDS (Em)
+const chords = note("e3 b2 e3")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Bass Slap)
+const slap = note("0")
+  .scale("E:minor")
+  .s("bass")
+  .slap(0.5)
+  .gain(0.4)
+
 stack(
-  note("e4 g4 b4 e5 ~ e4").s("synth").arp("up"),
-  s("bd sd bd sd"),
-  note("e2").s("bass").slow(2)
+  melody,
+  chords,
+  slap,
+  s("bd sd")
 )
 ```
 
 ### 35. Piga Makofi (Longombas)
 ```javascript
-// Piga Makofi - Celebration
+// Piga Makofi
 setcps(0.67)
+
+// 1. MELODY (Brass)
+const melody = note(cat(
+  "c4@1 e4@1 g4@1 c5@1"
+))
+  .s("brass")
+  .bright(0.6)
+  .velocity(0.9)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 g3 c3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Clap)
+const clap = s("clap*4")
+  .gain(0.8)
+
 stack(
-  note("c4 e4 g4 c5 ~ c4").s("brass").bright(0.6),
-  s("clap*4").gain(1.2),
-  s("bd*2")
+  melody,
+  chords,
+  clap,
+  s("clap*4").gain(1.2)
 )
 ```
 
 ### 36. Dondosa (Longombas)
 ```javascript
-// Dondosa - Dance
+// Dondosa
 setcps(0.65)
+
+// 1. MELODY (Lead)
+const melody = note(cat(
+  "d4@1 f#4@1 a4@1 d5@1"
+))
+  .s("lead")
+  .fast(2)
+  .velocity(0.8)
+
+// 2. CHORDS (D Major)
+const chords = note("d3 a2 d3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Bass Drop)
+const drop = note("0")
+  .scale("D:major")
+  .s("bass")
+  .gain(0.5)
+
 stack(
-  note("d4 f#4 a4 d5 ~ d4").s("lead").fast(2),
-  s("bd*4"),
-  s("hh*8")
+  melody,
+  chords,
+  drop,
+  s("bd*4")
 )
 ```
 
 ### 37. Teso (Tatuu)
 ```javascript
-// Teso - Pop Trio
+// Teso
 setcps(0.55)
+
+// 1. MELODY (Guitar)
+const melody = note(cat(
+  "g4@1 b4@1 d5@1 b4@1"
+))
+  .s("guitar")
+  .clean(0.5)
+  .velocity(0.8)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 c3 d3 g3")
+  .chord("major")
+  .s("pad")
+  .gain(0.5)
+
+// 3. IMPROV (Rim)
+const rim = s("rim*4")
+  .gain(0.5)
+
 stack(
-  note("g4 b4 d5 b4 ~ g4").s("guitar").clean(0.5),
-  s("rim*4"),
-  note("g2").s("bass").slow(2)
+  melody,
+  chords,
+  rim,
+  s("rim*4")
 )
 ```
 
 ### 38. Haiya (Harry Kimani)
 ```javascript
-// Haiya - Afro-Soul
+// Haiya
 setcps(0.5)
+
+// 1. MELODY (Acoustic)
+const melody = note(cat(
+  "e4@1 g#4@1 b4@1 e5@1"
+))
+  .s("acoustic")
+  .velocity(0.7)
+
+// 2. CHORDS (E Major)
+const chords = note("e3 a3 b3 e3")
+  .chord("major")
+  .s("pad")
+  .gain(0.5)
+
+// 3. IMPROV (Djembe)
+const djembe = s("djembe")
+  .gain(0.5)
+
 stack(
-  note("e4 g#4 b4 e5 ~ e4").s("acoustic").strum(0.2),
-  s("djembe").struct("x x ~ x"),
-  note("e2").s("bass").slow(2)
+  melody,
+  chords,
+  djembe,
+  s("djembe").struct("x x ~ x")
 )
 ```
 
 ### 39. Uhiki (Hardstone)
 ```javascript
-// Uhiki - R&B/Dancehall
+// Uhiki
 setcps(0.47)
+
+// 1. MELODY (Organ)
+const melody = note(cat(
+  "c4@1 e4@1 g4@1 c5@1"
+))
+  .s("organ")
+  .chop(4)
+  .velocity(0.8)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 g3 c3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Bass Run)
+const run = note("0 4 7")
+  .scale("C:major")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("c4 e4 g4 c5 ~ c4").s("organ").chop(4),
-  s("bd sd"),
-  note("c2").s("bass").slow(2)
+  melody,
+  chords,
+  run,
+  s("bd sd")
 )
 ```
 
 ### 40. Tafsiri Hii (Kalamashaka)
 ```javascript
-// Tafsiri Hii - Hardcore Rap
+// Tafsiri Hii
 setcps(0.45)
+
+// 1. MELODY (Strings)
+const melody = note(cat(
+  "c3@1 eb3@1 g3@1 c4@1"
+))
+  .s("strings")
+  .staccato(0.5)
+  .velocity(0.9)
+
+// 2. CHORDS (Cm)
+const chords = note("c2 g2 c2")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Hit)
+const hit = note("0")
+  .scale("C:minor")
+  .s("strings")
+  .gain(0.5)
+
 stack(
-  note("c3 eb3 g3 c4 ~ c3").s("strings").staccato(0.5),
-  s("bd sd"),
-  note("c1").s("bass").distort(0.4)
+  melody,
+  chords,
+  hit,
+  s("bd sd")
 )
 ```
 
@@ -467,222 +1373,628 @@ stack(
 
 ### 41. Sura Yako (Sauti Sol)
 ```javascript
-// Sura Yako - Lipala Dance
+// Sura Yako
 setcps(0.62)
+
+// 1. MELODY (Guitar)
+const melody = note(cat(
+  "e4@1 g4@1 a4@1 c5@1",
+  "a4@1 g4@3"
+))
+  .s("guitar")
+  .bright(0.5)
+  .velocity(0.9)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 f3 c3 g3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Clap)
+const clap = s("clap")
+  .gain(0.5)
+
 stack(
-  note("e4 g4 a4 c5 a4 g4 ~ e4").s("guitar").bright(0.5),
-  s("bd").struct("x ~ x x"), // Lipala kick pattern
-  s("clap").slow(2).delay(0.5),
-  note("c2 g2").s("bass").slow(2)
+  melody,
+  chords,
+  clap,
+  s("bd").struct("x ~ x x")
 )
 ```
 
 ### 42. Kuliko Jana (Sauti Sol)
 ```javascript
-// Kuliko Jana - A Capella feel
+// Kuliko Jana
 setcps(0.4)
+
+// 1. MELODY (Choir)
+const melody = note(cat(
+  "c4@1 e4@1 g4@1 c5@1"
+))
+  .s("choir")
+  .vowel("o a")
+  .velocity(0.8)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 g2 c3")
+  .chord("major")
+  .s("hum")
+  .gain(0.6)
+
+// 3. IMPROV (Snap)
+const snap = s("snap")
+  .gain(0.5)
+
 stack(
-  note("c4 e4 g4 c5 ~ g4 e4").s("choir").vowel("o a"),
-  note("c2 g2").s("hum").slow(2),
-  s("snap").slow(2).delay(0.5)
+  melody,
+  chords,
+  snap,
+  s("snap").slow(2)
 )
 ```
 
 ### 43. Melanin (Sauti Sol)
 ```javascript
-// Melanin - Afrobeat
+// Melanin
 setcps(0.52)
+
+// 1. MELODY (Kalimba)
+const melody = note(cat(
+  "d4@1 f#4@1 a4@1 d5@1"
+))
+  .s("kalimba")
+  .fast(2)
+  .velocity(0.8)
+
+// 2. CHORDS (D Major)
+const chords = note("d3 g3 d3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Perc)
+const perc = s("bongo")
+  .gain(0.5)
+
 stack(
-  note("d4 f#4 a4 d5 ~ d4").s("kalimba").fast(2),
-  s("bd ~ sd ~").s("bd sd"),
-  note("d2").s("bass").slow(2)
+  melody,
+  chords,
+  perc,
+  s("bd ~ sd ~")
 )
 ```
 
 ### 44. Suzanna (Sauti Sol)
 ```javascript
-// Suzanna - Retro Vibe
+// Suzanna
 setcps(0.55)
+
+// 1. MELODY (Guitar)
+const melody = note(cat(
+  "g4@1 b4@1 d5@1 g5@1"
+))
+  .s("guitar")
+  .wah(0.4)
+  .velocity(0.8)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 c3 d3 g3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Bass Slide)
+const slide = note("0")
+  .scale("G:major")
+  .s("bass")
+  .slide(0.2)
+  .gain(0.4)
+
 stack(
-  note("g4 b4 d5 g5 ~ g4").s("guitar").wah(0.4),
-  s("rim*4"),
-  note("g2").s("bass").slow(2)
+  melody,
+  chords,
+  slide,
+  s("rim*4")
 )
 ```
 
 ### 45. Extravaganza (Sauti Sol)
 ```javascript
-// Extravaganza - Rhumba Trap
+// Extravaganza
 setcps(0.55)
+
+// 1. MELODY (Rhodes)
+const melody = note(cat(
+  "c4@1 e4@1 g4@1 c5@1"
+))
+  .s("rhodes")
+  .tremolo(4, 0.4)
+  .velocity(0.8)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 f3 c3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Trap Roll)
+const roll = s("hh*8")
+  .gain(0.4)
+
 stack(
-  note("c4 e4 g4 c5 ~ c4").s("rhodes").tremolo(4, 0.4),
-  s("bd sd"),
-  s("shaker*16")
+  melody,
+  chords,
+  roll,
+  s("bd sd")
 )
 ```
 
 ### 46. Short N Sweet (Sauti Sol)
 ```javascript
-// Short N Sweet - Acoustic Pop
+// Short N Sweet
 setcps(0.5)
+
+// 1. MELODY (Guitar)
+const melody = note(cat(
+  "e4@1 g#4@1 b4@1 e5@1"
+))
+  .s("guitar")
+  .pluck(0.5)
+  .velocity(0.8)
+
+// 2. CHORDS (E Major)
+const chords = note("e3 a3 b3 e3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Snap)
+const snap = s("snap")
+  .gain(0.5)
+
 stack(
-  note("e4 g#4 b4 e5 ~ e4").s("guitar").pluck(0.5),
-  s("snap").slow(2),
-  note("e2").s("bass").slow(2)
+  melody,
+  chords,
+  snap,
+  s("snap").slow(2)
 )
 ```
 
 ### 47. Mungu Pekee (Nyashinski)
 ```javascript
-// Mungu Pekee - Uplifting
+// Mungu Pekee
 setcps(0.5)
+
+// 1. MELODY (Pad)
+const melody = note(cat(
+  "g4@1 b4@1 d5@1 g5@1"
+))
+  .s("pad")
+  .slow(2)
+  .velocity(0.7)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 c3 d3 g3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Fill)
+const fill = s("sd")
+  .gain(0.5)
+
 stack(
-  note("g4 b4 d5 g5 ~ g4").s("pad").slow(2),
-  s("bd sd"),
-  note("g2").s("bass").slow(2)
+  melody,
+  chords,
+  fill,
+  s("bd sd")
 )
 ```
 
 ### 48. Malaika (Nyashinski)
 ```javascript
-// Malaika - Modern Ballad
+// Malaika
 setcps(0.45)
+
+// 1. MELODY (Piano)
+const melody = note(cat(
+  "c4@1 e4@1 g4@1 c5@1"
+))
+  .s("piano")
+  .room(0.8)
+  .velocity(0.7)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 f3 c3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Build)
+const build = s("bd*4")
+  .gain(0.5)
+
 stack(
-  note("c4 e4 g4 c5 ~ c4").s("piano").room(0.8),
-  s("bd").slow(2),
-  note("c2").s("bass").slow(2)
+  melody,
+  chords,
+  build,
+  s("bd").slow(2)
 )
 ```
 
 ### 49. Hayawani (Nyashinski)
 ```javascript
-// Hayawani - Social Conscious
+// Hayawani
 setcps(0.45)
+
+// 1. MELODY (Strings)
+const melody = note(cat(
+  "d4@1 f4@1 a4@1 d5@1"
+))
+  .s("strings")
+  .attack(0.2)
+  .velocity(0.8)
+
+// 2. CHORDS (Dm)
+const chords = note("d3 g3 a3 d3")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Growl)
+const growl = note("0")
+  .scale("D:minor")
+  .s("bass")
+  .distort(0.4)
+  .gain(0.4)
+
 stack(
-  note("d4 f4 a4 d5 ~ d4").s("strings").attack(0.2),
-  s("bd sd"),
-  note("d1").s("bass").slow(2)
+  melody,
+  chords,
+  growl,
+  s("bd sd")
 )
 ```
 
 ### 50. Now You Know (Nyashinski)
 ```javascript
-// Now You Know - Comeback
+// Now You Know
 setcps(0.6)
+
+// 1. MELODY (Synth)
+const melody = note(cat(
+  "e4@1 g4@1 b4@1 e5@1"
+))
+  .s("synth")
+  .fast(2)
+  .velocity(0.8)
+
+// 2. CHORDS (Em)
+const chords = note("e3 c3 d3 e3")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Roll)
+const roll = s("hh*8")
+  .gain(0.5)
+
 stack(
-  note("e4 g4 b4 e5 ~ e4").s("synth").fast(2),
-  s("bd sd"),
-  s("hh*8")
+  melody,
+  chords,
+  roll,
+  s("bd sd")
 )
 ```
 
 ### 51. Kookoo (Elani)
 ```javascript
-// Kookoo - Catchy
+// Kookoo
 setcps(0.55)
+
+// 1. MELODY (Uke)
+const melody = note(cat(
+  "c4@1 e4@1 g4@1 c5@1"
+))
+  .s("ukulele")
+  .velocity(0.8)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 f3 g3 c3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Clap)
+const clap = s("clap")
+  .gain(0.5)
+
 stack(
-  note("c4 e4 g4 c5 ~ c4").s("ukulele").strum(0.1),
-  s("clap*4"),
-  note("c2").s("bass")
+  melody,
+  chords,
+  clap,
+  s("clap*4")
 )
 ```
 
 ### 52. Milele (Elani)
 ```javascript
-// Milele - Wedding Song
+// Milele
 setcps(0.45)
+
+// 1. MELODY (Piano)
+const melody = note(cat(
+  "f4@1 a4@1 c5@1 f5@1"
+))
+  .s("piano")
+  .arpeggio()
+  .velocity(0.7)
+
+// 2. CHORDS (F Major)
+const chords = note("f3 bb3 c3 f3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Shaker)
+const shaker = s("shaker")
+  .gain(0.4)
+
 stack(
-  note("f4 a4 c5 f5 ~ f4").s("piano").arpeggio(),
-  s("shaker").slow(2),
-  note("f2").s("bass").slow(2)
+  melody,
+  chords,
+  shaker,
+  s("shaker").slow(2)
 )
 ```
 
 ### 53. Uliza Kiatu (H_art the Band)
 ```javascript
-// Uliza Kiatu - Spoken Word
+// Uliza Kiatu
 setcps(0.5)
+
+// 1. MELODY (Guitar)
+const melody = note(cat(
+  "g4@1 b4@1 d5@1 g5@1"
+))
+  .s("guitar")
+  .slow(2)
+  .velocity(0.8)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 c3 d3 g3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Snap)
+const snap = s("snap")
+  .gain(0.5)
+
 stack(
-  note("g4 b4 d5 g5 ~ g4").s("guitar").slow(2),
-  s("snap").slow(2).delay(0.5),
-  note("g2").s("bass").slow(2)
+  melody,
+  chords,
+  snap,
+  s("snap").slow(2)
 )
 ```
 
 ### 54. El Shaddai (H_art the Band)
 ```javascript
-// El Shaddai - Worship
+// El Shaddai
 setcps(0.4)
+
+// 1. MELODY (Pad)
+const melody = note(cat(
+  "c4@1 e4@1 g4@1 c5@1"
+))
+  .s("pad")
+  .slow(4)
+  .velocity(0.7)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 g2 c3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Kick)
+const kick = s("bd")
+  .gain(0.5)
+
 stack(
-  note("c4 e4 g4 c5 ~ c4").s("pad").slow(4),
-  s("bd").slow(2),
-  note("c2").s("bass").slow(4)
+  melody,
+  chords,
+  kick,
+  s("bd").slow(2)
 )
 ```
 
 ### 55. Dus Nya (Otile Brown)
 ```javascript
-// Dus Nya - Swahili R&B
+// Dus Nya
 setcps(0.52)
+
+// 1. MELODY (Rhodes)
+const melody = note(cat(
+  "a3@1 c4@1 e4@1 a4@1"
+))
+  .s("rhodes")
+  .room(0.5)
+  .velocity(0.8)
+
+// 2. CHORDS (Am)
+const chords = note("a2 e2 a2")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Fill)
+const fill = s("sd")
+  .gain(0.5)
+
 stack(
-  note("a3 c4 e4 a4 ~ a3").s("rhodes").room(0.5),
-  s("bd sd"),
-  note("a1").s("bass").slow(2)
+  melody,
+  chords,
+  fill,
+  s("bd sd")
 )
 ```
 
 ### 56. Chaguo la Moyo (Otile Brown)
 ```javascript
-// Chaguo la Moyo - Wedding
+// Chaguo la Moyo
 setcps(0.47)
+
+// 1. MELODY (Piano)
+const melody = note(cat(
+  "d4@1 f#4@1 a4@1 d5@1"
+))
+  .s("piano")
+  .velocity(0.8)
+
+// 2. CHORDS (D Major)
+const chords = note("d3 g3 a3 d3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Rim)
+const rim = s("rim")
+  .gain(0.5)
+
 stack(
-  note("d4 f#4 a4 d5 ~ d4").s("piano").velocity(0.7),
-  s("rim*4"),
-  note("d2").s("bass").slow(2)
+  melody,
+  chords,
+  rim,
+  s("rim*4")
 )
 ```
 
 ### 57. Baby Love (Otile Brown)
 ```javascript
-// Baby Love - Romantic
+// Baby Love
 setcps(0.5)
+
+// 1. MELODY (Guitar)
+const melody = note(cat(
+  "g4@1 b4@1 d5@1 g5@1"
+))
+  .s("guitar")
+  .clean(0.5)
+  .velocity(0.8)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 c3 d3 g3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("G:major")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("g4 b4 d5 g5 ~ g4").s("guitar").clean(0.5),
-  s("bd sd"),
-  note("g2").s("bass")
+  melody,
+  chords,
+  bass,
+  s("bd sd")
 )
 ```
 
 ### 58. Mafeelings (Dela)
 ```javascript
-// Mafeelings - Breakup
+// Mafeelings
 setcps(0.5)
+
+// 1. MELODY (Piano)
+const melody = note(cat(
+  "e4@1 g4@1 b4@1 e5@1"
+))
+  .s("piano")
+  .chord("minor")
+  .velocity(0.7)
+
+// 2. CHORDS (Em)
+const chords = note("e3 a3 b3 e3")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Hit)
+const hit = s("bd")
+  .gain(0.5)
+
 stack(
-  note("e4 g4 b4 e5 ~ e4").s("piano").chord("minor"),
-  s("bd sd"),
-  note("e2").s("bass")
+  melody,
+  chords,
+  hit,
+  s("bd sd")
 )
 ```
 
 ### 59. Kama Kawaida (Kagwe Mungai)
 ```javascript
-// Kama Kawaida - Collab
+// Kama Kawaida
 setcps(0.55)
+
+// 1. MELODY (Synth)
+const melody = note(cat(
+  "c4@1 e4@1 g4@1 c5@1"
+))
+  .s("synth")
+  .bright(0.4)
+  .velocity(0.8)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 f3 g3 c3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Clap)
+const clap = s("clap")
+  .gain(0.5)
+
 stack(
-  note("c4 e4 g4 c5 ~ c4").s("synth").bright(0.4),
-  s("bd*4"),
-  s("clap").slow(2)
+  melody,
+  chords,
+  clap,
+  s("bd*4")
 )
 ```
 
 ### 60. Doing Her Thing Tho (Fena Gitu)
 ```javascript
-// Doing Her Thing - Fenamenal
+// Doing Her Thing
 setcps(0.52)
+
+// 1. MELODY (Organ)
+const melody = note(cat(
+  "f4@1 a4@1 c5@1 f5@1"
+))
+  .s("organ")
+  .staccato(0.5)
+  .velocity(0.8)
+
+// 2. CHORDS (F Major)
+const chords = note("f3 bb3 c3 f3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Kick)
+const kick = s("bd")
+  .gain(0.5)
+
 stack(
-  note("f4 a4 c5 f5 ~ f4").s("organ").staccato(0.5),
-  s("bd sd"),
-  note("f2").s("bass")
+  melody,
+  chords,
+  kick,
+  s("bd sd")
 )
 ```
 
@@ -692,221 +2004,635 @@ stack(
 
 ### 61. System ya Kapungala (Daddy Owen)
 ```javascript
-// System ya Kapungala - Lingala Gospel
+// System ya Kapungala
 setcps(0.7)
+
+// 1. MELODY (Guitar)
+const melody = note(cat(
+  "c5@1 c5@1 b4@1 a4@1"
+))
+  .s("guitar")
+  .highpass(1000)
+  .fast(2)
+  .velocity(0.9)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 g3 c3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Fill)
+const fill = s("snare")
+  .gain(0.5)
+
 stack(
-  note("c5 c5 b4 a4 g4 ~ c5").s("guitar").highpass(1000).fast(2), // Seben
-  s("kick [snare snare]").fast(2), // Seben fill
-  s("shout").slow(4)
+  melody,
+  chords,
+  fill,
+  s("kick [snare snare]").fast(2)
 )
 ```
 
 ### 62. Tobina (Daddy Owen)
 ```javascript
-// Tobina - Dance
+// Tobina
 setcps(0.7)
+
+// 1. MELODY (Brass)
+const melody = note(cat(
+  "g4@1 b4@1 d5@1 g5@1"
+))
+  .s("brass")
+  .staccato(0.5)
+  .velocity(0.9)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 c3 d3 g3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Whistle)
+const whistle = s("whistle")
+  .gain(0.4)
+
 stack(
-  note("g4 b4 d5 g5 ~ g4").s("brass").staccato(0.5),
-  s("bd*4"),
-  s("whistle").slow(2)
+  melody,
+  chords,
+  whistle,
+  s("bd*4")
 )
 ```
 
 ### 63. Mbona (Daddy Owen)
 ```javascript
-// Mbona - Reflective
+// Mbona
 setcps(0.45)
+
+// 1. MELODY (Piano)
+const melody = note(cat(
+  "e4@1 g4@1 b4@1 e5@1"
+))
+  .s("piano")
+  .room(0.7)
+  .velocity(0.7)
+
+// 2. CHORDS (E Major)
+const chords = note("e3 a3 b3 e3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("E:major")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("e4 g4 b4 e5 ~ e4").s("piano").room(0.7),
-  s("bd").slow(2),
-  note("e2").s("bass").slow(2)
+  melody,
+  chords,
+  bass,
+  s("bd").slow(2)
 )
 ```
 
 ### 64. Kuna Dawa (Esther Wahome)
 ```javascript
-// Kuna Dawa - Classic
+// Kuna Dawa
 setcps(0.65)
+
+// 1. MELODY (Organ)
+const melody = note(cat(
+  "c4@1 e4@1 g4@1 c5@1"
+))
+  .s("organ")
+  .bright(0.6)
+  .velocity(0.8)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 f3 g3 c3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Roll)
+const roll = s("sd")
+  .gain(0.5)
+
 stack(
-  note("c4 e4 g4 c5 ~ c4").s("organ").bright(0.6),
-  s("bd sd"),
-  note("c2").s("bass").fast(2)
+  melody,
+  chords,
+  roll,
+  s("bd sd")
 )
 ```
 
 ### 65. Mwema (Mercy Masika)
 ```javascript
-// Mwema - Worship
+// Mwema
 setcps(0.4)
+
+// 1. MELODY (Strings)
+const melody = note(cat(
+  "g4@1 b4@1 d5@1 g5@1"
+))
+  .s("strings")
+  .slow(2)
+  .velocity(0.7)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 c3 d3 g3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Build)
+const build = s("bd")
+  .gain(0.5)
+
 stack(
-  note("g4 b4 d5 g5 ~ g4").s("strings").slow(2),
-  s("bd").slow(2),
-  note("g2").s("bass").slow(4)
+  melody,
+  chords,
+  build,
+  s("bd").slow(2)
 )
 ```
 
 ### 66. Nikupendeze (Mercy Masika)
 ```javascript
-// Nikupendeze - Devotion
+// Nikupendeze
 setcps(0.42)
+
+// 1. MELODY (Piano)
+const melody = note(cat(
+  "d4@1 f#4@1 a4@1 d5@1"
+))
+  .s("piano")
+  .arpeggio()
+  .velocity(0.7)
+
+// 2. CHORDS (D Major)
+const chords = note("d3 g3 a3 d3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Shaker)
+const shaker = s("shaker")
+  .gain(0.4)
+
 stack(
-  note("d4 f#4 a4 d5 ~ d4").s("piano").arpeggio(),
-  s("shaker").slow(2),
-  note("d2").s("bass")
+  melody,
+  chords,
+  shaker,
+  s("shaker").slow(2)
 )
 ```
 
 ### 67. Utawala (Juliani)
 ```javascript
-// Utawala - Revolution
+// Utawala
 setcps(0.47)
+
+// 1. MELODY (Guitar)
+const melody = note(cat(
+  "c4@1 eb4@1 g4@1 c5@1"
+))
+  .s("guitar")
+  .distort(0.3)
+  .velocity(0.8)
+
+// 2. CHORDS (Cm)
+const chords = note("c2 g2 c2")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Drum)
+const drum = s("bd")
+  .gain(0.5)
+
 stack(
-  note("c4 eb4 g4 c5 ~ c4").s("guitar").distort(0.3),
-  s("bd sd"),
-  note("c2").s("bass")
+  melody,
+  chords,
+  drum,
+  s("bd sd")
 )
 ```
 
 ### 68. Hela (Juliani)
 ```javascript
-// Hela - Hip Hop
+// Hela
 setcps(0.45)
+
+// 1. MELODY (Synth)
+const melody = note(cat(
+  "e4@1 g4@1 b4@1 e5@1"
+))
+  .s("synth")
+  .chop(4)
+  .velocity(0.7)
+
+// 2. CHORDS (Em)
+const chords = note("e3 b2 e3")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Hat)
+const hat = s("hh")
+  .gain(0.4)
+
 stack(
-  note("e4 g4 b4 e5 ~ e4").s("synth").chop(4),
-  s("bd sd"),
-  s("hh*8")
+  melody,
+  chords,
+  hat,
+  s("bd sd")
 )
 ```
 
 ### 69. Biasi (Juliani)
 ```javascript
-// Biasi - Commentary
+// Biasi
 setcps(0.47)
+
+// 1. MELODY (Pluck)
+const melody = note(cat(
+  "a3@1 c4@1 e4@1 a4@1"
+))
+  .s("pluck")
+  .room(0.4)
+  .velocity(0.8)
+
+// 2. CHORDS (Am)
+const chords = note("a2 e2 a2")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("A:minor")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("a3 c4 e4 a4 ~ a3").s("pluck").room(0.4),
-  s("bd sd"),
-  note("a1").s("bass")
+  melody,
+  chords,
+  bass,
+  s("bd sd")
 )
 ```
 
 ### 70. Sitolia (Gloria Muliro)
 ```javascript
-// Sitolia - Comfort
+// Sitolia
 setcps(0.45)
+
+// 1. MELODY (Piano)
+const melody = note(cat(
+  "f4@1 a4@1 c5@1 f5@1"
+))
+  .s("piano")
+  .slow(2)
+  .velocity(0.7)
+
+// 2. CHORDS (F Major)
+const chords = note("f3 c3 f3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Rim)
+const rim = s("rim")
+  .gain(0.5)
+
 stack(
-  note("f4 a4 c5 f5 ~ f4").s("piano").slow(2),
-  s("rim").slow(2),
-  note("f2").s("bass")
+  melody,
+  chords,
+  rim,
+  s("rim").slow(2)
 )
 ```
 
 ### 71. Mpango wa Kando (Gloria Muliro)
 ```javascript
-// Mpango wa Kando - Warning
+// Mpango wa Kando
 setcps(0.6)
+
+// 1. MELODY (Organ)
+const melody = note(cat(
+  "g4@1 b4@1 d5@1 g5@1"
+))
+  .s("organ")
+  .fast(2)
+  .velocity(0.8)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 c3 d3 g3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("G:major")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("g4 b4 d5 g5 ~ g4").s("organ").fast(2),
-  s("bd sd"),
-  note("g2").s("bass")
+  melody,
+  chords,
+  bass,
+  s("bd sd")
 )
 ```
 
 ### 72. Mateke (Size 8)
 ```javascript
-// Mateke - Energy
+// Mateke
 setcps(0.67)
+
+// 1. MELODY (Lead)
+const melody = note(cat(
+  "c4@1 e4@1 g4@1 c5@1"
+))
+  .s("sawtooth")
+  .bright(0.8)
+  .velocity(0.8)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 g3 c3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Roll)
+const roll = s("snare")
+  .gain(0.5)
+
 stack(
-  note("c4 e4 g4 c5 ~ c4").s("sawtooth").bright(0.8),
-  s("bd*4"),
-  s("snare").slow(2)
+  melody,
+  chords,
+  roll,
+  s("bd*4")
 )
 ```
 
 ### 73. Pale Pale (Size 8)
 ```javascript
-// Pale Pale - Testimony
+// Pale Pale
 setcps(0.6)
+
+// 1. MELODY (Synth)
+const melody = note(cat(
+  "d4@1 f#4@1 a4@1 d5@1"
+))
+  .s("synth")
+  .pluck(0.4)
+  .velocity(0.8)
+
+// 2. CHORDS (D Major)
+const chords = note("d3 g3 a3 d3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("D:major")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("d4 f#4 a4 d5 ~ d4").s("synth").pluck(0.4),
-  s("bd sd"),
-  note("d2").s("bass")
+  melody,
+  chords,
+  bass,
+  s("bd sd")
 )
 ```
 
 ### 74. Tambira (Daddy Owen)
 ```javascript
-// Tambira - Celebration
+// Tambira
 setcps(0.65)
+
+// 1. MELODY (Brass)
+const melody = note(cat(
+  "e4@1 g#4@1 b4@1 e5@1"
+))
+  .s("brass")
+  .staccato(0.6)
+  .velocity(0.9)
+
+// 2. CHORDS (E Major)
+const chords = note("e3 a3 b3 e3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Clap)
+const clap = s("clap")
+  .gain(0.5)
+
 stack(
-  note("e4 g#4 b4 e5 ~ e4").s("brass").staccato(0.6),
-  s("bd*4"),
-  s("clap").slow(2)
+  melody,
+  chords,
+  clap,
+  s("bd*4")
 )
 ```
 
 ### 75. Fanya (Willy Paul)
 ```javascript
-// Fanya - Pop Gospel
+// Fanya
 setcps(0.6)
+
+// 1. MELODY (Lead)
+const melody = note(cat(
+  "a3@1 c4@1 e4@1 a4@1"
+))
+  .s("lead")
+  .fast(2)
+  .velocity(0.8)
+
+// 2. CHORDS (Am)
+const chords = note("a2 e2 a2")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("A:minor")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("a3 c4 e4 a4 ~ a3").s("lead").fast(2),
-  s("bd sd"),
-  note("a1").s("bass")
+  melody,
+  chords,
+  bass,
+  s("bd sd")
 )
 ```
 
 ### 76. Sitishiki (Willy Paul)
 ```javascript
-// Sitishiki - Confidence
+// Sitishiki
 setcps(0.55)
+
+// 1. MELODY (Pad)
+const melody = note(cat(
+  "c4@1 e4@1 g4@1 c5@1"
+))
+  .s("pad")
+  .slow(2)
+  .velocity(0.8)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 f3 g3 c3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Fill)
+const fill = s("sd")
+  .gain(0.5)
+
 stack(
-  note("c4 e4 g4 c5 ~ c4").s("pad").slow(2),
-  s("bd sd"),
-  note("c2").s("bass")
+  melody,
+  chords,
+  fill,
+  s("bd sd")
 )
 ```
 
 ### 77. Mama (Bahati)
 ```javascript
-// Mama - Emotional
+// Mama
 setcps(0.45)
+
+// 1. MELODY (Piano)
+const melody = note(cat(
+  "g4@1 b4@1 d5@1 g5@1"
+))
+  .s("piano")
+  .room(0.8)
+  .velocity(0.7)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 c3 d3 g3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Build)
+const build = s("bd")
+  .gain(0.5)
+
 stack(
-  note("g4 b4 d5 g5 ~ g4").s("piano").room(0.8),
-  s("bd").slow(2),
-  note("g2").s("bass")
+  melody,
+  chords,
+  build,
+  s("bd").slow(2)
 )
 ```
 
 ### 78. Barua (Bahati)
 ```javascript
-// Barua - Letter
+// Barua
 setcps(0.5)
+
+// 1. MELODY (Guitar)
+const melody = note(cat(
+  "d4@1 f#4@1 a4@1 d5@1"
+))
+  .s("guitar")
+  .velocity(0.8)
+
+// 2. CHORDS (D Major)
+const chords = note("d3 g3 a3 d3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("D:major")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("d4 f#4 a4 d5 ~ d4").s("guitar").strum(0.2),
-  s("bd sd"),
-  note("d2").s("bass")
+  melody,
+  chords,
+  bass,
+  s("bd sd")
 )
 ```
 
 ### 79. Kitanzi (Willy Paul)
 ```javascript
-// Kitanzi - Ballad
+// Kitanzi
 setcps(0.42)
+
+// 1. MELODY (Strings)
+const melody = note(cat(
+  "e4@1 g#4@1 b4@1 e5@1"
+))
+  .s("strings")
+  .slow(2)
+  .velocity(0.7)
+
+// 2. CHORDS (E Major)
+const chords = note("e3 a3 b3 e3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Kick)
+const kick = s("bd")
+  .gain(0.5)
+
 stack(
-  note("e4 g#4 b4 e5 ~ e4").s("strings").slow(2),
-  s("bd").slow(2),
-  note("e2").s("bass")
+  melody,
+  chords,
+  kick,
+  s("bd").slow(2)
 )
 ```
 
 ### 80. Vanity (Daddy Owen)
 ```javascript
-// Vanity - Reflection
+// Vanity
 setcps(0.55)
+
+// 1. MELODY (Rhodes)
+const melody = note(cat(
+  "c4@1 eb4@1 g4@1 c5@1"
+))
+  .s("rhodes")
+  .tremolo(2, 0.4)
+  .velocity(0.7)
+
+// 2. CHORDS (Cm)
+const chords = note("c3 g2 c3")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("C:minor")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("c4 eb4 g4 c5 ~ c4").s("rhodes").tremolo(2, 0.4),
-  s("bd sd"),
-  note("c2").s("bass")
+  melody,
+  chords,
+  bass,
+  s("bd sd")
 )
 ```
 
@@ -916,220 +2642,641 @@ stack(
 
 ### 81. Kisumu 100 (Suzanna Owiyo)
 ```javascript
-// Kisumu 100 - Benga Celebration
+// Kisumu 100 - Accurate
 setcps(0.65)
+
+// 1. MELODY (Guitar Riff)
+const melody = note(cat(
+  "g4@1 b4@1 d5@1 g5@1",
+  "d5@1 b4@1 g4@2"
+))
+  .s("guitar")
+  .clean(0.6)
+  .fast(2)
+  .velocity(0.9)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 c3 d3 g3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Solo Lick)
+const lick = note("7 4 0")
+  .scale("G:major")
+  .s("clean")
+  .gain(0.4)
+
 stack(
-  note("g4 b4 d5 g5 ~ g4").s("guitar").clean(0.6).fast(2),
-  s("bd sd"),
-  note("g2").s("bass").arp("up")
+  melody,
+  chords,
+  lick,
+  s("bd sd")
 )
 ```
 
 ### 82. Sandakarawe (Suzanna Owiyo)
 ```javascript
-// Sandakarawe - Traditional
+// Sandakarawe
 setcps(0.6)
+
+// 1. MELODY (Kalimba)
+const melody = note(cat(
+  "c4@1 e4@1 g4@1 c5@1"
+))
+  .s("kalimba")
+  .fast(2)
+  .velocity(0.8)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 f3 g3 c3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Shaker)
+const shaker = s("shaker")
+  .gain(0.5)
+
 stack(
-  note("c4 e4 g4 c5 ~ c4").s("kalimba").fast(2),
-  s("shaker*8"),
-  note("c2").s("bass")
+  melody,
+  chords,
+  shaker,
+  s("shaker*8")
 )
 ```
 
 ### 83. Nchi ya Kitu Kidogo (Eric Wainaina)
 ```javascript
-// Nchi ya Kitu Kidogo - Corruption
+// Nchi ya Kitu Kidogo
 setcps(0.5)
+
+// 1. MELODY (Organ)
+const melody = note(cat(
+  "a3@1 c4@1 e4@1 a4@1"
+))
+  .s("organ")
+  .staccato(0.5)
+  .velocity(0.8)
+
+// 2. CHORDS (Am)
+const chords = note("a2 e2 a2")
+  .chord("minor")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("A:minor")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("a3 c4 e4 a4 ~ a3").s("organ").staccato(0.5),
-  s("bd sd"),
-  note("a1").s("bass").slow(2)
+  melody,
+  chords,
+  bass,
+  s("bd sd")
 )
 ```
 
 ### 84. Ritwa Riaku (Eric Wainaina)
 ```javascript
-// Ritwa Riaku - Kikuyu Pop
+// Ritwa Riaku
 setcps(0.55)
+
+// 1. MELODY (Guitar)
+const melody = note(cat(
+  "d4@1 f#4@1 a4@1 d5@1"
+))
+  .s("guitar")
+  .velocity(0.8)
+
+// 2. CHORDS (D Major)
+const chords = note("d3 g3 a3 d3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Fill)
+const fill = s("bd")
+  .gain(0.5)
+
 stack(
-  note("d4 f#4 a4 d5 ~ d4").s("guitar").strum(0.1),
-  s("bd sd"),
-  note("d2").s("bass")
+  melody,
+  chords,
+  fill,
+  s("bd sd")
 )
 ```
 
 ### 85. Ha-He (Just A Band)
 ```javascript
-// Ha-He - Makmende
+// Ha-He
 setcps(0.6)
+
+// 1. MELODY (Synth)
+const melody = note(cat(
+  "e4@1 g4@1 b4@1 e5@1"
+))
+  .s("sawtooth")
+  .distort(0.4)
+  .velocity(0.8)
+
+// 2. CHORDS (Em)
+const chords = note("e3 b2 e3")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("E:minor")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("e4 g4 b4 e5 ~ e4").s("sawtooth").distort(0.4),
-  s("bd sd"),
-  note("e2").s("bass").slap(0.5)
+  melody,
+  chords,
+  bass,
+  s("bd sd")
 )
 ```
 
 ### 86. Makmende (Just A Band)
 ```javascript
-// Makmende - Returns
+// Makmende
 setcps(0.62)
+
+// 1. MELODY (Arp)
+const melody = note(cat(
+  "c4@1 eb4@1 g4@1 c5@1"
+))
+  .s("synth")
+  .arpeggio()
+  .velocity(0.7)
+
+// 2. CHORDS (Cm)
+const chords = note("c3 g2 c3")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Kick)
+const kick = s("bd")
+  .gain(0.5)
+
 stack(
-  note("c4 eb4 g4 c5 ~ c4").s("synth").arpeggio(),
-  s("bd*4"),
-  s("hh*8")
+  melody,
+  chords,
+  kick,
+  s("bd*4")
 )
 ```
 
 ### 87. Party Don't Stop (Camp Mulla)
 ```javascript
-// Party Don't Stop - Urban Pop
+// Party Don't Stop
 setcps(0.64)
+
+// 1. MELODY (Lead)
+const melody = note(cat(
+  "f4@1 a4@1 c5@1 f5@1"
+))
+  .s("square")
+  .bright(0.5)
+  .velocity(0.8)
+
+// 2. CHORDS (F Major)
+const chords = note("f3 bb3 c3 f3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Clap)
+const clap = s("clap")
+  .gain(0.5)
+
 stack(
-  note("f4 a4 c5 f5 ~ f4").s("square").bright(0.5),
-  s("bd sd"),
-  s("clap").slow(2)
+  melody,
+  chords,
+  clap,
+  s("bd sd")
 )
 ```
 
 ### 88. K'Lang (Camp Mulla)
 ```javascript
-// K'Lang - Smooth
+// K'Lang
 setcps(0.55)
+
+// 1. MELODY (Pad)
+const melody = note(cat(
+  "g4@1 bb4@1 d5@1 g5@1"
+))
+  .s("pad")
+  .slow(2)
+  .velocity(0.8)
+
+// 2. CHORDS (Gm)
+const chords = note("g3 c3 d3 g3")
+  .chord("minor")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("G:minor")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("g4 bb4 d5 g5 ~ g4").s("pad").slow(2),
-  s("bd sd"),
-  note("g2").s("bass")
+  melody,
+  chords,
+  bass,
+  s("bd sd")
 )
 ```
 
 ### 89. Hold It Down (Camp Mulla)
 ```javascript
-// Hold It Down - Chill
+// Hold It Down
 setcps(0.5)
+
+// 1. MELODY (Piano)
+const melody = note(cat(
+  "a3@1 c4@1 e4@1 a4@1"
+))
+  .s("piano")
+  .room(0.6)
+  .velocity(0.7)
+
+// 2. CHORDS (Am)
+const chords = note("a2 e2 a2")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Snap)
+const snap = s("snap")
+  .gain(0.5)
+
 stack(
-  note("a3 c4 e4 a4 ~ a3").s("piano").room(0.6),
-  s("snap").slow(2),
-  note("a1").s("bass")
+  melody,
+  chords,
+  snap,
+  s("snap").slow(2)
 )
 ```
 
 ### 90. Kwaheri (Jua Cali)
 ```javascript
-// Kwaheri - Goodbye
+// Kwaheri
 setcps(0.55)
+
+// 1. MELODY (Guitar)
+const melody = note(cat(
+  "c4@1 e4@1 g4@1 c5@1"
+))
+  .s("guitar")
+  .clean(0.4)
+  .velocity(0.8)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 f3 g3 c3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Rim)
+const rim = s("rim")
+  .gain(0.5)
+
 stack(
-  note("c4 e4 g4 c5 ~ c4").s("guitar").clean(0.4),
-  s("rim*4"),
-  note("c2").s("bass").slow(2)
+  melody,
+  chords,
+  rim,
+  s("rim*4")
 )
 ```
 
 ### 91. Bidii Yangu (Jua Cali)
 ```javascript
-// Bidii Yangu - Hustle
+// Bidii Yangu
 setcps(0.5)
+
+// 1. MELODY (Organ)
+const melody = note(cat(
+  "e4@1 g#4@1 b4@1 e5@1"
+))
+  .s("organ")
+  .staccato(0.5)
+  .velocity(0.8)
+
+// 2. CHORDS (E Major)
+const chords = note("e3 a3 b3 e3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("E:major")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("e4 g#4 b4 e5 ~ e4").s("organ").staccato(0.5),
-  s("bd sd"),
-  note("e2").s("bass")
+  melody,
+  chords,
+  bass,
+  s("bd sd")
 )
 ```
 
 ### 92. Kamata (Jua Cali)
 ```javascript
-// Kamata - Party
+// Kamata
 setcps(0.6)
+
+// 1. MELODY (Lead)
+const melody = note(cat(
+  "g4@1 b4@1 d5@1 g5@1"
+))
+  .s("lead")
+  .fast(2)
+  .velocity(0.7)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 c3 d3 g3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Kick)
+const kick = s("bd")
+  .gain(0.5)
+
 stack(
-  note("g4 b4 d5 g5 ~ g4").s("lead").fast(2),
-  s("bd*4"),
-  s("hh*8")
+  melody,
+  chords,
+  kick,
+  s("bd*4")
 )
 ```
 
 ### 93. Under 18 (Jimwat)
 ```javascript
-// Under 18 - Story
+// Under 18
 setcps(0.55)
+
+// 1. MELODY (Pluck)
+const melody = note(cat(
+  "d4@1 f#4@1 a4@1 d5@1"
+))
+  .s("pluck")
+  .room(0.4)
+  .velocity(0.8)
+
+// 2. CHORDS (D Major)
+const chords = note("d3 g3 a3 d3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("D:major")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("d4 f#4 a4 d5 ~ d4").s("pluck").room(0.4),
-  s("bd sd"),
-  note("d2").s("bass")
+  melody,
+  chords,
+  bass,
+  s("bd sd")
 )
 ```
 
 ### 94. Sitoi Kitu Kidogo (Jimwat)
 ```javascript
-// Sitoi Kitu Kidogo - Integrity
+// Sitoi Kitu Kidogo
 setcps(0.5)
+
+// 1. MELODY (Synth)
+const melody = note(cat(
+  "c4@1 eb4@1 g4@1 c5@1"
+))
+  .s("synth")
+  .chop(4)
+  .velocity(0.7)
+
+// 2. CHORDS (Cm)
+const chords = note("c3 g2 c3")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Drum)
+const drum = s("bd")
+  .gain(0.5)
+
 stack(
-  note("c4 eb4 g4 c5 ~ c4").s("synth").chop(4),
-  s("bd sd"),
-  note("c2").s("bass")
+  melody,
+  chords,
+  drum,
+  s("bd sd")
 )
 ```
 
 ### 95. Jana Kuliendaje (Mejja)
 ```javascript
-// Jana Kuliendaje - Storytelling
+// Jana Kuliendaje
 setcps(0.57)
+
+// 1. MELODY (Organ)
+const melody = note(cat(
+  "f4@1 a4@1 c5@1 f5@1"
+))
+  .s("organ")
+  .fast(2)
+  .velocity(0.8)
+
+// 2. CHORDS (F Major)
+const chords = note("f3 bb3 c3 f3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Laugh)
+const laugh = s("laughter")
+  .gain(0.5)
+
 stack(
-  note("f4 a4 c5 f5 ~ f4").s("organ").fast(2),
-  s("bd sd"),
-  s("laughter").slow(8)
+  melody,
+  chords,
+  laugh,
+  s("bd sd")
 )
 ```
 
 ### 96. Landlord (Mejja)
 ```javascript
-// Landlord - Struggles
+// Landlord
 setcps(0.55)
+
+// 1. MELODY (Piano)
+const melody = note(cat(
+  "g4@1 b4@1 d5@1 g5@1"
+))
+  .s("piano")
+  .staccato(0.6)
+  .velocity(0.8)
+
+// 2. CHORDS (G Major)
+const chords = note("g3 c3 d3 g3")
+  .chord("major")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("G:major")
+  .s("bass")
+  .gain(0.4)
+
 stack(
-  note("g4 b4 d5 g5 ~ g4").s("piano").staccato(0.6),
-  s("bd sd"),
-  note("g2").s("bass")
+  melody,
+  chords,
+  bass,
+  s("bd sd")
 )
 ```
 
 ### 97. Niko na Safaricom (Theme)
 ```javascript
-// Niko na Safaricom - Choir
+// Niko na Safaricom
 setcps(0.6)
+
+// 1. MELODY (Choir)
+const melody = note(cat(
+  "g4@1 c5@1 e5@1 g5@1"
+))
+  .s("choir")
+  .vowel("a")
+  .room(1)
+  .velocity(0.8)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 g3 c3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Chime)
+const chime = s("chimes")
+  .gain(0.5)
+
 stack(
-  note("g4 c5 e5 g5 ~ g4").s("choir").vowel("a").room(1),
-  note("c3 g3").s("bass").slow(2),
+  melody,
+  chords,
+  chime,
   s("chimes").slow(4)
 )
 ```
 
 ### 98. Fundamentals (Ken wa Maria)
 ```javascript
-// Fundamentals - Kamba Benga
+// Fundamentals
 setcps(0.65)
+
+// 1. MELODY (Guitar)
+const melody = note(cat(
+  "c5@1 c5@1 b4@1 a4@1",
+  "g4@1 e4@3"
+))
+  .s("guitar")
+  .bright(0.8)
+  .fast(2)
+  .velocity(0.9)
+
+// 2. CHORDS (C Major)
+const chords = note("c3 f3 g3 c3")
+  .chord("major")
+  .s("piano")
+  .gain(0.6)
+
+// 3. IMPROV (Bass)
+const bass = note("0")
+  .scale("C:major")
+  .s("bass")
+  .arp("up")
+  .gain(0.4)
+
 stack(
-  note("c5 c5 b4 a4 g4 ~ c5").s("guitar").bright(0.8).fast(2),
-  s("bd sd"),
-  note("c2").s("bass").arp("up")
+  melody,
+  chords,
+  bass,
+  s("bd sd")
 )
 ```
 
 ### 99. Lamba Lolo (Ethic)
 ```javascript
-// Lamba Lolo - Gengetone
+// Lamba Lolo
 setcps(0.5)
+
+// 1. MELODY (Lead)
+const melody = note(cat(
+  "a3@1 c4@1 e4@1 a4@1"
+))
+  .s("sine")
+  .distort(0.2)
+  .velocity(0.8)
+
+// 2. CHORDS (Am)
+const chords = note("a2 e2 a2")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Clap)
+const clap = s("clap")
+  .gain(0.5)
+
 stack(
-  note("a3 c4 e4 a4 ~ a3").s("sine").distort(0.2), // Dark minimal beat
-  s("bd*4").sound("heavy"),
-  s("clap").slow(2)
+  melody,
+  chords,
+  clap,
+  s("bd*4").sound("heavy")
 )
 ```
 
 ### 100. Wamlambez (Sailors)
 ```javascript
-// Wamlambez - Hype
+// Wamlambez
 setcps(0.52)
+
+// 1. MELODY (Square)
+const melody = note(cat(
+  "d4@1 f4@1 a4@1 d5@1"
+))
+  .s("square")
+  .chop(2)
+  .velocity(0.8)
+
+// 2. CHORDS (Dm)
+const chords = note("d3 g3 a3 d3")
+  .chord("minor")
+  .s("pad")
+  .gain(0.6)
+
+// 3. IMPROV (Shout)
+const shout = s("shout")
+  .gain(0.5)
+
 stack(
-  note("d4 f4 a4 d5 ~ d4").s("square").chop(2),
-  s("bd").gain(1.2),
-  s("shout").vowel("a").slow(2) // "Wamlambez!"
+  melody,
+  chords,
+  shout,
+  s("bd")
 )
 ```
