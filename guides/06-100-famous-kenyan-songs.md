@@ -14,7 +14,7 @@ Copy the code block for the song you want to hear into the Strudel REPL.
 // Kenya National Anthem - Orchestral
 setcps(0.4)
 stack(
-  note("d4 f#4 a4 d5 c#5 b4 a4 f#4 g4 a4 g4 f#4 e4 d4").s("brass").room(1).velocity(0.8),
+  note("d4@1.5 f#4@0.5 a4 d5 c#5@1.5 b4@0.5 a4 f#4 g4 a4 g4@1.5 f#4@0.5 e4 d4@2").s("brass").room(1).velocity(0.8),
   note("d3 a3 d4").s("strings").slow(2).gain(0.6),
   s("timpani").slow(4).gain(0.8)
 )
@@ -25,7 +25,7 @@ stack(
 // Daima (Mkenya Daima) - Afro-Fusion
 setcps(0.5)
 stack(
-  note("c4 d4 e4 g4 g4 a4 g4 e4 d4 c4").s("kalimba").room(0.5),
+  note("0 1 2 4@1.5 4@0.5 5 4 2 1 0@2").scale("C:major").s("kalimba").room(0.5), // Using scale degree notation
   note("c3 g3").s("bass").slow(2),
   s("shaker*8").gain(0.4),
   s("bd sd").slow(2)
@@ -37,7 +37,7 @@ stack(
 // Tushangilie Kenya - Patriotic Choral
 setcps(0.6)
 stack(
-  note("g4 g4 c5 c5 b4 a4 g4").s("choir").vowel("a"),
+  note("g4 g4 c5 c5 b4 a4 g4@2").s("choir").vowel("a"),
   note("c3 g3").s("organ").slow(2),
   s("snare*4").velocity("0.6 0.3")
 )
@@ -48,7 +48,7 @@ stack(
 // My Land is Kenya - Acoustic
 setcps(0.45)
 stack(
-  note("e4 g4 c5 b4 a4 g4 e4").s("guitar").strum(0.1),
+  note("e4 g4 c5 b4 a4 g4 e4@2").s("guitar").strum(0.1),
   note("c2 g2").s("bass").slow(2),
   s("bird").rarely(x=>x.gain(0.3))
 )
@@ -59,7 +59,7 @@ stack(
 // Harambee - Zilizopendwa
 setcps(0.6)
 stack(
-  note("g4 a4 b4 g4 c5 b4 a4").s("clean").tremolo(4, 0.4),
+  note("g4 a4 b4 g4 c5 b4 a4@2").s("clean").tremolo(4, 0.4),
   s("rim*4").gain(0.8),
   note("g2 d3").s("bass").slow(2)
 )
@@ -74,7 +74,7 @@ stack(
 // Jambo Bwana - Tourism Pop
 setcps(0.65)
 stack(
-  note("e4@1.5 d4@0.5 c4 e4@1.5 d4@0.5 c4 e4 d4").s("organ").bright(0.5), // Jambo, Jambo Bwana
+  note("4@1.5 4@0.5 3 4 5@2 ~ 4 5 6 7@2 ~ 6 5 4@2").scale("C:major").s("organ").bright(0.5), // Major scale melody
   note("c3 g3 c4").s("piano").chord("major").slow(2).velocity(0.6),
   s("shaker*8").gain(0.8)
 )
@@ -85,9 +85,9 @@ stack(
 // Malaika - Romantic Classic
 setcps(0.5)
 stack(
-  note("e4 g4 a4 c5 a4 g4 e4").s("guitar").room(0.8), // Malaika, nakupenda Malaika
+  note("a4@1.5 g4@0.5 f4@2 ~ f4 g4 a4 c5 a4 g4 f4@2").s("guitar").room(0.8), // Malaika, nakupenda Malaika
   note("a2 e3").s("bass").slow(4),
-  s("conga*4").pan(rand)
+  s("conga*4").n("<0 1>").pan(rand) // Alternating conga samples
 )
 ```
 
@@ -96,7 +96,7 @@ stack(
 // Helule Helule - Twist
 setcps(0.7)
 stack(
-  note("c5 c5 b4 a4 g4 e4").s("clean").distort(0.2),
+  note("7 7 6 5 4 2 ~ 7 7 6").scale("C:major").s("clean").distort(0.2), // High register twist guitar
   s("snare*4").velocity("0.8 0.4"),
   note("c3 g3").s("bass").fast(2)
 )
@@ -107,7 +107,7 @@ stack(
 // Pole Musa - Storytelling
 setcps(0.6)
 stack(
-  note("g4 a4 b4 d5 b4 g4").s("guitar").pluck(0.5),
+  note("g4 a4 b4 d5 b4 g4 ~ g4 a4 b4").s("guitar").pluck(0.5),
   s("rim").struct("x ~ x x"),
   note("g2 d3").s("bass")
 )
@@ -118,7 +118,7 @@ stack(
 // Taxi Driver - Benga Rhythm
 setcps(0.7)
 stack(
-  note("c5 b4 a4 g4 f4 e4").s("strat").delay(0.2),
+  note("c5 b4 a4 g4 f4 e4 ~ c5").s("strat").delay(0.2),
   s("hihat*8").open(),
   note("c3 f3 g3").s("bass").arp("up")
 )
@@ -129,9 +129,9 @@ stack(
 // Sina Makosa - Swahili Rhumba
 setcps(0.55)
 stack(
-  note("e4 g4 c5 b4 a4 g4 f4").s("sax").legato(0.8).room(0.6),
+  note("2 4 7 6 5 4 3@2").scale("C:major").s("sax").legato(0.8).room(0.6),
   note("c3 g3").s("guitar").strum(0.05).slow(2),
-  s("conga").struct("x x ~ x").gain(0.7)
+  s("conga").struct("x x ~ x").gain(0.7).n("<0 2>")
 )
 ```
 
@@ -140,7 +140,7 @@ stack(
 // Afro - Golden Era
 setcps(0.55)
 stack(
-  note("g4 b4 d5 c5 b4 a4").s("brass").bright(0.4),
+  note("g4 b4 d5 c5 b4 a4 ~ g4").s("brass").bright(0.4),
   s("guiro").slow(1),
   note("g2 d3").s("bass").slow(2)
 )
@@ -151,7 +151,7 @@ stack(
 // Charonyi Ni Wasi - Military Band
 setcps(0.6)
 stack(
-  note("c4 e4 g4 c5 g4 e4").s("trumpet").staccato(0.5),
+  note("c4 e4 g4 c5 g4 e4 ~ c4").s("trumpet").staccato(0.5),
   s("snare").struct("x x x/2 x/2 x"),
   note("c2").s("tuba").slow(2)
 )
@@ -162,7 +162,7 @@ stack(
 // Amka Kumekucha - Morning Call
 setcps(0.65)
 stack(
-  note("e4 g4 c5 g4 e4").s("organ").fast(2),
+  note("e4 g4 c5 g4 e4 ~ e4 g4").s("organ").fast(2),
   s("cowbell*4"),
   note("c3 g3").s("bass")
 )
@@ -173,7 +173,7 @@ stack(
 // Stella Wangu - Heartbreak
 setcps(0.6)
 stack(
-  note("a4 c5 e5 d5 c5 b4 a4").s("synth").vibrato(2), // Reggae feel
+  note("a4 c5 e5 d5 c5 b4 a4@2").s("synth").vibrato(2), // Reggae feel
   s("bd").slow(2),
   s("hh").slow(2).delay(0.5)
 )
@@ -184,7 +184,7 @@ stack(
 // Shauri Yako - Congolese Influence
 setcps(0.55)
 stack(
-  note("g4 b4 d5 g4 b4 d5").s("guitar").highpass(1000),
+  note("g4 b4 d5 ~ g4 b4 d5 ~").s("guitar").highpass(1000),
   s("snare").struct("x ~ x ~ x x ~ x"), // Cavacha rhythm
   note("g2").s("bass").slow(2)
 )
@@ -195,7 +195,7 @@ stack(
 // Lunch Time - Social Commentary
 setcps(0.6)
 stack(
-  note("c4 d4 e4 g4 a4 g4").s("whistle").room(0.4),
+  note("c4 d4 e4 g4 a4 g4 ~ c4").s("whistle").room(0.4),
   s("foot").slow(1),
   note("c2 g2").s("bass").slow(2)
 )
@@ -206,7 +206,7 @@ stack(
 // Dereva Kombo - Highlife Feel
 setcps(0.6)
 stack(
-  note("f4 a4 c5 a4 f4").s("clarinet"),
+  note("f4 a4 c5 a4 f4 ~ f4 a4").s("clarinet"),
   s("shaker*8"),
   note("f2 c3").s("bass")
 )
@@ -217,7 +217,7 @@ stack(
 // Bwana Nipe Pesa - Request
 setcps(0.55)
 stack(
-  note("d4 f#4 a4 d5").s("sax").gain(0.8),
+  note("d4 f#4 a4 d5 ~ d4 f#4").s("sax").gain(0.8),
   s("cowbell").struct("x x ~ x"),
   note("d3 a3").s("bass")
 )
@@ -228,8 +228,8 @@ stack(
 // Kasongo - Dance Floor
 setcps(0.6)
 stack(
-  note("e4 g4 c5 b4 a4 g4").s("organ").room(0.5),
-  s("conga*4"),
+  note("e4 g4 c5 b4 a4 g4 ~ e4").s("organ").room(0.5),
+  s("conga*4").n("<0 1 2 1>"),
   note("c2 g2").s("bass").slow(2)
 )
 ```
@@ -243,7 +243,7 @@ stack(
 // Ninanoki - Ogopa Beat
 setcps(0.7)
 stack(
-  note("c4 e4 g4 c5").s("sawtooth").lpf(1500),
+  note("0 0 ~ 2 4 ~ 7 7").scale("C:major").s("sawtooth").lpf(1500),
   s("bd*2"), // Kapuka kick
   s("clap").slow(2).delay(0.5),
   note("c2").s("bass").slow(4)
@@ -255,8 +255,8 @@ stack(
 // Sinzia - Smooth
 setcps(0.5)
 stack(
-  note("f4 a4 c5 a4 g4 f4").s("rhodes").tremolo(2, 0.4),
-  s("rim*4"),
+  note("f4 a4 c5 a4 g4 f4 ~ f4").s("rhodes").tremolo(2, 0.4),
+  s("rim*4").n("<0 1>"),
   note("f2 c3").s("sub").slow(2)
 )
 ```
@@ -266,8 +266,8 @@ stack(
 // Boomba Train - Party Anthem
 setcps(0.72)
 stack(
-  note("g3 b3 d4 b3").s("square").fast(2),
-  s("bd sd bd sd"),
+  note("g3 b3 d4 b3 ~ g3 b3 d4").s("square").fast(2),
+  s("bd [sd sd] bd sd"), // Double snare hit
   s("hh*8").open(),
   s("vowel").vowel("o").slow(4).gain(0.8) // "Whoa"
 )
@@ -278,7 +278,7 @@ stack(
 // Mos Mos - Laid Back
 setcps(0.47)
 stack(
-  note("e4 g4 b4 a4").s("piano").room(0.8),
+  note("e4 g4 b4 a4 ~ e4 g4").s("piano").room(0.8),
   s("kick").slow(2),
   s("snap").slow(2).delay(0.5),
   note("e2").s("bass").slow(2)
@@ -290,7 +290,7 @@ stack(
 // Leo ni Leo - Club Banger
 setcps(0.7)
 stack(
-  note("c4 c4 e4 g4").s("supersaw").decay(0.1),
+  note("0 0 2 4 ~ 0 2 4").scale("C:major").s("supersaw").decay(0.1),
   s("bd*4").gain(1.2),
   s("clap").slow(2).delay(0.5)
 )
@@ -301,7 +301,7 @@ stack(
 // Hamunitishi - Attitude
 setcps(0.5)
 stack(
-  note("a3 c4 e4 a4").s("strings").attack(0.1),
+  note("a3 c4 e4 a4 ~ a3 c4").s("strings").attack(0.1),
   s("kick snare"),
   note("a1").s("bass").distort(0.3)
 )
@@ -312,7 +312,7 @@ stack(
 // Tuendelee - Diss Track
 setcps(0.47)
 stack(
-  note("c4 eb4 g4 c5").s("pluck").room(0.4),
+  note("c4 eb4 g4 c5 ~ c4 eb4").s("pluck").room(0.4),
   s("bd ~ sd ~").s("bd sd"),
   note("c2").s("bass").slow(2)
 )
@@ -323,7 +323,7 @@ stack(
 // Swing Swing - Pop Rap
 setcps(0.6)
 stack(
-  note("g4 b4 d5 b4").s("synth").fast(2),
+  note("g4 b4 d5 b4 ~ g4").s("synth").fast(2),
   s("bd sd"),
   s("hh*8")
 )
@@ -334,7 +334,7 @@ stack(
 // Unbwogable - Luo Rap
 setcps(0.47)
 stack(
-  note("e4 g4 e4 d4").s("voice").vowel("o").gain(0.8),
+  note("e4 g4 e4 d4 ~ e4").s("voice").vowel("o").gain(0.8),
   s("bd sd"),
   note("e2").s("bass").slow(4)
 )
@@ -345,7 +345,7 @@ stack(
 // Manyake - Humor
 setcps(0.65)
 stack(
-  note("c4 e4 g4 c5").s("lead").portamento(0.2),
+  note("c4 e4 g4 c5 ~ c4").s("lead").portamento(0.2),
   s("bd*4"),
   s("cowbell").slow(2)
 )
@@ -356,7 +356,7 @@ stack(
 // Githurai - Hood Anthem
 setcps(0.5)
 stack(
-  note("a3 c4 e4 a4").s("organ").staccato(0.5),
+  note("a3 c4 e4 a4 ~ a3").s("organ").staccato(0.5),
   s("bd sd"),
   s("siren").slow(8).gain(0.2)
 )
@@ -367,7 +367,7 @@ stack(
 // Morale - High Energy
 setcps(0.7)
 stack(
-  note("g4 b4 d5 g5").s("trance").fast(4),
+  note("g4 b4 d5 g5 ~ g4").s("trance").fast(4),
   s("bd*4"),
   s("clap").slow(2)
 )
@@ -378,7 +378,7 @@ stack(
 // Ukimwona - Love Song
 setcps(0.6)
 stack(
-  note("c4 f4 a4 c5").s("pad").slow(2),
+  note("c4 f4 a4 c5 ~ c4 f4").s("pad").slow(2),
   s("rim*4"),
   note("c2").s("bass").slow(2)
 )
@@ -389,7 +389,7 @@ stack(
 // Vuta Pumz - Catchy
 setcps(0.65)
 stack(
-  note("e4 g4 b4 e5").s("synth").arp("up"),
+  note("e4 g4 b4 e5 ~ e4").s("synth").arp("up"),
   s("bd sd bd sd"),
   note("e2").s("bass").slow(2)
 )
@@ -400,7 +400,7 @@ stack(
 // Piga Makofi - Celebration
 setcps(0.67)
 stack(
-  note("c4 e4 g4 c5").s("brass").bright(0.6),
+  note("c4 e4 g4 c5 ~ c4").s("brass").bright(0.6),
   s("clap*4").gain(1.2),
   s("bd*2")
 )
@@ -411,7 +411,7 @@ stack(
 // Dondosa - Dance
 setcps(0.65)
 stack(
-  note("d4 f#4 a4 d5").s("lead").fast(2),
+  note("d4 f#4 a4 d5 ~ d4").s("lead").fast(2),
   s("bd*4"),
   s("hh*8")
 )
@@ -422,7 +422,7 @@ stack(
 // Teso - Pop Trio
 setcps(0.55)
 stack(
-  note("g4 b4 d5 b4").s("guitar").clean(0.5),
+  note("g4 b4 d5 b4 ~ g4").s("guitar").clean(0.5),
   s("rim*4"),
   note("g2").s("bass").slow(2)
 )
@@ -433,7 +433,7 @@ stack(
 // Haiya - Afro-Soul
 setcps(0.5)
 stack(
-  note("e4 g#4 b4 e5").s("acoustic").strum(0.2),
+  note("e4 g#4 b4 e5 ~ e4").s("acoustic").strum(0.2),
   s("djembe").struct("x x ~ x"),
   note("e2").s("bass").slow(2)
 )
@@ -444,7 +444,7 @@ stack(
 // Uhiki - R&B/Dancehall
 setcps(0.47)
 stack(
-  note("c4 e4 g4 c5").s("organ").chop(4),
+  note("c4 e4 g4 c5 ~ c4").s("organ").chop(4),
   s("bd sd"),
   note("c2").s("bass").slow(2)
 )
@@ -455,7 +455,7 @@ stack(
 // Tafsiri Hii - Hardcore Rap
 setcps(0.45)
 stack(
-  note("c3 eb3 g3 c4").s("strings").staccato(0.5),
+  note("c3 eb3 g3 c4 ~ c3").s("strings").staccato(0.5),
   s("bd sd"),
   note("c1").s("bass").distort(0.4)
 )
@@ -470,7 +470,7 @@ stack(
 // Sura Yako - Lipala Dance
 setcps(0.62)
 stack(
-  note("e4 g4 a4 c5 a4 g4").s("guitar").bright(0.5),
+  note("e4 g4 a4 c5 a4 g4 ~ e4").s("guitar").bright(0.5),
   s("bd").struct("x ~ x x"), // Lipala kick pattern
   s("clap").slow(2).delay(0.5),
   note("c2 g2").s("bass").slow(2)
@@ -482,7 +482,7 @@ stack(
 // Kuliko Jana - A Capella feel
 setcps(0.4)
 stack(
-  note("c4 e4 g4 c5").s("choir").vowel("o a"),
+  note("c4 e4 g4 c5 ~ g4 e4").s("choir").vowel("o a"),
   note("c2 g2").s("hum").slow(2),
   s("snap").slow(2).delay(0.5)
 )
@@ -493,7 +493,7 @@ stack(
 // Melanin - Afrobeat
 setcps(0.52)
 stack(
-  note("d4 f#4 a4 d5").s("kalimba").fast(2),
+  note("d4 f#4 a4 d5 ~ d4").s("kalimba").fast(2),
   s("bd ~ sd ~").s("bd sd"),
   note("d2").s("bass").slow(2)
 )
@@ -504,7 +504,7 @@ stack(
 // Suzanna - Retro Vibe
 setcps(0.55)
 stack(
-  note("g4 b4 d5 g5").s("guitar").wah(0.4),
+  note("g4 b4 d5 g5 ~ g4").s("guitar").wah(0.4),
   s("rim*4"),
   note("g2").s("bass").slow(2)
 )
@@ -515,7 +515,7 @@ stack(
 // Extravaganza - Rhumba Trap
 setcps(0.55)
 stack(
-  note("c4 e4 g4 c5").s("rhodes").tremolo(4, 0.4),
+  note("c4 e4 g4 c5 ~ c4").s("rhodes").tremolo(4, 0.4),
   s("bd sd"),
   s("shaker*16")
 )
@@ -526,7 +526,7 @@ stack(
 // Short N Sweet - Acoustic Pop
 setcps(0.5)
 stack(
-  note("e4 g#4 b4 e5").s("guitar").pluck(0.5),
+  note("e4 g#4 b4 e5 ~ e4").s("guitar").pluck(0.5),
   s("snap").slow(2),
   note("e2").s("bass").slow(2)
 )
@@ -537,7 +537,7 @@ stack(
 // Mungu Pekee - Uplifting
 setcps(0.5)
 stack(
-  note("g4 b4 d5 g5").s("pad").slow(2),
+  note("g4 b4 d5 g5 ~ g4").s("pad").slow(2),
   s("bd sd"),
   note("g2").s("bass").slow(2)
 )
@@ -548,7 +548,7 @@ stack(
 // Malaika - Modern Ballad
 setcps(0.45)
 stack(
-  note("c4 e4 g4 c5").s("piano").room(0.8),
+  note("c4 e4 g4 c5 ~ c4").s("piano").room(0.8),
   s("bd").slow(2),
   note("c2").s("bass").slow(2)
 )
@@ -559,7 +559,7 @@ stack(
 // Hayawani - Social Conscious
 setcps(0.45)
 stack(
-  note("d4 f4 a4 d5").s("strings").attack(0.2),
+  note("d4 f4 a4 d5 ~ d4").s("strings").attack(0.2),
   s("bd sd"),
   note("d1").s("bass").slow(2)
 )
@@ -570,7 +570,7 @@ stack(
 // Now You Know - Comeback
 setcps(0.6)
 stack(
-  note("e4 g4 b4 e5").s("synth").fast(2),
+  note("e4 g4 b4 e5 ~ e4").s("synth").fast(2),
   s("bd sd"),
   s("hh*8")
 )
@@ -581,7 +581,7 @@ stack(
 // Kookoo - Catchy
 setcps(0.55)
 stack(
-  note("c4 e4 g4 c5").s("ukulele").strum(0.1),
+  note("c4 e4 g4 c5 ~ c4").s("ukulele").strum(0.1),
   s("clap*4"),
   note("c2").s("bass")
 )
@@ -592,7 +592,7 @@ stack(
 // Milele - Wedding Song
 setcps(0.45)
 stack(
-  note("f4 a4 c5 f5").s("piano").arpeggio(),
+  note("f4 a4 c5 f5 ~ f4").s("piano").arpeggio(),
   s("shaker").slow(2),
   note("f2").s("bass").slow(2)
 )
@@ -603,7 +603,7 @@ stack(
 // Uliza Kiatu - Spoken Word
 setcps(0.5)
 stack(
-  note("g4 b4 d5 g5").s("guitar").slow(2),
+  note("g4 b4 d5 g5 ~ g4").s("guitar").slow(2),
   s("snap").slow(2).delay(0.5),
   note("g2").s("bass").slow(2)
 )
@@ -614,7 +614,7 @@ stack(
 // El Shaddai - Worship
 setcps(0.4)
 stack(
-  note("c4 e4 g4 c5").s("pad").slow(4),
+  note("c4 e4 g4 c5 ~ c4").s("pad").slow(4),
   s("bd").slow(2),
   note("c2").s("bass").slow(4)
 )
@@ -625,7 +625,7 @@ stack(
 // Dus Nya - Swahili R&B
 setcps(0.52)
 stack(
-  note("a3 c4 e4 a4").s("rhodes").room(0.5),
+  note("a3 c4 e4 a4 ~ a3").s("rhodes").room(0.5),
   s("bd sd"),
   note("a1").s("bass").slow(2)
 )
@@ -636,7 +636,7 @@ stack(
 // Chaguo la Moyo - Wedding
 setcps(0.47)
 stack(
-  note("d4 f#4 a4 d5").s("piano").velocity(0.7),
+  note("d4 f#4 a4 d5 ~ d4").s("piano").velocity(0.7),
   s("rim*4"),
   note("d2").s("bass").slow(2)
 )
@@ -647,7 +647,7 @@ stack(
 // Baby Love - Romantic
 setcps(0.5)
 stack(
-  note("g4 b4 d5 g5").s("guitar").clean(0.5),
+  note("g4 b4 d5 g5 ~ g4").s("guitar").clean(0.5),
   s("bd sd"),
   note("g2").s("bass")
 )
@@ -658,7 +658,7 @@ stack(
 // Mafeelings - Breakup
 setcps(0.5)
 stack(
-  note("e4 g4 b4 e5").s("piano").chord("minor"),
+  note("e4 g4 b4 e5 ~ e4").s("piano").chord("minor"),
   s("bd sd"),
   note("e2").s("bass")
 )
@@ -669,7 +669,7 @@ stack(
 // Kama Kawaida - Collab
 setcps(0.55)
 stack(
-  note("c4 e4 g4 c5").s("synth").bright(0.4),
+  note("c4 e4 g4 c5 ~ c4").s("synth").bright(0.4),
   s("bd*4"),
   s("clap").slow(2)
 )
@@ -680,7 +680,7 @@ stack(
 // Doing Her Thing - Fenamenal
 setcps(0.52)
 stack(
-  note("f4 a4 c5 f5").s("organ").staccato(0.5),
+  note("f4 a4 c5 f5 ~ f4").s("organ").staccato(0.5),
   s("bd sd"),
   note("f2").s("bass")
 )
@@ -695,8 +695,8 @@ stack(
 // System ya Kapungala - Lingala Gospel
 setcps(0.7)
 stack(
-  note("c5 c5 b4 a4 g4").s("guitar").highpass(1000).fast(2), // Seben
-  s("kick snare").fast(2),
+  note("c5 c5 b4 a4 g4 ~ c5").s("guitar").highpass(1000).fast(2), // Seben
+  s("kick [snare snare]").fast(2), // Seben fill
   s("shout").slow(4)
 )
 ```
@@ -706,7 +706,7 @@ stack(
 // Tobina - Dance
 setcps(0.7)
 stack(
-  note("g4 b4 d5 g5").s("brass").staccato(0.5),
+  note("g4 b4 d5 g5 ~ g4").s("brass").staccato(0.5),
   s("bd*4"),
   s("whistle").slow(2)
 )
@@ -717,7 +717,7 @@ stack(
 // Mbona - Reflective
 setcps(0.45)
 stack(
-  note("e4 g4 b4 e5").s("piano").room(0.7),
+  note("e4 g4 b4 e5 ~ e4").s("piano").room(0.7),
   s("bd").slow(2),
   note("e2").s("bass").slow(2)
 )
@@ -728,7 +728,7 @@ stack(
 // Kuna Dawa - Classic
 setcps(0.65)
 stack(
-  note("c4 e4 g4 c5").s("organ").bright(0.6),
+  note("c4 e4 g4 c5 ~ c4").s("organ").bright(0.6),
   s("bd sd"),
   note("c2").s("bass").fast(2)
 )
@@ -739,7 +739,7 @@ stack(
 // Mwema - Worship
 setcps(0.4)
 stack(
-  note("g4 b4 d5 g5").s("strings").slow(2),
+  note("g4 b4 d5 g5 ~ g4").s("strings").slow(2),
   s("bd").slow(2),
   note("g2").s("bass").slow(4)
 )
@@ -750,7 +750,7 @@ stack(
 // Nikupendeze - Devotion
 setcps(0.42)
 stack(
-  note("d4 f#4 a4 d5").s("piano").arpeggio(),
+  note("d4 f#4 a4 d5 ~ d4").s("piano").arpeggio(),
   s("shaker").slow(2),
   note("d2").s("bass")
 )
@@ -761,7 +761,7 @@ stack(
 // Utawala - Revolution
 setcps(0.47)
 stack(
-  note("c4 eb4 g4 c5").s("guitar").distort(0.3),
+  note("c4 eb4 g4 c5 ~ c4").s("guitar").distort(0.3),
   s("bd sd"),
   note("c2").s("bass")
 )
@@ -772,7 +772,7 @@ stack(
 // Hela - Hip Hop
 setcps(0.45)
 stack(
-  note("e4 g4 b4 e5").s("synth").chop(4),
+  note("e4 g4 b4 e5 ~ e4").s("synth").chop(4),
   s("bd sd"),
   s("hh*8")
 )
@@ -783,7 +783,7 @@ stack(
 // Biasi - Commentary
 setcps(0.47)
 stack(
-  note("a3 c4 e4 a4").s("pluck").room(0.4),
+  note("a3 c4 e4 a4 ~ a3").s("pluck").room(0.4),
   s("bd sd"),
   note("a1").s("bass")
 )
@@ -794,7 +794,7 @@ stack(
 // Sitolia - Comfort
 setcps(0.45)
 stack(
-  note("f4 a4 c5 f5").s("piano").slow(2),
+  note("f4 a4 c5 f5 ~ f4").s("piano").slow(2),
   s("rim").slow(2),
   note("f2").s("bass")
 )
@@ -805,7 +805,7 @@ stack(
 // Mpango wa Kando - Warning
 setcps(0.6)
 stack(
-  note("g4 b4 d5 g5").s("organ").fast(2),
+  note("g4 b4 d5 g5 ~ g4").s("organ").fast(2),
   s("bd sd"),
   note("g2").s("bass")
 )
@@ -816,7 +816,7 @@ stack(
 // Mateke - Energy
 setcps(0.67)
 stack(
-  note("c4 e4 g4 c5").s("sawtooth").bright(0.8),
+  note("c4 e4 g4 c5 ~ c4").s("sawtooth").bright(0.8),
   s("bd*4"),
   s("snare").slow(2)
 )
@@ -827,7 +827,7 @@ stack(
 // Pale Pale - Testimony
 setcps(0.6)
 stack(
-  note("d4 f#4 a4 d5").s("synth").pluck(0.4),
+  note("d4 f#4 a4 d5 ~ d4").s("synth").pluck(0.4),
   s("bd sd"),
   note("d2").s("bass")
 )
@@ -838,7 +838,7 @@ stack(
 // Tambira - Celebration
 setcps(0.65)
 stack(
-  note("e4 g#4 b4 e5").s("brass").staccato(0.6),
+  note("e4 g#4 b4 e5 ~ e4").s("brass").staccato(0.6),
   s("bd*4"),
   s("clap").slow(2)
 )
@@ -849,7 +849,7 @@ stack(
 // Fanya - Pop Gospel
 setcps(0.6)
 stack(
-  note("a3 c4 e4 a4").s("lead").fast(2),
+  note("a3 c4 e4 a4 ~ a3").s("lead").fast(2),
   s("bd sd"),
   note("a1").s("bass")
 )
@@ -860,7 +860,7 @@ stack(
 // Sitishiki - Confidence
 setcps(0.55)
 stack(
-  note("c4 e4 g4 c5").s("pad").slow(2),
+  note("c4 e4 g4 c5 ~ c4").s("pad").slow(2),
   s("bd sd"),
   note("c2").s("bass")
 )
@@ -871,7 +871,7 @@ stack(
 // Mama - Emotional
 setcps(0.45)
 stack(
-  note("g4 b4 d5 g5").s("piano").room(0.8),
+  note("g4 b4 d5 g5 ~ g4").s("piano").room(0.8),
   s("bd").slow(2),
   note("g2").s("bass")
 )
@@ -882,7 +882,7 @@ stack(
 // Barua - Letter
 setcps(0.5)
 stack(
-  note("d4 f#4 a4 d5").s("guitar").strum(0.2),
+  note("d4 f#4 a4 d5 ~ d4").s("guitar").strum(0.2),
   s("bd sd"),
   note("d2").s("bass")
 )
@@ -893,7 +893,7 @@ stack(
 // Kitanzi - Ballad
 setcps(0.42)
 stack(
-  note("e4 g#4 b4 e5").s("strings").slow(2),
+  note("e4 g#4 b4 e5 ~ e4").s("strings").slow(2),
   s("bd").slow(2),
   note("e2").s("bass")
 )
@@ -904,7 +904,7 @@ stack(
 // Vanity - Reflection
 setcps(0.55)
 stack(
-  note("c4 eb4 g4 c5").s("rhodes").tremolo(2, 0.4),
+  note("c4 eb4 g4 c5 ~ c4").s("rhodes").tremolo(2, 0.4),
   s("bd sd"),
   note("c2").s("bass")
 )
@@ -919,7 +919,7 @@ stack(
 // Kisumu 100 - Benga Celebration
 setcps(0.65)
 stack(
-  note("g4 b4 d5 g5").s("guitar").clean(0.6).fast(2),
+  note("g4 b4 d5 g5 ~ g4").s("guitar").clean(0.6).fast(2),
   s("bd sd"),
   note("g2").s("bass").arp("up")
 )
@@ -930,7 +930,7 @@ stack(
 // Sandakarawe - Traditional
 setcps(0.6)
 stack(
-  note("c4 e4 g4 c5").s("kalimba").fast(2),
+  note("c4 e4 g4 c5 ~ c4").s("kalimba").fast(2),
   s("shaker*8"),
   note("c2").s("bass")
 )
@@ -941,7 +941,7 @@ stack(
 // Nchi ya Kitu Kidogo - Corruption
 setcps(0.5)
 stack(
-  note("a3 c4 e4 a4").s("organ").staccato(0.5),
+  note("a3 c4 e4 a4 ~ a3").s("organ").staccato(0.5),
   s("bd sd"),
   note("a1").s("bass").slow(2)
 )
@@ -952,7 +952,7 @@ stack(
 // Ritwa Riaku - Kikuyu Pop
 setcps(0.55)
 stack(
-  note("d4 f#4 a4 d5").s("guitar").strum(0.1),
+  note("d4 f#4 a4 d5 ~ d4").s("guitar").strum(0.1),
   s("bd sd"),
   note("d2").s("bass")
 )
@@ -963,7 +963,7 @@ stack(
 // Ha-He - Makmende
 setcps(0.6)
 stack(
-  note("e4 g4 b4 e5").s("sawtooth").distort(0.4),
+  note("e4 g4 b4 e5 ~ e4").s("sawtooth").distort(0.4),
   s("bd sd"),
   note("e2").s("bass").slap(0.5)
 )
@@ -974,7 +974,7 @@ stack(
 // Makmende - Returns
 setcps(0.62)
 stack(
-  note("c4 eb4 g4 c5").s("synth").arpeggio(),
+  note("c4 eb4 g4 c5 ~ c4").s("synth").arpeggio(),
   s("bd*4"),
   s("hh*8")
 )
@@ -985,7 +985,7 @@ stack(
 // Party Don't Stop - Urban Pop
 setcps(0.64)
 stack(
-  note("f4 a4 c5 f5").s("square").bright(0.5),
+  note("f4 a4 c5 f5 ~ f4").s("square").bright(0.5),
   s("bd sd"),
   s("clap").slow(2)
 )
@@ -996,7 +996,7 @@ stack(
 // K'Lang - Smooth
 setcps(0.55)
 stack(
-  note("g4 bb4 d5 g5").s("pad").slow(2),
+  note("g4 bb4 d5 g5 ~ g4").s("pad").slow(2),
   s("bd sd"),
   note("g2").s("bass")
 )
@@ -1007,7 +1007,7 @@ stack(
 // Hold It Down - Chill
 setcps(0.5)
 stack(
-  note("a3 c4 e4 a4").s("piano").room(0.6),
+  note("a3 c4 e4 a4 ~ a3").s("piano").room(0.6),
   s("snap").slow(2),
   note("a1").s("bass")
 )
@@ -1018,7 +1018,7 @@ stack(
 // Kwaheri - Goodbye
 setcps(0.55)
 stack(
-  note("c4 e4 g4 c5").s("guitar").clean(0.4),
+  note("c4 e4 g4 c5 ~ c4").s("guitar").clean(0.4),
   s("rim*4"),
   note("c2").s("bass").slow(2)
 )
@@ -1029,7 +1029,7 @@ stack(
 // Bidii Yangu - Hustle
 setcps(0.5)
 stack(
-  note("e4 g#4 b4 e5").s("organ").staccato(0.5),
+  note("e4 g#4 b4 e5 ~ e4").s("organ").staccato(0.5),
   s("bd sd"),
   note("e2").s("bass")
 )
@@ -1040,7 +1040,7 @@ stack(
 // Kamata - Party
 setcps(0.6)
 stack(
-  note("g4 b4 d5 g5").s("lead").fast(2),
+  note("g4 b4 d5 g5 ~ g4").s("lead").fast(2),
   s("bd*4"),
   s("hh*8")
 )
@@ -1051,7 +1051,7 @@ stack(
 // Under 18 - Story
 setcps(0.55)
 stack(
-  note("d4 f#4 a4 d5").s("pluck").room(0.4),
+  note("d4 f#4 a4 d5 ~ d4").s("pluck").room(0.4),
   s("bd sd"),
   note("d2").s("bass")
 )
@@ -1062,7 +1062,7 @@ stack(
 // Sitoi Kitu Kidogo - Integrity
 setcps(0.5)
 stack(
-  note("c4 eb4 g4 c5").s("synth").chop(4),
+  note("c4 eb4 g4 c5 ~ c4").s("synth").chop(4),
   s("bd sd"),
   note("c2").s("bass")
 )
@@ -1073,7 +1073,7 @@ stack(
 // Jana Kuliendaje - Storytelling
 setcps(0.57)
 stack(
-  note("f4 a4 c5 f5").s("organ").fast(2),
+  note("f4 a4 c5 f5 ~ f4").s("organ").fast(2),
   s("bd sd"),
   s("laughter").slow(8)
 )
@@ -1084,7 +1084,7 @@ stack(
 // Landlord - Struggles
 setcps(0.55)
 stack(
-  note("g4 b4 d5 g5").s("piano").staccato(0.6),
+  note("g4 b4 d5 g5 ~ g4").s("piano").staccato(0.6),
   s("bd sd"),
   note("g2").s("bass")
 )
@@ -1095,7 +1095,7 @@ stack(
 // Niko na Safaricom - Choir
 setcps(0.6)
 stack(
-  note("g4 c5 e5 g5").s("choir").vowel("a").room(1),
+  note("g4 c5 e5 g5 ~ g4").s("choir").vowel("a").room(1),
   note("c3 g3").s("bass").slow(2),
   s("chimes").slow(4)
 )
@@ -1106,7 +1106,7 @@ stack(
 // Fundamentals - Kamba Benga
 setcps(0.65)
 stack(
-  note("c5 c5 b4 a4 g4").s("guitar").bright(0.8).fast(2),
+  note("c5 c5 b4 a4 g4 ~ c5").s("guitar").bright(0.8).fast(2),
   s("bd sd"),
   note("c2").s("bass").arp("up")
 )
@@ -1117,7 +1117,7 @@ stack(
 // Lamba Lolo - Gengetone
 setcps(0.5)
 stack(
-  note("a3 c4 e4 a4").s("sine").distort(0.2), // Dark minimal beat
+  note("a3 c4 e4 a4 ~ a3").s("sine").distort(0.2), // Dark minimal beat
   s("bd*4").sound("heavy"),
   s("clap").slow(2)
 )
@@ -1128,7 +1128,7 @@ stack(
 // Wamlambez - Hype
 setcps(0.52)
 stack(
-  note("d4 f4 a4 d5").s("square").chop(2),
+  note("d4 f4 a4 d5 ~ d4").s("square").chop(2),
   s("bd").gain(1.2),
   s("shout").vowel("a").slow(2) // "Wamlambez!"
 )
