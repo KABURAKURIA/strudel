@@ -1,141 +1,189 @@
-# Creating Nujabes-Style Lo-Fi Beats in Strudel
+# Masterclass: Creating Nujabes-Style Lo-Fi Beats in Strudel
 
-This guide focuses on recreating the jazzy, nostalgic sound of Nujabes and Lo-Fi Hip Hop.
+This guide is a deep dive into recreating the soulful, jazzy, and nostalgic sound of Nujabes and Lo-Fi Hip Hop. We will cover the harmonic theory, rhythmic "drunk" feel, texture processing, and provide full song examples.
 
-## 1. The Harmonic Foundation: Jazz Chords
+## 1. The Harmonic Foundation: Jazz Theory
 
-Nujabes often used samples from jazz records, rich in 7th and 9th chords. In Strudel, we can synthesize these or use samples.
+Nujabes didn't just use random chords; he leaned heavily on Jazz harmony. The key is to use **extensions** (7ths, 9ths, 11ths).
 
-Using the `chord` function:
-
-```javascript
-// A simple ii-V-I progression in C Major
-note("d3 g3 c3")
-  .chord("minor7 dom7 major7")
-  .s("piano")
-  .slow(2) // Give it room to breathe
-```
-
-To make it sound more "sampled" and choppy, we can use `struct` to impose a rhythm on the chords.
+### 7th Chords
+The bread and butter of Lo-Fi.
+- **Major 7 (`major7`)**: Dreamy, nostalgic (e.g., C E G B).
+- **Minor 7 (`minor7`)**: Sad, smooth (e.g., C Eb G Bb).
+- **Dominant 7 (`dom7`)**: Bluesy, resolving (e.g., C E G Bb).
 
 ```javascript
-note("d3 g3 c3")
-  .chord("minor7 dom7 major7")
-  .s("piano")
-  .struct("x ~ x x ~ x") // Rhythmic pattern
+// A standard ii-V-I jazz progression
+note("d3:minor7 g3:dom7 c3:major7")
+  .s("epiano") // Rhodes sound
   .slow(2)
 ```
 
-## 2. The Drums: Boom Bap Swing
+### Voicings
+Playing simple block chords can sound "preset-y". Use `voice` or spread the notes manually using the `stack` or `+` operators to create open voicings.
 
-The drums need to be laid back. We achieve this with **swing** and proper sample selection.
+## 2. Rhythmic Feel: Swing and "Drunk" Drumming
 
-### Basic Pattern
-Standard Boom Bap is Kick on 1, Snare on 2, Kick syncopation, Snare on 4.
+Quantized drums (perfectly on grid) kill the Lo-Fi vibe. We need "swing" and "humanization".
+
+### The J Dilla / Nujabes Swing
+Use `.swing()` to delay every second note of a subdivision.
 
 ```javascript
-s("bd ~ sd ~ bd bd sd ~")
+s("hh*8").swing(0.2) // 20% swing
 ```
 
-### Adding Swing
-Strudel has a `swing` function (or you can use `nudge` manually).
+### Manual Micro-timing (`nudge`)
+To get that "drunk" drummer feel, use `nudge` to push hits off the grid. A late snare is essential.
 
 ```javascript
 stack(
-  s("bd ~ sd ~ bd bd sd ~"),
-  s("hh*8")
-).swing(0.2) // Adjust amount (0.0 to 1.0)
-```
-
-## 3. The "Lo-Fi" Texture
-
-To emulate old vinyl, we need to degrade the sound.
-- **lpf**: Low Pass Filter to remove brightness.
-- **shape**: Distortion/Saturation.
-- **hpf**: High Pass Filter to remove muddy lows (sometimes).
-
-```javascript
-note("d3 g3 c3")
-  .chord("minor7 dom7 major7")
-  .s("superpiano")
-  .lpf(800)       // Cut highs
-  .room(0.8)      // Large room reverb
-  .shape(0.3)     // Slight distortion
-```
-
-## 4. Using External Samples
-
-While synths are great, Lo-Fi often relies on specific samples. You can load your own samples from URLs.
-
-```javascript
-// Load a sample map
-samples({
-  'mykick': 'https://example.com/kick.wav',
-  'mysnare': 'https://example.com/snare.wav',
-  'jazz_loop': 'https://example.com/piano_loop.mp3'
-})
-
-// Use them
-stack(
-  s("mykick mysnare"),
-  s("jazz_loop").legato(1) // Play the full loop
+  s("bd*2"),                  // Kick on grid (mostly)
+  s("sd").nudge(0.04),        // Snare lags behind slightly
+  s("hh*8").nudge(rand.range(-0.02, 0.02)) // Hi-hats vary randomly
 )
 ```
 
-## 5. Sidechain Compression (Ducking)
+## 3. Texture: The "Vintage" Sound
 
-To get that "pumping" effect where the music ducks when the kick hits, you can automate the gain.
+We need to degrade the clean digital sound to emulate vinyl and tape.
+
+- **Low Pass Filter (`lpf`)**: Cuts high frequencies. Automated LPF simulates a wow/flutter effect.
+- **Distortion (`shape` / `crush`)**: Adds grit.
+- **Formant (`vowel`)**: Adds a hollow, vocal-like quality often found in old samplers.
 
 ```javascript
-const kick = s("bd*2")
-const chords = note("c:minor7").s("piano")
-
-stack(
-  kick,
-  chords.gain(s("0.2 0.8").fast(2)) // Duck volume on the beat
-)
+s("piano")
+  .lpf(sine.range(800, 1200).slow(4)) // Filter breathes
+  .shape(0.2) // Saturation
 ```
 
-## 6. Putting it all together (Nujabes Vibe)
+---
 
-Here is a recipe for a track. We will use `setcps` to set a tempo around 90 BPM.
+## 4. Practical Examples: 3 Original Pieces
+
+Here are three complete, original compositions demonstrating these techniques.
+
+### Piece 1: "Morning Coffee"
+*Focus: Extended chords, light swing, piano-centric.*
 
 ```javascript
-// Set Tempo (90 BPM)
-setcps(90/60/4)
+// Piece 1: Morning Coffee
+// A gentle start with extended chords and a relaxed beat.
 
-// 1. Chords (The Loop)
-const chords = note("f3:major7 e3:minor7 a3:minor7 d3:minor7")
+setcps(85/60/4) // 85 BPM
+
+// 1. Keys: Jazz progression (ii-V-I-vi)
+const keys = note("c4:minor7 f3:dom7 bb3:major7 g3:minor7")
   .s("piano")
-  .velocity(0.6)
-  .lpf(1500)
-  .slow(4)
+  .velocity("0.5 0.6 0.4 0.5") // Humanize velocity
+  .lpf(2000) // Soften the highs
+  .slow(2)
 
-// 2. Drums (The Beat)
+// 2. Bass: Simple root movement
+const bass = note("c2 f2 bb2 g2")
+  .s("bass")
+  .smooth(0.1)
+  .slow(2)
+
+// 3. Drums: Classic Boom Bap
 const drums = stack(
-  s("bd [~ bd] sd ~"),
-  s("hh*8").velocity("0.5 0.3 0.7 0.3") // Dynamic hi-hats
-).swing(0.15)
+  s("bd ~ sd ~"),
+  s("hh*8").velocity(rand.range(0.2, 0.5)) // Random ghost notes
+).swing(0.2) // Light swing
 
-// 3. Vocal Chop / Melody
-const melody = note("c5 b4 g4 e4")
+// Master Mix
+stack(
+  keys,
+  bass,
+  drums
+).room(0.5).size(0.4)
+```
+
+### Piece 2: "Night Walk"
+*Focus: Atmosphere, saxophone lead, darker harmony.*
+
+```javascript
+// Piece 2: Night Walk
+// A darker, moodier vibe using saxophone textures and deep grooves.
+
+setcps(90/60/4) // 90 BPM
+
+// 1. The Main Riff (Saxophone style)
+const sax = note("d4 f4 a4 c5 ~ a4 g4 f4")
   .s("sax")
-  .slow(2)
+  .legato(0.8)
+  .lpf(1500)
   .delay(0.5)
   .delaytime(0.25)
+  .slow(2)
 
-// Master Stack
+// 2. Chords: Minor 9ths for mystery
+const pads = note("d3:minor9 g3:minor9")
+  .s("epiano")
+  .lpf(800)       // Darker tone
+  .shape(0.2)     // Slight grit
+  .slow(2)
+
+// 3. Drums: Syncopated kick and undulating hi-hats
+const beat = stack(
+  s("bd(3,8)"), // Tresillo-ish kick pattern
+  s("sd").struct("~ x ~ x"),
+  s("hh*16").velocity(sine.range(0.2, 0.6).slow(4)) // Volume swells
+).swing(0.1)
+
+// Master Mix
 stack(
-  chords,
-  drums,
-  melody
+  sax,
+  pads,
+  beat
+).room(0.8)
+```
+
+### Piece 3: "Nostalgic Tape"
+*Focus: Sampling simulation, heavy processing, "drunk" rhythm.*
+
+```javascript
+// Piece 3: Nostalgic Tape
+// Heavily processed, warbly, and sample-based texture.
+
+setcps(80/60/4) // 80 BPM
+
+// 1. Vinyl Crackle Layer (Simulated noise)
+const crackle = s("noise").gain(0.05).lpf(2000)
+
+// 2. Chopped Piano (Simulated sampling)
+// We use .struct to chop the continuous chord into a rhythmic pattern
+const choppedKeys = note("eb4:major7 c4:minor7")
+  .s("piano")
+  .struct("x x ~ x x ~ x ~") // Chopped rhythm
+  .lpf(sine.range(500, 1500).slow(8)) // Filter sweep (Tape wobble)
+  .vowel("o") // Formant filter for 'old' sampler sound
+  .slow(2)
+
+// 3. Lo-Fi Drums with 'nudge'
+const drunkDrums = stack(
+  s("bd").nudge(rand.range(-0.02, 0.02)), // Random timing errors
+  s("sd").nudge(0.04), // Late snare (essential for this style)
+  s("hh*4").swing(0.3)
+).shape(0.4) // Distortion/Saturation
+
+// Master Mix
+stack(
+  crackle,
+  choppedKeys,
+  drunkDrums
 )
 ```
 
-## 7. Tips for Authenticity
+## Summary of Techniques
 
-- **Offset**: Use `.nudge(0.02)` on the snare to make it drag slightly behind the beat.
-- **Silence**: Don't fill every frequency. Leave space (`~`).
-- **Repetition**: Lo-Fi is loop-based. Don't vary the melody too much.
+| Effect/Function | Usage in Lo-Fi |
+| :--- | :--- |
+| `lpf(freq)` | Removes brightness, simulates old speakers. |
+| `nudge(time)` | Pushes notes off-grid for human feel. |
+| `swing(amount)` | Adds groove to 16th/8th notes. |
+| `shape(amount)` | Adds distortion and warmth. |
+| `slow(amount)` | Stretches patterns for a laid-back feel. |
 
-In the next section, we will see how to run this code in Google Colab!
+Experiment with these recipes! Try swapping the chords in "Morning Coffee" with your own progression, or change the samples in "Night Walk".

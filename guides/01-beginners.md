@@ -22,6 +22,7 @@ Strudel uses a special string format called "mini-notation" to define patterns.
 - **Sub-sequence**: `s("a [b c] d")` plays 'b' and 'c' in the space of one step.
 - **Rest**: `~` represents a silence. `s("bd ~ sd ~")`.
 - **Repetition**: `s("bd*2")` is the same as `s("bd bd")`.
+- **Duration**: `s("bd@2 sd")` makes the kick last twice as long as the snare.
 
 ## 3. Melodies with `note`
 
