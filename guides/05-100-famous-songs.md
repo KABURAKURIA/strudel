@@ -130,7 +130,7 @@ stack(
 ```javascript
 setcps(1.4)
 stack(
-  note("c4 c4 f4 f4").s("supersaw").lpf(2000),
+  note("c4 c4 f4 f4 f4 f4 f4@2").s("supersaw").lpf(2000),
   s("cp*2").slow(4).gain(1.2), // Claps
   s("bd(3,8)"),
   s("hh*16").pan(sine)
@@ -271,7 +271,7 @@ stack(
 ```javascript
 setcps(1.4)
 stack(
-  note("c4 e4 g4 g4").s("sawtooth"),
+  note("c4 c4 e4 e4 g4 g4 g4@2").s("sawtooth"), // Head, shoulders, knees and toes
   s("bd*4"),
   s("hh*8").open()
 )
@@ -989,7 +989,7 @@ stack(
 ```javascript
 setcps(1.2)
 stack(
-  note("c4 f4 a4 c5").s("piano").velocity(0.8),
+  note("c4@0.5 f4@1.5 a4@0.5 c5@1.5 a4@0.5 f4@2").s("piano").velocity(0.8),
   note("f2 c3").s("bass").slow(2).shape(0.3),
   s("cp").slow(2)
 )
@@ -1039,7 +1039,8 @@ stack(
 ```javascript
 setcps(1.2)
 stack(
-  note("c4 c4 c4 a3 a3 a3 f3 f3 f3 g3 g3 g3").s("piano").swing(0.2),
+  note("c4@1.5 c4@0.5 c4 c4@0.5 b3@0.5 a3@1.5 b3@0.5 c4 d4@2").s("piano").octave(5).gain(0.8), // Melody
+  note("c4 c4 c4 a3 a3 a3 f3 f3 f3 g3 g3 g3").s("piano").swing(0.2), // Chords
   note("c2 a1 f1 g1").s("bass").slow(1).shape(0.4),
   s("hh*4").open()
 )
