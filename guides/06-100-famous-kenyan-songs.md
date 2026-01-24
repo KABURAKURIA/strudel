@@ -379,7 +379,7 @@ stack(
   melody,
   chords,
   pick,
-  s("hh*8").open()
+  s("oh*8")
 )
 ```
 

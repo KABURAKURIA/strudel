@@ -1587,7 +1587,7 @@ const melody = note(cat(
   .s("sawtooth").lpf(2000)
   .velocity(0.9)
 
-const cymbal = s("hh").open()
+const cymbal = s("oh")
   .slow(4)
 
 stack(
@@ -1977,7 +1977,7 @@ const melody = note(cat(
   .s("sine")
   .velocity(0.8)
 
-const ride = s("hh*3").open()
+const ride = s("oh*3")
   .gain(0.6)
 
 stack(
@@ -2187,7 +2187,7 @@ const cello = note("c2")
 stack(
   melody,
   cello,
-  s("hh").open()
+  s("oh")
 )
 ```
 
