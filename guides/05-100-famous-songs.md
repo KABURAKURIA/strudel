@@ -33,7 +33,7 @@ const chords = note(cat(
   "f3@4 c3@2 g3@2 c3@4"
 ))
   .chord("major")
-  .s("piano")
+  .s("superpiano")
   .velocity(0.6)
 
 // 3. IMPROV (Glitch Fills)
@@ -135,12 +135,12 @@ setcps(1.2)
 const phrase = "c4@1.5 c4@0.5 c4@1 d4@0.5 e4@1.5 e4@0.5 d4@1 e4@0.5 f4@1 g4@3"
 
 const melody = note(phrase)
-  .s("flute")
+  .s("triangle")
   .room(0.5)
   .velocity(0.9)
 
 const round = note(phrase)
-  .s("flute")
+  .s("triangle")
   .delay(2) // Delay by 2 cycles (approx 2 bars)
   .velocity(0.7)
 
@@ -162,14 +162,14 @@ const melody = note(cat(
   "e4@1 f4@1 g4@2",
   "e4@1 f4@1 g4@2"
 ))
-  .s("vibraphone")
+  .s("sine")
   .velocity(0.8)
 
 const harmony = note(cat(
   "c3@4", "c3@4", "c3@4", "c3@4"
 ))
   .chord("major")
-  .s("piano")
+  .s("superpiano")
   .gain(0.6)
 
 stack(
@@ -222,7 +222,7 @@ const melody = note(cat(
 
 const chords = note("g3 c3 g3 d3")
   .chord("major")
-  .s("piano")
+  .s("superpiano")
   .gain(0.6)
 
 stack(
@@ -241,13 +241,13 @@ const melody = note(cat(
   "c4@1 c4@1 g4@1 g4@1 a4@0.5 b4@0.5 c5@0.5 a4@0.5 g4@2",
   "f4@1 f4@1 e4@1 e4@1 d4@1 d4@1 c4@2"
 ))
-  .s("rhodes")
+  .s("superpiano").lpf(1000)
   .gain(sine.range(0.5, 1).fast(4))
   .velocity(0.8)
 
 const chords = note("c3 g3 f3 c3")
   .chord("major")
-  .s("piano")
+  .s("superpiano")
   .gain(0.6)
 
 stack(
@@ -272,7 +272,7 @@ const melody = note(cat(
 
 const arp = note("c3 g3")
   .arp("up")
-  .s("harp")
+  .s("supermandolin")
   .gain(0.5)
 
 stack(
@@ -291,13 +291,13 @@ const melody = note(cat(
   "c4@1 f4@1 f4@1 f4@1 f4@2 a4@2",
   "c5@1 a4@1 f4@2"
 ))
-  .s("clav")
+  .s("superpwm")
   .lpf(sine.range(500, 2000).slow(2))
   .velocity(0.9)
 
 const chords = note("f3 c3 f3")
   .chord("major")
-  .s("piano")
+  .s("superpiano")
   .gain(0.6)
 
 stack(
@@ -339,7 +339,7 @@ const melody = note(cat(
   "c4@1 c4@1 d4@1 d4@1 e4@2 c4@2",
   "e4@1 e4@1 f4@1 f4@1 g4@2 e4@2"
 ))
-  .s("lead")
+  .s("sawtooth")
   .velocity(0.8)
 
 const wobble = note("c2 g2")
@@ -363,10 +363,10 @@ const melody = note(cat(
   "a3@1 b3@1 c4@2 a3@2",
   "e4@1 c4@1 a3@2"
 ))
-  .s("pluck")
+  .s("supermandolin")
   .velocity(0.8)
 
-const tick = s("woodblock")
+const tick = s("rm")
   .gain(0.8)
 
 stack(
@@ -386,11 +386,11 @@ const melody = note(cat(
   "e4@1 d4@1 c4@2",
   "c4@0.5 c4@0.5 c4@0.5 c4@0.5 d4@0.5 d4@0.5 d4@0.5 d4@0.5"
 ))
-  .s("sitar")
+  .s("supermandolin")
   .velocity(0.8)
 
 const drone = note("c2")
-  .s("drone")
+  .s("sawtooth").lpf(500)
   .gain(0.6)
 
 stack(
@@ -409,12 +409,12 @@ const melody = note(cat(
   "c4@1 d4@1 e4@1 c4@1",
   "e4@1 f4@1 g4@2"
 ))
-  .s("flute")
+  .s("triangle")
   .velocity(0.8)
 
 const harp = note("c3 g3")
   .arp("up")
-  .s("harp")
+  .s("supermandolin")
   .gain(0.5)
 
 stack(
@@ -433,7 +433,7 @@ const melody = note(cat(
   "c4@1 d4@1 e4@2 c4@2",
   "d4@1 e4@1 f4@2 d4@2"
 ))
-  .s("voice")
+  .s("vowel")
   .vowel("o")
   .velocity(0.8)
 
@@ -462,7 +462,7 @@ const melody = note(cat(
 
 const chords = note("c3 g3")
   .chord("major")
-  .s("piano")
+  .s("superpiano")
   .gain(0.6)
 
 stack(
@@ -481,7 +481,7 @@ const melody = note(cat(
   "c4@0.5 c4@0.5 d4@0.5 d4@0.5 e4@0.5 g4@0.5 c4@2",
   "c4@0.5 c4@0.5 d4@0.5 d4@0.5 e4@2 c4@1"
 ))
-  .s("calliope")
+  .s("triangle")
   .velocity(0.8)
 
 const kick = s("bd")
@@ -504,7 +504,7 @@ const melody = note(cat(
   "g4@1 g4@1 e4@1 a4@1 g4@1 e4@2",
   "g4@1 g4@1 e4@1 a4@1 g4@1 e4@2"
 ))
-  .s("piano")
+  .s("superpiano")
   .detune(2)
   .velocity(0.6)
 
@@ -527,17 +527,17 @@ const melody = note(cat(
   "e4@1.5 g4@0.5 a4@2",
   "e4@1.5 g4@0.5 a4@2"
 ))
-  .s("celesta")
+  .s("sine")
   .velocity(0.6)
 
 const pad = note("c3 g3")
-  .s("pad")
+  .s("supersaw").attack(0.5)
   .gain(0.4)
 
 stack(
   melody,
   pad,
-  s("chimes")
+  s("sine")
 )
 ```
 
@@ -551,7 +551,7 @@ const melody = note(cat(
   "g4@1 e4@1 g4@2",
   "a4@1 g4@1 f4@1 e4@1 d4@1 e4@1 f4@1 g4@1"
 ))
-  .s("brass")
+  .s("sawtooth").lpf(2000)
   .velocity(0.8)
 
 const snare = s("snare*4")
@@ -574,11 +574,11 @@ const melody = note(cat(
   "e4@1 d4@1 c4@2",
   "g4@0.5 f4@0.5 f4@0.5 e4@0.5 c4@2"
 ))
-  .s("oboe")
+  .s("sawtooth").lpf(3000)
   .velocity(0.8)
 
 const pizz = note("c3")
-  .s("pizzicato")
+  .s("supermandolin")
   .gain(0.6)
 
 stack(
@@ -597,16 +597,16 @@ const melody = note(cat(
   "g3@1 c4@1 c4@1 c4@1",
   "c4@1 d4@1 e4@1 c4@1"
 ))
-  .s("acoustic")
+  .s("supermandolin")
   .velocity(0.8)
 
-const flute = s("flute")
+const flute = s("triangle")
   .gain(0.3)
 
 stack(
   melody,
   flute,
-  note("c2 g2").s("upright")
+  note("c2 g2").s("bass")
 )
 ```
 
@@ -668,19 +668,19 @@ const melody = note(cat(
   "d4@1 g4@2 b4@0.5 a4@0.5 g4@2 e4@1 d4@2",
   "d4@1 g4@2 b4@0.5 a4@0.5 g4@2 b4@1 d5@3"
 ))
-  .s("organ")
+  .s("superpwm")
   .gain(sine.range(0.5, 1).fast(4))
   .velocity(0.8)
 
 const chords = note("g2 c3 g3 d3")
   .chord("major")
-  .s("pad")
+  .s("supersaw").attack(0.5)
   .gain(0.6)
 
 stack(
   melody,
   chords,
-  s("choir").slow(8)
+  s("vowel").slow(8)
 )
 ```
 
@@ -715,11 +715,11 @@ const melody = note(cat(
   "b3@0.5 c4@0.5 d4@1 b3@1.5 g3@0.5 g3@1 b3@1",
   "c4@1 d4@1 e4@1 c4@1"
 ))
-  .s("flute")
+  .s("triangle")
   .velocity(0.8)
 
 const strings = note("g2 c3")
-  .s("strings")
+  .s("supersaw").attack(0.1).release(0.8)
   .gain(0.6)
 
 stack(
@@ -738,11 +738,11 @@ const melody = note(cat(
   "a3@1 c4@2 d4@1 e4@1.5 f4@0.5 e4@1",
   "d4@2 b3@1 g3@1.5 a3@0.5 b3@1"
 ))
-  .s("lute")
+  .s("supermandolin")
   .velocity(0.8)
 
 const bass = note("a2 g2")
-  .s("acoustic")
+  .s("supermandolin")
   .gain(0.7)
 
 stack(
@@ -761,7 +761,7 @@ const melody = note(cat(
   "d4@2 d4@2 a4@2 a4@1 e4@1",
   "f4@1.5 e4@0.5 d4@2"
 ))
-  .s("guitar")
+  .s("supermandolin")
   .velocity(0.8)
 
 const bass = note("d2 a2")
@@ -771,7 +771,7 @@ const bass = note("d2 a2")
 stack(
   melody,
   bass,
-  s("shaker")
+  s("hh").hpf(5000)
 )
 ```
 
@@ -784,7 +784,7 @@ const melody = note(cat(
   "c4@1 c4@1 d4@1 e4@1 c4@1 e4@1 d4@2",
   "c4@1 c4@1 d4@1 e4@1 c4@1 b3@1 g3@2"
 ))
-  .s("piccolo")
+  .s("sine")
   .velocity(0.8)
 
 const snare = s("snare*4")
@@ -806,17 +806,17 @@ const melody = note(cat(
   "c4@0.5 d4@0.5 e4@1 g4@1 g4@1 a4@1 g4@1 e4@1 c4@1",
   "d4@1 e4@1 e4@1 d4@1 c4@1 d4@2"
 ))
-  .s("banjo")
+  .s("supermandolin")
   .velocity(0.8)
 
 const bass = note("c2 g2")
-  .s("upright")
+  .s("bass")
   .gain(0.7)
 
 stack(
   melody,
   bass,
-  s("fiddle")
+  s("supersaw")
 )
 ```
 
@@ -829,18 +829,18 @@ const melody = note(cat(
   "g4@1 g4@1 e4@1 g4@1 a4@1 g4@1 e4@2",
   "e4@1 d4@1 d4@2 e4@1 d4@1 d4@2"
 ))
-  .s("piano")
+  .s("superpiano")
   .swing(0.2)
   .velocity(0.8)
 
 const tuba = note("c2 g2")
-  .s("tuba")
+  .s("supersquare").lpf(500)
   .gain(0.6)
 
 stack(
   melody,
   tuba,
-  s("rim")
+  s("rm")
 )
 ```
 
@@ -857,7 +857,7 @@ const melody = note(cat(
   .velocity(0.8)
 
 const guitar = note("g2 d3")
-  .s("guitar")
+  .s("supermandolin")
   .gain(0.6)
 
 stack(
@@ -876,10 +876,10 @@ const melody = note(cat(
   "c4@1 d4@1 e4@1 g4@1 g4@1 g4@3",
   "a4@1 g4@1 e4@1 c4@1"
 ))
-  .s("fiddle")
+  .s("supersaw")
   .velocity(0.8)
 
-const banjo = s("banjo")
+const banjo = s("supermandolin")
   .gain(0.4)
 
 stack(
@@ -898,7 +898,7 @@ const melody = note(cat(
   "e4@2 g4@2 g4@4",
   "g4@1 e4@1 d4@1 c4@1 d4@1 e4@1 g4@2"
 ))
-  .s("rhodes")
+  .s("superpiano").lpf(1000)
   .velocity(0.8)
 
 const bass = note("c2 f2")
@@ -921,11 +921,11 @@ const melody = note(cat(
   "c4@1 e4@1 f4@1 g4@4",
   "c4@1 e4@1 f4@1 g4@4"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.9)
 
 const tuba = note("c2 g2")
-  .s("tuba")
+  .s("supersquare").lpf(500)
   .gain(0.7)
 
 stack(
@@ -976,7 +976,7 @@ const bass = note("c2 g2")
 stack(
   melody,
   bass,
-  s("pickaxe")
+  s("cp")
 )
 ```
 
@@ -989,7 +989,7 @@ const melody = note(cat(
   "c4@2 c4@2 c4@2 d4@1 e4@3",
   "e4@2 d4@2 e4@2 f4@1 g4@3"
 ))
-  .s("banjo")
+  .s("supermandolin")
   .velocity(0.8)
 
 const train = s("snare*8")
@@ -998,7 +998,7 @@ const train = s("snare*8")
 stack(
   melody,
   train,
-  s("whistle")
+  s("sine").portamento(0.1)
 )
 ```
 
@@ -1011,17 +1011,17 @@ const melody = note(cat(
   "d4@1 g4@1 b4@1 b4@1 b4@1 a4@1 g4@1 a4@1",
   "b4@2 a4@2 g4@4"
 ))
-  .s("steelguitar")
+  .s("supermandolin")
   .velocity(0.8)
 
 const guitar = note("g2 d3")
-  .s("acoustic")
+  .s("supermandolin")
   .gain(0.6)
 
 stack(
   melody,
   guitar,
-  s("brush")
+  s("hh")
 )
 ```
 
@@ -1034,7 +1034,7 @@ const melody = note(cat(
   "a2@1 c3@1 d3@1 f3@2 a3@1 e3@2",
   "a2@1 e3@2"
 ))
-  .s("guitar")
+  .s("supermandolin")
   .velocity(0.8)
 
 const bass = note("a1 c2 d2 f2")
@@ -1044,7 +1044,7 @@ const bass = note("a1 c2 d2 f2")
 stack(
   melody,
   bass,
-  s("organ")
+  s("superpwm")
 )
 ```
 
@@ -1057,10 +1057,10 @@ const melody = note(cat(
   "c4@1.5 e4@0.5 g4@1 g4@2 a4@1 b4@1 a4@1 g4@2",
   "g4@1 e4@1 c4@1"
 ))
-  .s("flute")
+  .s("triangle")
   .velocity(0.8)
 
-const didge = s("didgeridoo")
+const didge = s("sawtooth").lpf(300)
   .gain(0.5)
 
 stack(
@@ -1089,7 +1089,7 @@ const kick = s("bd*2")
 stack(
   melody,
   kick,
-  s("clap")
+  s("cp")
 )
 ```
 
@@ -1102,7 +1102,7 @@ const melody = note(cat(
   "e4@1.5 c4@0.5 b3@1 a3@1 e4@1.5 c4@0.5 b3@1 a3@1",
   "a3@1 b3@1 c4@1 d4@1 e4@2"
 ))
-  .s("balalaika")
+  .s("supermandolin")
   .velocity(0.8)
 
 const kick = s("bd*2")
@@ -1111,7 +1111,7 @@ const kick = s("bd*2")
 stack(
   melody,
   kick,
-  s("hey")
+  s("glitch")
 ).fast(sine.range(1, 1.5).slow(8))
 ```
 
@@ -1124,7 +1124,7 @@ const melody = note(cat(
   "e5@2 b4@1 c5@1 d5@2 c5@1 b4@1 a4@2 a4@1 c5@1 e5@2 d5@1 c5@1",
   "b4@3 c5@1 d5@2 e5@2"
 ))
-  .s("pulse")
+  .s("square")
   .velocity(0.8)
 
 const tri = note("e2 a2")
@@ -1148,7 +1148,7 @@ const melody = note(cat(
   "c4@0.5 d4@0.5 e4@1 f4@0.5 g4@3",
   "c4@0.5 d4@0.5 e4@1 f4@0.5 g4@3"
 ))
-  .s("guitar")
+  .s("supermandolin")
   .shape(0.4)
   .velocity(0.8)
 
@@ -1158,7 +1158,7 @@ const congas = s("conga*4")
 stack(
   melody,
   congas,
-  s("cowbell")
+  s("cp").hpf(1000)
 )
 ```
 
@@ -1171,7 +1171,7 @@ const melody = note(cat(
   "g3@2 a3@2 b3@3",
   "b3@0.5 a3@0.5 b3@2 a3@2 g3@2"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.8)
 
 const bongo = s("bongo*4")
@@ -1193,17 +1193,17 @@ const melody = note(cat(
   "c4@1 c4@1 a3@1 b3@1 g3@2 c4@1",
   "c4@1 c4@1 a3@1 b3@1 g3@2"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.9)
 
 const guitaron = note("c3 g3")
-  .s("guitaron")
+  .s("bass")
   .gain(0.7)
 
 stack(
   melody,
   guitaron,
-  s("shaker")
+  s("hh").hpf(5000)
 )
 ```
 
@@ -1216,11 +1216,11 @@ const melody = note(cat(
   "g3@1 c4@1 e4@1 g4@2.5 a4@0.5",
   "a4@1 g4@3"
 ))
-  .s("lapsteel")
+  .s("supermandolin")
   .velocity(0.8)
 
 const uke = note("c3 g3")
-  .s("ukulele")
+  .s("supermandolin")
   .gain(0.6)
 
 stack(
@@ -1243,17 +1243,17 @@ const melody = note(cat(
   "e4@1 e4@1 f4@1 g4@1 g4@1 f4@1 e4@1 d4@1",
   "c4@1 c4@1 d4@1 e4@1 e4@1.5 d4@0.5 d4@2"
 ))
-  .s("strings")
+  .s("supersaw").attack(0.1).release(0.8)
   .velocity(0.8)
 
 const bass = note("c2 g2")
-  .s("cello")
+  .s("supersaw").lpf(1000).attack(0.1)
   .gain(0.7)
 
 stack(
   melody,
   bass,
-  s("timpani")
+  s("bd").gain(1.2).shape(0.5)
 )
 ```
 
@@ -1266,11 +1266,11 @@ const melody = note(cat(
   "e5@0.5 d#5@0.5 e5@0.5 d#5@0.5 e5@0.5 b4@0.5 d5@0.5 c5@0.5",
   "a4@2"
 ))
-  .s("celesta")
+  .s("sine")
   .velocity(0.8)
 
 const piano = note("a2 e3 a3")
-  .s("piano")
+  .s("superpiano")
   .gain(0.5)
 
 stack(
@@ -1289,7 +1289,7 @@ const melody = note(cat(
   "g4@0.5 g4@0.5 g4@0.5 eb4@4",
   "~ f4@0.5 f4@0.5 f4@0.5 d4@4"
 ))
-  .s("brass")
+  .s("sawtooth").lpf(2000)
   .velocity(0.9)
 
 const bass = note("g2")
@@ -1312,17 +1312,17 @@ const melody = note(cat(
   "f#5@2 e5@2 d5@2 c#5@2",
   "b4@2 a4@2 b4@2 c#5@2"
 ))
-  .s("violin")
+  .s("supersaw").attack(0.1)
   .velocity(0.8)
 
 const cello = note("d3 a2 b2 f#2 g2 d2 g2 a2")
-  .s("cello")
+  .s("supersaw").lpf(1000).attack(0.1)
   .gain(0.6)
 
 stack(
   melody,
   cello,
-  s("harp").gain(0.4)
+  s("supermandolin").gain(0.4)
 )
 ```
 
@@ -1335,18 +1335,18 @@ const melody = note(cat(
   "g4@1.5 d4@0.5 g4@1.5 d4@0.5 g4@0.5 d4@0.5 g4@0.5 b4@0.5 d5@2",
   "c5@1.5 a4@0.5 c5@1.5 a4@0.5"
 ))
-  .s("violin")
+  .s("supersaw").attack(0.1)
   .legato(0.5)
   .velocity(0.8)
 
 const viola = note("g3 d3")
-  .s("viola")
+  .s("supersaw").lpf(2000).attack(0.1)
   .gain(0.6)
 
 stack(
   melody,
   viola,
-  note("g2").s("cello")
+  note("g2").s("supersaw").lpf(1000).attack(0.1)
 )
 ```
 
@@ -1359,7 +1359,7 @@ const melody = note(cat(
   "b4@0.5 a4@0.5 g#4@0.5 a4@0.5 c5@2",
   "d5@0.5 c5@0.5 b4@0.5 c5@0.5 e5@2"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.8)
 
 const bass = note("a2 e3")
@@ -1382,17 +1382,17 @@ const melody = note(cat(
   "g4@1 e4@1 d4@1 c4@1 d4@1 e4@1 g4@1 e4@1",
   "d4@1 c4@1 d4@1 e4@1 g4@1 e4@1 g4@1 a4@1"
 ))
-  .s("flute")
+  .s("triangle")
   .velocity(0.8)
 
 const strings = note("c3")
-  .s("strings")
+  .s("supersaw").attack(0.1).release(0.8)
   .gain(0.6)
 
 stack(
   melody,
   strings,
-  s("flute").gain(0.2)
+  s("triangle").gain(0.2)
 )
 ```
 
@@ -1404,18 +1404,18 @@ setcps(1.1)
 const melody = note(cat(
   "b2@0.5 c#3@0.5 d3@0.5 e3@0.5 f#3@0.5 d3@0.5 f#3@1"
 ))
-  .s("bassoon")
+  .s("sawtooth").lpf(1000)
   .legato(0.5)
   .velocity(0.8)
 
 const tuba = note("b1")
-  .s("tuba")
+  .s("supersquare").lpf(500)
   .gain(0.7)
 
 stack(
   melody,
   tuba,
-  s("pizzicato")
+  s("supermandolin")
 )
 ```
 
@@ -1428,17 +1428,17 @@ const melody = note(cat(
   "e5@2 g#5@2 g#5@2 g#5@0.5 f#5@0.5 e5@0.5 b4@0.5",
   "e5@1 b4@1 g#4@1 b4@1 e5@2"
 ))
-  .s("violin")
+  .s("supersaw").attack(0.1)
   .velocity(0.8)
 
 const harpsi = note("e3")
-  .s("harpsichord")
+  .s("supersaw")
   .gain(0.5)
 
 stack(
   melody,
   harpsi,
-  s("flute")
+  s("triangle")
 )
 ```
 
@@ -1452,7 +1452,7 @@ const melody = note(cat(
   "~ ~ g4@2",
   "e5@1 e5@2"
 ))
-  .s("strings")
+  .s("supersaw").attack(0.1).release(0.8)
   .velocity(0.8)
 
 const drums = s("bd hh hh")
@@ -1461,7 +1461,7 @@ const drums = s("bd hh hh")
 stack(
   melody,
   drums,
-  note("c3").s("horn")
+  note("c3").s("sawtooth")
 )
 ```
 
@@ -1473,7 +1473,7 @@ setcps(1.4)
 const melody = note(cat(
   "b3@1.5 e4@0.5 g4@1.5 b4@0.5 g4@2"
 ))
-  .s("brass")
+  .s("sawtooth").lpf(2000)
   .velocity(0.9)
 
 const bass = note("e2 b2")
@@ -1495,17 +1495,17 @@ setcps(1)
 const melody = note(cat(
   "f#4@1 b4@1 c#5@1 d5@1 e5@1 f#5@3"
 ))
-  .s("oboe")
+  .s("sawtooth").lpf(3000)
   .velocity(0.8)
 
 const harp = note("b2")
-  .s("harp")
+  .s("supermandolin")
   .gain(0.6)
 
 stack(
   melody,
   harp,
-  s("strings")
+  s("supersaw").attack(0.1).release(0.8)
 )
 ```
 
@@ -1518,7 +1518,7 @@ const melody = note(cat(
   "g4@1 e4@1 e4@1 f4@1 d4@1 d4@1",
   "c4@1 d4@1 c4@1 b3@1 c4@2"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.8)
 
 const snare = s("snare*4")
@@ -1527,7 +1527,7 @@ const snare = s("snare*4")
 stack(
   melody,
   snare,
-  note("c3").s("pizzicato")
+  note("c3").s("supermandolin")
 )
 ```
 
@@ -1540,7 +1540,7 @@ const melody = note(cat(
   "e4@0.5 e4@0.5 e4@0.5 f4@0.5 g4@2",
   "g4@0.5 g4@0.5 f4@0.5 e4@0.5 d4@2"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.9)
 
 const drums = s("bd*2 sd*2")
@@ -1549,7 +1549,7 @@ const drums = s("bd*2 sd*2")
 stack(
   melody,
   drums,
-  note("e2").s("strings")
+  note("e2").s("supersaw").attack(0.1).release(0.8)
 )
 ```
 
@@ -1561,17 +1561,17 @@ setcps(1)
 const melody = note(cat(
   "d4@1.5 eb4@0.5 f4@1.5 f#4@0.5 g4@4"
 ))
-  .s("violin")
+  .s("supersaw").attack(0.1)
   .velocity(0.8)
 
 const piano = note("d3 a3")
-  .s("piano")
+  .s("superpiano")
   .struct("x ~ x x")
 
 stack(
   melody,
   piano,
-  s("castanets")
+  s("cp")
 )
 ```
 
@@ -1584,16 +1584,16 @@ const melody = note(cat(
   "f4@1 g4@1 a4@1 f4@1 g4@1 a4@1",
   "bb4@1 a4@1 g4@1 f4@1 e4@1 d4@1"
 ))
-  .s("brass")
+  .s("sawtooth").lpf(2000)
   .velocity(0.9)
 
-const cymbal = s("cymbal")
+const cymbal = s("hh").open()
   .slow(4)
 
 stack(
   melody,
   cymbal,
-  note("f2").s("tuba")
+  note("f2").s("supersquare").lpf(500)
 )
 ```
 
@@ -1606,7 +1606,7 @@ const melody = note(cat(
   "c4@3 b3@0.5 c4@0.5 d4@0.5 c4@0.5 b3@0.5 a3@0.5",
   "c4@1 c4@1 a3@2"
 ))
-  .s("flute")
+  .s("triangle")
   .velocity(0.8)
 
 const snare = s("snare")
@@ -1615,7 +1615,7 @@ const snare = s("snare")
 stack(
   melody,
   snare,
-  note("c2").s("pizzicato")
+  note("c2").s("supermandolin")
 )
 ```
 
@@ -1627,11 +1627,11 @@ setcps(0.6)
 const melody = note(cat(
   "f4@2 g#4@2 f4@2 eb4@2"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.5)
 
 const pad = note("f3")
-  .s("pad")
+  .s("supersaw").attack(0.5)
   .gain(0.4)
 
 stack(
@@ -1649,11 +1649,11 @@ setcps(0.8)
 const melody = note(cat(
   "f#4@2 a4@2 g4@2 f#4@2 c#4@2 b3@2 c#4@2 d4@2"
 ))
-  .s("rhodes")
+  .s("superpiano").lpf(1000)
   .velocity(0.6)
 
 const piano = note("d3 a3")
-  .s("piano")
+  .s("superpiano")
   .gain(0.5)
 
 stack(
@@ -1672,11 +1672,11 @@ const melody = note(cat(
   "g4@2 a4@4 c5@1.5 a4@0.5",
   "g4@2 e4@2"
 ))
-  .s("voice")
+  .s("vowel")
   .velocity(0.7)
 
 const organ = note("c3 g3")
-  .s("organ")
+  .s("superpwm")
   .gain(0.5)
 
 stack(
@@ -1695,17 +1695,17 @@ const melody = note(cat(
   "e4@0.5 e4@0.5 g4@2 e4@0.5 e4@0.5 g4@2",
   "e4@0.5 g4@0.5 c5@1 b4@0.5 a4@0.5 a4@0.5 g4@2"
 ))
-  .s("celesta")
+  .s("sine")
   .velocity(0.6)
 
 const harp = note("c3")
-  .s("harp")
+  .s("supermandolin")
   .gain(0.5)
 
 stack(
   melody,
   harp,
-  s("breath")
+  s("noise")
 )
 ```
 
@@ -1718,7 +1718,7 @@ const melody = note(cat(
   "c4@1 c4@1 e4@1 e4@1 g4@1 g4@1 e4@2",
   "f4@1 f4@1 d4@1 d4@1 b3@1 b3@1 g3@2"
 ))
-  .s("strings")
+  .s("supersaw").attack(0.1).release(0.8)
   .gain(0.4)
 
 const surprise = s("bd")
@@ -1739,17 +1739,17 @@ setcps(0.6)
 const melody = note(cat(
   "e4@2 g4@1 g4@3 e4@1 d4@1 c4@2 d4@1 e4@1 d4@4"
 ))
-  .s("englishhorn")
+  .s("sawtooth")
   .velocity(0.8)
 
 const strings = note("c3 g3")
-  .s("strings")
+  .s("supersaw").attack(0.1).release(0.8)
   .gain(0.5)
 
 stack(
   melody,
   strings,
-  s("timpani")
+  s("bd").gain(1.2).shape(0.5)
 )
 ```
 
@@ -1762,11 +1762,11 @@ const melody = note(cat(
   "d5@0.5 e5@0.5 c5@0.5 a4@1 b4@0.5 g4@0.5",
   "d4@0.5 e4@0.5 c4@0.5 a3@1 b3@0.5 g3@1.5"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.9)
 
 const bass = note("c3")
-  .s("piano")
+  .s("superpiano")
   .gain(0.6)
 
 stack(
@@ -1785,11 +1785,11 @@ const melody = note(cat(
   "eb4@0.5 e4@0.5 g4@0.5 b4@0.5 eb5@1",
   "eb4@0.5 e4@0.5 g4@0.5 b4@0.5 eb5@2"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.8)
 
 const bass = note("eb2")
-  .s("piano")
+  .s("superpiano")
   .gain(0.7)
 
 stack(
@@ -1813,7 +1813,7 @@ const melody = note(cat(
   "e4@1 e4@1 e4@2",
   "e4@1 g4@1 c4@1.5 d4@0.5 e4@4"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.8)
 
 const sleigh = s("hh")
@@ -1822,7 +1822,7 @@ const sleigh = s("hh")
 stack(
   melody,
   sleigh,
-  note("c2").s("tuba")
+  note("c2").s("supersquare").lpf(500)
 )
 ```
 
@@ -1841,7 +1841,7 @@ const melody = note(cat(
   .velocity(0.7)
 
 const pad = note("c3 g3 c4")
-  .s("pad")
+  .s("supersaw").attack(0.5)
   .gain(0.5)
 
 stack(
@@ -1860,7 +1860,7 @@ const melody = note(cat(
   "c5@1.5 b4@0.5 a4@1 g4@1 f4@1 e4@1 d4@1 c4@1",
   "d4@0.5 e4@0.5 f4@1 d4@1 e4@1.5 d4@0.5 c4@2"
 ))
-  .s("brass")
+  .s("sawtooth").lpf(2000)
   .velocity(0.8)
 
 const bass = note("c2 g2")
@@ -1883,17 +1883,17 @@ const melody = note(cat(
   "c5@2 b4@1.5 a4@0.5 g4@3",
   "f4@1 e4@2 d4@2 c4@2"
 ))
-  .s("organ")
+  .s("superpwm")
   .velocity(0.8)
 
 const bass = note("c2")
-  .s("organ")
+  .s("superpwm")
   .gain(0.7)
 
 stack(
   melody,
   bass,
-  s("bell")
+  s("sine")
 )
 ```
 
@@ -1906,11 +1906,11 @@ const melody = note(cat(
   "d4@1 g4@1 g4@0.5 a4@0.5 g4@1 f#4@1 e4@1 e4@1",
   "e4@1 a4@1 a4@0.5 b4@0.5 a4@1 g4@1 f#4@1 d4@1"
 ))
-  .s("choir")
+  .s("vowel")
   .velocity(0.8)
 
 const cello = note("g2")
-  .s("cello")
+  .s("supersaw").lpf(1000).attack(0.1)
   .gain(0.6)
 
 stack(
@@ -1929,7 +1929,7 @@ const melody = note(cat(
   "f#4@1.5 e4@0.5 d4@1 e4@1 f#4@2 g4@2",
   "a4@2 b4@2 c#5@4"
 ))
-  .s("organ")
+  .s("superpwm")
   .velocity(0.8)
 
 const bass = note("d2")
@@ -1952,7 +1952,7 @@ const melody = note(cat(
   "c4@1 f4@1 f4@1.5 g4@0.5 f4@1 e4@1 d4@2",
   "d4@1 d4@1 d4@1 c4@1 c4@1 bb3@1 a3@2"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.9)
 
 const snare = s("snare*4")
@@ -1961,7 +1961,7 @@ const snare = s("snare*4")
 stack(
   melody,
   snare,
-  note("f2").s("trombone")
+  note("f2").s("sawtooth")
 )
 ```
 
@@ -1974,16 +1974,16 @@ const melody = note(cat(
   "g3@1 c4@1.5 c4@0.5 c4@2",
   "d4@1 e4@1.5 e4@0.5 e4@2"
 ))
-  .s("vibraphone")
+  .s("sine")
   .velocity(0.8)
 
-const ride = s("ride*3")
+const ride = s("hh*3").open()
   .gain(0.6)
 
 stack(
   melody,
   ride,
-  note("c2").s("upright")
+  note("c2").s("bass")
 )
 ```
 
@@ -2016,7 +2016,7 @@ setcps(1.2)
 const melody = note(cat(
   "c4@1 c4@1 c4@2 d4@1 e4@1 f4@1 g4@1 f4@1 e4@1 d4@1 c4@4"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.8)
 
 const bass = note("c2")
@@ -2039,16 +2039,16 @@ const melody = note(cat(
   "g4@1.5 e4@0.5 f4@1 g4@1 c5@2 b4@1 c5@1",
   "d5@1 c5@1 b4@1 a4@1 g4@4"
 ))
-  .s("flute")
+  .s("triangle")
   .velocity(0.7)
 
-const shaker = s("shaker")
+const shaker = s("hh").hpf(5000)
   .gain(0.3)
 
 stack(
   melody,
   shaker,
-  note("c2").s("tuba")
+  note("c2").s("supersquare").lpf(500)
 )
 ```
 
@@ -2061,7 +2061,7 @@ const melody = note(cat(
   "c4@1 d4@1 e4@1 e4@1 e4@2",
   "f4@1 e4@1 f4@1 e4@2"
 ))
-  .s("voice")
+  .s("vowel")
   .velocity(0.8)
 
 const snare = s("snare*4")
@@ -2083,11 +2083,11 @@ const melody = note(cat(
   "e4@3 e4@1 e4@2 g4@2",
   "g4@3 a4@0.5 a4@0.5 f4@2 a4@2"
 ))
-  .s("glass")
+  .s("sine")
   .velocity(0.6)
 
 const pad = note("c3 g3")
-  .s("pad")
+  .s("supersaw").attack(0.5)
   .gain(0.4)
 
 stack(
@@ -2106,17 +2106,17 @@ const melody = note(cat(
   "d4@1 d4@1 a4@1 a4@1 g4@1 f4@1 e4@1 d4@1",
   "e4@1 f4@1 g4@1 a4@3"
 ))
-  .s("lute")
+  .s("supermandolin")
   .velocity(0.7)
 
 const drone = note("d2")
-  .s("drone")
+  .s("sawtooth").lpf(500)
   .gain(0.5)
 
 stack(
   melody,
   drone,
-  s("finger")
+  s("sine")
 )
 ```
 
@@ -2129,10 +2129,10 @@ const melody = note(cat(
   "f4@1 f4@1 f4@1 g4@1 f4@1 f4@1 c4@2",
   "d4@1 e4@1 f4@1 d4@1 e4@1 f4@1 g4@2"
 ))
-  .s("brass")
+  .s("sawtooth").lpf(2000)
   .velocity(0.9)
 
-const timp = s("timpani")
+const timp = s("bd").gain(1.2).shape(0.5)
   .gain(0.7)
 
 stack(
@@ -2155,7 +2155,7 @@ const melody = note(cat(
   "g3@1.5 e3@0.5 c3@2 e3@2 g3@2 c4@4",
   "e4@1.5 d4@0.5 c4@2 e3@2 f#3@2 g3@4"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.8)
 
 const snare = s("snare*8")
@@ -2164,7 +2164,7 @@ const snare = s("snare*8")
 stack(
   melody,
   snare,
-  note("c2").s("tuba")
+  note("c2").s("supersquare").lpf(500)
 )
 ```
 
@@ -2177,17 +2177,17 @@ const melody = note(cat(
   "c4@1 c4@1 d4@1 b3@1.5 c4@0.5 d4@1",
   "e4@1 e4@1 f4@1 e4@1 d4@1 c4@1"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.8)
 
 const cello = note("c2")
-  .s("cello")
+  .s("supersaw").lpf(1000).attack(0.1)
   .gain(0.6)
 
 stack(
   melody,
   cello,
-  s("cymbal")
+  s("hh").open()
 )
 ```
 
@@ -2200,7 +2200,7 @@ const melody = note(cat(
   "d4@1 d4@1 g4@2 g4@2 a4@2 a4@2",
   "d5@1.5 b4@0.5 g4@1 d4@1 b3@2 g3@2"
 ))
-  .s("brass")
+  .s("sawtooth").lpf(2000)
   .velocity(0.9)
 
 const snare = s("sd*4")
@@ -2222,7 +2222,7 @@ const melody = note(cat(
   "c4@0.5 f4@1.5 a4@0.5 c5@1.5 a4@0.5 f4@2",
   "c4@0.5 f4@1.5 a4@0.5 c5@1.5 a4@0.5 f4@2"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.8)
 
 const bass = note("f2")
@@ -2245,11 +2245,11 @@ const melody = note(cat(
   "d5@1 g4@0.5 a4@0.5 b4@0.5 c5@0.5 d5@1 g4@1 g4@1",
   "e5@1 c5@0.5 d5@0.5 e5@0.5 f#5@0.5 g5@1 g4@1 g4@1"
 ))
-  .s("harpsichord")
+  .s("supersaw")
   .velocity(0.8)
 
 const cello = note("g2")
-  .s("cello")
+  .s("supersaw").lpf(1000).attack(0.1)
   .gain(0.7)
 
 stack(
@@ -2268,7 +2268,7 @@ const melody = note(cat(
   "c4@0.5 e4@0.5 g4@0.5 c5@0.5 e5@0.5 g4@0.5 c5@0.5 e5@0.5",
   "c4@0.5 e4@0.5 g4@0.5 c5@0.5 e5@0.5 g4@0.5 c5@0.5 e5@0.5"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.8)
 
 const bass = note("c2")
@@ -2290,11 +2290,11 @@ setcps(0.9)
 const melody = note(cat(
   "g4@0.5 a4@0.5 b4@0.5 d5@0.5 c5@0.5 c5@0.5 e5@0.5 d5@0.5 d5@0.5 g5@0.5 f#5@0.5 g5@0.5"
 ))
-  .s("organ")
+  .s("superpwm")
   .velocity(0.8)
 
 const strings = note("g3")
-  .s("strings")
+  .s("supersaw").attack(0.1).release(0.8)
   .gain(0.5)
 
 stack(
@@ -2313,7 +2313,7 @@ const high = note(cat(
   "f4@0.5 g4@0.5 f4@0.5 g4@0.5 f4@0.5 g4@0.5",
   "e4@0.5 g4@0.5 e4@0.5 g4@0.5 e4@0.5 g4@0.5"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.8)
 
 const drums = s("bd sd")
@@ -2322,7 +2322,7 @@ const drums = s("bd sd")
 stack(
   high,
   drums,
-  note("c3").s("piano")
+  note("c3").s("superpiano")
 )
 ```
 
@@ -2334,11 +2334,11 @@ setcps(1.2)
 const melody = note(cat(
   "c4@1.5 c4@0.5 c4@1 c4@0.5 b3@0.5 a3@1.5 b3@0.5 c4@1 d4@2"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.8)
 
 const chords = note("c4 a3 f3 g3")
-  .s("piano")
+  .s("superpiano")
   .gain(0.6)
 
 stack(
@@ -2365,7 +2365,7 @@ const melody = note(cat(
 // 2. CHORDS
 const chords = note("c3 g3 c3 f3")
   .chord("major9")
-  .s("pad")
+  .s("supersaw").attack(0.5)
   .gain(0.6)
 
 // 3. IMPROV (Arp)
