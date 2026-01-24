@@ -25,7 +25,7 @@ const melody = note(cat(
 // 2. PIANO VAMP (Ebbm - Bbm7)
 const piano = note("eb3@3 bb3@2")
   .chord("minor7")
-  .s("piano")
+  .s("superpiano")
   .voicings("root")
   .velocity(0.6)
 
@@ -35,7 +35,7 @@ const bass = note("eb2@3 bb2@2")
   .velocity(0.7)
 
 // 4. DRUMS (Swing 5/4)
-const drums = s("ride*5")
+const drums = s("hh*5").open()
   .velocity("0.8 0.4 0.6 0.4 0.5")
 
 stack(
@@ -57,7 +57,7 @@ const melody = note(cat(
   "~", // Horn Response (see chords)
   "d2@1 a2@1 d3@1 e3@1 f3@1 e3@1 d3@1 c3@1"
 ))
-  .s("doublebass")
+  .s("bass")
   .velocity(0.9)
 
 // 2. CHORDS (The "So What" Voicing)
@@ -67,11 +67,11 @@ const chords = note(cat(
   "~"
 ))
   .chord("m11")
-  .s("piano")
+  .s("superpiano")
   .velocity(0.7)
 
 // 3. DRUMS (Swing Ride)
-const drums = s("ride*4")
+const drums = s("hh*4").open()
   .n("0 2 0 4") // Swing pattern simulation
   .velocity(0.6)
 
@@ -95,7 +95,7 @@ const melody = note(cat(
   "b4@4 ~ ~ c4@1 d4@1 e4@1",
   "a4@4"
 ))
-  .s("vibraphone")
+  .s("sine")
   .velocity(0.8)
 
 // 2. CHORDS (ii-V-I in G Major / Em)
@@ -104,7 +104,7 @@ const chords = note(cat(
   "f#3@4 b2@4 e3@4 e3@4"
 ))
   .chord("minor7 dom7 maj7 maj7 m7b5 dom7 minor7 minor7")
-  .s("piano")
+  .s("superpiano")
   .gain(0.6)
 
 // 3. WALKING BASS
@@ -117,7 +117,7 @@ stack(
   melody,
   chords,
   bass,
-  s("ride*4").velocity("0.8 0.5 0.7 0.5")
+  s("hh*4").open().velocity("0.8 0.5 0.7 0.5")
 )
 ```
 
@@ -142,12 +142,12 @@ const chords = note(cat(
   "f3@4 b2@4 e3@4 a2@4"
 ))
   .chord("minor7 minor7 dom7 maj7 maj7 m7b5 dom7 minor7")
-  .s("guitar")
+  .s("supermandolin")
   .gain(0.6)
 
 // 3. DRUMS (Swing)
 const drums = stack(
-  s("ride*4").n("<0 2>"),
+  s("hh*4").open().n("<0 2>"),
   s("hh").struct("~ x ~ x")
 )
 
@@ -170,7 +170,7 @@ const melody = note(cat(
   "bb4@3 ab4@0.5 g4@0.5 f4@2 eb4@2",
   "d4@1.5 eb4@0.5 f4@1 g4@1 f4@4"
 ))
-  .s("flute")
+  .s("triangle")
   .velocity(0.9)
 
 // 2. CHORDS (Cm7 - Fm7 - Dm7b5 - G7)
@@ -179,14 +179,14 @@ const chords = note(cat(
   "d3@4 g2@4 c3@8"
 ))
   .chord("minor7 minor7 m7b5 dom7 minor7")
-  .s("piano")
+  .s("superpiano")
   .struct("x ~ x x ~ x x ~") // Bossa rhythm
   .gain(0.6)
 
 // 3. DRUMS (Bossa Nova)
 const drums = stack(
   s("hh*8").velocity("0.8 0.4"),
-  s("rim").struct("x ~ ~ x ~ ~ x ~")
+  s("rm").struct("x ~ ~ x ~ ~ x ~")
 )
 
 stack(
@@ -208,24 +208,24 @@ const melody = note(cat(
   "b4@2.5 d5@0.5 e5@2.5 d5@0.5 b4@2.5 d5@0.5 e5@1.5 d5@1 b4@0.5",
   "~"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.8)
 
 // 2. OSTINATO (Bass/Piano)
 const riffs = note("g2 g3 f3 g3")
-  .s("piano")
+  .s("superpiano")
   .velocity(0.6)
   .struct("x x x x")
 
 // 3. CHORDS (G7)
 const chords = note("g3")
   .chord("dom7")
-  .s("strings")
+  .s("supersaw").attack(0.1).release(0.8)
   .slow(4)
   .gain(0.4)
 
 // 4. DRUMS (Brushes)
-const drums = s("ride*6").gain(0.5)
+const drums = s("hh*6").open().gain(0.5)
 
 stack(
   melody,
@@ -246,13 +246,13 @@ const melody = note(cat(
   "c5@2 bb4@1 g4@1",
   "f4@0.5 g4@0.5 f4@0.5 d4@0.5 c4@2"
 ))
-  .s("clarinet")
+  .s("triangle")
   .room(0.8)
 
 // 2. CHORDS (Am6 - E7)
 const chords = note("a3 e3")
   .chord("m6 dom7")
-  .s("piano")
+  .s("superpiano")
   .slow(2)
   .gain(0.6)
 
@@ -292,7 +292,7 @@ const chords = note(cat(
   "g3@4 gb3@4 f3@4"
 ))
   .chord("maj7 dom7 minor7 dom7 maj7")
-  .s("guitar")
+  .s("supermandolin")
   .struct("x ~ x x ~ x x ~") // Bossa
   .gain(0.6)
 
@@ -323,7 +323,7 @@ const chords = note(cat(
   "a3@2 d3@2 g3@2 bb3@2 eb3@2 gb3@2"
 ))
   .chord("maj7 dom7 maj7 dom7 maj7")
-  .s("piano")
+  .s("superpiano")
   .velocity(0.7)
 
 // 3. WALKING BASS (Fast)
@@ -339,7 +339,7 @@ stack(
   melody,
   chords,
   bass,
-  s("ride*4").gain(0.8)
+  s("hh*4").open().gain(0.8)
 )
 ```
 
@@ -354,17 +354,17 @@ const melody = note(cat(
   "f#4@1 ~ ~", "e4@1 ~ ~", "b4@1 ~ ~",
   "b4@0.5 c#5@0.5 b4@0.5 c#5@0.5 a4@0.5 b4@0.5"
 ))
-  .s("soprano") // sax
+  .s("sax") // sax
   .velocity(0.8)
 
 // 2. CHORDS (Em9 - Cmaj7)
 const chords = note("e3@3 c3@3")
   .chord("m9 maj7")
-  .s("piano")
+  .s("superpiano")
   .gain(0.5)
 
 // 3. DRUMS (Waltz)
-const drums = s("ride:bell ride ride")
+const drums = s("hh hh hh").open()
   .gain(0.6)
 
 stack(
@@ -396,7 +396,7 @@ const chords = note(cat(
   "e3@2 a3@2"
 ))
   .chord("minor7 dom7 minor7 dom7")
-  .s("piano")
+  .s("superpiano")
   .struct("~ x ~ x")
   .gain(0.6)
 
@@ -423,14 +423,14 @@ const melody = note(cat(
   "bb4@1 ab4@0.5 f4@0.5 b3@1 ab4@1",
   "f4@2 eb4@1 bb3@1"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .room(1)
   .velocity(0.8)
 
 // 2. CHORDS (Ebm7...)
 const chords = note("eb3@2 ab3@2")
   .chord("minor7 dom7")
-  .s("piano")
+  .s("superpiano")
   .slow(2)
   .gain(0.5)
 
@@ -443,7 +443,7 @@ stack(
   melody,
   chords,
   bass,
-  s("brush").struct("x ~ x ~")
+  s("hh").struct("x ~ x ~")
 )
 ```
 
@@ -457,20 +457,20 @@ const melody = note(cat(
   "bb3@0.5 c4@0.5 db4@0.5 d4@0.5 eb4@0.5 e4@0.5 f4@1",
   "bb4@0.5 a4@0.5 ab4@0.5 g4@0.5 gb4@0.5 f4@1.5"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.9)
 
 // 2. CHORDS (Bb Blues)
 const chords = note("bb2 eb3 bb2 f3")
   .chord("dom7")
-  .s("organ")
+  .s("superpwm")
   .slow(4)
   .gain(0.6)
 
 stack(
   melody,
   chords,
-  s("ride*4"),
+  s("hh*4").open(),
   note("bb2 eb3 bb2 f3").s("bass").struct("x x x x").slow(4)
 )
 ```
@@ -485,13 +485,13 @@ const melody = note(cat(
   "f4@1.5 ab4@0.5 f4@1 db4@0.5 c4@0.5",
   "f4@4"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.9)
 
 // 2. PIANO VAMP (Fm7)
 const piano = note("f3@2.5 ab3@1.5")
   .chord("minor7")
-  .s("piano")
+  .s("superpiano")
   .gain(0.7)
 
 // 3. BASS LINE
@@ -530,7 +530,7 @@ const melody = note(cat(
 // 2. PIANO GROOVE (F7)
 const piano = note("f3@2.5 eb3@1.5")
   .chord("dom7")
-  .s("piano")
+  .s("superpiano")
   .gain(0.6)
 
 // 3. BASS
@@ -557,7 +557,7 @@ const melody = note(cat(
   "f4@1.5 f4@0.5 eb4@0.5 db4@0.5 c4@1",
   "bb3@1 ab3@1 f3@2"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.8)
 
 // 2. BASS LINE (Signature)
@@ -568,7 +568,7 @@ const bass = note("f2@1.5 f2@0.5 c3@1 c2@1")
 // 3. CHORDS (Fm7 - Eb7)
 const chords = note("f3 eb3")
   .chord("minor7 dom7")
-  .s("piano")
+  .s("superpiano")
   .struct("x ~ x ~")
   .gain(0.5)
 
@@ -587,18 +587,18 @@ setcps(0.6)
 
 // 1. CALL (Piano)
 const call = note("f3@0.5 ab3@0.5 f3@0.5 c4@0.5")
-  .s("piano")
+  .s("superpiano")
   .velocity(0.9)
 
 // 2. RESPONSE (Horns)
 const response = note("f3@0.5 eb3@0.5 c3@0.5 ab2@0.5 f2@1")
   .chord("dom7")
-  .s("brass")
+  .s("sawtooth").lpf(2000)
   .delay(0.5) // Wait for call
   .gain(0.7)
 
 // 3. SHUFFLE
-const drums = s("ride*3")
+const drums = s("hh*3").open()
   .n("0 2 0") // Shuffle feel
   .gain(0.6)
 
@@ -620,13 +620,13 @@ const melody = note(cat(
   "d5@1 c#5@1 b4@1 a4@1",
   "g4@1 f#4@1 e4@1 d4@1"
 ))
-  .s("rhodes")
+  .s("superpiano").lpf(1000)
   .velocity(0.8)
 
 // 2. CHORDS (Bm - A - G - F#)
 const chords = note("b3 a3 g3 f#3")
   .chord("minor major major major")
-  .s("strings")
+  .s("supersaw").attack(0.1).release(0.8)
   .gain(0.6)
 
 // 3. PERC
@@ -653,7 +653,7 @@ const bass = note("bb1@1.5 ab1@0.5 bb1@0.5 db2@0.5 c2@0.5 bb1@0.5")
 // 2. CHORDS
 const chords = note("ab2 g2")
   .chord("minor7")
-  .s("rhodes")
+  .s("superpiano").lpf(1000)
   .struct("~ x ~ x")
   .gain(0.6)
 
@@ -693,7 +693,7 @@ const melody = note(cat(
 // 3. CHORDS (Eb7 - Dm)
 const chords = note("eb3 d3")
   .chord("dom7 minor")
-  .s("piano")
+  .s("superpiano")
   .struct("x ~ x ~")
   .gain(0.6)
 
@@ -721,14 +721,14 @@ const melody = note(cat(
 // 2. CHORDS (C Major)
 const chords = note("c3 g3 c3")
   .chord("major")
-  .s("piano")
+  .s("superpiano")
   .struct("x ~ x x") // Calypso rhythm
   .gain(0.6)
 
 // 3. DRUMS
 const drums = stack(
   s("bd*4"),
-  s("rim").struct("x x ~ x")
+  s("rm").struct("x x ~ x")
 )
 
 stack(
@@ -754,7 +754,7 @@ const melody = note(cat(
 // 2. CHORDS (Gm7 - C7 - Fmaj7)
 const chords = note("g3 c3 f3")
   .chord("minor7 dom7 maj7")
-  .s("piano")
+  .s("superpiano")
   .struct("x ~ x ~ x ~")
   .gain(0.6)
 
@@ -768,7 +768,7 @@ stack(
   melody,
   chords,
   bass,
-  s("ride*4")
+  s("hh*4").open()
 )
 ```
 
@@ -791,13 +791,13 @@ const chords = note(cat(
   "bb3@2 eb3@2 bb3@4"
 ))
   .chord("maj7 minor7 minor7 dom7")
-  .s("piano")
+  .s("superpiano")
   .gain(0.5)
 
 stack(
   melody,
   chords,
-  s("ride*4"),
+  s("hh*4").open(),
   note("bb2 g2 c2 f2").s("bass").struct("x x x x")
 )
 ```
@@ -812,7 +812,7 @@ const melody = note(cat(
   "bb3@1 f4@1 c5@1 bb4@1 g4@4",
   "~ ab4@1 c5@1 eb5@1 c5@1 ab4@4"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.8)
   .room(0.8)
 
@@ -822,13 +822,13 @@ const chords = note(cat(
   "ab3@4"
 ))
   .chord("maj7 minor7 dom7 maj7")
-  .s("strings")
+  .s("supersaw").attack(0.1).release(0.8)
   .gain(0.5)
 
 stack(
   melody,
   chords,
-  s("brush").struct("x ~ x ~")
+  s("hh").struct("x ~ x ~")
 )
 ```
 
@@ -850,7 +850,7 @@ const melody = note(cat(
 // 2. CHORDS (Ebm7 - Bb7...)
 const chords = note("eb3 bb3 eb3")
   .chord("minor7 dom7 minor7")
-  .s("piano")
+  .s("superpiano")
   .slow(2)
   .gain(0.6)
 
@@ -876,14 +876,14 @@ const melody = note(cat(
 
 // 2. OSTINATO (Piano)
 const ostinato = note("f3 a3 c4 a3")
-  .s("piano")
+  .s("superpiano")
   .struct("x x x x")
   .gain(0.5)
 
 // 3. CHORDS (Dm)
 const chords = note("d3 g3 c3 f3")
   .chord("minor7 dom7 maj7 maj7")
-  .s("pad")
+  .s("supersaw").attack(0.5)
   .slow(4)
   .gain(0.4)
 
@@ -904,20 +904,20 @@ const melody = note(cat(
   "bb4@2 a4@2",
   "~ a4@1 f4@1 e4@1 d4@1"
 ))
-  .s("guitar")
+  .s("supermandolin")
   .velocity(0.8)
 
 // 2. CHORDS (Em7b5 - A7 - Cm7 - F7)
 const chords = note("e3 a3 c3 f3")
   .chord("m7b5 dom7 minor7 dom7")
-  .s("piano")
+  .s("superpiano")
   .struct("x ~ x ~")
   .gain(0.6)
 
 stack(
   melody,
   chords,
-  s("ride*4"),
+  s("hh*4").open(),
   note("e2 a2 c2 f2").s("bass").struct("x ~ x ~")
 )
 ```
@@ -932,13 +932,13 @@ const melody = note(cat(
   "eb4@1 f4@1 g4@1 bb4@1",
   "d5@1 c5@3"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.9)
 
 // 2. CHORDS (Ebmaj7 - Dm7b5 - G7)
 const chords = note("eb3 d3 g3")
   .chord("maj7 m7b5 dom7")
-  .s("piano")
+  .s("superpiano")
   .struct("x ~ x x")
   .gain(0.6)
 
@@ -952,7 +952,7 @@ stack(
   melody,
   chords,
   bass,
-  s("ride*4")
+  s("hh*4").open()
 )
 ```
 
@@ -967,7 +967,7 @@ const melody = note(cat(
   "f4@2 eb4@2",
   "db4@4"
 ))
-  .s("vibraphone")
+  .s("sine")
   .velocity(0.8)
 
 // 2. CHORDS (Fm7 - Bbm7 - Eb7 - Abmaj7 - Dbmaj7)
@@ -976,7 +976,7 @@ const chords = note(cat(
   "eb3@4 ab3@4"
 ))
   .chord("minor7 minor7 dom7 maj7")
-  .s("guitar")
+  .s("supermandolin")
   .gain(0.6)
 
 stack(
@@ -997,20 +997,20 @@ const melody = note(cat(
   "c5@1 c5@3",
   "~ c5@0.5 b4@0.5 bb4@0.5 a4@0.5 ab4@0.5 g4@0.5"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.9)
 
 // 2. CHORDS (Cm(maj7) - Cm7)
 const chords = note("c3")
   .chord("minor")
-  .s("piano")
+  .s("superpiano")
   .struct("x")
   .gain(0.6)
 
 stack(
   melody,
   chords,
-  s("ride*4"),
+  s("hh*4").open(),
   note("c2").s("bass").struct("x ~ x ~")
 )
 ```
@@ -1031,7 +1031,7 @@ const melody = note(cat(
 // 2. CHORDS (Ebmaj7 - Ebm7...)
 const chords = note("eb3 eb3 f3 bb3")
   .chord("maj7 minor7 minor7 dom7")
-  .s("piano")
+  .s("superpiano")
   .struct("x ~ x ~")
   .gain(0.6)
 
@@ -1039,7 +1039,7 @@ stack(
   melody,
   chords,
   note("eb2 eb2 f2 bb2").s("bass").struct("x ~ x ~"),
-  s("ride*4")
+  s("hh*4").open()
 )
 ```
 
@@ -1053,20 +1053,20 @@ const melody = note(cat(
   "d5@1 a4@1 f#4@1 d4@1",
   "e4@4"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.9)
 
 // 2. CHORDS (Em7 - A7 - Dmaj7)
 const chords = note("e3 a3 d3")
   .chord("minor7 dom7 maj7")
-  .s("piano")
+  .s("superpiano")
   .struct("x ~ x x")
   .gain(0.6)
 
 stack(
   melody,
   chords,
-  s("ride*4"),
+  s("hh*4").open(),
   note("e2 a2 d3 d2").s("bass").struct("x ~ x x")
 )
 ```
@@ -1081,19 +1081,19 @@ const melody = note(cat(
   "f4@0.5 g4@0.5 a4@0.5 bb4@0.5 c5@1 f4@1",
   "d5@1 c5@3"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.9)
 
 // 2. CHORDS (Fmaj7...)
 const chords = note("f3 g3 c3 f3")
   .chord("maj7 minor7 dom7 maj7")
-  .s("piano")
+  .s("superpiano")
   .gain(0.6)
 
 stack(
   melody,
   chords,
-  s("ride*4"),
+  s("hh*4").open(),
   note("f2 g2 c3 f2").s("bass").struct("x ~ x ~")
 )
 ```
@@ -1108,19 +1108,19 @@ const melody = note(cat(
   "eb4@0.5 f4@0.5 g4@0.5 ab4@0.5 bb4@0.5 c5@0.5 db5@0.5 d5@0.5",
   "eb5@4"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.9)
 
 // 2. CHORDS
 const chords = note("eb3")
   .chord("maj7")
-  .s("piano")
+  .s("superpiano")
   .gain(0.6)
 
 stack(
   melody,
   chords,
-  s("ride*4"),
+  s("hh*4").open(),
   note("eb2").s("bass").struct("x ~ x ~")
 )
 ```
@@ -1135,20 +1135,20 @@ const melody = note(cat(
   "c4@0.5 f4@0.5 g4@0.5 ab4@0.5 a4@1 c4@1",
   "f4@2 d4@0.5 eb4@0.5 e4@1"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.9)
 
 // 2. CHORDS (F Blues)
 const chords = note("f2 bb2 f2 c3")
   .chord("dom7")
-  .s("organ")
+  .s("superpwm")
   .slow(4)
   .gain(0.5)
 
 stack(
   melody,
   chords,
-  s("ride*4"),
+  s("hh*4").open(),
   note("f2 bb2 f2 c3").s("bass").struct("x x x x").slow(4)
 )
 ```
@@ -1163,13 +1163,13 @@ const melody = note(cat(
   "f4@0.5 g4@0.5 ab4@0.5 a4@0.5 bb4@1 b4@0.5 c5@0.5",
   "f4@2"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.9)
 
 // 2. CHORDS (F7 - Gb7)
 const chords = note("f3 gb3")
   .chord("dom7")
-  .s("piano")
+  .s("superpiano")
   .struct("x x")
   .gain(0.6)
 
@@ -1192,7 +1192,7 @@ const melody = note(cat(
   "~",
   "d4@3 c4@1"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .room(1)
   .velocity(0.8)
 
@@ -1202,11 +1202,11 @@ const chords = note(cat(
   "f3@4"
 ))
   .chord("m11") // Sus chord sound
-  .s("piano")
+  .s("superpiano")
   .gain(0.6)
 
 // 3. DRUMS (Straight 8ths)
-const drums = s("ride*8").gain(0.6)
+const drums = s("hh*8").open().gain(0.6)
 
 stack(
   melody,
@@ -1226,20 +1226,20 @@ const melody = note(cat(
   "bb4@1 ab4@1 f4@1 eb4@1",
   "bb3@4"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.9)
 
 // 2. CHORDS (Bb Blues)
 const chords = note("bb2 eb3 bb2 f3")
   .chord("dom7")
-  .s("piano")
+  .s("superpiano")
   .slow(4)
   .gain(0.6)
 
 stack(
   melody,
   chords,
-  s("ride*4"),
+  s("hh*4").open(),
   note("bb2").s("bass").struct("x ~ x ~")
 )
 ```
@@ -1254,7 +1254,7 @@ const melody = note(cat(
   "eb4@0.5 f4@0.5 ab4@0.5 bb4@2.5",
   "~ eb4@0.5 f4@0.5 ab4@0.5 f4@2.5"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.9)
 
 // 2. BASS LINE (Funky)
@@ -1288,7 +1288,7 @@ const bass = note("bb1@1 bb1@0.5 bb1@0.5 b1@1 c2@1")
 // 2. CHORDS (Bb7)
 const chords = note("bb2")
   .chord("dom7")
-  .s("guitar")
+  .s("supermandolin")
   .struct("~ x ~ x")
   .gain(0.6)
 
@@ -1348,13 +1348,13 @@ const melody = note(cat(
   "bb3@1 g3@1 f3@1 d3@1",
   "bb2@4"
 ))
-  .s("rhodes")
+  .s("superpiano").lpf(1000)
   .velocity(0.9)
 
 // 2. CHORDS (Bb7)
 const chords = note("bb2")
   .chord("dom7")
-  .s("piano")
+  .s("superpiano")
   .struct("x ~ x ~")
   .gain(0.6)
 
@@ -1376,13 +1376,13 @@ const melody = note(cat(
   "bb4@0.5 c5@0.5 db5@0.5 bb4@0.5 f4@1 ab4@1",
   "bb4@4"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.9)
 
 // 2. CHORDS (Bbm7 - Abmaj7)
 const chords = note("bb3 ab3")
   .chord("minor7 maj7")
-  .s("piano")
+  .s("superpiano")
   .struct("x ~ x ~")
   .gain(0.6)
 
@@ -1401,7 +1401,7 @@ setcps(0.6)
 
 // 1. BASS OSTINATO
 const bass = note("c2 c3 f2 g2")
-  .s("doublebass")
+  .s("bass")
   .struct("x x x x")
   .gain(0.8)
 
@@ -1410,13 +1410,13 @@ const melody = note(cat(
   "c4@3 eb4@1 f4@1 g4@1",
   "ab4@4 f4@2"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.8)
 
 // 3. CHORDS (Cm11)
 const chords = note("c3")
   .chord("m11")
-  .s("piano")
+  .s("superpiano")
   .slow(2)
   .gain(0.5)
 
@@ -1424,7 +1424,7 @@ stack(
   bass,
   melody,
   chords,
-  s("ride*6").gain(0.6)
+  s("hh*6").open().gain(0.6)
 )
 ```
 
@@ -1438,20 +1438,20 @@ const melody = note(cat(
   "c5@1 bb4@1 g4@1",
   "f4@1 eb4@1 c4@1"
 ))
-  .s("flute")
+  .s("triangle")
   .velocity(0.9)
 
 // 2. CHORDS (Fm7)
 const chords = note("f3")
   .chord("m7")
-  .s("piano")
+  .s("superpiano")
   .struct("x ~ ~")
   .gain(0.6)
 
 // 3. DRUMS (Polyrhythm)
 const drums = stack(
   s("bd*2"),
-  s("ride*3")
+  s("hh*3").open()
 )
 
 stack(
@@ -1472,21 +1472,21 @@ const melody = note(cat(
   "e4@1 f4@1 g4@1 f4@1",
   "e4@4"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.8)
   .room(1)
 
 // 2. CHORDS (Phrygian Dominant Feel)
 const chords = note("e3 f3")
   .chord("minor maj7")
-  .s("piano")
+  .s("superpiano")
   .struct("x ~ x ~")
   .gain(0.6)
 
 stack(
   melody,
   chords,
-  s("ride*4"),
+  s("hh*4").open(),
   note("e2 f2").s("bass").struct("x ~ x ~")
 )
 ```
@@ -1507,7 +1507,7 @@ const melody = note(cat(
 // 2. CHORDS (Cm7)
 const chords = note("c3 f3 c3 g3")
   .chord("minor7")
-  .s("piano")
+  .s("superpiano")
   .slow(4)
   .gain(0.5)
 
@@ -1521,7 +1521,7 @@ stack(
   melody,
   chords,
   bass,
-  s("ride*4")
+  s("hh*4").open()
 )
 ```
 
@@ -1541,14 +1541,14 @@ const melody = note(cat(
 // 2. CHORDS (Bb Blues)
 const chords = note("bb3 eb3 bb3 f3")
   .chord("dom7")
-  .s("piano")
+  .s("superpiano")
   .slow(4)
   .gain(0.6)
 
 stack(
   melody,
   chords,
-  s("ride*4"),
+  s("hh*4").open(),
   note("bb2 eb2 bb2 f2").s("bass").struct("x x x x").slow(4)
 )
 ```
@@ -1563,13 +1563,13 @@ const melody = note(cat(
   "g4@0.5 g4@0.5 c5@1",
   "g4@0.5 g4@0.5 c5@1"
 ))
-  .s("piano")
+  .s("superpiano")
   .velocity(0.9)
 
 // 2. CHORDS (C Blues)
 const chords = note("c3 f3 c3 g3")
   .chord("dom7")
-  .s("organ")
+  .s("superpwm")
   .slow(4)
   .gain(0.6)
 
@@ -1591,13 +1591,13 @@ const melody = note(cat(
   "c5@0.5 db5@0.5 c5@0.5 b4@0.5 c5@2",
   "~ c5@0.5 db5@0.5 c5@0.5 b4@0.5 c5@2"
 ))
-  .s("trumpet")
+  .s("sawtooth").lpf(2500)
   .velocity(0.9)
 
 // 2. CHORDS (C7b9 - Fm)
 const chords = note("c3@4 f3@4")
   .chord("dom7 minor")
-  .s("piano")
+  .s("superpiano")
   .gain(0.6)
 
 // 3. BASS (Latin/Swing)

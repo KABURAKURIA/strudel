@@ -15,7 +15,7 @@ The bread and butter of Lo-Fi.
 ```javascript
 // A standard ii-V-I jazz progression
 note("d3:minor7 g3:dom7 c3:major7")
-  .s("epiano") // Rhodes sound
+  .s("superpiano") // Rhodes sound
   .slow(2)
 ```
 
@@ -53,7 +53,7 @@ We need to degrade the clean digital sound to emulate vinyl and tape.
 - **Formant (`vowel`)**: Adds a hollow, vocal-like quality often found in old samplers.
 
 ```javascript
-s("piano")
+s("superpiano")
   .lpf(sine.range(800, 1200).slow(4)) // Filter breathes
   .shape(0.2) // Saturation
 ```
@@ -75,7 +75,7 @@ setcps(85/60/4) // 85 BPM
 
 // 1. Keys: Jazz progression (ii-V-I-vi)
 const keys = note("c4:minor7 f3:dom7 bb3:major7 g3:minor7")
-  .s("piano")
+  .s("superpiano")
   .velocity("0.5 0.6 0.4 0.5") // Humanize velocity
   .lpf(2000) // Soften the highs
   .slow(2)
@@ -120,7 +120,7 @@ const sax = note("d4 f4 a4 c5 ~ a4 g4 f4")
 
 // 2. Chords: Minor 9ths for mystery
 const pads = note("d3:minor9 g3:minor9")
-  .s("epiano")
+  .s("superpiano")
   .lpf(800)       // Darker tone
   .shape(0.2)     // Slight grit
   .slow(2)
@@ -155,7 +155,7 @@ const crackle = s("noise").gain(0.05).lpf(2000)
 // 2. Chopped Piano (Simulated sampling)
 // We use .struct to chop the continuous chord into a rhythmic pattern
 const choppedKeys = note("eb4:major7 c4:minor7")
-  .s("piano")
+  .s("superpiano")
   .struct("x x ~ x x ~ x ~") // Chopped rhythm
   .lpf(sine.range(500, 1500).slow(8)) // Filter sweep (Tape wobble)
   .vowel("o") // Formant filter for 'old' sampler sound
