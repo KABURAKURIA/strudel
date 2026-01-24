@@ -50,7 +50,7 @@ const bass = note(bassPattern)
   .velocity(0.7)
 
 // 4. DRUMS (Swing 5/4)
-const drums = s("hh*5").open()
+const drums = s("oh*5")
   .velocity("0.8 0.4 0.6 0.4 0.5")
 
 stack(
@@ -95,7 +95,7 @@ const chords = note(cat(
   .velocity(0.7)
 
 // 3. DRUMS (Swing Ride)
-const drums = s("hh*4").open()
+const drums = s("oh*4")
   .n("0 2 0 4") // Swing pattern simulation
   .velocity(0.6)
 
@@ -157,7 +157,7 @@ stack(
   melody,
   chords,
   bass,
-  s("hh*4").open().velocity("0.8 0.5 0.7 0.5")
+  s("oh*4").velocity("0.8 0.5 0.7 0.5")
 )
 ```
 
@@ -183,7 +183,7 @@ const chords = note(cat(section, section))
 
 // 3. DRUMS (Swing)
 const drums = stack(
-  s("hh*4").open().n("<0 2>"),
+  s("oh*4").n("<0 2>"),
   s("hh").struct("~ x ~ x")
 )
 
@@ -277,7 +277,7 @@ const chords = note(cat(
   .gain(0.4)
 
 // 4. DRUMS
-const drums = s("hh*6").open().gain(0.5)
+const drums = s("oh*6").gain(0.5)
 
 stack(
   melody,
@@ -402,7 +402,7 @@ stack(
   melody,
   chords,
   bass,
-  s("hh*4").open().gain(0.8)
+  s("oh*4").gain(0.8)
 )
 ```
 
@@ -427,7 +427,7 @@ const chords = note("e3@3 c3@3")
   .gain(0.5)
 
 // 3. DRUMS (Waltz)
-const drums = s("hh hh hh").open()
+const drums = s("oh hh hh")
   .gain(0.6)
 
 stack(
@@ -551,7 +551,7 @@ stack(
   melody,
   chords,
   bass,
-  s("hh*4").open().gain(0.6)
+  s("oh*4").gain(0.6)
 )
 ```
 
@@ -678,7 +678,7 @@ const response = note("f3@0.5 eb3@0.5 c3@0.5 ab2@0.5 f2@1")
   .gain(0.7)
 
 // 3. SHUFFLE
-const drums = s("hh*3").open()
+const drums = s("oh*3")
   .n("0 2 0") // Shuffle feel
   .gain(0.6)
 
@@ -848,7 +848,7 @@ stack(
   melody,
   chords,
   bass,
-  s("hh*4").open()
+  s("oh*4")
 )
 ```
 
@@ -877,7 +877,7 @@ const chords = note(cat(
 stack(
   melody,
   chords,
-  s("hh*4").open(),
+  s("oh*4"),
   note("bb2 g2 c2 f2").s("bass").struct("x x x x")
 )
 ```
@@ -997,7 +997,7 @@ const chords = note("e3 a3 c3 f3")
 stack(
   melody,
   chords,
-  s("hh*4").open(),
+  s("oh*4"),
   note("e2 a2 c2 f2").s("bass").struct("x ~ x ~")
 )
 ```
@@ -1032,7 +1032,7 @@ stack(
   melody,
   chords,
   bass,
-  s("hh*4").open()
+  s("oh*4")
 )
 ```
 
@@ -1090,7 +1090,7 @@ const chords = note("c3")
 stack(
   melody,
   chords,
-  s("hh*4").open(),
+  s("oh*4"),
   note("c2").s("bass").struct("x ~ x ~")
 )
 ```
@@ -1119,7 +1119,7 @@ stack(
   melody,
   chords,
   note("eb2 eb2 f2 bb2").s("bass").struct("x ~ x ~"),
-  s("hh*4").open()
+  s("oh*4")
 )
 ```
 
@@ -1146,7 +1146,7 @@ const chords = note("e3 a3 d3")
 stack(
   melody,
   chords,
-  s("hh*4").open(),
+  s("oh*4"),
   note("e2 a2 d3 d2").s("bass").struct("x ~ x x")
 )
 ```
@@ -1173,7 +1173,7 @@ const chords = note("f3 g3 c3 f3")
 stack(
   melody,
   chords,
-  s("hh*4").open(),
+  s("oh*4"),
   note("f2 g2 c3 f2").s("bass").struct("x ~ x ~")
 )
 ```
@@ -1200,7 +1200,7 @@ const chords = note("eb3")
 stack(
   melody,
   chords,
-  s("hh*4").open(),
+  s("oh*4"),
   note("eb2").s("bass").struct("x ~ x ~")
 )
 ```
@@ -1228,7 +1228,7 @@ const chords = note("f2 bb2 f2 c3")
 stack(
   melody,
   chords,
-  s("hh*4").open(),
+  s("oh*4"),
   note("f2 bb2 f2 c3").s("bass").struct("x x x x").slow(4)
 )
 ```
@@ -1286,7 +1286,7 @@ const chords = note(cat(
   .gain(0.6)
 
 // 3. DRUMS (Straight 8ths)
-const drums = s("hh*8").open().gain(0.6)
+const drums = s("oh*8").gain(0.6)
 
 stack(
   melody,
@@ -1319,7 +1319,7 @@ const chords = note("bb2 eb3 bb2 f3")
 stack(
   melody,
   chords,
-  s("hh*4").open(),
+  s("oh*4"),
   note("bb2").s("bass").struct("x ~ x ~")
 )
 ```
@@ -1504,7 +1504,7 @@ stack(
   bass,
   melody,
   chords,
-  s("hh*6").open().gain(0.6)
+  s("oh*6").gain(0.6)
 )
 ```
 
@@ -1531,7 +1531,7 @@ const chords = note("f3")
 // 3. DRUMS (Polyrhythm)
 const drums = stack(
   s("bd*2"),
-  s("hh*3").open()
+  s("oh*3")
 )
 
 stack(
@@ -1566,7 +1566,7 @@ const chords = note("e3 f3")
 stack(
   melody,
   chords,
-  s("hh*4").open(),
+  s("oh*4"),
   note("e2 f2").s("bass").struct("x ~ x ~")
 )
 ```
@@ -1601,7 +1601,7 @@ stack(
   melody,
   chords,
   bass,
-  s("hh*4").open()
+  s("oh*4")
 )
 ```
 
@@ -1628,7 +1628,7 @@ const chords = note("bb3 eb3 bb3 f3")
 stack(
   melody,
   chords,
-  s("hh*4").open(),
+  s("oh*4"),
   note("bb2 eb2 bb2 f2").s("bass").struct("x x x x").slow(4)
 )
 ```
