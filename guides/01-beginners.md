@@ -1,76 +1,98 @@
-# Strudel Beginner's Guide
+# Strudel Beginner's Guide: The Basics
 
-Welcome to Strudel! Strudel is a live coding environment for music, based on TidalCycles, but running entirely in the browser using JavaScript.
+Welcome to Strudel! Strudel is a live coding environment for music. It allows you to describe music as patterns in code.
 
-## 1. The Basics: Making Sound
+## 1. Making Your First Sound
 
-The most basic function is `s` (short for sound) or `note`. You use `.` to chain functions.
+Type the following code and run it (Shift + Enter):
 
-To play a simple beat:
+```javascript
+s("bd")
+```
+
+This plays a "bd" (Bass Drum) sample. Strudel loops this sound forever.
+
+## 2. Understanding The Cycle
+
+Strudel is based on **Cycles**.
+By default, the code `s("bd")` triggers the sound once every cycle.
+You can think of a cycle as a measure or a bar of music.
+
+If you add more sounds, Strudel fits them into the same cycle:
 
 ```javascript
 s("bd sd")
 ```
 
-This plays a bass drum (`bd`) and a snare drum (`sd`) in a loop. Strudel divides time into cycles. By default, `bd sd` fits one cycle.
+Now, "bd" and "sd" (Snare Drum) share the cycle. They play twice as fast as just "bd".
 
-## 2. Mini-Notation
+## 3. Mini-Notation
 
-Strudel uses a special string format called "mini-notation" to define patterns.
+The string inside `s("...")` is called **Mini-Notation**. It's a powerful language for rhythm.
 
-- **Sequence**: `s("a b c d")` plays 4 sounds equally spaced in the cycle.
-- **Sub-sequence**: `s("a [b c] d")` plays 'b' and 'c' in the space of one step.
-- **Rest**: `~` represents a silence. `s("bd ~ sd ~")`.
-- **Repetition**: `s("bd*2")` is the same as `s("bd bd")`.
-- **Duration**: `s("bd@2 sd")` makes the kick last twice as long as the snare.
+- **Sequence**: `s("bd sd hh cp")` plays 4 sounds equally.
+- **Rests**: Use `~` for silence. `s("bd ~ sd ~")`.
+- **Sub-sequence**: Use `[]` to group sounds into one step. `s("bd [hh hh] sd hh")`.
+- **Repetition**: Use `*` to repeat. `s("hh*4")` is the same as `s("hh hh hh hh")`.
+- **Duration**: Use `@` to hold a note longer. `s("bd@3 sd")` (Kick is 3 steps, snare is 1 step).
 
-## 3. Melodies with `note`
+## 4. Notes and Melodies
 
-You can play melodies using note names or numbers.
+You aren't limited to drum samples. You can play synthesizers using `note`.
 
 ```javascript
-note("c e g b")
-  .s("piano")
+note("c3 e3 g3 b3")
+  .s("triangle")
 ```
 
-You can also use numbers relative to a scale:
+You can use:
+- **Note Names**: `c3`, `d#4`, `ab2`.
+- **Numbers**: `0 2 4` (Relative to a scale).
 
 ```javascript
 note("0 2 4 7")
-  .scale("C:major")
   .s("sawtooth")
+  .lpf(1000) // Low pass filter to make it softer
 ```
 
-## 4. Manipulating Time
+## 5. Oscillators vs Samples
 
-- **fast**: Speeds up the pattern. `fast(2)` plays it twice as fast.
-- **slow**: Slows it down. `slow(2)` plays it half as fast.
+- **Samples**: Recordings of sounds (e.g., `bd`, `sd`, `piano`, `violin`). They have a fixed duration.
+- **Oscillators/Synths**: Generated sounds (e.g., `sawtooth`, `square`, `sine`). You can control their duration precisely with `legato` or structure.
 
 ```javascript
-s("bd sd").fast(2)
+// A synth playing a long note
+note("c3").s("sawtooth").legato(1)
 ```
 
-## 5. Transformations
+## 6. Manipulating Time
 
-- **rev**: Reverses the pattern.
-- **palindrome**: Plays the pattern forwards then backwards.
-- **jux**: Plays the original pattern in one ear and a transformed version in the other.
+You can speed up or slow down patterns.
+
+- `fast(2)`: Plays the pattern twice as fast.
+- `slow(2)`: Plays the pattern half as fast.
 
 ```javascript
-note("c e g b")
-  .s("piano")
-  .jux(rev) // One ear plays normal, other plays reversed
+s("bd sd")
+  .fast(2) // Sounds like "bd sd bd sd"
 ```
 
-## 6. Your First Jam
+## 7. Basic Layering
 
-Try combining these:
+To play two things at once, use `stack`:
 
 ```javascript
 stack(
-  s("bd(3,8)"),             // Euclidean rhythm kick
-  note("c a f e").s("piano").slow(2) // Slow melody
+  s("bd sd"),
+  s("hh*8")
 )
 ```
 
-In the next guide, we will explore more complex rhythms and layering!
+## Summary
+You've learned:
+- How to trigger sounds with `s`.
+- How the Cycle divides time.
+- Basic rhythm notation.
+- How to play melodies with `note`.
+
+Next, move on to **Guide 2** to learn about intermediate rhythms and effects!

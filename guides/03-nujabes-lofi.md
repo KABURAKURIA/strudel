@@ -187,3 +187,75 @@ stack(
 | `slow(amount)` | Stretches patterns for a laid-back feel. |
 
 Experiment with these recipes! Try swapping the chords in "Morning Coffee" with your own progression, or change the samples in "Night Walk".
+
+## 5. The Full Arrangement: From Loop to Song
+
+To create a full song structure (Intro, Verse, Chorus, Outro), we can use `cat` to sequence different patterns.
+
+Key Concept: **The Long Cycle**
+For a full song, it's often easier to treat "1 Cycle" as a longer phrase (e.g., 4 bars).
+If we set `setcps(0.2)`, one cycle lasts about 5 seconds. We then pack our 4-bar progression into that single cycle.
+
+- Chords: `note("c a d g")` (4 chords fit perfectly in 1 cycle)
+- Drums: `s("bd sd").fast(4)` (Speed up drums to repeat 4 times in the cycle)
+
+### Example: "Lofi Study Session"
+
+```javascript
+// "Lofi Study Session" - Full Arrangement
+setcps(0.2) // 1 Cycle = ~4 Bars
+
+// Common Sounds
+const crackle = s("noise").gain(0.04).lpf(2000)
+const keys = note("eb4:maj7 c4:min7 f3:min7 bb3:dom7")
+  .s("superpiano").lpf(1000).room(1)
+
+// --- Sections ---
+
+// 1. Intro: Just keys and noise
+const intro = stack(
+  crackle,
+  keys.gain(0.8)
+)
+
+// 2. Verse: Add simple drums and bass
+const verse = stack(
+  crackle,
+  keys,
+  note("eb2 . c2 . f2 . bb2").s("bass").smooth(0.1), // Roots
+  s("bd ~ sd ~").fast(4).nudge(0.04) // 4 bars of beats
+)
+
+// 3. Chorus: Add Melody and hi-hats
+const chorus = stack(
+  crackle,
+  keys,
+  note("eb2 . c2 . f2 . bb2").s("bass"),
+  stack(
+    s("bd ~ sd ~"),
+    s("hh*8").velocity(rand.range(0.3, 0.7))
+  ).fast(4).swing(0.1),
+  // Melody fits in 1 cycle
+  note("g5 ~ f5 eb5 ~ c5 bb4 ~")
+    .scale("Eb:major").s("sax").legato(0.8).lpf(1500).delay(0.4)
+)
+
+// 4. Outro: Strip back
+const outro = stack(
+  crackle,
+  keys.lpf(500) // Darker tone
+)
+
+// --- Sequence ---
+// Play the sections in order
+cat([
+  intro,          // 0:00 - 0:05
+  intro,          // 0:05 - 0:10
+  verse, verse,   // 0:10 - 0:20
+  chorus, chorus, // 0:20 - 0:30
+  verse,          // 0:30 - 0:35
+  outro           // 0:35 - 0:40
+])
+```
+
+By changing the elements in the list passed to `cat`, you can arrange your song however you like!
