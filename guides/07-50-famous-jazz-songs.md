@@ -9,28 +9,43 @@ Copy the code block for the song you want to hear into the Strudel REPL.
 
 ## 1. Take Five (Dave Brubeck)
 ```javascript
-// Take Five - 5/4 Time Signature
+// Take Five - 5/4 Time Signature - Full Form
 setcps(0.6)
 
 // 1. MELODY (Saxophone)
+// A Section (Vamp)
+const headA = "b3@1 ~ g#4@1 b4@1 a#4@1 c#5@1 b4@1 f#4@1 d#4@1 b3@1 f#4@1 e4@1 ~ c#4@1 e4@1 d#4@1 f#4@1 e4@1 b3@1 g#3@1 e3@1 b3@1"
+// B Section (Bridge)
+const headB = "g4@1 a4@1 g4@1 f#4@2 a4@1 d5@1 c5@1 bb4@1 a4@1 g4@1 f4@1 eb4@1 d4@1 e4@1 f4@1 g4@1 a4@1 bb4@1 c5@1 d5@2 db5@1 c5@2 bb4@1 a4@3"
+
 const melody = note(cat(
-  "~", // Intro
-  "b3@1 ~ g#4@1 b4@1 a#4@1 c#5@1 b4@1 f#4@1 d#4@1 b3@1 f#4@1", // Head
-  "e4@1 ~ c#4@1 e4@1 d#4@1 f#4@1 e4@1 b3@1 g#3@1 e3@1 b3@1"
+  "~", // Intro wait
+  headA, headA, // A A
+  headB,        // B
+  headA         // A
 ))
   .s("sax")
   .legato(0.8)
   .velocity(0.9)
 
 // 2. PIANO VAMP (Ebbm - Bbm7)
-const piano = note("eb3@3 bb3@2")
+const vamp = "eb3@3 bb3@2"
+const bridge = "c3@3 f3@2 bb2@3 eb3@2 g2@3 c3@2 f2@3 bb2@2" // Cycle of 5thsish
+
+const piano = note(cat(
+  vamp, vamp, vamp, vamp, // Intro
+  vamp, vamp, vamp, vamp, vamp, vamp, vamp, vamp, // A A
+  bridge, bridge, // B
+  vamp, vamp, vamp, vamp // A
+))
   .chord("minor7")
   .s("superpiano")
   .voicings("root")
   .velocity(0.6)
 
 // 3. BASS (5/4 Groove)
-const bass = note("eb2@3 bb2@2")
+const bassPattern = "eb2@3 bb2@2"
+const bass = note(bassPattern)
   .s("bass")
   .velocity(0.7)
 
@@ -48,23 +63,32 @@ stack(
 
 ## 2. So What (Miles Davis)
 ```javascript
-// So What - Modal Jazz (D Dorian)
+// So What - Modal Jazz - Full 32 Bar Form
 setcps(0.55)
 
 // 1. MELODY (Bass Intro + Horns)
+const bassCall = "d2@1 a2@1 d3@1 e3@1 f3@1 e3@1 d3@1 c3@1"
+const bassCallEb = "eb2@1 bb2@1 eb3@1 f3@1 gb3@1 f3@1 eb3@1 db3@1"
+const hornResp = "~" // Horns play chords only here
+
 const melody = note(cat(
-  "d2@1 a2@1 d3@1 e3@1 f3@1 e3@1 d3@1 c3@1", // Bass Call
-  "~", // Horn Response (see chords)
-  "d2@1 a2@1 d3@1 e3@1 f3@1 e3@1 d3@1 c3@1"
+  bassCall, hornResp, bassCall, hornResp, // A (D Dorian)
+  bassCall, hornResp, bassCall, hornResp, // A (D Dorian)
+  bassCallEb, hornResp, bassCallEb, hornResp, // B (Eb Dorian)
+  bassCall, hornResp, bassCall, hornResp // A (D Dorian)
 ))
   .s("bass")
   .velocity(0.9)
 
 // 2. CHORDS (The "So What" Voicing)
+const soWhatD = "~ e3@2 d3@2"
+const soWhatEb = "~ f3@2 eb3@2"
+
 const chords = note(cat(
-  "~",
-  "e3@2 d3@2", // So... What...
-  "~"
+  soWhatD, soWhatD, soWhatD, soWhatD, // A
+  soWhatD, soWhatD, soWhatD, soWhatD, // A
+  soWhatEb, soWhatEb, soWhatEb, soWhatEb, // B (Modulate up semitone)
+  soWhatD, soWhatD, soWhatD, soWhatD  // A
 ))
   .chord("m11")
   .s("superpiano")
@@ -85,32 +109,48 @@ stack(
 
 ## 3. Autumn Leaves
 ```javascript
-// Autumn Leaves
+// Autumn Leaves - Full AABC Form (32 Bars)
 setcps(0.65)
 
 // 1. MELODY
+const pickup = "~ ~ ~ e4@1 f#4@1 g4@1"
+const a = "c5@4 ~ ~ d4@1 e4@1 f#4@1 b4@4 ~ ~ c4@1 d4@1 e4@1 a4@4 ~ ~ b3@1 c#4@1 d#4@1 g4@4"
+const b = "~ ~ ~ f#4@1 g4@1 a4@1 d5@4 ~ ~ c#5@1 c5@1 b4@1 bb4@4 ~ ~ a4@1 g4@1 f#4@1 f4@4 ~ ~ e4@1 f#4@1 g4@1"
+const c = "c5@1 b4@1 a4@1 a4@1 a4@2 g4@2 f#4@4 ~ ~ b4@1 a4@1 g4@2 f#4@2 e4@4"
+
 const melody = note(cat(
-  "~ ~ ~ e4@1 f#4@1 g4@1",
-  "c5@4 ~ ~ d4@1 e4@1 f#4@1",
-  "b4@4 ~ ~ c4@1 d4@1 e4@1",
-  "a4@4"
+  pickup, a, // A Section
+  pickup, a, // A Section (Repeat)
+  b,         // B Section
+  c          // C Section
 ))
   .s("sine")
   .velocity(0.8)
 
 // 2. CHORDS (ii-V-I in G Major / Em)
-const chords = note(cat(
-  "a3@4 d3@4 g3@4 c3@4",
-  "f#3@4 b2@4 e3@4 e3@4"
-))
-  .chord("minor7 dom7 maj7 maj7 m7b5 dom7 minor7 minor7")
+const sectionA = "a3@4 d3@4 g3@4 c3@4 f#3@4 b2@4 e3@4 e3@4"
+const sectionB = "f#3@4 b2@4 e3@4 e3@4 a3@4 d3@4 g3@4 c3@4"
+const sectionC = "f#3@4 b2@4 e3@2 eb3@2 d3@2 db3@2 c3@2 b2@2 bb2@2 a2@2" // Chromatic rundown
+
+// Define chord qualities for each section
+const qualA = "minor7 dom7 maj7 maj7 m7b5 dom7 minor7 minor7"
+const qualB = "m7b5 dom7 minor7 minor7 minor7 dom7 maj7 maj7"
+const qualC = "m7b5 dom7 minor7 dom7 minor7 dom7 maj7 dom7 minor7 dom7"
+
+const chords = note(cat(sectionA, sectionA, sectionB, sectionC))
+  .chord(cat(qualA, qualA, qualB, qualC))
   .s("superpiano")
   .gain(0.6)
 
 // 3. WALKING BASS
-const bass = note("a2 d3 g2 c3 f#2 b2 e2 e3")
+const bass = note(cat(
+  "a2 d3 g2 c3 f#2 b2 e2 e3",
+  "a2 d3 g2 c3 f#2 b2 e2 e3",
+  "f#2 b2 e2 e3 a2 d3 g2 c3",
+  "f#2 b2 e2 eb2 d2 db2 c2 b1"
+))
   .s("bass")
-  .struct("x*4") // Walking quarter notes
+  .struct("x*4")
   .gain(0.7)
 
 stack(
@@ -123,24 +163,20 @@ stack(
 
 ## 4. Fly Me To The Moon
 ```javascript
-// Fly Me To The Moon
+// Fly Me To The Moon - Full Form
 setcps(0.6)
 
 // 1. MELODY
-const melody = note(cat(
-  "c5@3 b4@1 a4@1 g4@1 f4@1 g4@1",
-  "a4@3 g4@1 f4@1 e4@1 d4@1 e4@1",
-  "f4@3 e4@1 d4@1 c4@1 b3@2",
-  "c4@4"
-))
+const a1 = "c5@3 b4@1 a4@1 g4@1 f4@1 g4@1 a4@3 g4@1 f4@1 e4@1 d4@1 e4@1 f4@3 e4@1 d4@1 c4@1 b3@2 c4@4"
+const a2 = "a4@3 g4@1 f4@1 e4@1 d4@1 e4@1 f4@3 e4@1 d4@1 c4@1 b3@1 c4@1 d4@3 c4@1 b3@1 a3@1 g3@2 a3@4"
+
+const melody = note(cat(a1, a2))
   .s("sax")
   .legato(0.8)
 
-// 2. CHORDS (Am7 - Dm7 - G7 - Cmaj7)
-const chords = note(cat(
-  "a3@4 d3@4 g3@4 c3@4",
-  "f3@4 b2@4 e3@4 a2@4"
-))
+// 2. CHORDS (Circle of Fifths)
+const section = "a3@4 d3@4 g3@4 c3@4 f3@4 b2@4 e3@4 a2@4"
+const chords = note(cat(section, section))
   .chord("minor7 minor7 dom7 maj7 maj7 m7b5 dom7 minor7")
   .s("supermandolin")
   .gain(0.6)
@@ -199,37 +235,53 @@ stack(
 
 ## 6. All Blues (Miles Davis)
 ```javascript
-// All Blues - 6/8 Time
+// All Blues (Miles Davis) - 6/8 Time - Full Form
 setcps(0.6)
 
 // 1. MELODY (Trumpet)
+const riffs = "b4@2.5 d5@0.5 e5@2.5 d5@0.5 b4@2.5 d5@0.5 e5@1.5 d5@1 b4@0.5"
+const turn = "e5@3 eb5@2.5 d5@0.5 b4@2 d5@1 b4@3"
+
 const melody = note(cat(
-  "~",
-  "b4@2.5 d5@0.5 e5@2.5 d5@0.5 b4@2.5 d5@0.5 e5@1.5 d5@1 b4@0.5",
-  "~"
+  riffs, riffs, // G7 (8 bars)
+  riffs, // C7 (4 bars)
+  turn   // D7#9 -> Eb7#9 -> G7
 ))
   .s("sawtooth").lpf(2500)
   .velocity(0.8)
 
 // 2. OSTINATO (Bass/Piano)
-const riffs = note("g2 g3 f3 g3")
+const ostG = "g2 g3 f3 g3"
+const ostC = "c3 c4 bb3 c4"
+const ostD = "d3 d4 c4 d4"
+
+const ostinato = note(cat(
+  ostG, ostG, ostG, ostG, // G7
+  ostC, ostC,             // C7
+  ostG, ostG,             // G7
+  ostD, ostG, ostG, ostG  // Turnaround
+))
   .s("superpiano")
   .velocity(0.6)
   .struct("x x x x")
 
-// 3. CHORDS (G7)
-const chords = note("g3")
+// 3. CHORDS
+const chords = note(cat(
+  "g3@16",
+  "c3@8",
+  "g3@8",
+  "d3@4 eb3@4 g3@8"
+))
   .chord("dom7")
   .s("supersaw").attack(0.1).release(0.8)
-  .slow(4)
   .gain(0.4)
 
-// 4. DRUMS (Brushes)
+// 4. DRUMS
 const drums = s("hh*6").open().gain(0.5)
 
 stack(
   melody,
-  riffs,
+  ostinato,
   chords,
   drums
 )
@@ -306,30 +358,41 @@ stack(
 
 ## 9. Giant Steps (John Coltrane)
 ```javascript
-// Giant Steps - The Changes
+// Giant Steps - Full 16-Bar Cycle
 setcps(0.8)
 
-// 1. MELODY (Simplified Head)
-const melody = note(cat(
-  "b4@1 d5@1 g4@1 bb4@1 eb4@4",
-  "a4@1 b4@1 eb4@1 g4@1 bb3@4"
-))
+// 1. MELODY
+// The "Giant Steps" phrase
+const phrase1 = "b4@1 d5@1 g4@1 bb4@1 eb4@4"
+const phrase2 = "a4@1 b4@1 eb4@1 g4@1 bb3@4"
+const phrase3 = "eb4@1 gb4@1 b3@1 f4@1 bb3@4"
+const phrase4 = "b3@1 eb4@1 g3@1 db4@1 gb3@4"
+
+const melody = note(cat(phrase1, phrase2, phrase3, phrase4))
   .s("sax")
   .velocity(0.9)
 
-// 2. CHORDS (Bmaj7 - D7 - Gmaj7 - Bb7 - Ebmaj7...)
+// 2. CHORDS (Coltrane Changes)
+// Bmaj7 D7 | Gmaj7 Bb7 | Ebmaj7 | Am7 D7
+// Gmaj7 Bb7 | Ebmaj7 F#7 | Bmaj7 | Fm7 Bb7
+// Ebmaj7 | Am7 D7 | Gmaj7 | C#m7 F#7
+// Bmaj7 | Fm7 Bb7 | Ebmaj7 | C#m7 F#7
 const chords = note(cat(
-  "b3@2 d3@2 g3@2 bb3@2 eb3@4",
-  "a3@2 d3@2 g3@2 bb3@2 eb3@2 gb3@2"
+  "b3@2 d3@2 g3@2 bb3@2 eb3@4 a3@2 d3@2",
+  "g3@2 bb3@2 eb3@2 gb3@2 b3@4 f3@2 bb3@2",
+  "eb3@4 a3@2 d3@2 g3@4 cs3@2 fs3@2",
+  "b3@4 f3@2 bb3@2 eb3@4 cs3@2 fs3@2"
 ))
-  .chord("maj7 dom7 maj7 dom7 maj7")
+  .chord("maj7 dom7")
   .s("superpiano")
   .velocity(0.7)
 
-// 3. WALKING BASS (Fast)
+// 3. WALKING BASS
 const bass = note(cat(
-  "b2 d3 g2 bb2 eb3",
-  "a2 d3 g2 bb2 eb3 gb2"
+  "b2 d3 g2 bb2 eb3 a2 d3",
+  "g2 bb2 eb3 gb2 b2 f2 bb2",
+  "eb3 a2 d3 g2 cs3 fs2",
+  "b2 f2 bb2 eb3 cs3 fs2"
 ))
   .s("bass")
   .struct("x*2")
@@ -449,29 +512,46 @@ stack(
 
 ## 13. Blue Monk
 ```javascript
-// Blue Monk
+// Blue Monk (Thelonious Monk) - Full 12-Bar Blues
 setcps(0.5)
 
 // 1. MELODY (Chromatic Walk)
-const melody = note(cat(
-  "bb3@0.5 c4@0.5 db4@0.5 d4@0.5 eb4@0.5 e4@0.5 f4@1",
-  "bb4@0.5 a4@0.5 ab4@0.5 g4@0.5 gb4@0.5 f4@1.5"
-))
+// A Section (Bars 1-4)
+const a1 = "bb3@0.5 c4@0.5 db4@0.5 d4@0.5 eb4@0.5 e4@0.5 f4@1 bb4@0.5 a4@0.5 ab4@0.5 g4@0.5 gb4@0.5 f4@1.5"
+// B Section (Bars 5-8) - Transposed to Eb
+const b1 = "eb4@0.5 f4@0.5 gb4@0.5 g4@0.5 ab4@0.5 a4@0.5 bb4@1 eb5@0.5 d5@0.5 db5@0.5 c5@0.5 b4@0.5 bb4@1.5"
+// C Section (Bars 9-12) - Turnaround
+const c1 = "bb4@1 d5@1 f5@1 bb5@1 a5@0.5 ab5@0.5 g5@0.5 gb5@0.5 f5@1 ~"
+
+const melody = note(cat(a1, b1, a1, c1))
   .s("superpiano")
   .velocity(0.9)
 
 // 2. CHORDS (Bb Blues)
-const chords = note("bb2 eb3 bb2 f3")
+const chords = note(cat(
+  "bb2@4 eb3@4 bb2@4 bb2@4",  // I - IV - I - I
+  "eb3@4 eb3@4 bb2@4 bb2@4",  // IV - IV - I - I
+  "f3@4 f3@4 bb2@4 f3@4"      // V - V - I - V
+))
   .chord("dom7")
   .s("superpwm")
-  .slow(4)
-  .gain(0.6)
+  .lpf(2000)
+  .gain(0.5)
+
+// 3. WALKING BASS
+const bass = note(cat(
+  "bb1 d2 f2 ab2 eb2 g2 bb2 db3 bb1 d2 f2 ab2 bb1 d2 f2 ab2",
+  "eb2 g2 bb2 db3 eb2 g2 bb2 db3 bb1 d2 f2 ab2 bb1 d2 f2 ab2",
+  "f2 a2 c3 eb3 f2 a2 c3 eb3 bb1 d2 f2 ab2 f2 a2 c3 eb3"
+))
+  .s("bass")
+  .gain(0.8)
 
 stack(
   melody,
   chords,
-  s("hh*4").open(),
-  note("bb2 eb3 bb2 f3").s("bass").struct("x x x x").slow(4)
+  bass,
+  s("hh*4").open().gain(0.6)
 )
 ```
 
@@ -1555,22 +1635,33 @@ stack(
 
 ## 49. C-Jam Blues
 ```javascript
-// C-Jam Blues
+// C-Jam Blues (Duke Ellington) - Full Form
 setcps(0.6)
 
-// 1. MELODY (2 notes!)
+// 1. MELODY
+const riff = "g4@0.5 g4@0.5 c5@1"
+const riff2 = "c5@0.5 c5@0.5 f5@1" // IV chord riff
+
 const melody = note(cat(
-  "g4@0.5 g4@0.5 c5@1",
-  "g4@0.5 g4@0.5 c5@1"
+  riff, riff, riff, riff, // C7
+  riff2, riff2,           // F7
+  riff, riff,             // C7
+  "d5@0.5 d5@0.5 g5@1", "c5@0.5 c5@0.5 f5@1", // G7 - F7
+  riff, riff              // C7
 ))
   .s("superpiano")
   .velocity(0.9)
 
 // 2. CHORDS (C Blues)
-const chords = note("c3 f3 c3 g3")
+const chords = note(cat(
+  "c3@16", // C7
+  "f3@8",  // F7
+  "c3@8",  // C7
+  "g3@4 f3@4", // G7 - F7
+  "c3@8"   // C7
+))
   .chord("dom7")
   .s("superpwm")
-  .slow(4)
   .gain(0.6)
 
 stack(
