@@ -27,6 +27,8 @@ This repository contains comprehensive guides and examples for using **Strudel**
     *   Arrangements of popular Kenyan music.
 7.  **[50 Famous Jazz Songs](guides/07-50-famous-jazz-songs.md)**
     *   Standards and classics in the Jazz repertoire.
+10. **[100 More Famous Kenyan Songs](guides/10-100-more-famous-kenyan-songs.md)**
+    *   Another 100 arrangements covering Kapuka, Genge, Gengetone, and modern Afro-Pop.
 
 ## Examples
 
