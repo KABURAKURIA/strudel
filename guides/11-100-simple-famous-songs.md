@@ -1986,3 +1986,109 @@ stack(
   s("bd sd")
 )
 ```
+
+---
+
+## Category 6: Bonus Folk & Spiritual (Simple)
+
+### 101. Michael Row the Boat Ashore (Gospel)
+```javascript
+// Michael Row the Boat Ashore
+setcps(1)
+const melody = note(cat(
+  "c4@1 c4@1 e4@1 g4@1 g4@2 a4@2 g4@4",
+  "e4@1 g4@1 g4@1 e4@1 d4@1 c4@1 c4@4"
+))
+  .s("superpiano")
+
+const chords = note("c3 g3 c3 f3 c3 g3 c3")
+  .chord("major")
+  .s("superpiano")
+
+stack(
+  melody,
+  chords,
+  s("bd sd")
+)
+```
+
+### 102. When the Chariot Comes (Swing)
+```javascript
+// When the Chariot Comes
+setcps(1.2)
+const melody = note(cat(
+  "g3@1 c4@1 e4@1 g4@1 g4@2 e4@2",
+  "g4@1 e4@1 d4@1 c4@1 d4@4"
+))
+  .s("sawtooth").lpf(2000)
+
+const bass = note("c2 g2")
+  .s("bass")
+
+stack(
+  melody,
+  bass,
+  s("hh*2")
+)
+```
+
+### 103. Down by the Riverside (Upbeat)
+```javascript
+// Down by the Riverside
+setcps(1.3)
+const melody = note(cat(
+  "g3@1 c4@1 c4@1 c4@1 e4@1 d4@1 c4@2",
+  "e4@1 d4@1 c4@1 b3@1 a3@4"
+))
+  .s("supermandolin")
+
+const snare = s("snare*4")
+
+stack(
+  melody,
+  snare,
+  s("bd*2")
+)
+```
+
+### 104. He's Got the Whole World (Hymn)
+```javascript
+// He's Got the Whole World
+setcps(1)
+const melody = note(cat(
+  "c4@1 c4@1 d4@1 e4@1 g4@2 e4@2",
+  "d4@1 d4@1 b3@1 c4@1 d4@4"
+))
+  .s("vowel")
+
+const organ = note("c3 g3")
+  .s("superpwm")
+
+stack(
+  melody,
+  organ,
+  s("oh")
+)
+```
+
+### 105. Kum Ba Yah (Campfire)
+```javascript
+// Kum Ba Yah
+setcps(0.9)
+const melody = note(cat(
+  "c4@1 e4@1 g4@2 g4@2 g4@2",
+  "c4@1 e4@1 g4@2 g4@2 g4@2",
+  "c4@1 e4@1 g4@2 g4@2 f4@2",
+  "e4@1 d4@1 c4@4"
+))
+  .s("harmonica")
+
+const guitar = note("c3 f3 c3 g3")
+  .s("supermandolin")
+
+stack(
+  melody,
+  guitar,
+  s("crickets")
+)
+```
