@@ -2092,3 +2092,106 @@ stack(
   s("crickets")
 )
 ```
+
+### 106. Take Me Out to the Ball Game (Stadium)
+```javascript
+// Take Me Out to the Ball Game
+setcps(1.2)
+const melody = note(cat(
+  "c4@1 c5@1 a4@1 g4@1 e4@1 g4@1",
+  "d4@1 d5@1 b4@1 a4@1 f4@1 a4@1"
+))
+  .s("superpwm")
+
+const organ = note("c3 g3")
+  .s("superpwm")
+
+stack(
+  melody,
+  organ,
+  s("clap")
+)
+```
+
+### 107. Simple Gifts (Shaker)
+```javascript
+// Simple Gifts
+setcps(1)
+const melody = note(cat(
+  "c4@1 c4@1 f4@1 f4@1 g4@1 f4@1 g4@1 a4@1",
+  "f4@2 a4@1 g4@1 f4@1 d4@1 c4@2"
+))
+  .s("triangle")
+
+const drone = note("f2 c3")
+  .s("sawtooth").lpf(500)
+
+stack(
+  melody,
+  drone,
+  s("hh")
+)
+```
+
+### 108. Skip to My Lou (Country Dance)
+```javascript
+// Skip to My Lou
+setcps(1.3)
+const melody = note(cat(
+  "e4@1 e4@1 c4@1 c4@1 e4@2",
+  "d4@1 d4@1 b3@1 b3@1 d4@2",
+  "e4@1 e4@1 c4@1 c4@1 e4@2",
+  "d4@1 f4@1 e4@1 d4@1 c4@2"
+))
+  .s("supermandolin")
+
+const banjo = note("c3 g3")
+  .s("supermandolin")
+
+stack(
+  melody,
+  banjo,
+  s("stomp")
+)
+```
+
+### 109. On Top of Old Smoky (Mountain)
+```javascript
+// On Top of Old Smoky
+setcps(0.9)
+const melody = note(cat(
+  "c4@1 c4@1 e4@1 g4@1 c5@3",
+  "a4@1 f4@1 a4@1 c5@1 g4@3"
+))
+  .s("harmonica")
+
+const guitar = note("c3 f3 c3 g3")
+  .s("supermandolin")
+
+stack(
+  melody,
+  guitar,
+  s("crickets")
+)
+```
+
+### 110. Battle Hymn of the Republic (March)
+```javascript
+// Battle Hymn of the Republic
+setcps(1.2)
+const melody = note(cat(
+  "g4@1 g4@1 f4@1 e4@1 g4@1 g4@1 c5@2",
+  "a4@1 a4@1 g4@1 f4@1 a4@1 a4@1 d5@2",
+  "g4@1 g4@1 f4@1 e4@1 g4@1 g4@1 c5@1 b4@1 a4@1",
+  "g4@1 a4@1 b4@1 c5@4"
+))
+  .s("sawtooth").lpf(2000)
+
+const snare = s("snare*4")
+
+stack(
+  melody,
+  snare,
+  note("c2 g2")
+)
+```
