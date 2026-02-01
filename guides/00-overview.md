@@ -15,9 +15,13 @@ Welcome to this comprehensive collection of Strudel guides. Whether you are a co
 
 4.  **[Lofi Nujabes Masterclass](03-nujabes-lofi.md)**
     -   Learn Jazz theory, swing, texture processing, and build full songs.
-5.  **[Sampling Deep Dive](08-sampling-deep-dive.md)**
+5.  **[Lofi Recipes Cookbook](03b-nujabes-lofi-recipes.md)**
+    -   Copy-pasteable code blocks for Drum Kits, Chord Packs, and Texture Chains.
+6.  **[Creating Infinite Study Beats](03c-lofi-study-beats.md)**
+    -   Learn how to make evolving loops for focus and relaxation.
+7.  **[Sampling Deep Dive](08-sampling-deep-dive.md)**
     -   Learn how to manipulate audio samples.
-6.  **[Advanced Generative Techniques](09-advanced-generative.md)**
+8.  **[Advanced Generative Techniques](09-advanced-generative.md)**
     -   Let the computer compose for you.
 
 ## Collections & Examples

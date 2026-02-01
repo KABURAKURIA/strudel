@@ -1,5 +1,7 @@
 # Setting Up Kunguru Algo (Strudel) in Google Colab
 
+> **Note:** This guide is specifically designed for the **Kunguru Algo** edition of Strudel on Google Colab Free Tier.
+
 This guide explains how to set up a full, persistent, and publicly accessible instance of Strudel—branded as **Kunguru Algo**—on Google Colab's Free Tier.
 
 This method allows you to run the full Strudel development environment, giving you access to the latest features and a stable environment without relying on external iframes.
