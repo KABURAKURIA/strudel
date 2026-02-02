@@ -24,6 +24,7 @@ Welcome to this comprehensive collection of Strudel guides. Whether you are a co
 
 -   **[100 Famous Songs](05-100-famous-songs.md)**
 -   **[100 Simple Famous Songs](11-100-simple-famous-songs.md)**
+-   **[100 Simple Famous Songs Vol. 2](16-100-simple-famous-songs-vol-2.md)**
 -   **[100 Famous Kenyan Songs](06-100-famous-kenyan-songs.md)**
 -   **[100 More Famous Kenyan Songs](10-100-more-famous-kenyan-songs.md)**
 -   **[100 Kenyan Classics Vol. 3](12-100-kenyan-classics-vol-3.md)**
