@@ -13,7 +13,6 @@ const piano = note("d3 g3 c3")
   .s("piano")
   .lpf(2000)      // Low pass filter to soften the sound
   .velocity(0.6)  // Soft touch
-  .strum(0.05)    // Strum the chords slightly for realism
   .slow(4)        // One chord every bar (assuming 4/4)
 
 // 2. Bass Line
