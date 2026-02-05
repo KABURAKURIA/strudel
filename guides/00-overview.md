@@ -10,18 +10,22 @@ Welcome to this comprehensive collection of Strudel guides. Whether you are a co
     -   Dive into Euclidean rhythms, polymeters, and audio effects.
 3.  **[Intermediate Melody and Harmony](02-intermediate-melody-harmony.md)**
     -   Master scales, chords, and arpeggios to create lush melodies.
+4.  **[Intermediate Mixing and Effects](02b-intermediate-mixing-effects.md)**
+    -   Learn to shape your sound with Reverb, Filters, and Delays.
 
 ## Advanced Topics & Genre Studies
 
-4.  **[Lofi Nujabes Masterclass](03-nujabes-lofi.md)**
+5.  **[Lofi Nujabes Masterclass](03-nujabes-lofi.md)**
     -   Learn Jazz theory, swing, texture processing, and build full songs.
-5.  **[Lofi Recipes Cookbook](03b-nujabes-lofi-recipes.md)**
+6.  **[Lofi Recipes Cookbook](03b-nujabes-lofi-recipes.md)**
     -   Copy-pasteable code blocks for Drum Kits, Chord Packs, and Texture Chains.
-6.  **[Creating Infinite Study Beats](03c-lofi-study-beats.md)**
+7.  **[Nujabes/Lo-Fi Vol. 2: Original Compositions](19-nujabes-lofi-vol-2.md)**
+    -   Three more full-length original compositions to study.
+8.  **[Creating Infinite Study Beats](03c-lofi-study-beats.md)**
     -   Learn how to make evolving loops for focus and relaxation.
-7.  **[Sampling Deep Dive](08-sampling-deep-dive.md)**
+9.  **[Sampling Deep Dive](08-sampling-deep-dive.md)**
     -   Learn how to manipulate audio samples.
-8.  **[Advanced Generative Techniques](09-advanced-generative.md)**
+10. **[Advanced Generative Techniques](09-advanced-generative.md)**
     -   Let the computer compose for you.
 
 ## Collections & Examples

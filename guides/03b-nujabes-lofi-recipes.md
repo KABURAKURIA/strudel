@@ -68,7 +68,39 @@ const nostalgia = note("c4/g f4/a g4/b c5")
   .slow(2)
 ```
 
-## 3. Texture Chains
+## 3. Bass Lines
+
+### The "Upright" (Acoustic Feel)
+Plucky and woody. Good for Jazz.
+
+```javascript
+const uprightBass = note("c2 f2 g2 c2")
+  .s("triangle")
+  .attack(0.05).decay(0.5) // Pluck envelope
+  .lpf(600)
+```
+
+### The "Sub" (Modern Lo-Fi)
+Deep, warm, fills the low end.
+
+```javascript
+const subBass = note("c1 f1 g1 c1")
+  .s("sine")
+  .lpf(300)
+  .shape(0.4) // Saturation
+```
+
+### The "Donut" (Dilla Style)
+Short, punchy, slightly distorted.
+
+```javascript
+const donutBass = note("c2 ~ c2 ~")
+  .s("sine")
+  .attack(0.01).decay(0.2) // Short decay
+  .shape(0.6)
+```
+
+## 4. Texture Chains
 
 Add these to any `stack` to give it that vintage vibe.
 
@@ -94,7 +126,7 @@ Atmospheric background noise.
 s("noise").lpf(800).hpf(200).gain(0.1).jux(rev)
 ```
 
-## 4. Full Recipe: "Rainy Cafe"
+## 5. Full Recipe: "Rainy Cafe"
 
 Putting it all together:
 
