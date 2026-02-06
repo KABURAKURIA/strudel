@@ -1,4 +1,4 @@
-# Setting Up Kunguru Algo (Strudel) in Google Colab
+# Setting Up Strudel (Kunguru Algo) in Google Colab Free Tier
 
 > **Note:** This guide is specifically designed for the **Kunguru Algo** edition of Strudel on Google Colab Free Tier.
 
@@ -112,3 +112,11 @@ print("\n" + "="*40)
 
 - **502 Bad Gateway**: This usually means the server hasn't finished starting yet. Refresh the page after a few seconds.
 - **Tunnel URL not showing**: Check the `tunnel.log` file in the Colab file browser (on the left) to see if there were connection errors.
+
+## Free Tier Limitations
+
+Since we are using the Free Tier of Google Colab, keep the following in mind:
+
+1.  **Runtime Disconnects**: Google will disconnect your runtime if it is idle for too long (usually 90 minutes) or after a maximum duration (usually 12 hours). You will need to re-run the setup script if this happens.
+2.  **Resource Limits**: While Strudel is lightweight, running very complex generative scripts *might* hit CPU limits, though this is rare for audio synthesis.
+3.  **No GPU Needed**: Strudel runs on the CPU, so you don't need to select a GPU runtime. This saves resources for others!
