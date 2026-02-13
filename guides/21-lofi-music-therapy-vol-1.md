@@ -23,12 +23,12 @@ Each song is paired with:
 // Scale: D Lydian (Dreamy, #4)
 setcps(0.18)
 
-// 1. Piano: Gentle, high-register melody
-const piano = note("0 2 4 6 7 6 4 2")
+// 1. Piano: Gentle, specific melody
+const piano = note("4 [6 7] 6 [4 ~] . 2 [4 0] 2 ~")
   .scale("d:lydian")
   .transpose(12) // Octave up
   .s("superpiano")
-  .velocity("0.4 0.3 0.5 0.2")
+  .velocity("0.5 0.3 0.6 0.2")
   .lpf(2000)
   .room(0.8)
   .jux(rev) // Reverse echo for dreaminess
@@ -118,8 +118,8 @@ stack(
 // Scale: A Dorian (Jazz Minor feel)
 setcps(0.2)
 
-// 1. Guitar: Lo-Fi acoustic loop
-const guitar = note("0 2 3 5 7 5 3 2")
+// 1. Guitar: Lo-Fi acoustic motif
+const guitar = note("0 [2 3] 5 [~ 3] . 7 [5 ~] 3 2")
   .scale("a:dorian")
   .s("supermandolin")
   .lpf(2000)
@@ -221,7 +221,7 @@ const rhodes = note("0 1 0 3")
   .room(1)
 
 // 3. Saxophone: Distant, lonely melody
-const sax = note("~ 4 ~ 2 1 ~ -1 ~")
+const sax = note("~ 4 [~ 5] 4 [2 1] . ~ -1 [~ 0] -1 ~")
   .scale("e:phrygian")
   .s("sawtooth") // Synth sax
   .lpf(1000)
@@ -298,8 +298,8 @@ stack(
 // Scale: G Mixolydian (Nostalgic, resolved)
 setcps(0.2)
 
-// 1. Reversed Piano
-const revPiano = note("0 2 4 6")
+// 1. Reversed Piano: Arpeggiated texture
+const revPiano = note("0 2 [4 6] 5 . 4 [2 0] -2 ~")
   .scale("g:mixolydian")
   .s("superpiano")
   .rev() // Play backwards
@@ -397,7 +397,7 @@ const strings = note("0 2 4 6")
   .gain(0.6)
 
 // 2. Flute: Playful melody
-const flute = note("6 4 2 0 7 6 4 2")
+const flute = note("6 [4 5] 6 [7 6] . 4 [2 0] 2 ~")
   .scale("f:lydian")
   .transpose(12)
   .s("triangle")
@@ -563,7 +563,7 @@ stack(
 setcps(0.24)
 
 // 1. Piano: Continuous Arpeggios
-const arps = note("0 2 4 6 5 4 2 0")
+const arps = note("0 [2 4] 6 [5 4] . 2 [4 5] 4 [2 0]")
   .scale("eb:lydian")
   .s("superpiano")
   .velocity(sine.range(0.3, 0.6).slow(4))
@@ -645,7 +645,7 @@ stack(
 setcps(0.18)
 
 // 1. Upright Bass: Jazzy walk
-const bass = note("0 2 3 4")
+const bass = note("0 2 3 [4 2]")
   .scale("a:harmonicMinor")
   .s("triangle")
   .attack(0.05)
@@ -661,7 +661,7 @@ const comp = note("0 3 0 4")
   .room(0.4)
 
 // 3. Sax: Fragmented
-const sax = note("~ 2 4 ~ 5")
+const sax = note("~ 2 [4 5] ~ . 5 [4 2] ~ 0")
   .scale("a:harmonicMinor")
   .s("sawtooth")
   .lpf(800)
@@ -737,7 +737,7 @@ stack(
 setcps(0.2)
 
 // 1. Pads: Swirling
-const pads = note("0 2 4 6")
+const pads = note("0 2 [4 5] 6")
   .scale("b:aeolian")
   .chord("min9")
   .s("supersaw")
@@ -834,7 +834,7 @@ const pads = note("0 1 2 4")
   .gain(0.7)
 
 // 2. Melody: Slow, distant lead
-const lead = note("4 ~ 2 ~ 1 ~ 0 ~")
+const lead = note("4 [~ 2] ~ 1 ~ 0 ~")
   .scale("g:hirajoshi")
   .s("triangle")
   .lpf(800)
