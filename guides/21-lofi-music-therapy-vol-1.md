@@ -14,28 +14,34 @@ Each song is paired with:
 ## 1. First Snow (Purity)
 
 **Virtue:** Purity / Innocence
-**Description:** A delicate piano melody over a soft, shuffled beat, evoking the quiet wonder of a fresh snowfall.
+**Description:** A delicate, looping Lydian piano melody over a soft, shuffled beat, evoking the quiet wonder of a fresh snowfall.
 
 ### Strudel Code
 
 ```javascript
 // First Snow
+// Scale: D Lydian (Dreamy, #4)
 setcps(0.18)
 
 // 1. Piano: Gentle, high-register melody
-const piano = note("c5 e5 g5 b5 c6 b5 g5 e5")
+const piano = note("0 2 4 6 7 6 4 2")
+  .scale("d:lydian")
+  .transpose(12) // Octave up
   .s("superpiano")
   .velocity("0.4 0.3 0.5 0.2")
   .lpf(2000)
   .room(0.8)
   .jux(rev) // Reverse echo for dreaminess
 
-// 2. Chords: Lush major 9ths
-const chords = note("c3:maj9 a2:min9 f2:maj7 g2:dom7")
+// 2. Chords: Lush major 9ths and #11s
+const chords = note("0 4 2 5")
+  .scale("d:lydian")
+  .transpose("-12") // Lower octave
   .s("superpiano")
   .lpf(800)
   .velocity(0.5)
   .sustain(4)
+  .struct("x(3,8)") // Polyrhythmic feel
 
 // 3. Texture: Wind/Noise
 const wind = s("noise")
@@ -103,27 +109,31 @@ stack(
 ## 2. Rusty Swing Set (Nostalgia)
 
 **Virtue:** Acceptance
-**Description:** A melancholic guitar loop with vinyl crackle and a lazy, dragging beat, capturing the bittersweet feeling of looking back.
+**Description:** A melancholic Dorian guitar loop with vinyl crackle and a lazy, dragging beat, capturing the bittersweet feeling of looking back.
 
 ### Strudel Code
 
 ```javascript
 // Rusty Swing Set
+// Scale: A Dorian (Jazz Minor feel)
 setcps(0.2)
 
 // 1. Guitar: Lo-Fi acoustic loop
-const guitar = note("e3:min9 c3:maj7 a2:min7 b2:dom7")
+const guitar = note("0 2 3 5 7 5 3 2")
+  .scale("a:dorian")
   .s("supermandolin")
   .lpf(2000)
   .legato(1.2)
   .room(0.5)
   .jux(x => x.delay(0.1)) // Stereo widening
+  .slow(2)
 
 // 2. Vinyl Crackle
 const crackle = s("noise").gain(0.08).hpf(1000).lpf(3000)
 
 // 3. Bass: Upright and warm
-const bass = note("e2 c2 a1 b1")
+const bass = note("0 -2 -4 -5")
+  .scale("a:dorian")
   .s("triangle")
   .lpf(400)
   .shape(0.3)
@@ -188,26 +198,31 @@ stack(
 ## 3. Midnight Lamp (Solitude)
 
 **Virtue:** Courage
-**Description:** Deep Rhodes chords and rain textures create a safe space for facing the self in the middle of the night.
+**Description:** Deep Phrygian Rhodes chords and rain textures create a mysterious, safe space for facing the self.
 
 ### Strudel Code
 
 ```javascript
 // Midnight Lamp
+// Scale: E Phrygian (Deep, introspection)
 setcps(0.16)
 
 // 1. Rain Texture
 const rain = s("noise").lpf(800).gain(0.2).jux(rev)
 
 // 2. Rhodes: Deep, sustained chords
-const rhodes = note("db3:maj9 bb2:min9 gb2:maj7 f2:min7")
-  .s("superpiano") // Simulating Rhodes with filtered piano
+// i - bII - i - iv
+const rhodes = note("0 1 0 3")
+  .scale("e:phrygian")
+  .chord("min9") // Automatic chord voicing
+  .s("superpiano")
   .lpf(600)
   .tremolo(4, 0.2)
   .room(1)
 
 // 3. Saxophone: Distant, lonely melody
-const sax = note("~ f4 ~ eb4 db4 ~ bb3 ~")
+const sax = note("~ 4 ~ 2 1 ~ -1 ~")
+  .scale("e:phrygian")
   .s("sawtooth") // Synth sax
   .lpf(1000)
   .attack(0.2)
@@ -274,16 +289,18 @@ stack(
 ## 4. Fading Photograph (Impermanence)
 
 **Virtue:** Detachment
-**Description:** Reversed samples and granular textures suggest the slipping away of time and memory.
+**Description:** Mixolydian reversed samples and granular textures suggest the slipping away of time and memory.
 
 ### Strudel Code
 
 ```javascript
 // Fading Photograph
+// Scale: G Mixolydian (Nostalgic, resolved)
 setcps(0.2)
 
 // 1. Reversed Piano
-const revPiano = note("g4 e4 c4 a3")
+const revPiano = note("0 2 4 6")
+  .scale("g:mixolydian")
   .s("superpiano")
   .rev() // Play backwards
   .lpf(1500)
@@ -296,7 +313,9 @@ const granular = s("noise")
   .pan(rand)
 
 // 3. Bass: Deep sine
-const bass = note("c2 g1 a1 f1").s("sine").shape(0.5)
+const bass = note("0 -3 -2 -4")
+  .scale("g:mixolydian")
+  .s("sine").shape(0.5)
 
 // 4. Beat: Broken/Glitchy
 const glitchBeat = stack(
@@ -358,16 +377,19 @@ stack(
 ## 5. Morning Dew (Hope)
 
 **Virtue:** Gratitude
-**Description:** Bright strings and a flute melody over a crisp snare, symbolizing a fresh start and new possibilities.
+**Description:** Bright Lydian strings and a flute melody over a crisp snare, symbolizing a fresh start.
 
 ### Strudel Code
 
 ```javascript
 // Morning Dew
+// Scale: F Lydian (Bright, hopeful)
 setcps(0.22)
 
 // 1. Strings: Swelling pads
-const strings = note("d3:maj7 g2:maj7 b2:min7 a2:dom7")
+const strings = note("0 2 4 6")
+  .scale("f:lydian")
+  .chord("maj7")
   .s("supersaw")
   .attack(0.5)
   .release(1)
@@ -375,13 +397,19 @@ const strings = note("d3:maj7 g2:maj7 b2:min7 a2:dom7")
   .gain(0.6)
 
 // 2. Flute: Playful melody
-const flute = note("f#4 a4 d5 ~ c#5 b4 a4 ~")
+const flute = note("6 4 2 0 7 6 4 2")
+  .scale("f:lydian")
+  .transpose(12)
   .s("triangle")
   .vowel("u") // Flute-like timbre
   .delay(0.4)
+  .slow(2)
 
 // 3. Bass: Walking bass
-const walkingBass = note("d2 f#2 g2 b2").s("sawtooth").lpf(300)
+const walkingBass = note("0 2 4 6")
+  .scale("f:lydian")
+  .s("sawtooth")
+  .lpf(300)
 
 // 4. Beat: Crisp and steady
 const beat = stack(
@@ -393,7 +421,7 @@ const beat = stack(
 // Arrangement
 stack(
   strings,
-  flute.slow(2),
+  flute,
   walkingBass,
   beat
 )
@@ -443,22 +471,26 @@ stack(
 ## 6. Broken Kintsugi (Resilience)
 
 **Virtue:** Resilience
-**Description:** Disjointed beats (Dilla style) and dissonant jazz chords resolving to consonance, representing beauty in brokenness.
+**Description:** Disjointed beats and Minor Pentatonic "broken" chords resolving to consonance.
 
 ### Strudel Code
 
 ```javascript
 // Broken Kintsugi
+// Scale: C Minor Pentatonic (Bluesy/Broken)
 setcps(0.2)
 
 // 1. Chords: Dissonant to Consonant
-const chords = note("c3:min9 db3:maj7 f3:dim7 eb3:maj9")
+const chords = note("0 2 3 4")
+  .scale("c:minorPentatonic")
+  .chord("min7")
   .s("superpiano")
   .lpf(1000)
   .jux(x => x.detune(0.3)) // Slight detune for "broken" feel
 
 // 2. Bass: Stuttering
-const bass = note("c2 [~ c2] db2 [f2 ~] eb2 ~")
+const bass = note("0 [~ 0] 2 [3 ~] 4 ~")
+  .scale("c:minorPentatonic")
   .s("sine")
   .shape(0.6)
 
@@ -521,16 +553,18 @@ stack(
 ## 7. River Flow (Letting Go)
 
 **Virtue:** Flow / Tao
-**Description:** Continuous piano arpeggios and water sounds over a steady rhythm, encouraging the release of control.
+**Description:** Continuous Lydian piano arpeggios and water sounds over a steady rhythm.
 
 ### Strudel Code
 
 ```javascript
 // River Flow
+// Scale: Eb Lydian (Warm, flowing)
 setcps(0.24)
 
 // 1. Piano: Continuous Arpeggios
-const arps = note("c4 e4 g4 b4 a4 f4 d4 g3")
+const arps = note("0 2 4 6 5 4 2 0")
+  .scale("eb:lydian")
   .s("superpiano")
   .velocity(sine.range(0.3, 0.6).slow(4))
   .lpf(1500)
@@ -539,7 +573,8 @@ const arps = note("c4 e4 g4 b4 a4 f4 d4 g3")
 const water = s("noise").lpf(600).hpf(200).gain(0.1).pan(sine.slow(8))
 
 // 3. Bass: Drone
-const drone = note("c2").s("sawtooth").lpf(100).gain(0.8)
+const drone = note("0").scale("eb:lydian")
+  .s("sawtooth").lpf(100).gain(0.8)
 
 // 4. Beat: Light percussion
 const perc = stack(
@@ -600,29 +635,34 @@ stack(
 ## 8. Old Bookstore (Wisdom)
 
 **Virtue:** Humility
-**Description:** Dusty drums, an upright bass, and saxophone samples create a scholarly, introspective atmosphere.
+**Description:** Dusty drums and Harmonic Minor bass/sax for a scholarly atmosphere.
 
 ### Strudel Code
 
 ```javascript
 // Old Bookstore
+// Scale: A Harmonic Minor (Ancient, Wise)
 setcps(0.18)
 
 // 1. Upright Bass: Jazzy walk
-const bass = note("f1 g1 a1 c2")
+const bass = note("0 2 3 4")
+  .scale("a:harmonicMinor")
   .s("triangle")
   .attack(0.05)
   .decay(0.5)
   .lpf(500)
 
 // 2. Chords: Piano comping
-const comp = note("f3:min7 ~ bb2:dom7 ~")
+const comp = note("0 3 0 4")
+  .scale("a:harmonicMinor")
+  .chord("min7")
   .s("superpiano")
   .lpf(1000)
   .room(0.4)
 
 // 3. Sax: Fragmented
-const sax = note("~ c4 eb4 ~ f4")
+const sax = note("~ 2 4 ~ 5")
+  .scale("a:harmonicMinor")
   .s("sawtooth")
   .lpf(800)
   .delay(0.4)
@@ -687,30 +727,35 @@ stack(
 ## 9. Autumn Wind (Change)
 
 **Virtue:** Adaptability
-**Description:** Swirling pads and wind chimes with a melancholic melody, evoking the turning of seasons.
+**Description:** Swirling pads and wind chimes in Aeolian, evoking the turning of seasons.
 
 ### Strudel Code
 
 ```javascript
 // Autumn Wind
+// Scale: B Aeolian (Melancholic, windy)
 setcps(0.2)
 
 // 1. Pads: Swirling
-const pads = note("a2:min9 f2:maj7 d2:min9 e2:min7")
+const pads = note("0 2 4 6")
+  .scale("b:aeolian")
+  .chord("min9")
   .s("supersaw")
   .lpf(sine.range(400, 1200).slow(8))
   .attack(1)
   .release(2)
 
 // 2. Chimes: High random notes
-const chimes = note("scale(a:minor, irand(8) + 12)")
+const chimes = note("scale(b:aeolian, irand(8) + 12)")
   .s("sine")
   .gain(0.3)
   .delay(0.5)
   .slow(0.5)
 
 // 3. Bass: Root notes
-const bass = note("a1 f1 d1 e1").s("sine").shape(0.4)
+const bass = note("0 -2 -4 -5")
+  .scale("b:aeolian")
+  .s("sine").shape(0.4)
 
 // 4. Beat: Light shaker
 const shaker = s("hh*16")
@@ -770,30 +815,36 @@ stack(
 ## 10. Horizon Line (Perspective)
 
 **Virtue:** Equanimity
-**Description:** A wide stereo field with slow evolving pads and a minimal beat, creating a sense of vastness and distance.
+**Description:** A wide stereo field with Hirajoshi scale pads, creating a sense of vastness.
 
 ### Strudel Code
 
 ```javascript
 // Horizon Line
+// Scale: G Hirajoshi (Spacious, Asian feel)
 setcps(0.15)
 
 // 1. Pads: Wide and deep
-const pads = note("c3:sus4 g2:sus4 f2:maj7 c2:maj7")
+const pads = note("0 1 2 4")
+  .scale("g:hirajoshi")
+  .chord("sus4")
   .s("supersaw")
   .lpf(600)
   .room(2) // Massive reverb
   .gain(0.7)
 
 // 2. Melody: Slow, distant lead
-const lead = note("g4 ~ c5 ~ b4 ~ g4 ~")
+const lead = note("4 ~ 2 ~ 1 ~ 0 ~")
+  .scale("g:hirajoshi")
   .s("triangle")
   .lpf(800)
   .delay(1)
   .gain(0.5)
 
 // 3. Bass: Sub
-const sub = note("c1 g0 f0 c1").s("sine").shape(0.3)
+const sub = note("0 -2 -4 0")
+  .scale("g:hirajoshi")
+  .s("sine").shape(0.3)
 
 // 4. Beat: Heartbeat kick
 const heartbeat = s("bd ~ bd ~").gain(1.2).lpf(500)
