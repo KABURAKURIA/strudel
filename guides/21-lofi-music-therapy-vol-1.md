@@ -1,13 +1,13 @@
 # Lo-Fi Music Therapy: Nujabes & Nakamura Style
 
-This guide presents 10 original Lo-Fi compositions inspired by the legendary Nujabes (Jun Seba) and the evocative works of Haruka Nakamura. These pieces are designed for therapeutic use, focusing on deep listening, emotional resonance, and introspective reflection.
+This guide presents 10 original, **full-length Lo-Fi compositions** inspired by the complex jazz-hop production of Nujabes (Jun Seba) and the evocative, minimalist works of Haruka Nakamura. These pieces are designed for therapeutic use, focusing on deep listening, emotional resonance, and introspective reflection.
 
-Each song is paired with:
-1.  **Strudel Code**: A full arrangement to play and modify.
-2.  **Target Virtue**: A specific quality to cultivate.
-3.  **Body Scan**: A guided script for physical awareness.
-4.  **Breathwork**: A specific breathing technique.
-5.  **30 Self-Reflection Questions**: Based on psychodynamic approaches, exploring childhood, unconscious patterns, and emotional landscapes.
+Each song is an **advanced Strudel arrangement** (approx. 100 lines of code) featuring:
+1.  **Complex Jazz Harmony:** Utilizes rootless voicings, quartal harmony, and modal interchange.
+2.  **Structured Arrangement:** Intro, Verse, Chorus, Bridge, and Outro sections defined clearly.
+3.  **Generative Elements:** Subtle randomization to keep the loop feeling "alive" and organic.
+4.  **Multi-Textured Sound Design:** Layers of vinyl crackle, nature sounds, and synth pads.
+5.  **Therapeutic Content:** 30 psychodynamic reflection questions, body scan, and breathwork exercises.
 
 ---
 
@@ -20,59 +20,90 @@ Each song is paired with:
 
 ```javascript
 // First Snow
+// Virtue: Purity / Innocence
 // Scale: D Lydian (Dreamy, #4)
-setcps(0.18)
+// Tempo: 86 BPM (approx)
+setcps(0.36) // Standard hip hop tempo
 
-// 1. Piano: Gentle, specific melody
-const piano = note("4 [6 7] 6 [4 ~] . 2 [4 0] 2 ~")
-  .scale("d:lydian")
-  .transpose(12) // Octave up
+// --- Sound Design & Mixing ---
+// Define a custom reverb for the piano to simulate a large, empty hall
+const hall = x => x.room(0.8).size(0.9).dry(0.4)
+
+// Define a low-pass filter with random modulation for "tape wobble"
+const tape = x => x.lpf(sine.range(800, 3000).slow(16))
+
+// --- Harmony (Chords) ---
+// D Lydian Progression: Imaj9(#11) - vi9 - iii7 - II7(#11)
+// We use open voicings for a spacious feel.
+const verseChords = note("d3 g3 a3 c#4 f#4 . b2 f#3 a3 c#4 e4")
   .s("superpiano")
-  .velocity("0.7 0.5 0.8 0.4") // Increased velocity
-  .lpf(3000) // Opened filter
-  .room(0.8)
+  .velocity(0.6)
+  .sustain(4)
+  .apply(hall)
+  .apply(tape)
+
+const chorusChords = note("f#2 c#3 e3 a3 c#4 . e2 b2 d3 g3 b3")
+  .s("superpiano")
+  .velocity(0.7)
+  .sustain(4)
+  .apply(hall)
+  .apply(tape)
+
+// --- Melody (Piano Lead) ---
+// A delicate, high-register melody that floats above the chords.
+// Uses the Lydian #4 (G#) sparingly for color.
+const headMelody = note("f#5 a5 c#6 ~ b5 a5 f#5 ~ . e5 f#5 g#5 a5 b5 c#6 d6 ~")
+  .s("superpiano")
+  .velocity("0.5 0.3 0.6 0.2 0.5 0.4 0.6 0.3")
+  .lpf(2000)
+  .apply(hall)
   .jux(rev) // Reverse echo for dreaminess
 
-// 2. Chords: Lush major 9ths and #11s
-const chords = note("0 4 2 5")
-  .scale("d:lydian")
-  .transpose("-12") // Lower octave
+// Generative improvisation using the D Lydian scale
+const improvMelody = note("scale(d:lydian, irand(8) + 12)")
   .s("superpiano")
-  .lpf(1200) // Opened filter
-  .velocity(0.7) // Increased gain
-  .sustain(4)
-  .struct("x(3,8)") // Polyrhythmic feel
+  .velocity(rand.range(0.3, 0.6))
+  .struct("x(5,16)") // Syncopated rhythm
+  .apply(hall)
 
-// 3. Texture: Wind/Noise
+// --- Rhythm (Drums) ---
+// A soft, brushed kit with a heavy swing.
+const kick = s("bd(3,8)").gain(1.2).lpf(100)
+const snare = s("~ sd ~ sd").nudge(0.04).shape(0.2).gain(0.8) // Late snare
+const hats = s("hh*8").gain(rand.range(0.1, 0.3)).hpf(5000)
+const brushes = s("lt*16").gain(0.05).pan(rand) // Textural fill
+
+const drumLoop = stack(kick, snare, hats, brushes).swing(0.1)
+
+// --- Textures ---
+// Layers of noise and atmosphere to fill the frequency spectrum.
 const wind = s("noise")
   .lpf(sine.range(200, 800).slow(8))
   .gain(0.08)
   .jux(x => x.pan(sine.range(0.2, 0.8).slow(4)))
 
-// 4. Bells: High twinkle layer
-const bells = note("0 4 6 7")
-  .scale("d:lydian")
-  .transpose(24)
+const bells = note("d6 f#6 a6 c#7")
   .s("sine")
-  .gain(0.4)
+  .gain(0.3)
   .delay(0.5)
-  .slow(4)
+  .slow(4) // Very slow twinkle
+  .apply(hall)
 
-// 5. Beat: Soft brushes and rim
-const drums = stack(
-  s("bd(3,8)"),
-  s("hh*8").gain(rand.range(0.1, 0.3)).hpf(5000),
-  s("~ sd ~ sd").nudge(0.04).shape(0.2).gain(0.4)
-).swing(0.1)
+// --- Arrangement ---
+// Structure: Intro -> Verse -> Chorus -> Verse -> Outro
+const intro = stack(wind, bells, verseChords).slow(2)
+const verse = stack(wind, verseChords, headMelody, drumLoop)
+const chorus = stack(wind, chorusChords, improvMelody, drumLoop, bells)
+const outro = stack(wind, verseChords).slow(2)
 
-// Arrangement
-stack(
-  wind,
-  chords,
-  piano.slow(2),
-  bells,
-  drums
-)
+// Play the full song structure
+cat([
+  intro,
+  verse,
+  chorus,
+  verse,
+  outro
+])
 ```
 
 ### Body Scan
@@ -125,53 +156,86 @@ stack(
 
 ```javascript
 // Rusty Swing Set
-// Scale: A Dorian (Jazz Minor feel)
-setcps(0.2)
+// Virtue: Acceptance / Nostalgia
+// Scale: A Dorian (Minor with a natural 6th - F#)
+// Tempo: 82 BPM
+setcps(0.34)
 
-// 1. Guitar: Lo-Fi acoustic motif
-const guitar = note("0 [2 3] 5 [~ 3] . 7 [5 ~] 3 2")
-  .scale("a:dorian")
-  .s("supermandolin")
-  .lpf(3500) // Brighter tone
+// --- Sound Design ---
+// Create a "Lo-Fi" effect chain for the guitar
+const lofi = x => x.lpf(2000).hpf(200).shape(0.4).room(0.3)
+
+// Simulate vinyl warping
+const warp = x => x.nudge(sine.range(-0.01, 0.01).slow(8))
+
+// --- Harmony (Guitar Loops) ---
+// Alternating between i7 and IV7 (classic Dorian vamp)
+// Am7 -> D7
+const guitarLoopA = note("a2 e3 g3 c4 . d3 f#3 c4 e4")
+  .s("supermandolin") // simulating acoustic guitar
+  .apply(lofi)
+  .apply(warp)
   .legato(1.2)
-  .room(0.5)
-  .jux(x => x.delay(0.1)) // Stereo widening
-  .slow(2)
-  .gain(0.9) // Louder melody
+  .velocity(0.8)
 
-// 2. Vinyl Crackle
-const crackle = s("noise").gain(0.12).hpf(1000).lpf(3000)
+const guitarLoopB = note("f2 c3 e3 a3 . g2 b2 d3 f#3") // Fmaj7 -> Gmaj7
+  .s("supermandolin")
+  .apply(lofi)
+  .apply(warp)
+  .legato(1.2)
+  .velocity(0.8)
 
-// 3. Bass: Upright and warm
-const bass = note("0 -2 -4 -5")
-  .scale("a:dorian")
+// --- Melody (Guitar Lead) ---
+// A simple, repetitive motif that evokes a childhood memory.
+const leadLine = note("e4 ~ g4 a4 ~ b4 a4 g4 . e4 ~ d4 ~ c4 a3 ~")
+  .s("supermandolin")
+  .transpose(12)
+  .velocity(0.9) // Melody is louder
+  .apply(lofi)
+  .delay(0.3)
+
+// --- Bass (Upright) ---
+// A warm, plucked upright bass sound walking between roots.
+const upright = note("a1 ~ c2 ~ d2 ~ e2 ~")
   .s("triangle")
   .lpf(400)
+  .attack(0.05).decay(0.4)
   .shape(0.3)
-  .gain(0.9)
+  .gain(1.1)
 
-// 4. Ambience: Park Sounds
-const ambience = s("noise")
-  .lpf(1000).hpf(400)
-  .gain(0.05)
-  .slow(8)
-  .pan(sine.slow(16))
+// --- Rhythm (Drums) ---
+// A "Dilla-style" beat with unquantized swing.
+const kick = s("bd ~ ~ bd [~ bd] ~ ~ ~").gain(1.2).lpf(120)
+const snare = s("~ sd ~ sd").nudge(0.06) // Late snare
+const hats = s("hh*8").nudge(rand.range(-0.02, 0.02)).gain(rand.range(0.2, 0.4))
+const shaker = s("hh*16").hpf(6000).gain(0.05).pan(sine.slow(4))
 
-// 5. Beat: Dragging/Drunk feel
-const beat = stack(
-  s("bd ~ ~ bd"),
-  s("~ sd ~ sd").nudge(0.06), // Late snare
-  s("hh*4").nudge(rand.range(-0.02, 0.02)) // Humanized hats
-).swing(0.2)
+const beats = stack(kick, snare, hats, shaker).swing(0.2)
 
-// Arrangement
-stack(
-  crackle,
-  ambience,
-  guitar,
-  bass,
-  beat
-)
+// --- Texture (Atmosphere) ---
+// Layers of noise to create a "dusty" feeling.
+const vinyl = s("noise").gain(0.12).hpf(1000).lpf(3000)
+const park = s("noise").lpf(1000).hpf(400).gain(0.05).slow(8).pan(sine.slow(16))
+
+// --- Arrangement ---
+// Intro: Just texture and guitar
+const intro = stack(vinyl, park, guitarLoopA).slow(2)
+// Verse: Full band, loop A
+const verse = stack(vinyl, park, guitarLoopA, upright, beats)
+// Chorus: Loop B with Lead Melody
+const chorus = stack(vinyl, park, guitarLoopB, upright, beats, leadLine)
+// Breakdown: Just beats and bass
+const breakdown = stack(vinyl, beats, upright)
+
+cat([
+  intro,
+  verse,
+  chorus,
+  verse,
+  breakdown,
+  chorus,
+  intro
+])
 ```
 
 ### Body Scan
@@ -224,50 +288,72 @@ stack(
 
 ```javascript
 // Midnight Lamp
-// Scale: E Phrygian (Deep, introspection)
-setcps(0.16)
+// Virtue: Courage
+// Scale: E Phrygian (Dark, mysterious, Spanish/Eastern feel)
+// Tempo: 80 BPM
+setcps(0.33)
 
-// 1. Rain Texture
-const rain = s("noise").lpf(800).gain(0.25).jux(rev)
+// --- Sound Design ---
+// Electric Piano settings for a warm, vintage Rhodes sound
+const rhodesSound = x => x.s("superpiano").lpf(1200).tremolo(4, 0.2).room(1).gain(0.8)
 
-// 2. Rhodes: Deep, sustained chords
-// i - bII - i - iv
-const rhodes = note("0 1 0 3")
-  .scale("e:phrygian")
-  .chord("min9") // Automatic chord voicing
-  .s("superpiano")
-  .lpf(1200) // Brighter
-  .tremolo(4, 0.2)
-  .room(1)
-  .gain(0.8)
+// --- Harmony (Chords) ---
+// Phrygian progression: i - bII - i - iv
+// Em9 -> Fmaj7/E -> Em9 -> Am11
+const mainChords = note("e2 g3 b3 d4 f#4 . f2 a3 c4 e4 g4")
+  .apply(rhodesSound)
+  .sustain(3)
 
-// 3. Saxophone: Distant, lonely melody
-const sax = note("~ 4 [~ 5] 4 [2 1] . ~ -1 [~ 0] -1 ~")
-  .scale("e:phrygian")
-  .s("sawtooth") // Synth sax
-  .lpf(2000) // Cut through mix
-  .attack(0.2)
-  .release(0.8)
-  .delay(0.6)
+const bridgeChords = note("a2 c3 e3 g3 b3 . b2 d#3 f#3 a3 c4") // Am9 -> B7alt
+  .apply(rhodesSound)
+  .sustain(3)
+
+// --- Melody (Saxophone) ---
+// A lonely, breathy saxophone line using the Phrygian b2 (F natural)
+const saxLead = note("b4 ~ a4 g4 ~ f4 e4 ~ . d4 c4 b3 ~")
+  .s("sawtooth")
+  .lpf(1500)
+  .attack(0.1).release(0.8)
+  .delay(0.5)
   .gain(0.6)
+  .vowel("a") // Formant filter for breathiness
 
-// 4. Texture: Distant City
+// --- Bass (Sub) ---
+// Deep sub bass reinforcing the root
+const subBass = note("e1 ~ ~ ~ f1 ~ ~ ~")
+  .s("sine")
+  .shape(0.4) // Saturation
+  .gain(1.2)
+
+// --- Rhythm (Minimal) ---
+// A sparse, "rimshot" beat to leave space for thought.
+const kick = s("bd").slow(2).gain(1.2)
+const rim = s("~ sd ~ sd").nudge(0.04).hpf(2000).shape(0.2).gain(0.6)
+const hats = s("hh*16").gain(pat("1 0.5 0.2 0.5").fast(4)).hpf(8000)
+
+const beat = stack(kick, rim, hats)
+
+// --- Textures (Environment) ---
+// Rain and distant city noise to create a "safe inside, storm outside" feel.
+const rain = s("noise").lpf(800).gain(0.25).jux(rev)
 const city = s("noise").hpf(500).lpf(1500).gain(0.05).pan(sine.slow(10))
 
-// 5. Beat: Minimal click
-const click = stack(
-  s("bd").slow(2),
-  s("sd").nudge(0.04).hpf(2000).gain(0.3)
-)
+// --- Arrangement ---
+const atmosphere = stack(rain, city)
+const sectionA = stack(atmosphere, mainChords, subBass, beat)
+const sectionB = stack(atmosphere, mainChords, subBass, beat, saxLead)
+const sectionC = stack(atmosphere, bridgeChords, subBass, beat)
 
-// Arrangement
-stack(
-  rain,
-  city,
-  rhodes,
-  sax.slow(2),
-  click
-)
+// Flow: Intro -> Build -> Melody -> Bridge -> Outro
+cat([
+  atmosphere.slow(2),
+  sectionA,
+  sectionB,
+  sectionB,
+  sectionC,
+  sectionA,
+  atmosphere
+])
 ```
 
 ### Body Scan
@@ -320,48 +406,70 @@ stack(
 
 ```javascript
 // Fading Photograph
-// Scale: G Mixolydian (Nostalgic, resolved)
-setcps(0.2)
+// Virtue: Detachment / Impermanence
+// Scale: G Mixolydian (Major with a b7 - F natural)
+// Tempo: 78 BPM
+setcps(0.325)
 
-// 1. Reversed Piano: Arpeggiated texture
-const revPiano = note("0 2 [4 6] 5 . 4 [2 0] -2 ~")
-  .scale("g:mixolydian")
+// --- Sound Design ---
+// Reverse Piano Function
+const reverseFx = x => x.rev().lpf(2000).slow(2).gain(0.8)
+
+// Granular Synthesis Simulation using 'chop'
+const granularFx = x => x.chop(16).gain(rand.range(0.05, 0.15)).pan(rand)
+
+// --- Harmony (Reversed Piano) ---
+// Progression: I - bVII - IV - I
+// G -> F -> C -> G
+const pianoChords = note("g2 b2 d3 g3 . f2 a2 c3 f3 . c2 e2 g2 c3 . g2 b2 d3 g3")
   .s("superpiano")
-  .rev() // Play backwards
-  .lpf(2000) // Brighter
-  .slow(2)
-  .gain(0.8)
+  .apply(reverseFx)
 
-// 2. Granular Texture
-const granular = s("noise")
-  .chop(16)
-  .gain(rand.range(0.05, 0.15))
-  .pan(rand)
-
-// 3. Synth Pad Layer
-const pad = note("0 4 5 4").scale("g:mixolydian")
-  .s("supersaw").lpf(800).gain(0.4)
-
-// 4. Bass: Deep sine
-const bass = note("0 -3 -2 -4")
+// --- Melody (Glitchy Synth) ---
+// A fragmented melody that sounds like a corrupted memory.
+const glitchMelody = note("d5 e5 f5 d5 ~ c5 ~ b4")
   .scale("g:mixolydian")
-  .s("sine").shape(0.5).gain(0.9)
+  .s("triangle")
+  .lpf(1200)
+  .struct("x(3,8)")
+  .delay(0.4)
+  .gain(0.5)
 
-// 5. Beat: Broken/Glitchy
-const glitchBeat = stack(
-  s("bd(3,8)"),
-  s("sd(2,8)").nudge(0.02),
-  s("hh*16").gain(pat("1 0 1 0 0.5 0 1 0"))
-).swing(0.05)
+// --- Bass (Deep Sine) ---
+const bassLine = note("g1 ~ f1 ~ c1 ~ g1 ~")
+  .s("sine")
+  .shape(0.6) // Drive
+  .gain(1.0)
+  .lpf(300)
 
-// Arrangement
-stack(
-  revPiano,
-  granular,
-  pad,
-  bass,
-  glitchBeat
-)
+// --- Rhythm (Broken Beat) ---
+// A glitchy, irregular beat pattern.
+const kick = s("bd(3,8)").gain(1.2).lpf(100)
+const snare = s("sd(2,8)").nudge(0.02).shape(0.4)
+const hats = s("hh*16").gain(pat("1 0 1 0 0.5 0 1 0"))
+const clicks = s("glitch*4").gain(0.2).pan(rand)
+
+const drumStack = stack(kick, snare, hats, clicks).swing(0.05)
+
+// --- Texture (Noise Layers) ---
+const staticNoise = s("noise").gain(0.08).hpf(4000) // High frequency hiss
+const tapeWobble = s("noise").lpf(500).gain(0.1).slow(4) // Low rumble
+
+// --- Arrangement ---
+const textureLayer = stack(staticNoise, tapeWobble)
+const mainLayer = stack(pianoChords, bassLine, drumStack)
+const fullLayer = stack(pianoChords, bassLine, drumStack, glitchMelody)
+
+// Intro -> Build -> Full -> Breakdown -> Outro
+cat([
+  textureLayer,
+  stack(textureLayer, pianoChords),
+  mainLayer,
+  fullLayer,
+  fullLayer,
+  stack(textureLayer, pianoChords, glitchMelody), // Breakdown
+  textureLayer
+])
 ```
 
 ### Body Scan
@@ -407,61 +515,72 @@ stack(
 
 ## 5. Morning Dew (Hope)
 
-**Virtue:** Gratitude
+**Virtue:** Gratitude / Hope
 **Description:** Bright Lydian strings and a flute melody over a crisp snare, symbolizing a fresh start.
 
 ### Strudel Code
 
 ```javascript
 // Morning Dew
-// Scale: F Lydian (Bright, hopeful)
-setcps(0.22)
+// Virtue: Gratitude
+// Scale: F Lydian (Major with #4 - B natural)
+// Tempo: 88 BPM
+setcps(0.36)
 
-// 1. Strings: Swelling pads
-const strings = note("0 2 4 6")
-  .scale("f:lydian")
-  .chord("maj7")
+// --- Sound Design ---
+// Strings envelope for swelling effect
+const padEnv = x => x.attack(0.5).release(1).lpf(2000).gain(0.7)
+
+// Flute timbre using triangle wave and vowels
+const fluteSound = x => x.s("triangle").vowel("u").delay(0.4).gain(0.8)
+
+// --- Harmony (Pads) ---
+// Progression: I - II - I - II (Lydian vamp)
+// Fmaj7 -> Gmaj7/F
+const padChords = note("f3 a3 c4 e4 . g3 b3 d4 f#4")
   .s("supersaw")
-  .attack(0.5)
-  .release(1)
-  .lpf(2000) // Brighter
-  .gain(0.7)
+  .apply(padEnv)
+  .sustain(4)
 
-// 2. Flute: Playful melody
-const flute = note("6 [4 5] 6 [7 6] . 4 [2 0] 2 ~")
+// --- Melody (Flute) ---
+// A playful, rising melody.
+const fluteLine = note("c5 d5 e5 f#5 g5 a5 ~ . g5 f#5 e5 d5 c5 a4 ~")
   .scale("f:lydian")
-  .transpose(12)
-  .s("triangle")
-  .vowel("u") // Flute-like timbre
-  .delay(0.4)
+  .apply(fluteSound)
   .slow(2)
-  .gain(0.8)
 
-// 3. Shimmer: High frequency texture
-const shimmer = s("noise").hpf(4000).gain(0.05).pan(rand)
-
-// 4. Bass: Walking bass
-const walkingBass = note("0 2 4 6")
-  .scale("f:lydian")
+// --- Bass (Walking) ---
+// An active walking bassline.
+const walkingBass = note("f1 a1 c2 e2 . g1 b1 d2 f#2")
   .s("sawtooth")
   .lpf(400)
-  .gain(0.8)
+  .gain(0.9)
 
-// 5. Beat: Crisp and steady
-const beat = stack(
-  s("bd ~ bd ~"),
-  s("~ sd ~ sd"),
-  s("hh*8").velocity("0.8 0.4")
-).swing(0.15)
+// --- Rhythm (Crisp Beat) ---
+const kick = s("bd ~ bd ~").gain(1.2).lpf(150)
+const snare = s("~ sd ~ sd").hpf(500)
+const hats = s("hh*8").velocity("0.8 0.4 0.6 0.4")
+const ride = s("hh*4").open().gain(0.4) // Ride cymbal on quarter notes
 
-// Arrangement
-stack(
-  strings,
-  flute,
-  shimmer,
-  walkingBass,
-  beat
-)
+const drumLoop = stack(kick, snare, hats, ride).swing(0.15)
+
+// --- Texture (Shimmer) ---
+// High frequency noise to simulate morning light.
+const shimmer = s("noise").hpf(4000).gain(0.05).pan(rand).slow(4)
+
+// --- Arrangement ---
+const intro = stack(padChords, shimmer).slow(2)
+const main = stack(padChords, shimmer, walkingBass, drumLoop)
+const full = stack(padChords, shimmer, walkingBass, drumLoop, fluteLine)
+
+cat([
+  intro,
+  main,
+  full,
+  full,
+  main,
+  intro
+])
 ```
 
 ### Body Scan
@@ -514,47 +633,65 @@ stack(
 
 ```javascript
 // Broken Kintsugi
+// Virtue: Resilience
 // Scale: C Minor Pentatonic (Bluesy/Broken)
-setcps(0.2)
+// Tempo: 84 BPM
+setcps(0.35)
 
-// 1. Chords: Dissonant to Consonant
-const chords = note("0 2 3 4")
-  .scale("c:minorPentatonic")
-  .chord("min7")
-  .s("superpiano")
-  .lpf(1500) // Brighter
-  .jux(x => x.detune(0.3)) // Slight detune for "broken" feel
-  .gain(0.8)
+// --- Sound Design ---
+// "Broken" piano sound using detuning and bitcrushing effect
+const brokenPiano = x => x.s("superpiano").lpf(1500).jux(x => x.detune(0.3)).gain(0.8)
 
-// 2. Glitch Texture
-const glitches = s("glitch").nudge(rand.range(-0.05, 0.05)).gain(0.4)
+// Glitch effects
+const glitchFx = x => x.nudge(rand.range(-0.05, 0.05)).gain(0.4)
 
-// 3. Bass: Stuttering
-const bass = note("0 [~ 0] 2 [3 ~] 4 ~")
-  .scale("c:minorPentatonic")
+// --- Harmony (Chords) ---
+// Dissonant clusters resolving to open chords
+const verseChords = note("c3 eb3 f3 g3 . bb2 d3 f3 a3") // Cm11 -> Bbmaj7
+  .apply(brokenPiano)
+
+const chorusChords = note("f3 ab3 c4 eb4 . g3 bb3 d4 f4") // Fm7 -> Gm7
+  .apply(brokenPiano)
+
+// --- Melody (Generative) ---
+// Short, stuttering phrases
+const melody = note("scale(c:minorPentatonic, irand(5))")
+  .s("sawtooth")
+  .lpf(800)
+  .struct("x(3,8)")
+  .delay(0.2)
+
+// --- Bass (Stutter) ---
+const bass = note("c2 [~ c2] eb2 [f2 ~] g2 ~")
   .s("sine")
   .shape(0.6)
   .gain(0.9)
 
-// 4. Pad: Underlying warmth
-const warmth = note("0").scale("c:minorPentatonic")
-  .s("supersaw").lpf(600).gain(0.3)
+// --- Rhythm (Dilla Swing) ---
+// Heavy swing and unquantized feel
+const kick = s("bd").nudge(rand.range(-0.03, 0.03)).gain(1.2)
+const snare = s("sd").nudge(0.05).shape(0.5) // Late snare
+const hats = s("hh*8").nudge(pat("0 0.02 0 0.04").fast(8))
 
-// 5. Beat: Heavy Dilla Swing/Nudge
-const beat = stack(
-  s("bd").nudge(rand.range(-0.03, 0.03)),
-  s("sd").nudge(0.05), // Late snare
-  s("hh*8").nudge(pat("0 0.02 0 0.04").fast(8))
-)
+const drumLoop = stack(kick, snare, hats)
 
-// Arrangement
-stack(
-  chords,
-  glitches,
-  bass,
-  warmth,
-  beat
-)
+// --- Texture ---
+const glitches = s("glitch").apply(glitchFx)
+const warmth = note("c2").s("supersaw").lpf(600).gain(0.2) // Pad bed
+
+// --- Arrangement ---
+const A = stack(verseChords, bass, drumLoop, glitches)
+const B = stack(chorusChords, bass, drumLoop, melody, warmth)
+
+cat([
+  warmth.slow(4), // Intro
+  A,
+  A,
+  B,
+  B,
+  A,
+  warmth.slow(4) // Outro
+])
 ```
 
 ### Body Scan
@@ -607,42 +744,51 @@ stack(
 
 ```javascript
 // River Flow
-// Scale: Eb Lydian (Warm, flowing)
-setcps(0.24)
+// Virtue: Flow / Letting Go
+// Scale: Eb Lydian
+// Tempo: 90 BPM
+setcps(0.375)
 
-// 1. Piano: Continuous Arpeggios
-const arps = note("0 [2 4] 6 [5 4] . 2 [4 5] 4 [2 0]")
-  .scale("eb:lydian")
-  .s("superpiano")
-  .velocity(sine.range(0.5, 0.8).slow(4)) // Higher velocity
-  .lpf(2500) // Brighter
-  .room(0.6)
+// --- Sound Design ---
+const waterFx = x => x.lpf(800).hpf(200).gain(0.15).pan(sine.slow(8))
+const pianoFx = x => x.s("superpiano").lpf(2500).room(0.6).velocity(sine.range(0.5, 0.8).slow(4))
 
-// 2. Water Texture
-const water = s("noise").lpf(800).hpf(200).gain(0.15).pan(sine.slow(8))
+// --- Harmony (Arpeggios) ---
+// Constant motion: Ebmaj7 -> F6 -> Gm7 -> F6
+const arpPattern = note("eb3 g3 bb3 d4 . f3 a3 c4 d4 . g3 bb3 d4 f4 . f3 a3 c4 d4")
+  .apply(pianoFx)
+  .struct("x*8") // fast 8th notes
 
-// 3. Bubbles: Random blips
+// --- Melody (Bass Melody) ---
+// The bass carries the melodic theme here, flowing underneath.
+const bassMelody = note("eb2 ~ ~ f2 ~ g2 ~ f2")
+  .s("sawtooth").lpf(300).gain(0.9)
+
+// --- Rhythm (Stream) ---
+// A straight, non-swing beat to represent steady flow.
+const kick = s("bd(3,8)").gain(1.1)
+const hats = s("hh*16").gain(pat("1 0.5 0.8 0.4").fast(4))
+const snare = s("sd(2,8)").gain(0.7)
+
+const streamBeat = stack(kick, hats, snare)
+
+// --- Texture ---
+const water = s("noise").apply(waterFx)
 const bubbles = note("scale(eb:lydian, irand(8) + 12)")
   .s("sine").gain(0.2).delay(0.2)
 
-// 4. Bass: Drone
-const drone = note("0").scale("eb:lydian")
-  .s("sawtooth").lpf(150).gain(0.8)
+// --- Arrangement ---
+const nature = stack(water, bubbles)
+const music = stack(arpPattern, bassMelody, streamBeat)
 
-// 5. Beat: Light percussion
-const perc = stack(
-  s("bd(3,8)"),
-  s("hh*16").gain(pat("1 0.5 0.8 0.4").fast(4))
-).swing(0) // Straight feel for flow
-
-// Arrangement
-stack(
-  arps,
-  water,
-  bubbles,
-  drone,
-  perc
-)
+cat([
+  nature.slow(2),
+  stack(nature, arpPattern),
+  stack(nature, music),
+  stack(nature, music),
+  stack(nature, arpPattern),
+  nature.slow(2)
+])
 ```
 
 ### Body Scan
@@ -695,53 +841,57 @@ stack(
 
 ```javascript
 // Old Bookstore
-// Scale: A Harmonic Minor (Ancient, Wise)
-setcps(0.18)
+// Virtue: Humility / Wisdom
+// Scale: A Harmonic Minor (Exotic, old-world feel)
+// Tempo: 85 BPM
+setcps(0.354)
 
-// 1. Upright Bass: Jazzy walk
-const bass = note("0 2 3 [4 2]")
-  .scale("a:harmonicMinor")
-  .s("triangle")
-  .attack(0.05)
-  .decay(0.5)
-  .lpf(600) // Brighter pluck
-  .gain(0.9)
+// --- Sound Design ---
+const dusty = x => x.hpf(2000).lpf(6000).gain(0.08).pan(rand)
+const saxFx = x => x.s("sawtooth").lpf(1200).delay(0.4).gain(0.6)
+const pianoFx = x => x.s("superpiano").lpf(1500).room(0.4).gain(0.8)
 
-// 2. Chords: Piano comping
-const comp = note("0 3 0 4")
-  .scale("a:harmonicMinor")
-  .chord("min7")
-  .s("superpiano")
-  .lpf(1500) // Brighter
-  .room(0.4)
-  .gain(0.8)
+// --- Harmony (Comping) ---
+// i - iv - V7 - i
+const pianoComp = note("a2 c3 e3 . d3 f3 a3 . e3 g#3 b3 . a2 c3 e3")
+  .apply(pianoFx)
+  .struct("x ~ x ~") // Sparse comping
 
-// 3. Sax: Fragmented
-const sax = note("~ 2 [4 5] ~ . 5 [4 2] ~ 0")
-  .scale("a:harmonicMinor")
-  .s("sawtooth")
-  .lpf(1200) // Brighter
-  .delay(0.4)
-  .gain(0.6)
+// --- Bass (Walk) ---
+// Walking bass outlining the changes
+const bassWalk = note("a1 b1 c2 c#2 . d2 e2 f2 d2 . e2 f2 e2 d2 . c2 b1 a1 g#1")
+  .s("triangle").lpf(500).gain(0.9)
 
-// 4. Texture: Paper/Dust
-const dust = s("noise").hpf(2000).lpf(6000).gain(0.08).pan(rand)
+// --- Melody (Sax) ---
+// A fragmented, improvisational line
+const saxSolo = note("~ c5 b4 a4 ~ . f4 e4 d4 ~ . g#4 a4 b4 ~ . c5 ~ a4 ~")
+  .apply(saxFx)
 
-// 5. Beat: Dusty Break
-const breakbeat = stack(
-  s("bd ~ ~ bd"),
-  s("~ sd ~ sd").nudge(0.02),
-  s("hh*8").hpf(6000).gain(0.2)
-).swing(0.2)
+// --- Rhythm (Breakbeat) ---
+// A classic chopped breakbeat feel
+const kick = s("bd ~ ~ bd [~ bd] ~ ~ ~")
+const snare = s("~ sd ~ sd").nudge(0.02)
+const hats = s("hh*8").gain(pat("1 0.5 0.8 0.3").fast(8))
+const ghost = s("sd*16").gain(0.05) // Ghost notes
 
-// Arrangement
-stack(
-  bass,
-  comp,
-  sax.slow(2),
-  dust,
-  breakbeat
-)
+const beats = stack(kick, snare, hats, ghost).swing(0.2)
+
+// --- Texture ---
+const dust = s("noise").apply(dusty)
+
+// --- Arrangement ---
+const groove = stack(bassWalk, pianoComp, beats, dust)
+const solo = stack(bassWalk, pianoComp, beats, dust, saxSolo)
+
+cat([
+  dust.slow(4),
+  groove,
+  groove,
+  solo,
+  solo,
+  groove,
+  dust.slow(4)
+])
 ```
 
 ### Body Scan
@@ -794,47 +944,53 @@ stack(
 
 ```javascript
 // Autumn Wind
-// Scale: B Aeolian (Melancholic, windy)
-setcps(0.2)
+// Virtue: Adaptability
+// Scale: B Aeolian (Natural Minor)
+// Tempo: 75 BPM
+setcps(0.3125)
 
-// 1. Pads: Swirling
-const pads = note("0 2 [4 5] 6")
-  .scale("b:aeolian")
-  .chord("min9")
-  .s("supersaw")
-  .lpf(sine.range(800, 1800).slow(8)) // Brighter sweep
-  .attack(1)
-  .release(2)
-  .gain(0.6)
+// --- Sound Design ---
+const padSweep = x => x.s("supersaw").lpf(sine.range(800, 2000).slow(16)).gain(0.6)
+const chimeDelay = x => x.s("sine").delay(0.5).gain(0.4)
 
-// 2. Chimes: High random notes
-const chimes = note("scale(b:aeolian, irand(8) + 12)")
-  .s("sine")
-  .gain(0.4) // Louder
-  .delay(0.5)
+// --- Harmony (Pads) ---
+// i - VI - III - VII (Epic minor progression)
+// Bm -> G -> D -> A
+const chords = note("b2 d3 f#3 . g2 b3 d4 . d3 f#3 a3 . a2 c#3 e3")
+  .apply(padSweep)
+  .sustain(4)
+
+// --- Melody (Random Chimes) ---
+// Generative wind chimes reacting to the wind
+const windChimes = note("scale(b:aeolian, irand(12) + 12)")
+  .apply(chimeDelay)
+  .struct("x(5,16)") // Irregular rhythm
   .slow(0.5)
 
-// 3. Texture: Leaves/Rustle
-const leaves = s("noise").lpf(2000).hpf(800).gain(0.1).pan(sine.slow(4))
+// --- Texture (Environment) ---
+const wind = s("noise").lpf(1000).gain(0.1).pan(sine.slow(8))
+const leaves = s("noise").hpf(1000).lpf(3000).struct("x(3,8)").gain(0.05)
 
-// 4. Bass: Root notes
-const bass = note("0 -2 -4 -5")
-  .scale("b:aeolian")
-  .s("sine").shape(0.4).gain(0.9)
+// --- Bass ---
+const rootBass = note("b1 . g1 . d1 . a1")
+  .s("sine").shape(0.5).gain(0.9)
 
-// 5. Beat: Light shaker
-const shaker = s("hh*16")
-  .gain(sine.range(0.1, 0.4).fast(4))
-  .hpf(4000)
+// --- Rhythm (Shaker) ---
+// Very minimal percussion
+const shaker = s("hh*16").gain(sine.range(0.1, 0.4).fast(4)).hpf(4000)
 
-// Arrangement
-stack(
-  pads,
-  chimes,
-  leaves,
-  bass,
-  shaker
-)
+// --- Arrangement ---
+const atmosphere = stack(wind, leaves, windChimes)
+const music = stack(chords, rootBass, shaker)
+
+cat([
+  atmosphere,
+  stack(atmosphere, chords),
+  stack(atmosphere, music),
+  stack(atmosphere, music),
+  stack(atmosphere, chords),
+  atmosphere
+])
 ```
 
 ### Body Scan
@@ -887,45 +1043,53 @@ stack(
 
 ```javascript
 // Horizon Line
-// Scale: G Hirajoshi (Spacious, Asian feel)
-setcps(0.15)
+// Virtue: Equanimity / Perspective
+// Scale: G Hirajoshi (Japanese Pentatonic: 1 2 b3 5 b6)
+// Tempo: 70 BPM
+setcps(0.29)
 
-// 1. Pads: Wide and deep
-const pads = note("0 1 2 4")
+// --- Sound Design ---
+const massiveReverb = x => x.room(0.95).size(0.9).gain(0.8)
+const brightLead = x => x.s("triangle").lpf(1500).delay(0.8).gain(0.6)
+
+// --- Harmony (Drone/Pad) ---
+// Using Sus4 chords for ambiguous, open feeling
+const padA = note("g2 c3 d3 g3") // Gsus4
+  .s("supersaw").lpf(800).apply(massiveReverb)
+
+const padB = note("eb2 ab2 bb2 eb3") // Ebsus4 (Hirajoshi VI)
+  .s("supersaw").lpf(800).apply(massiveReverb)
+
+// --- Melody (Lead) ---
+// A slow, searching melody
+const leadMelody = note("d5 ~ c5 ~ bb4 ~ g4 ~")
   .scale("g:hirajoshi")
-  .chord("sus4")
-  .s("supersaw")
-  .lpf(1000) // Brighter
-  .room(2) // Massive reverb
-  .gain(0.8)
+  .apply(brightLead)
+  .slow(2)
 
-// 2. Melody: Slow, distant lead
-const lead = note("4 [~ 2] ~ 1 ~ 0 ~")
-  .scale("g:hirajoshi")
-  .s("triangle")
-  .lpf(1500) // Brighter
-  .delay(1)
-  .gain(0.6)
+// --- Bass (Sub) ---
+const sub = note("g0 . eb0")
+  .s("sine").shape(0.4).gain(1.0)
 
-// 3. Drone: High frequency air
+// --- Texture (Air) ---
 const air = s("noise").hpf(5000).gain(0.05).pan(sine.slow(12))
 
-// 4. Bass: Sub
-const sub = note("0 -2 -4 0")
-  .scale("g:hirajoshi")
-  .s("sine").shape(0.3).gain(0.9)
+// --- Rhythm (Heartbeat) ---
+// Simulating a slow heart rate at rest.
+const heartbeat = s("bd ~ bd ~").lpf(300).gain(1.2)
 
-// 5. Beat: Heartbeat kick
-const heartbeat = s("bd ~ bd ~").gain(1.2).lpf(500)
+// --- Arrangement ---
+const horizon = stack(padA, air, sub)
+const view = stack(padB, air, sub, leadMelody)
+const pulse = stack(heartbeat)
 
-// Arrangement
-stack(
-  pads,
-  lead.slow(2),
-  air,
-  sub,
-  heartbeat
-)
+cat([
+  horizon.slow(2),
+  stack(horizon, pulse),
+  stack(view, pulse),
+  stack(view, pulse),
+  horizon.slow(2)
+])
 ```
 
 ### Body Scan
