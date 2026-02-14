@@ -60,8 +60,7 @@ const headMelody = note("f#5 a5 c#6 ~ b5 a5 f#5 ~ . e5 f#5 g#5 a5 b5 c#6 d6 ~")
   .jux(rev) // Reverse echo for dreaminess
 
 // Generative improvisation using the D Lydian scale
-const improvMelody = note(irand(8).add(12))
-  .scale("d:lydian")
+const improvMelody = note("f#5 [a5 g#5] a5 c#6")
   .s("superpiano")
   .velocity(rand.range(0.3, 0.6))
   .struct("x(5,16)") // Syncopated rhythm
@@ -330,7 +329,7 @@ const subBass = note("e1 ~ ~ ~ f1 ~ ~ ~")
 // A sparse, "rimshot" beat to leave space for thought.
 const kick = s("bd").slow(2).gain(1.2)
 const rim = s("~ sd ~ sd").nudge(0.04).hpf(2000).shape(0.2).gain(0.6)
-const hats = s("hh*16").gain(pat("1 0.5 0.2 0.5").fast(4)).hpf(8000)
+const hats = s("hh*16").gain("1 0.5 0.2 0.5").hpf(8000)
 
 const beat = stack(kick, rim, hats)
 
@@ -447,7 +446,7 @@ const bassLine = note("g1 ~ f1 ~ c1 ~ g1 ~")
 // A glitchy, irregular beat pattern.
 const kick = s("bd(3,8)").gain(1.2).lpf(100)
 const snare = s("sd(2,8)").nudge(0.02).shape(0.4)
-const hats = s("hh*16").gain(pat("1 0 1 0 0.5 0 1 0"))
+const hats = s("hh*16").gain("1 0 1 0 0.5 0 1 0")
 const clicks = s("glitch*4").gain(0.2).pan(rand)
 
 const drumStack = stack(kick, snare, hats, clicks).swing(0.05)
@@ -656,7 +655,7 @@ const chorusChords = note("f3 ab3 c4 eb4 . g3 bb3 d4 f4") // Fm7 -> Gm7
 
 // --- Melody (Generative) ---
 // Short, stuttering phrases
-const melody = note(irand(5))
+const melody = note("eb5 f5 g5 bb5")
   .scale("c:minorPentatonic")
   .s("sawtooth")
   .lpf(800)
@@ -673,7 +672,7 @@ const bass = note("c2 [~ c2] eb2 [f2 ~] g2 ~")
 // Heavy swing and unquantized feel
 const kick = s("bd").nudge(rand.range(-0.03, 0.03)).gain(1.2)
 const snare = s("sd").nudge(0.05).shape(0.5) // Late snare
-const hats = s("hh*8").nudge(pat("0 0.02 0 0.04").fast(8))
+const hats = s("hh*8").nudge("0 0.02 0 0.04")
 
 const drumLoop = stack(kick, snare, hats)
 
@@ -769,14 +768,14 @@ const bassMelody = note("eb2 ~ ~ f2 ~ g2 ~ f2")
 // --- Rhythm (Stream) ---
 // A straight, non-swing beat to represent steady flow.
 const kick = s("bd(3,8)").gain(1.1)
-const hats = s("hh*16").gain(pat("1 0.5 0.8 0.4").fast(4))
+const hats = s("hh*16").gain("1 0.5 0.8 0.4")
 const snare = s("sd(2,8)").gain(0.7)
 
 const streamBeat = stack(kick, hats, snare)
 
 // --- Texture ---
 const water = s("noise").apply(waterFx)
-const bubbles = note(irand(8).add(12))
+const bubbles = note("c5 d5 eb5 g5")
   .scale("eb:lydian")
   .s("sine").gain(0.2).delay(0.2)
 
@@ -874,7 +873,7 @@ const saxSolo = note("~ c5 b4 a4 ~ . f4 e4 d4 ~ . g#4 a4 b4 ~ . c5 ~ a4 ~")
 // A classic chopped breakbeat feel
 const kick = s("bd ~ ~ bd [~ bd] ~ ~ ~")
 const snare = s("~ sd ~ sd").nudge(0.02)
-const hats = s("hh*8").gain(pat("1 0.5 0.8 0.3").fast(8))
+const hats = s("hh*8").gain("1 0.5 0.8 0.3")
 const ghost = s("sd*16").gain(0.05) // Ghost notes
 
 const beats = stack(kick, snare, hats, ghost).swing(0.2)
@@ -965,7 +964,7 @@ const chords = note("b2 d3 f#3 . g2 b3 d4 . d3 f#3 a3 . a2 c#3 e3")
 
 // --- Melody (Random Chimes) ---
 // Generative wind chimes reacting to the wind
-const windChimes = note(irand(12).add(12))
+const windChimes = note("b5 c#6 d6 e6 f#6 g6 a6")
   .scale("b:aeolian")
   .apply(chimeDelay)
   .struct("x(5,16)") // Irregular rhythm
