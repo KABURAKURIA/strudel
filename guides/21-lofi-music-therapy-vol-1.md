@@ -60,7 +60,8 @@ const headMelody = note("f#5 a5 c#6 ~ b5 a5 f#5 ~ . e5 f#5 g#5 a5 b5 c#6 d6 ~")
   .jux(rev) // Reverse echo for dreaminess
 
 // Generative improvisation using the D Lydian scale
-const improvMelody = note("scale(d:lydian, irand(8) + 12)")
+const improvMelody = note(irand(8).add(12))
+  .scale("d:lydian")
   .s("superpiano")
   .velocity(rand.range(0.3, 0.6))
   .struct("x(5,16)") // Syncopated rhythm
@@ -655,7 +656,8 @@ const chorusChords = note("f3 ab3 c4 eb4 . g3 bb3 d4 f4") // Fm7 -> Gm7
 
 // --- Melody (Generative) ---
 // Short, stuttering phrases
-const melody = note("scale(c:minorPentatonic, irand(5))")
+const melody = note(irand(5))
+  .scale("c:minorPentatonic")
   .s("sawtooth")
   .lpf(800)
   .struct("x(3,8)")
@@ -774,7 +776,8 @@ const streamBeat = stack(kick, hats, snare)
 
 // --- Texture ---
 const water = s("noise").apply(waterFx)
-const bubbles = note("scale(eb:lydian, irand(8) + 12)")
+const bubbles = note(irand(8).add(12))
+  .scale("eb:lydian")
   .s("sine").gain(0.2).delay(0.2)
 
 // --- Arrangement ---
@@ -962,7 +965,8 @@ const chords = note("b2 d3 f#3 . g2 b3 d4 . d3 f#3 a3 . a2 c#3 e3")
 
 // --- Melody (Random Chimes) ---
 // Generative wind chimes reacting to the wind
-const windChimes = note("scale(b:aeolian, irand(12) + 12)")
+const windChimes = note(irand(12).add(12))
+  .scale("b:aeolian")
   .apply(chimeDelay)
   .struct("x(5,16)") // Irregular rhythm
   .slow(0.5)
