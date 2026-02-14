@@ -28,8 +28,8 @@ const piano = note("4 [6 7] 6 [4 ~] . 2 [4 0] 2 ~")
   .scale("d:lydian")
   .transpose(12) // Octave up
   .s("superpiano")
-  .velocity("0.5 0.3 0.6 0.2")
-  .lpf(2000)
+  .velocity("0.7 0.5 0.8 0.4") // Increased velocity
+  .lpf(3000) // Opened filter
   .room(0.8)
   .jux(rev) // Reverse echo for dreaminess
 
@@ -38,18 +38,27 @@ const chords = note("0 4 2 5")
   .scale("d:lydian")
   .transpose("-12") // Lower octave
   .s("superpiano")
-  .lpf(800)
-  .velocity(0.5)
+  .lpf(1200) // Opened filter
+  .velocity(0.7) // Increased gain
   .sustain(4)
   .struct("x(3,8)") // Polyrhythmic feel
 
 // 3. Texture: Wind/Noise
 const wind = s("noise")
   .lpf(sine.range(200, 800).slow(8))
-  .gain(0.05)
+  .gain(0.08)
   .jux(x => x.pan(sine.range(0.2, 0.8).slow(4)))
 
-// 4. Beat: Soft brushes and rim
+// 4. Bells: High twinkle layer
+const bells = note("0 4 6 7")
+  .scale("d:lydian")
+  .transpose(24)
+  .s("sine")
+  .gain(0.4)
+  .delay(0.5)
+  .slow(4)
+
+// 5. Beat: Soft brushes and rim
 const drums = stack(
   s("bd(3,8)"),
   s("hh*8").gain(rand.range(0.1, 0.3)).hpf(5000),
@@ -61,6 +70,7 @@ stack(
   wind,
   chords,
   piano.slow(2),
+  bells,
   drums
 )
 ```
@@ -122,14 +132,15 @@ setcps(0.2)
 const guitar = note("0 [2 3] 5 [~ 3] . 7 [5 ~] 3 2")
   .scale("a:dorian")
   .s("supermandolin")
-  .lpf(2000)
+  .lpf(3500) // Brighter tone
   .legato(1.2)
   .room(0.5)
   .jux(x => x.delay(0.1)) // Stereo widening
   .slow(2)
+  .gain(0.9) // Louder melody
 
 // 2. Vinyl Crackle
-const crackle = s("noise").gain(0.08).hpf(1000).lpf(3000)
+const crackle = s("noise").gain(0.12).hpf(1000).lpf(3000)
 
 // 3. Bass: Upright and warm
 const bass = note("0 -2 -4 -5")
@@ -137,8 +148,16 @@ const bass = note("0 -2 -4 -5")
   .s("triangle")
   .lpf(400)
   .shape(0.3)
+  .gain(0.9)
 
-// 4. Beat: Dragging/Drunk feel
+// 4. Ambience: Park Sounds
+const ambience = s("noise")
+  .lpf(1000).hpf(400)
+  .gain(0.05)
+  .slow(8)
+  .pan(sine.slow(16))
+
+// 5. Beat: Dragging/Drunk feel
 const beat = stack(
   s("bd ~ ~ bd"),
   s("~ sd ~ sd").nudge(0.06), // Late snare
@@ -148,6 +167,7 @@ const beat = stack(
 // Arrangement
 stack(
   crackle,
+  ambience,
   guitar,
   bass,
   beat
@@ -208,7 +228,7 @@ stack(
 setcps(0.16)
 
 // 1. Rain Texture
-const rain = s("noise").lpf(800).gain(0.2).jux(rev)
+const rain = s("noise").lpf(800).gain(0.25).jux(rev)
 
 // 2. Rhodes: Deep, sustained chords
 // i - bII - i - iv
@@ -216,21 +236,25 @@ const rhodes = note("0 1 0 3")
   .scale("e:phrygian")
   .chord("min9") // Automatic chord voicing
   .s("superpiano")
-  .lpf(600)
+  .lpf(1200) // Brighter
   .tremolo(4, 0.2)
   .room(1)
+  .gain(0.8)
 
 // 3. Saxophone: Distant, lonely melody
 const sax = note("~ 4 [~ 5] 4 [2 1] . ~ -1 [~ 0] -1 ~")
   .scale("e:phrygian")
   .s("sawtooth") // Synth sax
-  .lpf(1000)
+  .lpf(2000) // Cut through mix
   .attack(0.2)
   .release(0.8)
   .delay(0.6)
-  .gain(0.4)
+  .gain(0.6)
 
-// 4. Beat: Minimal click
+// 4. Texture: Distant City
+const city = s("noise").hpf(500).lpf(1500).gain(0.05).pan(sine.slow(10))
+
+// 5. Beat: Minimal click
 const click = stack(
   s("bd").slow(2),
   s("sd").nudge(0.04).hpf(2000).gain(0.3)
@@ -239,6 +263,7 @@ const click = stack(
 // Arrangement
 stack(
   rain,
+  city,
   rhodes,
   sax.slow(2),
   click
@@ -303,21 +328,26 @@ const revPiano = note("0 2 [4 6] 5 . 4 [2 0] -2 ~")
   .scale("g:mixolydian")
   .s("superpiano")
   .rev() // Play backwards
-  .lpf(1500)
+  .lpf(2000) // Brighter
   .slow(2)
+  .gain(0.8)
 
 // 2. Granular Texture
 const granular = s("noise")
   .chop(16)
-  .gain(rand.range(0, 0.1))
+  .gain(rand.range(0.05, 0.15))
   .pan(rand)
 
-// 3. Bass: Deep sine
+// 3. Synth Pad Layer
+const pad = note("0 4 5 4").scale("g:mixolydian")
+  .s("supersaw").lpf(800).gain(0.4)
+
+// 4. Bass: Deep sine
 const bass = note("0 -3 -2 -4")
   .scale("g:mixolydian")
-  .s("sine").shape(0.5)
+  .s("sine").shape(0.5).gain(0.9)
 
-// 4. Beat: Broken/Glitchy
+// 5. Beat: Broken/Glitchy
 const glitchBeat = stack(
   s("bd(3,8)"),
   s("sd(2,8)").nudge(0.02),
@@ -328,6 +358,7 @@ const glitchBeat = stack(
 stack(
   revPiano,
   granular,
+  pad,
   bass,
   glitchBeat
 )
@@ -393,8 +424,8 @@ const strings = note("0 2 4 6")
   .s("supersaw")
   .attack(0.5)
   .release(1)
-  .lpf(1200)
-  .gain(0.6)
+  .lpf(2000) // Brighter
+  .gain(0.7)
 
 // 2. Flute: Playful melody
 const flute = note("6 [4 5] 6 [7 6] . 4 [2 0] 2 ~")
@@ -404,14 +435,19 @@ const flute = note("6 [4 5] 6 [7 6] . 4 [2 0] 2 ~")
   .vowel("u") // Flute-like timbre
   .delay(0.4)
   .slow(2)
+  .gain(0.8)
 
-// 3. Bass: Walking bass
+// 3. Shimmer: High frequency texture
+const shimmer = s("noise").hpf(4000).gain(0.05).pan(rand)
+
+// 4. Bass: Walking bass
 const walkingBass = note("0 2 4 6")
   .scale("f:lydian")
   .s("sawtooth")
-  .lpf(300)
+  .lpf(400)
+  .gain(0.8)
 
-// 4. Beat: Crisp and steady
+// 5. Beat: Crisp and steady
 const beat = stack(
   s("bd ~ bd ~"),
   s("~ sd ~ sd"),
@@ -422,6 +458,7 @@ const beat = stack(
 stack(
   strings,
   flute,
+  shimmer,
   walkingBass,
   beat
 )
@@ -485,16 +522,25 @@ const chords = note("0 2 3 4")
   .scale("c:minorPentatonic")
   .chord("min7")
   .s("superpiano")
-  .lpf(1000)
+  .lpf(1500) // Brighter
   .jux(x => x.detune(0.3)) // Slight detune for "broken" feel
+  .gain(0.8)
 
-// 2. Bass: Stuttering
+// 2. Glitch Texture
+const glitches = s("glitch").nudge(rand.range(-0.05, 0.05)).gain(0.4)
+
+// 3. Bass: Stuttering
 const bass = note("0 [~ 0] 2 [3 ~] 4 ~")
   .scale("c:minorPentatonic")
   .s("sine")
   .shape(0.6)
+  .gain(0.9)
 
-// 3. Beat: Heavy Dilla Swing/Nudge
+// 4. Pad: Underlying warmth
+const warmth = note("0").scale("c:minorPentatonic")
+  .s("supersaw").lpf(600).gain(0.3)
+
+// 5. Beat: Heavy Dilla Swing/Nudge
 const beat = stack(
   s("bd").nudge(rand.range(-0.03, 0.03)),
   s("sd").nudge(0.05), // Late snare
@@ -504,7 +550,9 @@ const beat = stack(
 // Arrangement
 stack(
   chords,
+  glitches,
   bass,
+  warmth,
   beat
 )
 ```
@@ -566,17 +614,22 @@ setcps(0.24)
 const arps = note("0 [2 4] 6 [5 4] . 2 [4 5] 4 [2 0]")
   .scale("eb:lydian")
   .s("superpiano")
-  .velocity(sine.range(0.3, 0.6).slow(4))
-  .lpf(1500)
+  .velocity(sine.range(0.5, 0.8).slow(4)) // Higher velocity
+  .lpf(2500) // Brighter
+  .room(0.6)
 
 // 2. Water Texture
-const water = s("noise").lpf(600).hpf(200).gain(0.1).pan(sine.slow(8))
+const water = s("noise").lpf(800).hpf(200).gain(0.15).pan(sine.slow(8))
 
-// 3. Bass: Drone
+// 3. Bubbles: Random blips
+const bubbles = note("scale(eb:lydian, irand(8) + 12)")
+  .s("sine").gain(0.2).delay(0.2)
+
+// 4. Bass: Drone
 const drone = note("0").scale("eb:lydian")
-  .s("sawtooth").lpf(100).gain(0.8)
+  .s("sawtooth").lpf(150).gain(0.8)
 
-// 4. Beat: Light percussion
+// 5. Beat: Light percussion
 const perc = stack(
   s("bd(3,8)"),
   s("hh*16").gain(pat("1 0.5 0.8 0.4").fast(4))
@@ -586,6 +639,7 @@ const perc = stack(
 stack(
   arps,
   water,
+  bubbles,
   drone,
   perc
 )
@@ -650,24 +704,30 @@ const bass = note("0 2 3 [4 2]")
   .s("triangle")
   .attack(0.05)
   .decay(0.5)
-  .lpf(500)
+  .lpf(600) // Brighter pluck
+  .gain(0.9)
 
 // 2. Chords: Piano comping
 const comp = note("0 3 0 4")
   .scale("a:harmonicMinor")
   .chord("min7")
   .s("superpiano")
-  .lpf(1000)
+  .lpf(1500) // Brighter
   .room(0.4)
+  .gain(0.8)
 
 // 3. Sax: Fragmented
 const sax = note("~ 2 [4 5] ~ . 5 [4 2] ~ 0")
   .scale("a:harmonicMinor")
   .s("sawtooth")
-  .lpf(800)
+  .lpf(1200) // Brighter
   .delay(0.4)
+  .gain(0.6)
 
-// 4. Beat: Dusty Break
+// 4. Texture: Paper/Dust
+const dust = s("noise").hpf(2000).lpf(6000).gain(0.08).pan(rand)
+
+// 5. Beat: Dusty Break
 const breakbeat = stack(
   s("bd ~ ~ bd"),
   s("~ sd ~ sd").nudge(0.02),
@@ -679,6 +739,7 @@ stack(
   bass,
   comp,
   sax.slow(2),
+  dust,
   breakbeat
 )
 ```
@@ -741,23 +802,27 @@ const pads = note("0 2 [4 5] 6")
   .scale("b:aeolian")
   .chord("min9")
   .s("supersaw")
-  .lpf(sine.range(400, 1200).slow(8))
+  .lpf(sine.range(800, 1800).slow(8)) // Brighter sweep
   .attack(1)
   .release(2)
+  .gain(0.6)
 
 // 2. Chimes: High random notes
 const chimes = note("scale(b:aeolian, irand(8) + 12)")
   .s("sine")
-  .gain(0.3)
+  .gain(0.4) // Louder
   .delay(0.5)
   .slow(0.5)
 
-// 3. Bass: Root notes
+// 3. Texture: Leaves/Rustle
+const leaves = s("noise").lpf(2000).hpf(800).gain(0.1).pan(sine.slow(4))
+
+// 4. Bass: Root notes
 const bass = note("0 -2 -4 -5")
   .scale("b:aeolian")
-  .s("sine").shape(0.4)
+  .s("sine").shape(0.4).gain(0.9)
 
-// 4. Beat: Light shaker
+// 5. Beat: Light shaker
 const shaker = s("hh*16")
   .gain(sine.range(0.1, 0.4).fast(4))
   .hpf(4000)
@@ -766,6 +831,7 @@ const shaker = s("hh*16")
 stack(
   pads,
   chimes,
+  leaves,
   bass,
   shaker
 )
@@ -829,30 +895,34 @@ const pads = note("0 1 2 4")
   .scale("g:hirajoshi")
   .chord("sus4")
   .s("supersaw")
-  .lpf(600)
+  .lpf(1000) // Brighter
   .room(2) // Massive reverb
-  .gain(0.7)
+  .gain(0.8)
 
 // 2. Melody: Slow, distant lead
 const lead = note("4 [~ 2] ~ 1 ~ 0 ~")
   .scale("g:hirajoshi")
   .s("triangle")
-  .lpf(800)
+  .lpf(1500) // Brighter
   .delay(1)
-  .gain(0.5)
+  .gain(0.6)
 
-// 3. Bass: Sub
+// 3. Drone: High frequency air
+const air = s("noise").hpf(5000).gain(0.05).pan(sine.slow(12))
+
+// 4. Bass: Sub
 const sub = note("0 -2 -4 0")
   .scale("g:hirajoshi")
-  .s("sine").shape(0.3)
+  .s("sine").shape(0.3).gain(0.9)
 
-// 4. Beat: Heartbeat kick
+// 5. Beat: Heartbeat kick
 const heartbeat = s("bd ~ bd ~").gain(1.2).lpf(500)
 
 // Arrangement
 stack(
   pads,
   lead.slow(2),
+  air,
   sub,
   heartbeat
 )
