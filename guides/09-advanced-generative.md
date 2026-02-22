@@ -12,7 +12,7 @@ note(
   irand(7).segment(8)
 )
 .scale("C:minor") // Force it into C Minor
-.s("piano")
+.s("superpiano")
 ```
 
 - `irand(N)`: Generates a random integer from 0 to N-1.
@@ -55,7 +55,7 @@ s("bd cp?0.8")
 
 ```javascript
 note("c e g b")
-  .s("piano")
+  .s("superpiano")
   .scramble(4) // New melody every cycle!
 ```
 

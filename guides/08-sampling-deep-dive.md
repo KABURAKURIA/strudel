@@ -111,7 +111,7 @@ You can chop *anything*, not just drums. Try chopping a piano or vocal sample fo
 
 ```javascript
 note("c3")
-  .s("piano")
+  .s("superpiano")
   .chop(32)
   .rev()
   .slow(4)

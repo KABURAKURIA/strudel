@@ -73,7 +73,7 @@ You can assign patterns to variables to keep your code clean.
 
 ```javascript
 const drums = s("bd sd").fast(2)
-const melody = note("c e g b").s("piano")
+const melody = note("c e g b").s("superpiano")
 
 stack(
   drums,
