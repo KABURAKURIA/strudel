@@ -10,7 +10,7 @@ Instead of remembering every sharp and flat, you can use `.scale()`. This allows
 // A simple melody in C Major
 note("0 2 4 7 4 2 0")
   .scale("C:major")
-  .s("piano")
+  .s("superpiano")
 ```
 
 Common scales include `major`, `minor`, `dorian`, `phrygian`, `lydian`, `mixolydian`, `locrian`.
@@ -48,7 +48,7 @@ An arpeggio is a broken chord. You can turn any chord into an arpeggio using `.a
 ```javascript
 note("c:maj7 f:maj7")
   .arp("updown") // Pattern: 0 1 2 3 2 1
-  .s("piano")
+  .s("superpiano")
 ```
 
 Other arp types: `up`, `down`, `converge`, `diverge`, `random`.
@@ -59,7 +59,7 @@ You can move your entire pattern up or down in pitch.
 
 ```javascript
 note("c e g")
-  .s("piano")
+  .s("superpiano")
   .transpose(12) // Up one octave (12 semitones)
 ```
 
@@ -69,7 +69,7 @@ Or use `.add(number)` if working with scale degrees:
 note("0 2 4")
   .scale("C:major")
   .add(7) // Shift scale degrees
-  .s("piano")
+  .s("superpiano")
 ```
 
 ## 5. Practical Example: Spacey Keys

@@ -10,7 +10,7 @@ setcps(90/60/4)
 // Here we use a jazzy chord progression: Dm9 - G13 - Cmaj9
 const piano = note("d3 g3 c3")
   .chord("minor9 dom13 major9")
-  .s("piano")
+  .s("superpiano")
   .lpf(2000)      // Low pass filter to soften the sound
   .velocity(0.6)  // Soft touch
   .slow(4)        // One chord every bar (assuming 4/4)
@@ -41,7 +41,7 @@ const noise = s("noise")
 
 // 5. Saxophone Melody (Improv style)
 const sax = note("e4 g4 a4 b4 d5")
-  .s("sax")
+  .s("sawtooth").lpf(2000)
   .delay(0.5)
   .delaytime(0.25)
   .room(0.8)

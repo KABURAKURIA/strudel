@@ -106,7 +106,7 @@ const pads = note("db4:min9 bb3:min9 gb3:maj7 ab3:dom7")
   .s("supersaw")
   .lpf(800) // Dark
   .attack(0.1).release(1)
-  .gain(pat("0 1 0 1").fast(8)) // Ducking effect on kicks
+  .gain("[0 1 0 1]*8") // Ducking effect on kicks
 
 // 2. Bass: Reeses (Detuned saws)
 const reese = note("db2 bb1 gb1 ab1")
