@@ -45,7 +45,7 @@ const drums = stack(
 // Generative melody using a scale
 const saxSolo = note("c4 d4 eb4 g4 bb4 c5 eb5")
   .scale("C:minor") // C Minor scale
-  .s("sax")
+  .s("sawtooth").lpf(2000)
   .legato(1)
   .lpf(2000)
   .delay(0.5)     // Echo

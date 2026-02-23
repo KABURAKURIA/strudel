@@ -12,12 +12,12 @@ Copy the code block for the song you want to hear into the Strudel editor.
 ### 1. Happy Birthday (Reggae Style)
 ```javascript
 // Happy Birthday (Reggae)
-setcps(1.2)
+setcps(0.6)
 // 1. Melody (Off-beat feel)
 const melody = note(cat(
   "~ g3@0.5 g3@0.5 a3@1 g3@1 c4@1 b3@2",
   "~ g3@0.5 g3@0.5 a3@1 g3@1 d4@1 c4@2"
-))
+)).slow(1.75)
   .s("organ")
 
 // 2. Chords (The Skank - on the "and")
@@ -35,7 +35,7 @@ stack(
 ### 2. Y.M.C.A. (Village People)
 ```javascript
 // Y.M.C.A.
-setcps(1.3)
+setcps(0.6)
 const melody = note(cat(
   "d4@0.5 c4@0.5 a3@0.5 g3@0.5 e3@2",
   "d4@0.5 c4@0.5 a3@0.5 g3@0.5 e3@2",
@@ -56,7 +56,7 @@ stack(
 ### 3. Macarena
 ```javascript
 // Macarena
-setcps(1.5)
+setcps(0.6)
 const melody = note(cat(
   "f4@0.5 f4@0.5 f4@0.5 f4@0.5 f4@0.5 f4@0.5 f4@0.5 f4@0.25 a4@0.25",
   "f4@0.5 f4@0.5 f4@0.5 f4@0.5 f4@0.5 f4@0.5 f4@0.5 a4@0.5",
@@ -78,7 +78,7 @@ stack(
 ### 4. Conga (Gloria Estefan)
 ```javascript
 // Conga
-setcps(1.4)
+setcps(0.6)
 const piano = note(cat(
   "e4@0.5 c4@0.5 e4@0.5 c4@0.5 e4@0.5 c4@0.5 e4@0.5 c4@0.5"
 ))
@@ -99,11 +99,11 @@ stack(
 ### 5. Who Let The Dogs Out
 ```javascript
 // Who Let The Dogs Out
-setcps(1.3)
+setcps(0.6)
 const melody = note(cat(
   "c4@1 c4@0.5 ~ c4@0.5 ~ c4@0.5",
   "~ c4@0.5 ~ c4@0.5 ~ ~ ~ ~"
-))
+)).slow(1.75)
   .s("vowel")
 
 const bass = note("c2 g2")
@@ -119,7 +119,7 @@ stack(
 ### 6. Mambo No. 5
 ```javascript
 // Mambo No. 5
-setcps(1.7)
+setcps(0.6)
 const brass = note(cat(
   "bb3@1 c4@1 db4@1 c4@1",
   "bb3@1 g3@1 bb3@1 ab3@1"
@@ -139,7 +139,7 @@ stack(
 ### 7. Cha Cha Slide
 ```javascript
 // Cha Cha Slide
-setcps(1.3)
+setcps(0.6)
 const clap = s("clap*4")
 
 const bass = note("c2@0.5 c2@0.5 c2@0.5 c2@0.5")
@@ -158,7 +158,7 @@ stack(
 ### 8. Barbie Girl (Chorus)
 ```javascript
 // Barbie Girl
-setcps(1.3)
+setcps(0.6)
 const melody = note(cat(
   "g#4@0.5 e4@0.5 g#4@0.5 c#5@0.5 a4@2",
   "f#4@0.5 d#4@0.5 f#4@0.5 b4@0.5 g#4@2",
@@ -176,7 +176,7 @@ stack(
 ### 9. Dragostea Din Tei (Numa Numa)
 ```javascript
 // Dragostea Din Tei
-setcps(1.3)
+setcps(0.6)
 const melody = note(cat(
   "c5@0.5 b4@0.5 c5@0.5 b4@0.5 c5@1 g4@1",
   "c5@0.5 b4@0.5 c5@0.5 b4@0.5 c5@1 e4@1",
@@ -194,7 +194,7 @@ stack(
 ### 10. Cotton Eye Joe
 ```javascript
 // Cotton Eye Joe
-setcps(1.4)
+setcps(0.6)
 const melody = note(cat(
   "a4@0.5 a4@0.5 f4@0.5 a4@0.5 d5@0.5 d5@0.5 e5@0.5 f5@0.5",
   "a4@0.5 f4@0.5 d4@0.5 f4@0.5 e4@0.5 c4@0.5 d4@1"
@@ -214,7 +214,7 @@ stack(
 ### 11. Billie Jean (Michael Jackson)
 ```javascript
 // Billie Jean
-setcps(1.2)
+setcps(0.6)
 const bass = note(cat(
   "f#2@0.5 c#3@0.5 e3@0.5 f#3@0.5 e3@0.5 c#3@0.5 b2@0.5 c#3@0.5"
 ))
@@ -233,7 +233,7 @@ stack(
 ### 12. Thriller (Michael Jackson)
 ```javascript
 // Thriller
-setcps(1.2)
+setcps(0.6)
 const bass = note(cat(
   "c#3@1.5 b2@0.5 c#3@0.5 e3@0.5 f#3@1",
   "c#3@1.5 a2@0.5 f#2@2"
@@ -253,7 +253,7 @@ stack(
 ### 13. Beat It (Michael Jackson)
 ```javascript
 // Beat It
-setcps(1.4)
+setcps(0.6)
 const riff = note(cat(
   "e3@1.5 g3@0.5 b3@0.5 g3@0.5 d4@1",
   "e3@1 d4@0.5 c4@1.5 b3@1"
@@ -269,7 +269,7 @@ stack(
 ### 14. Smooth Criminal (Michael Jackson)
 ```javascript
 // Smooth Criminal
-setcps(1.2)
+setcps(0.6)
 const riff = note(cat(
   "a3@0.25 a3@0.25 a3@0.5 g3@0.25 a3@0.25 b3@0.25 a3@0.25 e3@0.25 f3@0.25 g3@0.25",
   "e3@0.5"
@@ -285,7 +285,7 @@ stack(
 ### 15. Material Girl (Madonna)
 ```javascript
 // Material Girl
-setcps(1.2)
+setcps(0.6)
 const bass = note(cat(
   "c3@0.5 c3@0.5 c3@0.5 c3@0.5 c3@0.5 c3@0.5 c3@0.5 c3@0.5"
 ))
@@ -307,7 +307,7 @@ stack(
 ### 16. Like a Virgin (Madonna)
 ```javascript
 // Like a Virgin
-setcps(1.2)
+setcps(0.6)
 const bass = note(cat(
   "f2@1 c3@1 d3@1 bb2@1"
 ))
@@ -332,7 +332,7 @@ stack(
 setcps(0.6)
 const chords = note(cat(
   "bb3@4 g3@4 f3@4 eb3@4"
-))
+)).slow(4)
   .chord("major")
   .s("supersaw").attack(0.5)
 
@@ -352,7 +352,7 @@ stack(
 ### 18. 1999 (Prince)
 ```javascript
 // 1999
-setcps(1.2)
+setcps(0.6)
 const riff = note(cat(
   "f4@0.5 f4@0.5 f4@0.5 ab4@0.5 bb4@1 ab4@0.5 f4@0.5"
 ))
@@ -386,7 +386,7 @@ stack(
 ### 20. Girls Just Want to Have Fun
 ```javascript
 // Girls Just Want to Have Fun
-setcps(1.2)
+setcps(0.6)
 const riff = note(cat(
   "f#4@0.5 c#4@0.5 eb4@0.5 b3@0.5 f#4@0.5 c#4@0.5 eb4@0.5 b3@0.5"
 ))
@@ -434,7 +434,7 @@ stack(
 ### 22. Piano Man (Billy Joel)
 ```javascript
 // Piano Man
-setcps(1.2) // Waltz 3/4 feel approximated
+setcps(0.6) // Waltz 3/4 feel approximated
 const melody = note(cat(
   "c5@1 b4@0.5 a4@0.5 g4@0.5 f4@0.5",
   "e4@0.5 c4@0.5 d4@1 e4@0.5 d4@1.5"
@@ -514,7 +514,7 @@ stack(
 ### 26. Hallelujah (Leonard Cohen)
 ```javascript
 // Hallelujah (Cohen)
-setcps(1.1) // 6/8 feel
+setcps(0.6) // 6/8 feel
 const melody = note(cat(
   "e4@1 g4@1 a4@1 a4@1.5",
   "a4@0.5 g4@1 e4@1 e4@2"
@@ -567,7 +567,7 @@ stack(
 ### 29. Africa (Toto)
 ```javascript
 // Africa
-setcps(1)
+setcps(0.6)
 const chords = note(cat(
   "a3@0.5 g#3@0.5 c#4@0.5 b3@2.5",
   "a3@0.5 g#3@0.5 c#4@0.5 b3@0.5 f#3@0.5 g#3@0.5"
@@ -589,7 +589,7 @@ stack(
 ### 30. Sweet Caroline
 ```javascript
 // Sweet Caroline
-setcps(1.2)
+setcps(0.6)
 const melody = note(cat(
   "b4@2 b4@2",
   "a4@1 b4@1 e4@2",
@@ -612,7 +612,7 @@ stack(
 ### 31. Mr. Brightside (The Killers)
 ```javascript
 // Mr. Brightside
-setcps(1.5)
+setcps(0.6)
 const riff = note(cat(
   "c#5@0.5 c#5@0.5 c#5@0.5 c#5@0.5 f5@0.5 f5@0.5 f5@0.5 f5@0.5",
   "f#5@0.5 f#5@0.5 f#5@0.5 f#5@0.5 f5@0.5 f5@0.5 f5@0.5 f5@0.5"
@@ -628,7 +628,7 @@ stack(
 ### 32. 99 Red Balloons
 ```javascript
 // 99 Red Balloons
-setcps(1.6)
+setcps(0.6)
 const bass = note(cat(
   "e3@0.5 f#3@0.5 g#3@0.5 e3@0.5 f#3@0.5 g#3@0.5 a3@0.5 b3@0.5"
 ))
@@ -649,7 +649,7 @@ stack(
 ### 33. Blue Monday (New Order)
 ```javascript
 // Blue Monday
-setcps(1.3)
+setcps(0.6)
 const kick = s("bd*4")
 
 const bass = note(cat(
@@ -670,7 +670,7 @@ stack(
 ### 34. Enjoy the Silence (Depeche Mode)
 ```javascript
 // Enjoy the Silence
-setcps(1.2)
+setcps(0.6)
 const riff = note(cat(
   "bb3@0.5 db4@0.5 bb3@0.5 f3@0.5 bb3@1 f3@1",
   "bb3@0.5 db4@0.5 bb3@0.5 f3@0.5 bb3@1 eb4@1"
@@ -690,7 +690,7 @@ stack(
 ### 35. Personal Jesus (Depeche Mode)
 ```javascript
 // Personal Jesus
-setcps(1.2)
+setcps(0.6)
 const riff = note(cat(
   "f#3@0.5 c#3@0.5 f#3@0.5 g#3@0.5 f#3@0.5 c#3@0.5 c#3@0.5 b2@0.5",
   "c#3@1"
@@ -706,7 +706,7 @@ stack(
 ### 36. Tainted Love
 ```javascript
 // Tainted Love
-setcps(1.4)
+setcps(0.6)
 const riff = note(cat(
   "g3@0.5 g3@0.5 bb3@0.5 eb4@0.5 c4@0.5 g3@0.5 bb3@0.5 c4@0.5"
 ))
@@ -721,7 +721,7 @@ stack(
 ### 37. Time After Time (Cyndi Lauper)
 ```javascript
 // Time After Time
-setcps(1.2)
+setcps(0.6)
 const melody = note(cat(
   "c4@0.5 d4@0.5 c4@0.5 d4@0.5 c4@0.5 d4@0.5 e4@0.5 d4@0.5",
   "c4@1 b3@1 g3@2"
@@ -759,7 +759,7 @@ stack(
 ### 39. Every Breath You Take
 ```javascript
 // Every Breath You Take
-setcps(1.1)
+setcps(0.6)
 const riff = note(cat(
   "ab3@0.5 c4@0.5 eb4@0.5 c4@0.5 ab3@0.5 c4@0.5 eb4@0.5 c4@0.5",
   "f3@0.5 ab3@0.5 db4@0.5 ab3@0.5 f3@0.5 ab3@0.5 db4@0.5 ab3@0.5"
@@ -779,7 +779,7 @@ stack(
 ### 40. With or Without You (U2)
 ```javascript
 // With or Without You
-setcps(1.1)
+setcps(0.6)
 const bass = note(cat(
   "d2@1 d2@1 d2@1 d2@1",
   "a1@1 a1@1 a1@1 a1@1",
@@ -804,7 +804,7 @@ stack(
 ### 41. The Addams Family
 ```javascript
 // Addams Family
-setcps(1.3)
+setcps(0.6)
 const melody = note(cat(
   "c4@0.5 f4@0.5 a4@0.5 b4@0.5 c5@1 ~",
   "~ d4@0.5 g4@0.5 b4@0.5 c5@0.5 d5@1 ~"
@@ -823,7 +823,7 @@ stack(
 ### 42. Doctor Who
 ```javascript
 // Doctor Who
-setcps(1.4)
+setcps(0.6)
 const bass = note(cat(
   "e2@0.5 e2@0.5 e2@0.5 ~ e2@0.5 e2@0.5 e2@0.5 ~",
   "e2@0.5 e2@0.5 e2@0.5 ~ g2@0.5 f#2@0.5 d2@0.5 ~"
@@ -862,7 +862,7 @@ stack(
 ### 44. Seinfeld
 ```javascript
 // Seinfeld
-setcps(1.1)
+setcps(0.6)
 const bass = note(cat(
   "e3@0.25 g3@0.25 a3@0.25 bb3@0.25 b3@0.25 d4@0.25 e4@0.5"
 ))
@@ -879,7 +879,7 @@ stack(
 ### 45. Law & Order
 ```javascript
 // Law & Order
-setcps(1.2)
+setcps(0.6)
 const dunDun = note("c3@0.25 c3@0.5")
   .s("supersquare").lpf(500)
 
@@ -895,7 +895,7 @@ stack(
 ### 46. Batman (1966)
 ```javascript
 // Batman
-setcps(1.6)
+setcps(0.6)
 const riff = note(cat(
   "b2@1 b2@1 bb2@1 bb2@1",
   "a2@1 a2@1 bb2@1 bb2@1"
@@ -914,7 +914,7 @@ stack(
 ### 47. DuckTales
 ```javascript
 // DuckTales
-setcps(1.6)
+setcps(0.6)
 const melody = note(cat(
   "f#4@0.5 e4@0.5 f#4@0.5 g4@0.5 a4@0.5 b4@0.5 a4@0.5 g4@0.5",
   "f#4@0.5 a4@0.5 d5@0.5 c#5@0.5 a4@0.5 b4@0.5 c#5@1"
@@ -934,7 +934,7 @@ stack(
 ### 48. Inspector Gadget
 ```javascript
 // Inspector Gadget
-setcps(1.4)
+setcps(0.6)
 const melody = note(cat(
   "c4@0.5 d4@0.5 e4@0.5 f4@0.5 g4@1 e4@0.5 c4@0.5",
   "d4@0.5 e4@0.5 d4@0.5 c4@0.5 b3@2"
@@ -950,7 +950,7 @@ stack(
 ### 49. Power Rangers
 ```javascript
 // Power Rangers
-setcps(1.5)
+setcps(0.6)
 const riff = note(cat(
   "e4@0.5 e4@0.5 a4@0.5 b4@0.5 d5@0.5 c#5@0.5 b4@0.5 a4@0.5",
   "e4@0.5 e4@0.5 g4@0.5 f#4@0.5 e4@0.5 d4@0.5 e4@1"
@@ -966,7 +966,7 @@ stack(
 ### 50. SpongeBob SquarePants (Flute)
 ```javascript
 // SpongeBob (Flute)
-setcps(1.6)
+setcps(0.6)
 const melody = note(cat(
   "g5@0.25 b5@0.25 d6@0.25 b5@0.25 g5@0.25 b5@0.25 g5@0.25 d5@0.25",
   "g5@0.5 g5@0.5 g5@0.5 d5@0.5"
@@ -981,7 +981,7 @@ stack(
 ### 51. Gravity Falls
 ```javascript
 // Gravity Falls
-setcps(1.3)
+setcps(0.6)
 const arp = note(cat(
   "d4@0.5 f4@0.5 a4@0.5 f4@0.5 d4@0.5 f4@0.5 a4@0.5 f4@0.5",
   "c#4@0.5 e4@0.5 a4@0.5 e4@0.5 c#4@0.5 e4@0.5 a4@0.5 e4@0.5"
@@ -997,7 +997,7 @@ stack(
 ### 52. Phineas and Ferb
 ```javascript
 // Phineas and Ferb
-setcps(1.5)
+setcps(0.6)
 const melody = note(cat(
   "g4@0.5 g4@0.5 g4@0.5 g4@0.5 g4@0.5 g4@0.5 f#4@0.5 g4@0.5",
   "a4@0.5 a4@0.5 g4@0.5 f#4@0.5 e4@1 d4@1"
@@ -1013,7 +1013,7 @@ stack(
 ### 53. Bluey
 ```javascript
 // Bluey
-setcps(1.4)
+setcps(0.6)
 const melody = note(cat(
   "e4@0.5 b4@0.5 e5@0.5 b4@0.5 e4@1 b4@1",
   "d4@0.5 a4@0.5 d5@0.5 a4@0.5 d4@1 a4@1"
@@ -1033,7 +1033,7 @@ stack(
 ### 54. The Office (US)
 ```javascript
 // The Office (US)
-setcps(1.5)
+setcps(0.6)
 const melody = note(cat(
   "g4@0.5 b4@0.5 d5@0.5 g5@0.5 f#5@0.5 g5@0.5 d5@0.5 b4@0.5",
   "g4@1 b4@0.5 a4@0.5 g4@2"
@@ -1053,7 +1053,7 @@ stack(
 ### 55. Friends (Claps)
 ```javascript
 // Friends (I'll Be There For You)
-setcps(1.5)
+setcps(0.6)
 const riff = note(cat(
   "a4@0.5 g4@0.5 a4@0.5 c#5@1.5 e4@0.5",
   "~ ~ ~ ~"
@@ -1075,11 +1075,11 @@ stack(
 ### 56. The Sound of Music (Do-Re-Mi)
 ```javascript
 // Do-Re-Mi
-setcps(1.2)
+setcps(0.6)
 const melody = note(cat(
   "c4@1.5 d4@0.5 e4@1.5 c4@0.5 e4@1 c4@1 e4@2",
   "d4@1.5 e4@0.5 f4@1 f4@0.5 e4@0.5 d4@1 f4@2"
-))
+)).slow(2)
   .s("superpiano")
 
 const bass = note("c3 d3")
@@ -1095,7 +1095,7 @@ stack(
 ### 57. My Favorite Things
 ```javascript
 // My Favorite Things
-setcps(1.2)
+setcps(0.6)
 const melody = note(cat(
   "e4@1 b4@0.5 b4@1 f#4@0.5 e4@1 b4@0.5 b4@1 f#4@0.5",
   "e4@1 b4@0.5 b4@0.5 a4@0.5 g4@0.5 f#4@0.5 d4@0.5 e4@0.5"
@@ -1117,7 +1117,7 @@ stack(
 setcps(0.8)
 const melody = note(cat(
   "c4@2 c5@2 b4@1 g4@1 a4@1 b4@1 c5@2"
-))
+)).slow(2.5)
   .s("superpiano")
 
 const strings = note("c3 a3")
@@ -1132,7 +1132,7 @@ stack(
 ### 59. Supercalifragilistic
 ```javascript
 // Supercalifragilistic
-setcps(1.4)
+setcps(0.6)
 const melody = note(cat(
   "c5@0.5 b4@0.5 a4@0.5 g4@0.5 f4@0.5 e4@0.5 d4@0.5 c4@0.5",
   "d4@0.5 e4@0.5 f4@0.5 d4@0.5 g4@0.5 a4@0.5 b4@0.5 g4@0.5"
@@ -1167,7 +1167,7 @@ stack(
 ### 61. Defying Gravity (Wicked)
 ```javascript
 // Defying Gravity
-setcps(1.2)
+setcps(0.6)
 const melody = note(cat(
   "d4@0.5 d4@0.5 d4@0.5 g4@1 f#4@0.5 d4@1",
   "d4@0.5 d4@0.5 d4@0.5 a4@1 g4@0.5 d4@1"
@@ -1187,7 +1187,7 @@ stack(
 ### 62. The Greatest Showman (The Greatest Show)
 ```javascript
 // The Greatest Show
-setcps(1.3)
+setcps(0.6)
 const stomp = s("bd bd clap ~")
 
 const vocal = note("b3@1 b3@0.5 b3@0.5 d4@1 b3@1")
@@ -1202,12 +1202,12 @@ stack(
 ### 63. Let It Go (Chorus)
 ```javascript
 // Let It Go
-setcps(1.3)
+setcps(0.6)
 const melody = note(cat(
   "g4@1 a4@1 b4@2 b4@2",
   "a4@1 g4@1 d4@2 d4@2",
   "g4@1 a4@1 b4@2 d5@1 c5@1 b4@2"
-))
+)).slow(2)
   .s("superpiano")
 
 const chords = note("e3 c3 d3")
@@ -1222,7 +1222,7 @@ stack(
 ### 64. You're Welcome (Moana)
 ```javascript
 // You're Welcome
-setcps(1.3)
+setcps(0.6)
 const melody = note(cat(
   "e4@0.5 e4@0.5 b3@0.5 c#4@0.5 e4@0.5 f#4@0.5 g#4@0.5 f#4@0.5",
   "e4@0.5 e4@0.5 b3@0.5 c#4@0.5 e4@1 f#4@1"
@@ -1238,7 +1238,7 @@ stack(
 ### 65. Encanto (We Don't Talk About Bruno)
 ```javascript
 // We Don't Talk About Bruno
-setcps(1.1)
+setcps(0.6)
 const piano = note(cat(
   "c4@0.5 c4@0.5 g3@0.5 g3@0.5 ab3@0.5 ab3@0.5 f3@0.5 f3@0.5",
   "g3@0.5 g3@0.5 g3@0.5 g3@0.5 g3@0.5 g3@0.5 b3@0.5 b3@0.5"
@@ -1258,7 +1258,7 @@ stack(
 ### 66. Ghostbusters
 ```javascript
 // Ghostbusters
-setcps(1.2)
+setcps(0.6)
 const bass = note(cat(
   "b2@0.5 b2@0.5 ~ ~ b2@0.5 b2@0.5 a2@0.5 bb2@0.5",
   "b2@0.5 b2@0.5 ~ ~ f3@0.5 f3@0.5 db3@0.5 b2@0.5"
@@ -1278,7 +1278,7 @@ stack(
 ### 67. Axel F (Crazy Frog)
 ```javascript
 // Axel F
-setcps(1.3)
+setcps(0.6)
 const melody = note(cat(
   "f4@1 ~ ab4@0.75 f4@0.25 f4@0.25 bb4@0.5 f4@0.5 eb4@0.5",
   "f4@1 ~ c5@0.75 f4@0.25 f4@0.25 db5@0.5 c5@0.5 ab4@0.5"
@@ -1294,7 +1294,7 @@ stack(
 ### 68. Rocky (Gonna Fly Now)
 ```javascript
 // Rocky
-setcps(1.2)
+setcps(0.6)
 const brass = note(cat(
   "e4@0.5 g4@0.5 a4@2",
   "b3@0.5 e4@0.5 g4@0.5 a4@2"
@@ -1310,7 +1310,7 @@ stack(
 ### 69. Chariots of Fire
 ```javascript
 // Chariots of Fire
-setcps(1)
+setcps(0.6)
 const melody = note(cat(
   "c4@0.5 f4@0.5 g4@0.5 a4@1.5 g4@1",
   "c4@0.5 f4@0.5 g4@0.5 a4@0.5 g4@2"
@@ -1353,7 +1353,7 @@ stack(
 ### 71. Toxic (Britney Spears)
 ```javascript
 // Toxic
-setcps(1.4)
+setcps(0.6)
 const riff = note(cat(
   "c5@0.5 c5@0.5 eb5@0.5 c5@0.5 db5@0.5 c5@0.5 bb4@0.5 c5@0.5",
   "~ ~ ~ ~"
@@ -1369,7 +1369,7 @@ stack(
 ### 72. Umbrella (Rihanna)
 ```javascript
 // Umbrella
-setcps(1.2)
+setcps(0.6)
 const melody = note(cat(
   "a4@0.5 c5@0.5 c5@0.5 c5@0.5 b4@0.5 b4@0.5 b4@0.5 b4@0.5"
 ))
@@ -1388,7 +1388,7 @@ stack(
 ### 73. Crazy in Love (Beyonce)
 ```javascript
 // Crazy in Love
-setcps(1.1)
+setcps(0.6)
 const brass = note(cat(
   "d4@0.5 d4@0.5 a4@0.5 d4@0.5 f4@0.5 d4@1 f4@0.5 d4@0.5",
   "c4@0.5 c4@0.5 g4@0.5 c4@0.5 e4@0.5 c4@1 e4@0.5 c4@0.5"
@@ -1404,7 +1404,7 @@ stack(
 ### 74. Single Ladies
 ```javascript
 // Single Ladies
-setcps(1.1)
+setcps(0.6)
 const synth = note(cat(
   "e4@0.5 b4@0.5 e4@0.5 b4@0.5 e4@0.5 b4@0.5 c#5@1"
 ))
@@ -1421,7 +1421,7 @@ stack(
 ### 75. Rehab (Amy Winehouse)
 ```javascript
 // Rehab
-setcps(1.2)
+setcps(0.6)
 const melody = note(cat(
   "c4@1 g4@0.5 f4@0.5 e4@0.5 c4@1.5",
   "d4@0.5 c4@3.5"
@@ -1441,10 +1441,10 @@ stack(
 ### 76. Hey Ya! (OutKast)
 ```javascript
 // Hey Ya!
-setcps(1.5)
+setcps(0.6)
 const chords = note(cat(
   "g3@4 c4@4 d4@2 e4@4"
-))
+)).slow(3.5)
   .chord("major")
   .s("supersaw").attack(0.1)
 
@@ -1457,7 +1457,7 @@ stack(
 ### 77. Crazy (Gnarls Barkley)
 ```javascript
 // Crazy
-setcps(1.1)
+setcps(0.6)
 const bass = note(cat(
   "c3@1 c3@0.5 eb3@0.5 g3@1 bb3@0.5 g3@0.5",
   "ab3@1 ab3@0.5 f3@0.5 eb3@1 c3@1"
@@ -1476,7 +1476,7 @@ stack(
 setcps(0.8)
 const chords = note(cat(
   "b3@4 f#3@4 e3@4"
-))
+)).slow(3)
   .chord("major")
   .s("supermandolin") // acoustic guitar
 
@@ -1489,7 +1489,7 @@ stack(
 ### 79. Clocks (Coldplay)
 ```javascript
 // Clocks
-setcps(1.3)
+setcps(0.6)
 const riff = note(cat(
   "eb5@0.5 bb4@0.5 g4@0.5 eb5@0.5 bb4@0.5 g4@0.5 eb5@0.5 bb4@0.5",
   "db5@0.5 bb4@0.5 f4@0.5 db5@0.5 bb4@0.5 f4@0.5 db5@0.5 bb4@0.5"
@@ -1505,10 +1505,10 @@ stack(
 ### 80. Viva La Vida (Coldplay)
 ```javascript
 // Viva La Vida
-setcps(1.4)
+setcps(0.6)
 const chords = note(cat(
   "db4@4 eb4@4 ab3@4 f3@4"
-))
+)).slow(4)
   .chord("major")
   .s("supersaw").attack(0.2)
 
@@ -1521,7 +1521,7 @@ stack(
 ### 81. I Gotta Feeling (Black Eyed Peas)
 ```javascript
 // I Gotta Feeling
-setcps(1.3)
+setcps(0.6)
 const riff = note(cat(
   "g4@1 g4@0.5 c4@0.5 b3@0.5 c4@1.5",
   "g4@1 g4@0.5 c4@0.5 b3@0.5 c4@1.5"
@@ -1537,7 +1537,7 @@ stack(
 ### 82. Fireflies (Owl City)
 ```javascript
 // Fireflies
-setcps(1.2)
+setcps(0.6)
 const melody = note(cat(
   "bb4@0.5 f5@0.5 eb5@0.5 bb4@0.5 g4@0.5 bb4@0.5 f5@0.5 eb5@0.5",
   "bb4@0.5 g4@0.5 f4@0.5 g4@0.5 eb4@1 eb4@1"
@@ -1553,7 +1553,7 @@ stack(
 ### 83. Moves Like Jagger
 ```javascript
 // Moves Like Jagger
-setcps(1.3)
+setcps(0.6)
 const riff = note(cat(
   "b4@0.5 b4@0.5 b4@0.5 b4@0.5 e4@0.5 g4@0.5 a4@0.5 b4@0.5"
 ))
@@ -1572,10 +1572,10 @@ stack(
 ### 84. Get Lucky (Daft Punk)
 ```javascript
 // Get Lucky
-setcps(1.2)
+setcps(0.6)
 const chords = note(cat(
   "b3@2 d4@2 f#4@2 e4@2"
-))
+)).slow(2)
   .chord("minor7")
   .s("superpiano") // funky guitar
 
@@ -1592,7 +1592,7 @@ stack(
 ### 85. Happy (Pharrell)
 ```javascript
 // Happy
-setcps(1.6)
+setcps(0.6)
 const melody = note(cat(
   "f4@0.5 f4@0.5 f4@0.5 a4@0.5 c5@0.5 a4@0.5 f4@0.5 c4@0.5",
   "f4@1 f4@2"
@@ -1612,7 +1612,7 @@ stack(
 ### 86. Portal (Still Alive)
 ```javascript
 // Still Alive
-setcps(1.2)
+setcps(0.6)
 const melody = note(cat(
   "g4@0.5 f#4@0.5 e4@0.5 e4@0.5 f#4@2",
   "a3@0.5 a3@0.5 e4@0.5 d4@0.5 c#4@0.5 d4@0.5 e4@0.5 a3@0.5",
@@ -1648,7 +1648,7 @@ stack(
 ### 88. Among Us (Drip Theme)
 ```javascript
 // Among Us
-setcps(1.2)
+setcps(0.6)
 const melody = note(cat(
   "c4@0.5 eb4@0.5 f4@0.5 f#4@0.5 f4@0.5 eb4@0.5 c4@1",
   "bb3@0.25 d4@0.25 c4@1.5"
@@ -1664,7 +1664,7 @@ stack(
 ### 89. Wii Shop Channel
 ```javascript
 // Wii Shop Channel
-setcps(1.5)
+setcps(0.6)
 const melody = note(cat(
   "d4@1 a4@0.5 g4@0.5 d4@0.5 c4@0.5 d4@1",
   "a4@1 g4@0.5 f#4@0.5 e4@0.5 d4@0.5 c#4@0.5 a3@0.5"
@@ -1684,7 +1684,7 @@ stack(
 ### 90. Kahoot Music
 ```javascript
 // Kahoot
-setcps(1.3)
+setcps(0.6)
 const melody = note(cat(
   "f4@0.5 f4@0.5 c4@0.5 f4@0.5 g4@0.5 f4@0.5 c4@0.5 f4@0.5",
   "d4@0.5 c4@0.5 d4@0.5 c4@0.5 b3@0.5 a3@0.5 g3@0.5 a3@0.5"
@@ -1708,12 +1708,12 @@ setcps(0.6)
 const chords = note(cat(
   "d3@2 f#3@2 a3@2 d4@2",
   "g3@2 b3@2 d4@2 g4@2"
-))
+)).slow(2)
   .s("superpiano").lpf(1000)
 
 const melody = note(cat(
   "f#4@4 a4@4"
-))
+)).slow(2)
   .s("superpiano")
 
 stack(
@@ -1741,7 +1741,7 @@ stack(
 ### 93. Plants vs Zombies (Loonboon)
 ```javascript
 // Loonboon
-setcps(1.5)
+setcps(0.6)
 const melody = note(cat(
   "c4@0.5 g4@0.5 c5@0.5 g4@0.5 a4@0.5 c4@0.5 bb4@0.5 a4@0.5",
   "g4@0.5 c4@0.5 f4@0.5 g4@0.5 ab4@0.5 g4@0.5 f4@0.5 e4@0.5"
@@ -1757,7 +1757,7 @@ stack(
 ### 94. Undertale (Megalovania)
 ```javascript
 // Megalovania
-setcps(1.4)
+setcps(0.6)
 const riff = note(cat(
   "d4@0.25 d4@0.25 d5@0.5 a4@0.75 ab4@0.5 g4@0.5 f4@0.5 d4@0.25 f4@0.25 g4@0.25"
 ))
@@ -1772,7 +1772,7 @@ stack(
 ### 95. Tetris (Theme A)
 ```javascript
 // Tetris
-setcps(1.4)
+setcps(0.6)
 const melody = note(cat(
   "e5@1 b4@0.5 c5@0.5 d5@1 c5@0.5 b4@0.5",
   "a4@1 a4@0.5 c5@0.5 e5@1 d5@0.5 c5@0.5",
@@ -1819,7 +1819,7 @@ stack(
 ### 97. In the Hall of the Mountain King
 ```javascript
 // Hall of the Mountain King
-setcps(1.2)
+setcps(0.6)
 const melody = note(cat(
   "b2@0.5 c#3@0.5 d3@0.5 e3@0.5 f#3@0.5 d3@0.5 f#3@1",
   "f#3@0.5 c#3@0.5 f#3@1 f#3@0.5 c#3@0.5 f#3@1",
@@ -1841,7 +1841,7 @@ stack(
 ### 98. William Tell Overture (Finale)
 ```javascript
 // William Tell
-setcps(1.6)
+setcps(0.6)
 const melody = note(cat(
   "e4@0.5 e4@0.5 e4@0.5 f4@0.5 g4@2",
   "g4@0.5 g4@0.5 f4@0.5 e4@0.5 d4@2",
@@ -1861,7 +1861,7 @@ stack(
 ### 99. Ride of the Valkyries
 ```javascript
 // Ride of the Valkyries
-setcps(1.4)
+setcps(0.6)
 const melody = note(cat(
   "b3@1.5 e4@0.5 g4@1.5 b4@0.5 g4@2",
   "b3@1.5 g4@0.5 b4@1.5 e5@0.5 b4@2",
@@ -1882,7 +1882,7 @@ stack(
 ### 100. Carol of the Bells
 ```javascript
 // Carol of the Bells
-setcps(1.4)
+setcps(0.6)
 const melody = note(cat(
   "bb4@0.5 a4@0.5 bb4@0.5 g4@0.5",
   "bb4@0.5 a4@0.5 bb4@0.5 g4@0.5",
