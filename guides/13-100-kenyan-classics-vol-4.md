@@ -20,7 +20,7 @@ stack(
   s("superpiano").note(cat(
     "f3@2 g3@1 a3@1 c4@2 . c4@1 a3@1 f3@2",
     "d3@2 f3@1 g3@1 a3@2 . g3@1 f3@1 d3@2"
-  )).lpf(2000),
+  )).slow(2.75).lpf(2000),
   s("bd, sd").struct("x ~ x ~")
 )
 ```

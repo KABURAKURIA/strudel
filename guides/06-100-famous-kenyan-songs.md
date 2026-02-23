@@ -32,7 +32,7 @@ const chords = note(cat(
   "d3@4 a2@2",
   "d3@2 g2@2 a2@2 d3@2",
   "a2@2 d3@2 a2@2 d3@3"
-))
+)).slow(2.25)
   .chord("major")
   .s("supersaw").attack(0.1).release(0.8)
   .slow(1)
@@ -62,7 +62,7 @@ setcps(0.5)
 const melody = note(cat(
   "c4@1 d4@1 e4@1 g4@3",
   "g4@1 a4@1 g4@1 e4@1 d4@1 c4@3"
-))
+)).slow(2)
   .s("sine").decay(0.5)
   .room(0.5)
   .velocity(0.8)
@@ -71,7 +71,7 @@ const melody = note(cat(
 const chords = note(cat(
   "c3@3 f3@3",
   "c3@4 g3@2 c3@2"
-))
+)).slow(2)
   .chord("major")
   .s("superpiano")
   .velocity(0.6)
@@ -213,7 +213,7 @@ const melody = note(cat(
   "g4@1.5 g4@0.5 f#4@1 g4@1 a4@4", // Jambo, Jambo Bwana
   "~ g4@1 a4@1 b4@1 c5@4",        // Habari gani
   "~ b4@1 a4@1 g4@4"              // Nzuri sana
-))
+)).slow(2)
   .s("superpwm")
   .lpf(2000)
   .velocity(0.9)
@@ -223,7 +223,7 @@ const chords = note(cat(
   "g3@8",
   "d3@8",
   "g3@4 c4@4"
-))
+)).slow(2)
   .chord("major")
   .s("superpiano")
   .velocity(0.6)
@@ -252,7 +252,7 @@ setcps(0.5)
 const melody = note(cat(
   "a4@1.5 g4@0.5 f4@3",
   "~ f4@0.5 g4@0.5 a4@1 c5@1 a4@1 g4@1 f4@3"
-))
+)).slow(2.25)
   .s("supermandolin")
   .room(0.8)
   .velocity(0.9)
@@ -261,7 +261,7 @@ const melody = note(cat(
 const chords = note(cat(
   "f3@4",
   "bb3@2 c4@2 f3@4"
-))
+)).slow(2)
   .chord("major")
   .s("superpiano")
   .velocity(0.6)
@@ -290,7 +290,7 @@ setcps(0.7)
 const melody = note(cat(
   "c5@1 c5@1 b4@1 a4@1 g4@1 e4@3",
   "c5@1 c5@1 b4@1 a4@1 g4@1"
-))
+)).slow(2)
   .s("supermandolin")
   .shape(0.4)
   .velocity(0.9)
@@ -393,7 +393,7 @@ const melody = note(cat(
   "e4@1 g4@1 c5@2",
   "b4@1 a4@1 g4@1 f4@2"
 ))
-  .s("sax")
+  .s("sawtooth").lpf(2000)
   .legato(0.8)
   .velocity(0.9)
 
@@ -660,7 +660,7 @@ setcps(0.55)
 const melody = note(cat(
   "d4@1 f#4@1 a4@1 d5@1"
 ))
-  .s("sax")
+  .s("sawtooth").lpf(2000)
   .gain(0.8)
   .velocity(0.9)
 

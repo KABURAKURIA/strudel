@@ -111,7 +111,7 @@ setcps(90/60/4) // 90 BPM
 
 // 1. The Main Riff (Saxophone style)
 const sax = note("d4 f4 a4 c5 ~ a4 g4 f4")
-  .s("sax")
+  .s("sawtooth").lpf(2000)
   .legato(0.8)
   .lpf(1500)
   .delay(0.5)
@@ -237,7 +237,7 @@ const chorus = stack(
   ).fast(4).swing(0.1),
   // Melody fits in 1 cycle
   note("g5 ~ f5 eb5 ~ c5 bb4 ~")
-    .scale("Eb:major").s("sax").legato(0.8).lpf(1500).delay(0.4)
+    .scale("Eb:major").s("sawtooth").lpf(2000).legato(0.8).lpf(1500).delay(0.4)
 )
 
 // 4. Outro: Strip back

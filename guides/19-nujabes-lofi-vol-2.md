@@ -124,7 +124,7 @@ const beat = stack(
 
 // 4. Lead: Jazzy Sax Lick
 const sax = note("f4 eb4 db4 bb3 ~ f4")
-  .s("sax")
+  .s("sawtooth").lpf(2000)
   .legato(0.8)
   .delay(0.4)
   .every(2, x => x.transpose(12)) // Octave jump

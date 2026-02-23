@@ -580,7 +580,7 @@ Jazz-infused Luo tunes.
 // Thumology
 // setcps(0.45)
 stack(
-  s("sax").note("c4 e4 g4 c5").legato(0.6),
+  s("sawtooth").lpf(2000).note("c4 e4 g4 c5").legato(0.6),
   s("bd(3,8)")
 )
 ```
@@ -591,7 +591,7 @@ Modernizing the sound.
 // Benga - Owuor Arunga
 // setcps(0.47)
 stack(
-  s("sax").note("f3 a3 c4 f4"),
+  s("sawtooth").lpf(2000).note("f3 a3 c4 f4"),
   s("hh*8")
 )
 ```
