@@ -24,8 +24,8 @@ const melody = note(cat(
   .s("supermandolin")
 
 // 2. Jazz Chords
-const chords = note("c3@3 g3@3 c3@3 f3@3")
-  .chord("dom7")
+const chords = note("c3:dom7@3 g3:dom7@3 c3:dom7@3 f3:dom7@3")
+
   .s("superpiano")
 
 stack(
@@ -1373,8 +1373,8 @@ stack(
 ```javascript
 // Wonderwall
 setcps(0.9)
-const chords = note("f#3 a3 e3 b3")
-  .chord("min7")
+const chords = note("f#3:min7 a3:min7 e3:min7 b3:min7")
+
   .s("supermandolin")
 
 stack(
@@ -1522,8 +1522,8 @@ const melody = note(cat(
 )).slow(1.62)
   .s("supersaw")
 
-const chords = note("f3 g3 e3 a3")
-  .chord("major")
+const chords = note("f3:major g3:major e3:major a3:major")
+
   .s("superpiano")
 
 stack(

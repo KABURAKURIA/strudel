@@ -38,7 +38,6 @@ const chords = note("d3 f#3 a3 c#4 e4 . f#3 a3 c#4 e4 . b2 d3 f#3 a3 c#4 . a2 c#
 // --- Melody (Main Hook) ---
 // A clear, descending motif
 const melody = note("a5 . f#5 . e5 . c#5 . d5 c#5 . b4 . a4 . ~")
-  .scale("d:lydian")
   .apply(pianoTone)
   .gain(0.9)
 

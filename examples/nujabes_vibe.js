@@ -8,8 +8,7 @@ setcps(90/60/4)
 // 1. Piano Chords
 // We use a stack of notes to form chords, or the `chord` function.
 // Here we use a jazzy chord progression: Dm9 - G13 - Cmaj9
-const piano = note("d3 g3 c3")
-  .chord("minor9 dom13 major9")
+const piano = note("d3:minor9 g3:dom13 c3:major9")
   .s("superpiano")
   .lpf(2000)      // Low pass filter to soften the sound
   .velocity(0.6)  // Soft touch

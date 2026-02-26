@@ -21,8 +21,8 @@ const melody = note(cat(
   .s("organ")
 
 // 2. Chords (The Skank - on the "and")
-const chords = note("~ c3 ~ g3")
-  .chord("major")
+const chords = note("~ c3:major ~ g3:major")
+
   .s("superpiano").attack(0.05).release(0.1)
 
 stack(

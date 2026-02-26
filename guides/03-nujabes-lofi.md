@@ -237,7 +237,7 @@ const chorus = stack(
   ).fast(4).swing(0.1),
   // Melody fits in 1 cycle
   note("g5 ~ f5 eb5 ~ c5 bb4 ~")
-    .scale("Eb:major").s("sawtooth").lpf(2000).legato(0.8).lpf(1500).delay(0.4)
+    .s("sawtooth").lpf(2000).legato(0.8).lpf(1500).delay(0.4)
 )
 
 // 4. Outro: Strip back

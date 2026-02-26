@@ -220,8 +220,8 @@ const melody = note(cat(
   .s("square")
   .velocity(0.8)
 
-const chords = note("g3 c3 g3 d3")
-  .chord("major")
+const chords = note("g3:major c3:major g3:major d3:major")
+
   .s("superpiano")
   .gain(0.6)
 
@@ -245,8 +245,8 @@ const melody = note(cat(
   .gain(sine.range(0.5, 1).fast(4))
   .velocity(0.8)
 
-const chords = note("c3 g3 f3 c3")
-  .chord("major")
+const chords = note("c3:major g3:major f3:major c3:major")
+
   .s("superpiano")
   .gain(0.6)
 
@@ -295,8 +295,8 @@ const melody = note(cat(
   .lpf(sine.range(500, 2000).slow(2))
   .velocity(0.9)
 
-const chords = note("f3 c3 f3")
-  .chord("major")
+const chords = note("f3:major c3:major f3:major")
+
   .s("superpiano")
   .gain(0.6)
 
@@ -460,8 +460,8 @@ const melody = note(cat(
   .s("square")
   .velocity(0.8)
 
-const chords = note("c3 g3")
-  .chord("major")
+const chords = note("c3:major g3:major")
+
   .s("superpiano")
   .gain(0.6)
 
@@ -672,8 +672,8 @@ const melody = note(cat(
   .gain(sine.range(0.5, 1).fast(4))
   .velocity(0.8)
 
-const chords = note("g2 c3 g3 d3")
-  .chord("major")
+const chords = note("g2:major c3:major g3:major d3:major")
+
   .s("supersaw").attack(0.5)
   .gain(0.6)
 
@@ -2363,8 +2363,8 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS
-const chords = note("c3 g3 c3 f3")
-  .chord("major9")
+const chords = note("c3:major9 g3:major9 c3:major9 f3:major9")
+
   .s("supersaw").attack(0.5)
   .gain(0.6)
 
