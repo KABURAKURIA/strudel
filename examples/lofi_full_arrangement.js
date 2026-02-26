@@ -31,7 +31,6 @@ const keysSound = s("superpiano")
 // 1. Chord Progression (4 bars)
 // Fits perfectly into our long cycle
 const progression = note("eb4:major7 c4:minor7 f3:minor7 bb3:dom7")
-  .chord("major7 minor7 minor7 dom7")
 
 // 2. Bass Line (4 bars)
 const bassLine = note("eb2 c2 f2 bb2")
@@ -53,7 +52,6 @@ const hihats = s("hh*8")
 
 // 4. Melody (Chorus)
 const chorusMelody = note("g5 ~ f5 eb5 ~ c5 bb4 ~")
-  .scale("Eb:major")
   .s("sawtooth").lpf(2000)
   .legato(0.8)
   .lpf(1500)

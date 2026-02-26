@@ -99,4 +99,23 @@ Strudel mini-notation `{a b, c d e}` plays "a b" and "c d e" at the same speed s
 s("{bd sd, hh hh hh}")
 ```
 
+## 7. Structuring Rhythms with `struct`
+
+The `struct` function allows you to apply a boolean (on/off) pattern to any sound or melody. It is incredibly useful for creating precise drum patterns using Euclidean strings or custom "x" and "~" notation.
+
+- `x`: Play an event.
+- `~`: Rest (silence).
+
+```javascript
+// Play kick on the 1st and 3rd beat
+s("bd").struct("x ~ x ~")
+```
+
+You can use it to "chop" a sustained sound:
+
+```javascript
+// Chop a piano chord
+note("c:minor").s("superpiano").struct("x x ~ x")
+```
+
 Next, we'll dive into making a specific genre: Lo-Fi Hip Hop!

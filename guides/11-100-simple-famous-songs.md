@@ -174,8 +174,8 @@ const melody = note(cat(
 )).slow(2)
   .s("square")
 
-const chords = note("g3 c3 g3 d3")
-  .chord("major")
+const chords = note("g3:major c3:major g3:major d3:major")
+
   .s("superpiano")
 
 stack(
@@ -195,8 +195,8 @@ const melody = note(cat(
 )).slow(2)
   .s("superpiano").lpf(1000)
 
-const chords = note("c3 g3 f3 c3")
-  .chord("major")
+const chords = note("c3:major g3:major f3:major c3:major")
+
   .s("superpiano")
 
 stack(
@@ -233,8 +233,8 @@ const melody = note(cat(
 )).slow(2)
   .s("superpwm")
 
-const chords = note("f3 c3 f3")
-  .chord("major")
+const chords = note("f3:major c3:major f3:major")
+
   .s("superpiano")
 
 stack(
@@ -366,8 +366,8 @@ const melody = note(cat(
 )).slow(2)
   .s("square")
 
-const chords = note("c3 g3")
-  .chord("major")
+const chords = note("c3:major g3:major")
+
   .s("superpiano")
 
 stack(
@@ -541,8 +541,8 @@ const melody = note(cat(
 )).slow(2.5)
   .s("superpwm")
 
-const chords = note("g2 c3 g3 d3")
-  .chord("major")
+const chords = note("g2:major c3:major g3:major d3:major")
+
   .s("supersaw").attack(0.5)
 
 stack(
@@ -1975,8 +1975,8 @@ const melody = note(cat(
   .s("supersaw")
 
 // 2. CHORDS
-const chords = note("c3 g3 c3 f3")
-  .chord("major9")
+const chords = note("c3:major9 g3:major9 c3:major9 f3:major9")
+
   .s("supersaw").attack(0.5)
 
 // 3. IMPROV (Arp)
@@ -2001,8 +2001,8 @@ const melody = note(cat(
 )).slow(3)
   .s("superpiano")
 
-const chords = note("c3 g3 c3 f3 c3 g3 c3")
-  .chord("major")
+const chords = note("c3:major g3:major c3:major f3:major c3:major g3:major c3:major")
+
   .s("superpiano")
 
 stack(

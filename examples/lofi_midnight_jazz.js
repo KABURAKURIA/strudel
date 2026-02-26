@@ -16,8 +16,7 @@ const vinyl = s("noise")
 // Progression: Cm9 - Fm9 - Bb13 - G7alt
 // Using 'stack' to manually voice the chords for a wider sound
 // or simply using chord names.
-const chords = note("c3 f3 bb2 g2")
-  .chord("minor9 minor9 dom13 dom7sharp9") // Complex jazz chords
+const chords = note("c3:minor9 f3:minor9 bb2:dom13 g2:dom7sharp9")
   .s("superpiano")
   .velocity("0.5 0.6 0.4 0.5")
   .lpf(800)       // Dark tone
@@ -44,7 +43,6 @@ const drums = stack(
 // 5. Saxophone Solo
 // Generative melody using a scale
 const saxSolo = note("c4 d4 eb4 g4 bb4 c5 eb5")
-  .scale("C:minor") // C Minor scale
   .s("sawtooth").lpf(2000)
   .legato(1)
   .lpf(2000)

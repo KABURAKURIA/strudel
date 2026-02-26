@@ -6,8 +6,7 @@ setcps(96/60/4)
 
 // 1. Electric Piano (Rhodes Style)
 // Progression: Fmaj7 - Em7 - Dm7 - G7
-const keys = note("f3 e3 d3 g2")
-  .chord("major7 minor7 minor7 dom7")
+const keys = note("f3:major7 e3:minor7 d3:minor7 g2:dom7")
   .s("rhodes") // Use a rhodes-like sound if available, or 'piano' with filtering
   .lpf(1500)   // Mellow tone
   .vowel("a")  // Subtle formant filter for warmth
