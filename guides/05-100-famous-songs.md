@@ -27,12 +27,12 @@ const melody = note(cat(
 
 // 2. THE CHORDS (C -> G -> C -> F)
 const chords = note(cat(
-  "c3@6 g3@6",
-  "g3@6 c3@6",
-  "c3@6 f3@6",
-  "f3@4 c3@2 g3@2 c3@4"
+  "c3:major@6 g3:major@6",
+  "g3:major@6 c3:major@6",
+  "c3:major@6 f3:major@6",
+  "f3:major@4 c3:major@2 g3:major@2 c3:major@4"
 )).slow(3)
-  .chord("major")
+
   .s("superpiano")
   .velocity(0.6)
 
@@ -68,10 +68,10 @@ const melody = note(cat(
 
 // 2. CHORDS (C -> F -> C -> G -> C)
 const chords = note(cat(
-  "c3@2 f3@1 c3@1 f3@1 c3@1 g3@2",
-  "f3@1 c3@1 g3@1 c3@1 g3@1 c3@1 g3@2"
+  "c3:major7@2 f3:major7@1 c3:major7@1 f3:major7@1 c3:major7@1 g3:major7@2",
+  "f3:major7@1 c3:major7@1 g3:major7@1 c3:major7@1 g3:major7@1 c3:major7@1 g3:major7@2"
 )).slow(2)
-  .chord("major7")
+
   .s("superpiano")
   .velocity(0.5)
 
@@ -106,10 +106,10 @@ const melody = note(cat(
 
 // 2. CHORDS (C -> G -> C)
 const chords = note(cat(
-  "c3@4 c3@4",
-  "g3@4 c3@4"
+  "c3:major@4 c3:major@4",
+  "g3:major@4 c3:major@4"
 )).slow(2)
-  .chord("major")
+
   .s("supersaw")
   .gain(0.5)
 
@@ -166,9 +166,9 @@ const melody = note(cat(
   .velocity(0.8)
 
 const harmony = note(cat(
-  "c3@4", "c3@4", "c3@4", "c3@4"
+  "c3:major@4", "c3:major@4", "c3:major@4", "c3:major@4"
 ))
-  .chord("major")
+
   .s("superpiano")
   .gain(0.6)
 

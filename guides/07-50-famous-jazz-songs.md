@@ -38,7 +38,7 @@ const piano = note(cat(
   bridge, bridge, // B
   vamp, vamp, vamp, vamp // A
 ))
-  .chord("minor7")
+
   .s("superpiano")
   .voicings("root")
   .velocity(0.6)
@@ -90,7 +90,7 @@ const chords = note(cat(
   soWhatEb, soWhatEb, soWhatEb, soWhatEb, // B (Modulate up semitone)
   soWhatD, soWhatD, soWhatD, soWhatD  // A
 ))
-  .chord("m11")
+
   .s("superpiano")
   .velocity(0.7)
 
@@ -204,10 +204,10 @@ const melody = note(cat(
 
 // 2. CHORDS (Cm7 - Fm7 - Dm7b5 - G7)
 const chords = note(cat(
-  "c3@8 f3@4 bb2@4",
-  "d3@4 g2@4 c3@8"
+  "c3:minor7@8 f3:minor7@4 bb2:m7b5@4",
+  "d3:minor7@4 g2:minor7@4 c3:m7b5@8"
 )).slow(4)
-  .chord("minor7 minor7 m7b5 dom7 minor7")
+
   .s("superpiano")
   .struct("x ~ x x ~ x x ~") // Bossa rhythm
   .gain(0.6)
@@ -260,12 +260,12 @@ const ostinato = note(cat(
 
 // 3. CHORDS
 const chords = note(cat(
-  "g3@16",
-  "c3@8",
-  "g3@8",
-  "d3@4 eb3@4 g3@8"
+  "g3:dom7@16",
+  "c3:dom7@8",
+  "g3:dom7@8",
+  "d3:dom7@4 eb3:dom7@4 g3:dom7@8"
 )).slow(4)
-  .chord("dom7")
+
   .s("supersaw").attack(0.1).release(0.8)
   .gain(0.4)
 
@@ -295,8 +295,7 @@ const melody = note(cat(
   .room(0.8)
 
 // 2. CHORDS (Am6 - E7)
-const chords = note("a3 e3")
-  .chord("m6 dom7")
+const chords = note("a3:m6 e3:dom7")
   .s("superpiano")
   .slow(2)
   .gain(0.6)
@@ -370,12 +369,12 @@ const melody = note(cat(phrase1, phrase2, phrase3, phrase4))
 // Ebmaj7 | Am7 D7 | Gmaj7 | C#m7 F#7
 // Bmaj7 | Fm7 Bb7 | Ebmaj7 | C#m7 F#7
 const chords = note(cat(
-  "b3@2 d3@2 g3@2 bb3@2 eb3@4 a3@2 d3@2",
-  "g3@2 bb3@2 eb3@2 gb3@2 b3@4 f3@2 bb3@2",
-  "eb3@4 a3@2 d3@2 g3@4 cs3@2 fs3@2",
-  "b3@4 f3@2 bb3@2 eb3@4 cs3@2 fs3@2"
+  "b3:maj7@2 d3:dom7@2 g3:maj7@2 bb3:dom7@2 eb3:maj7@4 a3:dom7@2 d3:maj7@2",
+  "g3:maj7@2 bb3:dom7@2 eb3:maj7@2 gb3:dom7@2 b3:maj7@4 f3:dom7@2 bb3:maj7@2",
+  "eb3:maj7@4 a3:dom7@2 d3:maj7@2 g3:dom7@4 cs3:maj7@2 fs3:dom7@2",
+  "b3:maj7@4 f3:dom7@2 bb3:maj7@2 eb3:dom7@4 cs3:maj7@2 fs3:dom7@2"
 )).slow(4)
-  .chord("maj7 dom7")
+
   .s("superpiano")
   .velocity(0.7)
 
@@ -413,8 +412,7 @@ const melody = note(cat(
   .velocity(0.8)
 
 // 2. CHORDS (Em9 - Cmaj7)
-const chords = note("e3@3 c3@3")
-  .chord("m9 maj7")
+const chords = note("e3:m9@3 c3:maj7@3")
   .s("superpiano")
   .gain(0.5)
 
@@ -482,8 +480,7 @@ const melody = note(cat(
   .velocity(0.8)
 
 // 2. CHORDS (Ebm7...)
-const chords = note("eb3@2 ab3@2")
-  .chord("minor7 dom7")
+const chords = note("eb3:minor7@2 ab3:dom7@2")
   .s("superpiano")
   .slow(2)
   .gain(0.5)
@@ -520,11 +517,11 @@ const melody = note(cat(a1, b1, a1, c1))
 
 // 2. CHORDS (Bb Blues)
 const chords = note(cat(
-  "bb2@4 eb3@4 bb2@4 bb2@4",  // I - IV - I - I
-  "eb3@4 eb3@4 bb2@4 bb2@4",  // IV - IV - I - I
-  "f3@4 f3@4 bb2@4 f3@4"      // V - V - I - V
+  "bb2:dom7@4 eb3:dom7@4 bb2:dom7@4 bb2:dom7@4",  // I - IV - I - I
+  "eb3:dom7@4 eb3:dom7@4 bb2:dom7@4 bb2:dom7@4",  // IV - IV - I - I
+  "f3:dom7@4 f3:dom7@4 bb2:dom7@4 f3:dom7@4"      // V - V - I - V
 )).slow(4)
-  .chord("dom7")
+
   .s("superpwm")
   .lpf(2000)
   .gain(0.5)
@@ -560,8 +557,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. PIANO VAMP (Fm7)
-const piano = note("f3@2.5 ab3@1.5")
-  .chord("minor7")
+const piano = note("f3:minor7@2.5 ab3:minor7@1.5")
   .s("superpiano")
   .gain(0.7)
 
@@ -599,8 +595,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. PIANO GROOVE (F7)
-const piano = note("f3@2.5 eb3@1.5")
-  .chord("dom7")
+const piano = note("f3:dom7@2.5 eb3:dom7@1.5")
   .s("superpiano")
   .gain(0.6)
 
@@ -637,8 +632,7 @@ const bass = note("f2@1.5 f2@0.5 c3@1 c2@1")
   .gain(0.8)
 
 // 3. CHORDS (Fm7 - Eb7)
-const chords = note("f3 eb3")
-  .chord("minor7 dom7")
+const chords = note("f3:minor7 eb3:dom7")
   .s("superpiano")
   .struct("x ~ x ~")
   .gain(0.5)
@@ -662,8 +656,7 @@ const call = note("f3@0.5 ab3@0.5 f3@0.5 c4@0.5")
   .velocity(0.9)
 
 // 2. RESPONSE (Horns)
-const response = note("f3@0.5 eb3@0.5 c3@0.5 ab2@0.5 f2@1")
-  .chord("dom7")
+const response = note("f3:dom7@0.5 eb3:dom7@0.5 c3:dom7@0.5 ab2:dom7@0.5 f2:dom7@1")
   .s("sawtooth").lpf(2000)
   .delay(0.5) // Wait for call
   .gain(0.7)
@@ -695,8 +688,7 @@ const melody = note(cat(
   .velocity(0.8)
 
 // 2. CHORDS (Bm - A - G - F#)
-const chords = note("b3 a3 g3 f#3")
-  .chord("minor major major major")
+const chords = note("b3:minor a3:major g3:major f#3:major")
   .s("supersaw").attack(0.1).release(0.8)
   .gain(0.6)
 
@@ -722,8 +714,7 @@ const bass = note("bb1@1.5 ab1@0.5 bb1@0.5 db2@0.5 c2@0.5 bb1@0.5")
   .gain(0.9)
 
 // 2. CHORDS
-const chords = note("ab2 g2")
-  .chord("minor7")
+const chords = note("ab2:minor7 g2:minor7")
   .s("superpiano").lpf(1000)
   .struct("~ x ~ x")
   .gain(0.6)
@@ -762,8 +753,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 3. CHORDS (Eb7 - Dm)
-const chords = note("eb3 d3")
-  .chord("dom7 minor")
+const chords = note("eb3:dom7 d3:minor")
   .s("superpiano")
   .struct("x ~ x ~")
   .gain(0.6)
@@ -790,8 +780,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (C Major)
-const chords = note("c3 g3 c3")
-  .chord("major")
+const chords = note("c3:major g3:major c3:major")
   .s("superpiano")
   .struct("x ~ x x") // Calypso rhythm
   .gain(0.6)
@@ -823,8 +812,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (Gm7 - C7 - Fmaj7)
-const chords = note("g3 c3 f3")
-  .chord("minor7 dom7 maj7")
+const chords = note("g3:minor7 c3:dom7 f3:maj7")
   .s("superpiano")
   .struct("x ~ x ~ x ~")
   .gain(0.6)
@@ -858,10 +846,10 @@ const melody = note(cat(
 
 // 2. CHORDS (Bb Rhythm Changes)
 const chords = note(cat(
-  "bb3@2 g3@2 c3@2 f3@2",
-  "bb3@2 eb3@2 bb3@4"
+  "bb3:maj7@2 g3:minor7@2 c3:minor7@2 f3:dom7@2",
+  "bb3:maj7@2 eb3:minor7@2 bb3:minor7@4"
 )).slow(2)
-  .chord("maj7 minor7 minor7 dom7")
+
   .s("superpiano")
   .gain(0.5)
 
@@ -918,8 +906,7 @@ const melody = note(cat(
   .vibrato(0.5)
 
 // 2. CHORDS (Ebm7 - Bb7...)
-const chords = note("eb3 bb3 eb3")
-  .chord("minor7 dom7 minor7")
+const chords = note("eb3:minor7 bb3:dom7 eb3:minor7")
   .s("superpiano")
   .slow(2)
   .gain(0.6)
@@ -951,8 +938,7 @@ const ostinato = note("f3 a3 c4 a3")
   .gain(0.5)
 
 // 3. CHORDS (Dm)
-const chords = note("d3 g3 c3 f3")
-  .chord("minor7 dom7 maj7 maj7")
+const chords = note("d3:minor7 g3:dom7 c3:maj7 f3:maj7")
   .s("supersaw").attack(0.5)
   .slow(4)
   .gain(0.4)
@@ -978,8 +964,7 @@ const melody = note(cat(
   .velocity(0.8)
 
 // 2. CHORDS (Em7b5 - A7 - Cm7 - F7)
-const chords = note("e3 a3 c3 f3")
-  .chord("m7b5 dom7 minor7 dom7")
+const chords = note("e3:m7b5 a3:dom7 c3:minor7 f3:dom7")
   .s("superpiano")
   .struct("x ~ x ~")
   .gain(0.6)
@@ -1006,8 +991,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (Ebmaj7 - Dm7b5 - G7)
-const chords = note("eb3 d3 g3")
-  .chord("maj7 m7b5 dom7")
+const chords = note("eb3:maj7 d3:m7b5 g3:dom7")
   .s("superpiano")
   .struct("x ~ x x")
   .gain(0.6)
@@ -1070,8 +1054,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (Cm(maj7) - Cm7)
-const chords = note("c3")
-  .chord("minor")
+const chords = note("c3:minor")
   .s("superpiano")
   .struct("x")
   .gain(0.6)
@@ -1098,8 +1081,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (Ebmaj7 - Ebm7...)
-const chords = note("eb3 eb3 f3 bb3")
-  .chord("maj7 minor7 minor7 dom7")
+const chords = note("eb3:maj7 eb3:minor7 f3:minor7 bb3:dom7")
   .s("superpiano")
   .struct("x ~ x ~")
   .gain(0.6)
@@ -1126,8 +1108,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (Em7 - A7 - Dmaj7)
-const chords = note("e3 a3 d3")
-  .chord("minor7 dom7 maj7")
+const chords = note("e3:minor7 a3:dom7 d3:maj7")
   .s("superpiano")
   .struct("x ~ x x")
   .gain(0.6)
@@ -1180,8 +1161,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS
-const chords = note("eb3")
-  .chord("maj7")
+const chords = note("eb3:maj7")
   .s("superpiano")
   .gain(0.6)
 
@@ -1207,8 +1187,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (F Blues)
-const chords = note("f2 bb2 f2 c3")
-  .chord("dom7")
+const chords = note("f2:dom7 bb2:dom7 f2:dom7 c3:dom7")
   .s("superpwm")
   .slow(4)
   .gain(0.5)
@@ -1235,8 +1214,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (F7 - Gb7)
-const chords = note("f3 gb3")
-  .chord("dom7")
+const chords = note("f3:dom7 gb3:dom7")
   .s("superpiano")
   .struct("x x")
   .gain(0.6)
@@ -1266,10 +1244,10 @@ const melody = note(cat(
 
 // 2. CHORDS (Am11 - Cm11)
 const chords = note(cat(
-  "d3@4",
-  "f3@4"
+  "d3:m11@4",
+  "f3:m11@4"
 ))
-  .chord("m11") // Sus chord sound
+ // Sus chord sound
   .s("superpiano")
   .gain(0.6)
 
@@ -1298,8 +1276,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (Bb Blues)
-const chords = note("bb2 eb3 bb2 f3")
-  .chord("dom7")
+const chords = note("bb2:dom7 eb3:dom7 bb2:dom7 f3:dom7")
   .s("superpiano")
   .slow(4)
   .gain(0.6)
@@ -1354,8 +1331,7 @@ const bass = note("bb1@1 bb1@0.5 bb1@0.5 b1@1 c2@1")
   .gain(0.9)
 
 // 2. CHORDS (Bb7)
-const chords = note("bb2")
-  .chord("dom7")
+const chords = note("bb2:dom7")
   .s("supermandolin")
   .struct("~ x ~ x")
   .gain(0.6)
@@ -1420,8 +1396,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (Bb7)
-const chords = note("bb2")
-  .chord("dom7")
+const chords = note("bb2:dom7")
   .s("superpiano")
   .struct("x ~ x ~")
   .gain(0.6)
@@ -1448,8 +1423,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (Bbm7 - Abmaj7)
-const chords = note("bb3 ab3")
-  .chord("minor7 maj7")
+const chords = note("bb3:minor7 ab3:maj7")
   .s("superpiano")
   .struct("x ~ x ~")
   .gain(0.6)
@@ -1482,8 +1456,7 @@ const melody = note(cat(
   .velocity(0.8)
 
 // 3. CHORDS (Cm11)
-const chords = note("c3")
-  .chord("m11")
+const chords = note("c3:m11")
   .s("superpiano")
   .slow(2)
   .gain(0.5)
@@ -1510,8 +1483,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (Fm7)
-const chords = note("f3")
-  .chord("m7")
+const chords = note("f3:m7")
   .s("superpiano")
   .struct("x ~ ~")
   .gain(0.6)
@@ -1545,8 +1517,7 @@ const melody = note(cat(
   .room(1)
 
 // 2. CHORDS (Phrygian Dominant Feel)
-const chords = note("e3 f3")
-  .chord("minor maj7")
+const chords = note("e3:minor f3:maj7")
   .s("superpiano")
   .struct("x ~ x ~")
   .gain(0.6)
@@ -1573,8 +1544,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (Cm7)
-const chords = note("c3 f3 c3 g3")
-  .chord("minor7")
+const chords = note("c3:minor7 f3:minor7 c3:minor7 g3:minor7")
   .s("superpiano")
   .slow(4)
   .gain(0.5)
@@ -1607,8 +1577,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (Bb Blues)
-const chords = note("bb3 eb3 bb3 f3")
-  .chord("dom7")
+const chords = note("bb3:dom7 eb3:dom7 bb3:dom7 f3:dom7")
   .s("superpiano")
   .slow(4)
   .gain(0.6)
@@ -1642,13 +1611,13 @@ const melody = note(cat(
 
 // 2. CHORDS (C Blues)
 const chords = note(cat(
-  "c3@16", // C7
-  "f3@8",  // F7
-  "c3@8",  // C7
-  "g3@4 f3@4", // G7 - F7
-  "c3@8"   // C7
+  "c3:dom7@16", // C7
+  "f3:dom7@8",  // F7
+  "c3:dom7@8",  // C7
+  "g3:dom7@4 f3:dom7@4", // G7 - F7
+  "c3:dom7@8"   // C7
 )).slow(4)
-  .chord("dom7")
+
   .s("superpwm")
   .gain(0.6)
 
@@ -1674,8 +1643,7 @@ const melody = note(cat(
   .velocity(0.9)
 
 // 2. CHORDS (C7b9 - Fm)
-const chords = note("c3@4 f3@4")
-  .chord("dom7 minor")
+const chords = note("c3:dom7@4 f3:minor@4")
   .s("superpiano")
   .gain(0.6)
 

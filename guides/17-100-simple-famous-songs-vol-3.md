@@ -313,9 +313,9 @@ stack(
 // Twist and Shout
 setcps(0.6)
 const chords = note(cat(
-  "d4@1 g4@1 a4@2"
+  "d4:major@1 g4:major@1 a4:major@2"
 ))
-  .chord("major")
+
   .s("supersaw")
 
 const vocal = note("a4@0.5 b4@0.5 c#5@1 d5@2")
@@ -477,9 +477,9 @@ stack(
 // Hotel California
 setcps(0.8)
 const chords = note(cat(
-  "b3@4 f#3@4 a3@4 e3@4"
+  "b3:minor@4 f#3:minor@4 a3:minor@4 e3:minor@4"
 )).slow(4)
-  .chord("minor")
+
   .s("supermandolin")
 
 const bass = note("b2 f#2 a2 e2")
@@ -565,10 +565,10 @@ stack(
 // Back in Black
 setcps(0.9)
 const chords = note(cat(
-  "e3@1 d3@1 a3@1",
+  "e3:power@1 d3:power@1 a3:power@1",
   "~ ~ ~"
 ))
-  .chord("power")
+
   .s("distortion-guitar").s("sawtooth").distort(0.8)
 
 const lick = note(cat(

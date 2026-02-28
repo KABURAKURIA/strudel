@@ -24,7 +24,7 @@ const bass = note("f2 ~ a2 c3 e2 ~ g2 b2 d2 ~ f2 a2 g2 ~ b2 d3")
 const drums = stack(
   s("bd ~ [~ bd] ~"), // Kick
   s("~ sd ~ sd"),     // Snare
-  s("hh*8").velocity(0.4).deg("0.5") // Hats, panned slightly
+  s("hh*8").velocity(0.4).pan("0.5") // Hats, panned slightly
 ).swing(0.1)
 
 // 4. Vocal Chops
