@@ -1260,10 +1260,10 @@ stack(
 // Jump
 setcps(0.6)
 const chords = note(cat(
-  "c4@1.5 c4@0.5 f4@1 g4@1",
-  "g4@1 g4@0.5 a4@1 f4@1 c4@1"
+  "c4:major@1.5 c4:major@0.5 f4:major@1 g4:major@1",
+  "g4:major@1 g4:major@0.5 a4:major@1 f4:major@1 c4:major@1"
 ))
-  .chord("major")
+
   .s("supersaw")
 
 stack(
@@ -1340,10 +1340,10 @@ stack(
 // Smells Like Teen Spirit
 setcps(0.6)
 const chords = note(cat(
-  "f3@1.5 f3@0.5 bb3@1.5 bb3@0.5",
-  "ab3@1.5 ab3@0.5 db4@1.5 db4@0.5"
+  "f3:power@1.5 f3:power@0.5 bb3:power@1.5 bb3:power@0.5",
+  "ab3:power@1.5 ab3:power@0.5 db4:power@1.5 db4:power@0.5"
 ))
-  .chord("power")
+
   .s("distortion-guitar")
   .s("sawtooth").distort(0.8)
 
@@ -1404,9 +1404,9 @@ stack(
 // Viva La Vida
 setcps(0.6)
 const chords = note(cat(
-  "db4@4 eb4@4 ab3@4 f3@4"
+  "db4:major@4 eb4:major@4 ab3:major@4 f3:major@4"
 )).slow(4)
-  .chord("major")
+
   .s("supersaw").attack(0.2)
 
 stack(
@@ -1577,9 +1577,9 @@ stack(
 // Old Town Road
 setcps(0.8)
 const chords = note(cat(
-  "g#3@2 b3@2 f#3@2 eb3@2"
+  "g#3:major@2 b3:major@2 f#3:major@2 eb3:major@2"
 )).slow(2)
-  .chord("major")
+
   .s("superpiano")
 
 const melody = note(cat(
@@ -1785,10 +1785,10 @@ stack(
 // Dance Monkey
 setcps(0.6)
 const chords = note(cat(
-  "f#3@1 a3@1 c#4@1 e4@1",
-  "d4@1 f#4@1 b3@1 d#4@1"
+  "f#3:min@1 a3:min@1 c#4:min@1 e4:min@1",
+  "d4:min@1 f#4:min@1 b3:min@1 d#4:min@1"
 ))
-  .chord("min")
+
   .s("superpiano")
 
 const melody = note(cat(
@@ -1874,9 +1874,9 @@ stack(
 // Faded
 setcps(0.9)
 const chords = note(cat(
-  "f#3@4 d3@4 a2@4 e3@4"
+  "f#3:min@4 d3:min@4 a2:min@4 e3:min@4"
 )).slow(4)
-  .chord("min")
+
   .s("superpiano")
 
 const melody = note(cat(

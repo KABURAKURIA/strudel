@@ -63,13 +63,13 @@ const chorusMelody = note("g5 ~ f5 eb5 ~ c5 bb4 ~")
 // INTRO: Just keys and vinyl crackle
 const intro = stack(
   vinyl,
-  progression.with(keysSound.gain(0.8))
+  keysSound.note("eb4:major7 c4:minor7 f3:minor7 bb3:dom7").gain(0.8)
 )
 
 // VERSE: Add bass and simple drums
 const verse = stack(
   vinyl,
-  progression.with(keysSound),
+  keysSound.note("eb4:major7 c4:minor7 f3:minor7 bb3:dom7"),
   bassLine,
   kickSnare
 )
@@ -77,7 +77,7 @@ const verse = stack(
 // CHORUS: Add melody and hi-hats
 const chorus = stack(
   vinyl,
-  progression.with(keysSound),
+  keysSound.note("eb4:major7 c4:minor7 f3:minor7 bb3:dom7"),
   bassLine,
   kickSnare,
   hihats,
@@ -87,7 +87,7 @@ const chorus = stack(
 // OUTRO: Fade out, just keys
 const outro = stack(
   vinyl,
-  progression.with(keysSound.lpf(600)) // Darker tone
+  keysSound.note("eb4:major7 c4:minor7 f3:minor7 bb3:dom7").lpf(600) // Darker tone
 )
 
 // --- ARRANGEMENT ---
