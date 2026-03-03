@@ -12,7 +12,7 @@ const vinyl = s("noise")
 // 2. Chopped Sample (Simulated)
 // We take a chord progression and chop it rhythmically using .struct()
 const sampleChops = note("eb4:major7 c4:minor7 f3:minor7 bb3:dom7")
-  .s("rhodes") // Electric piano sound
+  .s("superpiano") // Electric piano sound
   .struct("x x ~ x [x x] ~ x ~") // Rhythmic pattern
   .lpf(sine.range(500, 1500).slow(8)) // Filter wobble (wow/flutter)
   .vowel("o") // Formant filter for a "sampled" quality
@@ -49,7 +49,7 @@ const melodicGroup = stack(
   vinyl
 ).gain(
     // Simple sidechain simulation: Volume drops on beats 0, 0.375, 0.75 (approx tresillo)
-    s("0.4 1 1 0.4 1 1 0.4 1").smooth(0.05)
+    "0.4 1 1 0.4 1 1 0.4 1".smooth(0.05)
 )
 
 stack(

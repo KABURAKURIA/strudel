@@ -7,7 +7,7 @@ setcps(96/60/4)
 // 1. Electric Piano (Rhodes Style)
 // Progression: Fmaj7 - Em7 - Dm7 - G7
 const keys = note("f3:major7 e3:minor7 d3:minor7 g2:dom7")
-  .s("rhodes") // Use a rhodes-like sound if available, or 'piano' with filtering
+  .s("superpiano") // Use a rhodes-like sound if available, or 'piano' with filtering
   .lpf(1500)   // Mellow tone
   .vowel("a")  // Subtle formant filter for warmth
   .slow(4)
@@ -15,7 +15,7 @@ const keys = note("f3:major7 e3:minor7 d3:minor7 g2:dom7")
 // 2. Double Bass
 // Walking bass feeling
 const bass = note("f2 ~ a2 c3 e2 ~ g2 b2 d2 ~ f2 a2 g2 ~ b2 d3")
-  .s("doublebass") // or 'bass'
+  .s("bass") // or 'bass'
   .lpf(600)
   .slow(4)
 
@@ -30,7 +30,7 @@ const drums = stack(
 // 4. Vocal Chops
 // Simulating chopped samples using short notes and pitch shifting
 const vocals = note("c5 d5 e5 g5")
-  .s("voice") // 'voice' or 'vowel'
+  .s("vowel") // 'voice' or 'vowel'
   .chop(4)    // Chop the sound
   .slow(2)
   .room(0.9)  // Lots of reverb
@@ -38,7 +38,7 @@ const vocals = note("c5 d5 e5 g5")
 
 // 5. Flute Line
 const flute = note("a4 c5 e5 g5")
-  .s("flute")
+  .s("triangle")
   .jux(rev)   // Stereo spread
   .delay(0.5)
   .slow(3)
@@ -51,7 +51,7 @@ const melody = stack(
     vocals,
     flute
 ).gain(
-    s("1 0 1 0").slow(4).range(0.6, 1) // Simple volume ducking pattern
+    "1 0 1 0".slow(4).range(0.6, 1) // Simple volume ducking pattern
 )
 
 stack(
