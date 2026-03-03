@@ -64,7 +64,7 @@ Uses slash notation for voice leading.
 
 ```javascript
 const nostalgia = note("c4/g f4/a g4/b c5")
-  .s("rhodes") // or superpiano
+  .s("superpiano") // or superpiano
   .slow(2)
 ```
 

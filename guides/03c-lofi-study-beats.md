@@ -66,7 +66,7 @@ const ambience = s("noise")
 // 2. The Main Loop (Rhodes)
 // Simple chords that repeat forever
 const chords = note("f3:maj7 e3:min7 d3:min7 c3:maj7")
-  .s("rhodes") // or superpiano
+  .s("superpiano") // or superpiano
   .lpf(sine.range(800, 1500).slow(16)) // Tone breathes slowly
   .room(0.8) // Large room
   .slow(4) // 4 bars long

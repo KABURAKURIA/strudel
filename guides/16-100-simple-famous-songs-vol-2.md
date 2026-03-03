@@ -1116,7 +1116,7 @@ const melody = note(cat(
   "g4@0.5 a4@0.5 b4@0.5 a4@0.5 g4@0.5 f#4@0.5 g4@1",
   "d4@0.5 d4@0.5 e4@0.5 f#4@0.5 g4@0.5 a4@0.5 b4@1"
 ))
-  .s("flute") // fallback to triangle
+  .s("triangle")
   .s("triangle")
 
 const bass = note("g3 d3")
