@@ -242,7 +242,7 @@ const melody = note(cat(
   "f4@1 f4@1 e4@1 e4@1 d4@1 d4@1 c4@2"
 )).slow(2)
   .s("superpiano").lpf(1000)
-  .gain(sine.range(0.5, 1).fast(4))
+  .gain(sine.fast(4).range(0.5, 1))
   .velocity(0.8)
 
 const chords = note("c3:major g3:major f3:major c3:major")
@@ -669,7 +669,7 @@ const melody = note(cat(
   "d4@1 g4@2 b4@0.5 a4@0.5 g4@2 b4@1 d5@3"
 )).slow(2.5)
   .s("superpwm")
-  .gain(sine.range(0.5, 1).fast(4))
+  .gain(sine.fast(4).range(0.5, 1))
   .velocity(0.8)
 
 const chords = note("g2:major c3:major g3:major d3:major")

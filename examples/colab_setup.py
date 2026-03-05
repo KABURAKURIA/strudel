@@ -38,6 +38,7 @@ run_command("npm install")
 # 3. Apply Kunguru Algo Branding
 print("🎨 Applying Kunguru Algo branding...")
 # Use os.walk with pruning to avoid node_modules
+title_regex = re.compile(r'<title>.*?</title>')
 for root, dirs, files in os.walk("."):
     if 'node_modules' in dirs:
         dirs.remove('node_modules') # Prune
@@ -47,7 +48,7 @@ for root, dirs, files in os.walk("."):
             try:
                 with open(filepath, 'r') as f:
                     content = f.read()
-                new_content = re.sub(r'<title>.*<\/title>', '<title>Kunguru Algo</title>', content)
+                new_content = title_regex.sub('<title>Kunguru Algo</title>', content)
                 if content != new_content:
                     with open(filepath, 'w') as f:
                         f.write(new_content)
@@ -71,7 +72,8 @@ for _ in range(60): # Wait up to 60 seconds
     time.sleep(1)
     if os.path.exists('server.log'):
         with open('server.log', 'r') as f:
-            if "Network:" in f.read() or "Local:" in f.read(): # Vite outputs this when ready
+            content = f.read()
+            if "Network:" in content or "Local:" in content: # Vite outputs this when ready
                 server_ready = True
                 break
 if not server_ready:
@@ -92,12 +94,13 @@ tunnel_proc = subprocess.Popen(
 
 print("⏳ Waiting for tunnel URL...")
 tunnel_url = None
+url_regex = re.compile(r'https://.*\.trycloudflare\.com')
 for _ in range(30): # Wait up to 30 seconds
     time.sleep(1)
     if os.path.exists('tunnel.log'):
         with open('tunnel.log', 'r') as f:
             content = f.read()
-            match = re.search(r'https://.*\.trycloudflare.com', content)
+            match = url_regex.search(content)
             if match:
                 tunnel_url = match.group(0)
                 break
