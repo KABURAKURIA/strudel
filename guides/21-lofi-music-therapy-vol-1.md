@@ -778,7 +778,7 @@ const melody = note("f#5 ~ e5 ~ d5 ~ c#5 ~")
 
 // --- Rhythm ---
 const kick = s("bd ~ ~ ~")
-const shaker = s("hh*16").gain(sine.range(0.1, 0.4).fast(4))
+const shaker = s("hh*16").gain(sine.fast(4).range(0.1, 0.4))
 
 const beat = stack(kick, shaker)
 
