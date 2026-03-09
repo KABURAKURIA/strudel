@@ -742,7 +742,7 @@ const chords = note("c3:major f3:major g3:major c3:major")
 const sweep = note("0@4")
   .scale("C:major")
   .s("sawtooth")
-  .lpf(sine.range(500, 3000).slow(4))
+  .lpf(sine.slow(4).range(500, 3000))
   .gain(0.4)
 
 stack(
@@ -1475,7 +1475,7 @@ const melody = note(cat(
   "g4@1 b4@1 d5@1 g5@1"
 ))
   .s("supermandolin")
-  .lpf(sine.range(500, 2000).slow(2))
+  .lpf(sine.slow(2).range(500, 2000))
   .velocity(0.8)
 
 // 2. CHORDS (G Major)

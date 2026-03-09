@@ -14,7 +14,7 @@ const vinyl = s("noise")
 const sampleChops = note("eb4:major7 c4:minor7 f3:minor7 bb3:dom7")
   .s("superpiano") // Electric piano sound
   .struct("x x ~ x [x x] ~ x ~") // Rhythmic pattern
-  .lpf(sine.range(500, 1500).slow(8)) // Filter wobble (wow/flutter)
+  .lpf(sine.slow(8).range(500, 1500)) // Filter wobble (wow/flutter)
   .vowel("o") // Formant filter for a "sampled" quality
   .slow(2)
 

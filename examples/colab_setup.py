@@ -94,7 +94,7 @@ tunnel_proc = subprocess.Popen(
 
 print("⏳ Waiting for tunnel URL...")
 tunnel_url = None
-url_regex = re.compile(r'https://.*\.trycloudflare\.com')
+url_regex = re.compile(r'https://.*?\.trycloudflare\.com')
 for _ in range(30): # Wait up to 30 seconds
     time.sleep(1)
     if os.path.exists('tunnel.log'):
