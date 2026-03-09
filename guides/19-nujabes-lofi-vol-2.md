@@ -18,7 +18,7 @@ const rain = s("noise").lpf(1000).hpf(200).gain(0.15).jux(rev)
 // Progression: Fmaj7 - Em7 - Dm7 - G13
 const keys = note("f3:maj7 e3:min7 d3:min7 g2:dom13")
   .s("superpiano")
-  .lpf(sine.range(500, 1500).slow(4)) // Auto-wah / filter sweep
+  .lpf(sine.slow(4).range(500, 1500)) // Auto-wah / filter sweep
   .gain(0.8)
   .room(0.6)
 
