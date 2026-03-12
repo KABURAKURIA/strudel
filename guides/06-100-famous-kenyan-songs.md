@@ -175,7 +175,7 @@ const melody = note(cat(
   "g4@1 c5@1 b4@1 a4@3"
 ))
   .s("supermandolin")
-  .gain(sine.fast(4).range(0.5, 1))
+  .gain(sine.range(0.5, 1).fast(4))
   .velocity(0.9)
 
 // 2. CHORDS (G Major)
@@ -742,7 +742,7 @@ const chords = note("c3:major f3:major g3:major c3:major")
 const sweep = note("0@4")
   .scale("C:major")
   .s("sawtooth")
-  .lpf(sine.slow(4).range(500, 3000))
+  .lpf(sine.range(500, 3000).slow(4))
   .gain(0.4)
 
 stack(
@@ -765,7 +765,7 @@ const melody = note(cat(
   "a4@1 g4@1 f4@2"
 ))
   .s("superpiano").lpf(1000)
-  .gain(sine.fast(4).range(0.5, 1))
+  .gain(sine.range(0.5, 1).fast(4))
   .velocity(0.8)
 
 // 2. CHORDS (F -> C -> Bb)
@@ -1475,7 +1475,7 @@ const melody = note(cat(
   "g4@1 b4@1 d5@1 g5@1"
 ))
   .s("supermandolin")
-  .lpf(sine.slow(2).range(500, 2000))
+  .lpf(sine.range(500, 2000).slow(2))
   .velocity(0.8)
 
 // 2. CHORDS (G Major)
@@ -1509,7 +1509,7 @@ const melody = note(cat(
   "c4@1 e4@1 g4@1 c5@1"
 ))
   .s("superpiano").lpf(1000)
-  .gain(sine.fast(4).range(0.5, 1))
+  .gain(sine.range(0.5, 1).fast(4))
   .velocity(0.8)
 
 // 2. CHORDS (C Major)
@@ -2613,7 +2613,7 @@ const melody = note(cat(
   "c4@1 eb4@1 g4@1 c5@1"
 ))
   .s("superpiano").lpf(1000)
-  .gain(sine.fast(4).range(0.5, 1))
+  .gain(sine.range(0.5, 1).fast(4))
   .velocity(0.7)
 
 // 2. CHORDS (Cm)

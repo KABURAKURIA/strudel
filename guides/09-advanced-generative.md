@@ -88,7 +88,7 @@ stack(
   // 2. Swelling Pads
   note("eb3:major7 g3:minor7")
     .s("triangle")
-    .lpf(sine.slow(16).range(500, 2000)) // Slow filter movement
+    .lpf(sine.range(500, 2000).slow(16)) // Slow filter movement
     .slow(4),
 
   // 3. Occasional Bass Hits
