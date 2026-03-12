@@ -51,7 +51,7 @@ const melody = stack(
     vocals,
     flute
 ).gain(
-    "1 0 1 0".slow(4).range(0.6, 1) // Simple volume ducking pattern
+    "<1 0.6 1 0.6>" // Simple volume ducking pattern
 )
 
 stack(

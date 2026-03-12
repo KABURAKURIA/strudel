@@ -54,7 +54,7 @@ We need to degrade the clean digital sound to emulate vinyl and tape.
 
 ```javascript
 s("superpiano")
-  .lpf(sine.slow(4).range(800, 1200)) // Filter breathes
+  .lpf(sine.range(800, 1200).slow(4)) // Filter breathes
   .shape(0.2) // Saturation
 ```
 
@@ -129,7 +129,7 @@ const pads = note("d3:minor9 g3:minor9")
 const beat = stack(
   s("bd(3,8)"), // Tresillo-ish kick pattern
   s("sd").struct("~ x ~ x"),
-  s("hh*16").velocity(sine.slow(4).range(0.2, 0.6)) // Volume swells
+  s("hh*16").velocity(sine.range(0.2, 0.6).slow(4)) // Volume swells
 ).swing(0.1)
 
 // Master Mix
@@ -157,7 +157,7 @@ const crackle = s("noise").gain(0.05).lpf(2000)
 const choppedKeys = note("eb4:major7 c4:minor7")
   .s("superpiano")
   .struct("x x ~ x x ~ x ~") // Chopped rhythm
-  .lpf(sine.slow(8).range(500, 1500)) // Filter sweep (Tape wobble)
+  .lpf(sine.range(500, 1500).slow(8)) // Filter sweep (Tape wobble)
   .vowel("o") // Formant filter for 'old' sampler sound
   .slow(2)
 

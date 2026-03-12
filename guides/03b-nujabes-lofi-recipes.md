@@ -33,7 +33,7 @@ Uses `struct` for more complex kick patterns.
 const dilla = stack(
   s("bd").struct("x ~ ~ x ~ ~ x ~"), // Tresillo feel
   s("sd").struct("~ x ~ x").nudge(0.05),
-  s("hh*16").velocity(sine.slow(4).range(0.2, 0.5))
+  s("hh*16").velocity(sine.range(0.2, 0.5).slow(4))
 ).swing(0.15)
 ```
 
@@ -116,7 +116,7 @@ Simulates the unstable pitch of a tape deck.
 
 ```javascript
 // Apply this to your melodic elements
-.lpf(sine.slow(8).range(500, 1500))
+.lpf(sine.range(500, 1500).slow(8))
 ```
 
 ### Rainy Window
