@@ -569,7 +569,7 @@ const chords = note(cat(
   "~ ~ ~"
 ))
 
-  .s("distortion-guitar").s("sawtooth").distort(0.8)
+  .s("sawtooth").distort(0.8)
 
 const lick = note(cat(
   "~ ~ ~ g3@0.25 d3@0.25 a2@0.25 g2@0.25 a2@0.25 bb2@0.25 a2@0.5"
