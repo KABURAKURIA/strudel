@@ -5,7 +5,6 @@ import os
 import subprocess
 import time
 import re
-import sys
 
 # --- Configuration ---
 REPO_URL = "https://github.com/tidalcycles/strudel.git"

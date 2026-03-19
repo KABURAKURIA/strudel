@@ -25,6 +25,7 @@ We will use a Python script to:
 import os
 import subprocess
 import time
+import re
 
 # --- Configuration ---
 REPO_URL = "https://github.com/tidalcycles/strudel.git"
@@ -57,47 +58,83 @@ run_command("npm install")
 
 # 3. Apply Kunguru Algo Branding
 print("🎨 Applying Kunguru Algo branding...")
-# Change the title in index.html
-run_command("find . -name 'index.html' -exec sed -i 's/<title>.*<\\/title>/<title>Kunguru Algo<\\/title>/g' {} +")
+# Use os.walk with pruning to avoid node_modules
+title_regex = re.compile(r'<title>.*?</title>')
+for root, dirs, files in os.walk("."):
+    if 'node_modules' in dirs:
+        dirs.remove('node_modules') # Prune
+    for file in files:
+        if file == 'index.html':
+            filepath = os.path.join(root, file)
+            try:
+                with open(filepath, 'r') as f:
+                    content = f.read()
+                new_content = title_regex.sub('<title>Kunguru Algo</title>', content)
+                if content != new_content:
+                    with open(filepath, 'w') as f:
+                        f.write(new_content)
+                    print(f"Updated {filepath}")
+            except Exception as e:
+                print(f"Error updating {filepath}: {e}")
 
 # 4. Start the Server
 print("🟢 Starting Development Server...")
-# Run in background, listening on all interfaces (0.0.0.0)
-# We redirect output to server.log for debugging
-subprocess.Popen(
+server_log = open('server.log', 'w')
+server_proc = subprocess.Popen(
     ["npm", "run", "dev", "--", "--port", str(PORT), "--host", "0.0.0.0"],
-    stdout=open('server.log', 'w'),
+    stdout=server_log,
     stderr=subprocess.STDOUT
 )
 
-# Wait a moment for the server to initialize
+# Polling for server readiness
 print("⏳ Waiting for server to launch...")
-time.sleep(15)
+server_ready = False
+for _ in range(60): # Wait up to 60 seconds
+    time.sleep(1)
+    if os.path.exists('server.log'):
+        with open('server.log', 'r') as f:
+            content = f.read()
+            if "Network:" in content or "Local:" in content: # Vite outputs this when ready
+                server_ready = True
+                break
+if not server_ready:
+    print("⚠️ Server might not be ready, checking logs...")
 
 # 5. Expose via Cloudflare Tunnel
 print("🌐 Establishing Cloudflare Tunnel...")
-# Download cloudflared
 if not os.path.exists("cloudflared-linux-amd64"):
     run_command("wget -q -nc https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64")
     run_command("chmod +x cloudflared-linux-amd64")
 
-# Start tunnel
-subprocess.Popen(
+tunnel_log = open('tunnel.log', 'w')
+tunnel_proc = subprocess.Popen(
     ["./cloudflared-linux-amd64", "tunnel", "--url", f"http://localhost:{PORT}"],
-    stdout=open('tunnel.log', 'w'),
+    stdout=tunnel_log,
     stderr=subprocess.STDOUT
 )
 
 print("⏳ Waiting for tunnel URL...")
-time.sleep(10)
+tunnel_url = None
+url_regex = re.compile(r'https://.*?\.trycloudflare\.com')
+for _ in range(30): # Wait up to 30 seconds
+    time.sleep(1)
+    if os.path.exists('tunnel.log'):
+        with open('tunnel.log', 'r') as f:
+            content = f.read()
+            match = url_regex.search(content)
+            if match:
+                tunnel_url = match.group(0)
+                break
 
-# Extract and print the URL
-print("\n" + "="*40)
-print("🎉 KUNGURU ALGO IS READY!")
-print("="*40)
-print("Access your instance at the URL below:\n")
-run_command("grep -o 'https://.*\\.trycloudflare.com' tunnel.log | head -n 1")
-print("\n" + "="*40)
+if tunnel_url:
+    print("\n" + "="*40)
+    print("🎉 KUNGURU ALGO IS READY!")
+    print("="*40)
+    print("Access your instance at the URL below:\n")
+    print(tunnel_url)
+    print("\n" + "="*40)
+else:
+    print("❌ Could not find tunnel URL. Check tunnel.log for details.")
 ```
 
 ## How It Works
