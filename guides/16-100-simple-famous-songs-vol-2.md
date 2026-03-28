@@ -96,7 +96,7 @@ stack(
 ### 5. Pomp and Circumstance (Graduation)
 ```javascript
 // Pomp and Circumstance
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "g4@2 e4@1 g4@1 c5@2 e5@1 d5@1",
   "c5@0.5 b4@0.5 c5@1 d5@1 g4@1 c5@2 b4@2"
@@ -355,7 +355,7 @@ stack(
 ### 19. Loch Lomond
 ```javascript
 // Loch Lomond
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "g3@1 c4@1.5 d4@0.5 e4@1 g4@1",
   "a4@1 g4@1 e4@1 c4@1",
@@ -760,7 +760,7 @@ stack(
 ### 40. My Country 'Tis of Thee (America)
 ```javascript
 // My Country 'Tis of Thee
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "g4@1 g4@1 a4@1 b4@1.5 c5@0.5 b4@1",
   "a4@1 g4@1 a4@1 g4@1 f#4@1 g4@2"
@@ -1038,7 +1038,7 @@ stack(
 ### 54. Jurassic Park
 ```javascript
 // Jurassic Park
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "bb3@1 a3@1 bb3@2 f3@2",
   "bb3@1 a3@1 bb3@2 f3@2",
@@ -1372,7 +1372,7 @@ stack(
 ### 73. Wonderwall
 ```javascript
 // Wonderwall
-setcps(0.9)
+setcps(0.45)
 const chords = note("f#3:min7 a3:min7 e3:min7 b3:min7")
 
   .s("supermandolin")
@@ -1733,7 +1733,7 @@ stack(
 ### 93. Despacito
 ```javascript
 // Despacito
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "d5@1 c#5@1 b4@0.5 f#4@0.5 f#4@0.5 f#4@0.5 f#4@0.5 f#4@0.5",
   "b4@0.5 b4@0.5 b4@0.5 b4@0.5 a4@0.5 b4@0.5 g4@0.5 g4@0.5",
@@ -1872,7 +1872,7 @@ stack(
 ### 101. Faded (Alan Walker)
 ```javascript
 // Faded
-setcps(0.9)
+setcps(0.45)
 const chords = note(cat(
   "f#3:min@4 d3:min@4 a2:min@4 e3:min@4"
 )).slow(4)
@@ -1928,7 +1928,7 @@ stack(
 ### 104. Pigstep (Minecraft)
 ```javascript
 // Pigstep
-setcps(0.9)
+setcps(0.45)
 const bass = note(cat(
   "c3@1 g3@0.5 bb3@0.5 c3@1 g3@1",
   "f3@1 c3@0.5 eb3@0.5 f3@1 c3@1"

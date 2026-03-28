@@ -15,7 +15,7 @@ Use `.slow()` on your LFOs (Low Frequency Oscillators) so parameters change over
 
 ```javascript
 // The filter opens and closes over 32 cycles
-.lpf(sine.range(500, 3000).slow(32))
+.lpf(sine.slow(32).range(500, 3000))
 ```
 
 ### Generative Panning
@@ -67,7 +67,7 @@ const ambience = s("noise")
 // Simple chords that repeat forever
 const chords = note("f3:maj7 e3:min7 d3:min7 c3:maj7")
   .s("superpiano") // or superpiano
-  .lpf(sine.range(800, 1500).slow(16)) // Tone breathes slowly
+  .lpf(sine.slow(16).range(800, 1500)) // Tone breathes slowly
   .room(0.8) // Large room
   .slow(4) // 4 bars long
 
@@ -75,7 +75,7 @@ const chords = note("f3:maj7 e3:min7 d3:min7 c3:maj7")
 // Just enough to keep time
 const beat = stack(
   s("bd").struct("x ~ ~ ~ x ~ ~ ~"), // Very sparse kick
-  s("hh*16").gain(rand.range(0.0, 0.3)), // Ghost hats
+  s("hh*16").velocity(rand.range(0.0, 0.3)), // Ghost hats
   s("~ sd").nudge(0.05) // Late snare
 ).lpf(2000) // Darker drums
 

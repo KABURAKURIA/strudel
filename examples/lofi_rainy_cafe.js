@@ -35,7 +35,7 @@ const melody = note("~ f5 e5 c5 ~ a4 g4 ~")
 const drums = stack(
   s("bd ~ ~ bd ~ ~ ~ ~"),
   s("~ ~ ~ ~ sd ~ ~ ~").nudge(0.04), // Late snare
-  s("hh*8").gain(rand.range(0.2, 0.5)) // Random hi-hat volume
+  s("hh*8").velocity(rand.range(0.2, 0.5)) // Random hi-hat volume
 ).swing(0.2)
 
 // 5. Bass

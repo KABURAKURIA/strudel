@@ -116,7 +116,7 @@ stack(
 ### 6. Circle of Life (Lion King)
 ```javascript
 // Circle of Life
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "g4@0.5 a4@0.5 b4@1 d5@1 b4@1 g4@2",
   "g4@0.5 a4@0.5 b4@1 d5@1 b4@1 a4@2"
@@ -240,7 +240,7 @@ stack(
 ### 12. Let It Be
 ```javascript
 // Let It Be
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "g4@1 g4@1 a4@1 g4@0.5 f4@0.5 e4@1 d4@1 c4@2",
   "e4@1 e4@1 f4@1 g4@1 a4@1 g4@1 f4@0.5 e4@1.5"
@@ -331,7 +331,7 @@ stack(
 ### 17. Come Together
 ```javascript
 // Come Together
-setcps(0.9)
+setcps(0.45)
 const riff = note(cat(
   "d2@0.5 d2@0.5 d2@1 a2@0.5 f3@0.5 g3@0.5 f3@0.5",
   "d2@1"
@@ -563,7 +563,7 @@ stack(
 ### 30. Back in Black (AC/DC)
 ```javascript
 // Back in Black
-setcps(0.9)
+setcps(0.45)
 const chords = note(cat(
   "e3:power@1 d3:power@1 a3:power@1",
   "~ ~ ~"
@@ -714,7 +714,7 @@ stack(
 ### 38. Don't Look Back in Anger (Oasis)
 ```javascript
 // Don't Look Back in Anger
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "c5@1 c5@0.5 d5@0.5 e5@2",
   "d5@0.5 c5@0.5 d5@0.5 c5@0.5 a4@2"
@@ -898,7 +898,7 @@ stack(
 ### 48. Roar (Katy Perry)
 ```javascript
 // Roar
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "f4@0.5 g4@0.5 bb4@0.5 g4@1 bb4@1 g4@0.5",
   "bb4@0.5 c5@0.5 bb4@0.5 g4@0.5 f4@1 d4@1"
@@ -955,7 +955,7 @@ stack(
 ### 51. My Heart Will Go On (Titanic)
 ```javascript
 // My Heart Will Go On
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "e4@1 e4@0.5 e4@0.5 e4@2",
   "d#4@1 e4@1 e4@1.5 d#4@0.5",
@@ -1643,7 +1643,7 @@ stack(
 ### 88. La Vie En Rose
 ```javascript
 // La Vie En Rose
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "c4@0.5 c4@0.5 d4@0.5 e4@1.5 f4@1",
   "g4@0.5 a4@0.5 g4@0.5 f4@0.5 e4@2"
@@ -1802,7 +1802,7 @@ stack(
 ### 97. Jupiter (Holst)
 ```javascript
 // Jupiter (Chorale)
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "e4@1 g4@0.5 a4@0.5 c5@2",
   "d5@0.5 c5@0.5 a4@0.5 c5@0.5 g4@2"
