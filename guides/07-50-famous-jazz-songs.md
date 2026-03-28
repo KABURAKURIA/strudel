@@ -834,7 +834,7 @@ stack(
 ## 23. Oleo (Sonny Rollins)
 ```javascript
 // Oleo - Rhythm Changes
-setcps(0.85)
+setcps(0.425)
 
 // 1. MELODY
 const melody = note(cat(
@@ -1533,7 +1533,7 @@ stack(
 ## 47. Mr. P.C.
 ```javascript
 // Mr. P.C. - Fast Minor Blues
-setcps(0.85)
+setcps(0.425)
 
 // 1. MELODY
 const melody = note(cat(

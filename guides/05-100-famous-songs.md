@@ -101,7 +101,7 @@ const melody = note(cat(
   "d4@1 d4@1 d4@2 e4@1 g4@1 g4@2"
 )).slow(2)
   .s("square")
-  .lpf(sine.range(500, 3000).slow(4))
+  .lpf(sine.slow(4).range(500, 3000))
   .velocity(0.8)
 
 // 2. CHORDS (C -> G -> C)
@@ -242,7 +242,7 @@ const melody = note(cat(
   "f4@1 f4@1 e4@1 e4@1 d4@1 d4@1 c4@2"
 )).slow(2)
   .s("superpiano").lpf(1000)
-  .gain(sine.range(0.5, 1).fast(4))
+  .gain(sine.fast(4).range(0.5, 1))
   .velocity(0.8)
 
 const chords = note("c3:major g3:major f3:major c3:major")
@@ -292,7 +292,7 @@ const melody = note(cat(
   "c5@1 a4@1 f4@2"
 )).slow(2)
   .s("superpwm")
-  .lpf(sine.range(500, 2000).slow(2))
+  .lpf(sine.slow(2).range(500, 2000))
   .velocity(0.9)
 
 const chords = note("f3:major c3:major f3:major")
@@ -344,7 +344,7 @@ const melody = note(cat(
 
 const wobble = note("c2 g2")
   .s("wobble")
-  .lpf(sine.range(100, 1000).fast(4))
+  .lpf(sine.fast(4).range(100, 1000))
   .gain(1.2)
 
 stack(
@@ -669,7 +669,7 @@ const melody = note(cat(
   "d4@1 g4@2 b4@0.5 a4@0.5 g4@2 b4@1 d5@3"
 )).slow(2.5)
   .s("superpwm")
-  .gain(sine.range(0.5, 1).fast(4))
+  .gain(sine.fast(4).range(0.5, 1))
   .velocity(0.8)
 
 const chords = note("g2:major c3:major g3:major d3:major")
@@ -847,7 +847,7 @@ stack(
 ### 34. Home on the Range (Cowboy)
 ```javascript
 // Home on the Range
-setcps(0.9)
+setcps(0.45)
 
 const melody = note(cat(
   "d4@1 d4@1 g4@1 g4@1 a4@1 b4@1 g4@1",
@@ -892,7 +892,7 @@ stack(
 ### 36. Swing Low, Sweet Chariot (Soul)
 ```javascript
 // Swing Low, Sweet Chariot
-setcps(0.9)
+setcps(0.45)
 
 const melody = note(cat(
   "e4@2 g4@2 g4@4",
@@ -938,7 +938,7 @@ stack(
 ### 38. My Bonnie (Waltz)
 ```javascript
 // My Bonnie
-setcps(0.9)
+setcps(0.45)
 
 const melody = note(cat(
   "g3@1 e4@1 d4@1 c4@1 d4@1 c4@1 a3@2",
@@ -1112,7 +1112,7 @@ stack(
   melody,
   kick,
   s("glitch")
-).fast(sine.range(1, 1.5).slow(8))
+).fast(sine.slow(8).range(1, 1.5))
 ```
 
 ### 46. Tetris Theme (8-Bit)
@@ -1877,7 +1877,7 @@ stack(
 ### 79. Joy to the World (Majestic)
 ```javascript
 // Joy to the World
-setcps(0.9)
+setcps(0.45)
 
 const melody = note(cat(
   "c5@2 b4@1.5 a4@0.5 g4@3",
@@ -2285,7 +2285,7 @@ stack(
 ### 97. Jesu, Joy of Man's Desiring (Flowing)
 ```javascript
 // Jesu, Joy of Man's Desiring
-setcps(0.9)
+setcps(0.45)
 
 const melody = note(cat(
   "g4@0.5 a4@0.5 b4@0.5 d5@0.5 c5@0.5 c5@0.5 e5@0.5 d5@0.5 d5@0.5 g5@0.5 f#5@0.5 g5@0.5"
@@ -2359,7 +2359,7 @@ const melody = note(cat(
   "g3@1.5 g3@0.5 a3@2 g3@2 d4@2 c4@4"
 )).slow(3)
   .s("supersaw")
-  .lpf(sine.range(500, 3000).slow(4))
+  .lpf(sine.slow(4).range(500, 3000))
   .velocity(0.9)
 
 // 2. CHORDS

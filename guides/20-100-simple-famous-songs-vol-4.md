@@ -412,7 +412,7 @@ stack(
 ### 21. Take Me Home, Country Roads
 ```javascript
 // Country Roads
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "a4@1 b4@1 c#5@1.5 b4@0.5",
   "a4@1 f#4@1 f#4@2",
@@ -533,7 +533,7 @@ stack(
 ### 27. The Sound of Silence
 ```javascript
 // The Sound of Silence
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "d4@0.5 d4@0.5 e4@0.5 e4@0.5 g4@1.5 f#4@0.5",
   "e4@2 b3@2"
@@ -740,7 +740,7 @@ stack(
 ### 38. True Colors
 ```javascript
 // True Colors
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "e4@0.5 g#4@0.5 b4@0.5 b4@1 a4@0.5 g#4@0.5 f#4@0.5",
   "e4@0.5 g#4@1 f#4@0.5 e4@2"
@@ -1329,7 +1329,7 @@ stack(
 ### 70. Titanic (My Heart Will Go On)
 ```javascript
 // My Heart Will Go On
-setcps(0.9)
+setcps(0.45)
 const flutes = note(cat(
   "e4@1 e4@0.5 e4@0.5 e4@2",
   "d#4@1 e4@1 e4@1.5 d#4@0.5",
@@ -1725,7 +1725,7 @@ stack(
 ### 92. Minecraft (Pigstep)
 ```javascript
 // Pigstep
-setcps(0.9)
+setcps(0.45)
 const bass = note(cat(
   "c3@1 g3@0.5 bb3@0.5 c3@1 g3@1",
   "f3@1 c3@0.5 eb3@0.5 f3@1 c3@1"

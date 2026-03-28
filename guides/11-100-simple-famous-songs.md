@@ -693,7 +693,7 @@ stack(
 ### 34. Home on the Range (Cowboy)
 ```javascript
 // Home on the Range
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "d4@1 d4@1 g4@1 g4@1 a4@1 b4@1 g4@1",
   "a4@1 b4@1 g4@1"
@@ -725,7 +725,7 @@ stack(
 ### 36. Swing Low, Sweet Chariot (Soul)
 ```javascript
 // Swing Low, Sweet Chariot
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "e4@2 g4@2 g4@4",
   "g4@1 e4@1 d4@1 c4@1 d4@1 e4@1 g4@2"
@@ -765,7 +765,7 @@ stack(
 ### 38. My Bonnie (Waltz)
 ```javascript
 // My Bonnie
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "g3@1 e4@1 d4@1 c4@1 d4@1 c4@1 a3@2",
   "a3@1 g3@1 e3@1 g3@2"
@@ -1559,7 +1559,7 @@ stack(
 ### 79. Joy to the World (Majestic)
 ```javascript
 // Joy to the World
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "c5@2 b4@1.5 a4@0.5 g4@3",
   "f4@1 e4@2 d4@2 c4@2"
@@ -1909,7 +1909,7 @@ stack(
 ### 97. Jesu, Joy of Man's Desiring (Flowing)
 ```javascript
 // Jesu, Joy of Man's Desiring
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "g4@0.5 a4@0.5 b4@0.5 d5@0.5 c5@0.5 c5@0.5 e5@0.5 d5@0.5 d5@0.5 g5@0.5 f#5@0.5 g5@0.5"
 ))
@@ -2074,7 +2074,7 @@ stack(
 ### 105. Kum Ba Yah (Campfire)
 ```javascript
 // Kum Ba Yah
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "c4@1 e4@1 g4@2 g4@2 g4@2",
   "c4@1 e4@1 g4@2 g4@2 g4@2",
@@ -2158,7 +2158,7 @@ stack(
 ### 109. On Top of Old Smoky (Mountain)
 ```javascript
 // On Top of Old Smoky
-setcps(0.9)
+setcps(0.45)
 const melody = note(cat(
   "c4@1 c4@1 e4@1 g4@1 c5@3",
   "a4@1 f4@1 a4@1 c5@1 g4@3"
