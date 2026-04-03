@@ -129,7 +129,7 @@ const pads = note("d3:minor9 g3:minor9")
 const beat = stack(
   s("bd(3,8)"), // Tresillo-ish kick pattern
   s("sd").struct("~ x ~ x"),
-  s("hh*16").velocity(sine.slow(4).range(0.2, 0.6)) // Volume swells
+  s("hh*16").amp(sine.slow(4).range(0.2, 0.6)) // Volume swells
 ).swing(0.1)
 
 // Master Mix
@@ -150,7 +150,7 @@ stack(
 setcps(80/60/4) // 80 BPM
 
 // 1. Vinyl Crackle Layer (Simulated noise)
-const crackle = s("noise").gain(0.05).lpf(2000)
+const crackle = s("noise").amp(0.05).lpf(2000)
 
 // 2. Chopped Piano (Simulated sampling)
 // We use .struct to chop the continuous chord into a rhythmic pattern
@@ -206,7 +206,7 @@ If we set `setcps(0.2)`, one cycle lasts about 5 seconds. We then pack our 4-bar
 setcps(0.2) // 1 Cycle = ~4 Bars
 
 // Common Sounds
-const crackle = s("noise").gain(0.04).lpf(2000)
+const crackle = s("noise").amp(0.04).lpf(2000)
 const keys = note("eb4:maj7 c4:min7 f3:min7 bb3:dom7")
   .s("superpiano").lpf(1000).room(1)
 
@@ -215,14 +215,14 @@ const keys = note("eb4:maj7 c4:min7 f3:min7 bb3:dom7")
 // 1. Intro: Just keys and noise
 const intro = stack(
   crackle,
-  keys.gain(0.8)
+  keys.amp(0.8)
 )
 
 // 2. Verse: Add simple drums and bass
 const verse = stack(
   crackle,
   keys,
-  note("eb2 . c2 . f2 . bb2").s("bass").smooth(0.1), // Roots
+  note("eb2 . c2 . f2 . bb2").smooth(0.1).s("bass"), // Roots
   s("bd ~ sd ~").fast(4).nudge(0.04) // 4 bars of beats
 )
 

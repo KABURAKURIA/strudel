@@ -9,7 +9,7 @@ setcps(84/60/4)
 // Subtle background noise
 const vinyl = s("noise")
   .lpf(1500)
-  .gain(0.05)
+  .amp(0.05)
   .loopAt(2) // Loop over 2 cycles
 
 // 2. Jazz Chords
@@ -37,7 +37,7 @@ const bass = note("c2 . g2 . f2 . c3 . bb2 . f2 . g2 . b2")
 const drums = stack(
   s("bd(3,8)"), // Tresillo kick
   s("~ sd").nudge(0.06), // Late snare
-  s("hh*8").velocity(sine.slow(8).range(0.2, 0.5)).hpf(5000) // Shaker-like hats
+  s("hh*8").amp(sine.slow(8).range(0.2, 0.5)).hpf(5000) // Shaker-like hats
 ).swing(0.15)
 
 // 5. Saxophone Solo
@@ -53,7 +53,7 @@ const saxSolo = note("c4 d4 eb4 g4 bb4 c5 eb5")
   // Use `randcat` or `scramble` to make it sound improvised
   .scramble(4)    // Scramble the notes every cycle
   .slow(2)
-  .gain(0.8)
+  .amp(0.8)
 
 // Master Mix
 stack(

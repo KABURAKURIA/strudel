@@ -12,7 +12,7 @@ Copy the code block for the song you want to hear into the Strudel editor.
 ### 1. Happy Birthday (Jazz Waltz)
 ```javascript
 // Happy Birthday - Jazz Waltz
-setcps(0.8)
+setcps(0.4)
 
 // 1. Melody (Swung)
 const melody = note(cat(
@@ -58,7 +58,7 @@ stack(
 ### 3. Wedding March (Wagner - Here Comes the Bride)
 ```javascript
 // Wedding March (Wagner)
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "g4@1.5 c4@0.5 c4@1.5 c4@0.5",
   "c4@3 g4@0.5 bb4@0.5",
@@ -164,7 +164,7 @@ const melody = note(cat(
 
 stack(
   melody,
-  s("noise").gain(0.05)
+  s("noise").amp(0.05)
 )
 ```
 
@@ -567,7 +567,7 @@ stack(
 ### 30. Hush Little Baby
 ```javascript
 // Hush Little Baby
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "e4@0.5 e4@0.5 g4@0.5 g4@0.5 b4@0.5 b4@0.5 a4@1",
   "f4@0.5 f4@0.5 a4@0.5 a4@0.5 c5@0.5 c5@0.5 b4@1"
@@ -616,7 +616,7 @@ const melody = note(cat(
 
 stack(
   melody,
-  s("noise").gain(0.1)
+  s("noise").amp(0.1)
 )
 ```
 
@@ -817,7 +817,7 @@ const bass = note("c3 g3")
 stack(
   melody,
   bass,
-  s("bd").gain(1.2).shape(0.5)
+  s("bd").amp(1.2).shape(0.5)
 )
 ```
 
@@ -884,7 +884,7 @@ stack(
 ### 46. Zelda's Lullaby
 ```javascript
 // Zelda's Lullaby
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "b3@2 d4@1 a3@3",
   "b3@2 d4@1 a3@3",
@@ -1209,7 +1209,7 @@ stack(
 ### 63. We Will Rock You
 ```javascript
 // We Will Rock You
-setcps(0.8)
+setcps(0.4)
 const stomp = s("bd bd cp ~")
 
 const vocal = note("e4@1 e4@0.5 d4@0.5 e4@2")
@@ -1290,7 +1290,7 @@ stack(
 ### 68. Iron Man
 ```javascript
 // Iron Man
-setcps(0.8)
+setcps(0.4)
 const riff = note(cat(
   "b2@2 d3@2 d3@1 e3@1 e3@2",
   "g3@0.5 f#3@0.5 g3@0.5 f#3@0.5 g3@0.5 f#3@0.5 d3@1 e3@1 e3@2"
@@ -1575,7 +1575,7 @@ stack(
 ### 84. Old Town Road
 ```javascript
 // Old Town Road
-setcps(0.8)
+setcps(0.4)
 const chords = note(cat(
   "g#3:major@2 b3:major@2 f#3:major@2 eb3:major@2"
 )).slow(2)
@@ -1959,6 +1959,6 @@ const melody = note(cat(
 stack(
   chords,
   melody,
-  s("noise").gain(0.05)
+  s("noise").amp(0.05)
 )
 ```

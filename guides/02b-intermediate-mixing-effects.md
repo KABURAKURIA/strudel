@@ -57,7 +57,7 @@ Control volume and add grit.
 
 ```javascript
 // Distorted Bass
-note("c1").s("sine").shape(0.5).gain(0.8)
+note("c1").s("sine").shape(0.5).amp(0.8)
 
 // Ghost notes using velocity
 s("hh*4").velocity("1 0.2 0.8 0.4")
@@ -97,7 +97,7 @@ Here is how you might mix a full loop.
 ```javascript
 stack(
   // 1. Kick: Mono, punchy, no reverb
-  s("bd").shape(0.3).gain(1.2),
+  s("bd").shape(0.3).amp(1.2),
 
   // 2. Snare: Some reverb, cut lows
   s("~ sd").hpf(200).room(0.2),

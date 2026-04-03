@@ -134,7 +134,7 @@ const sectionC = "f#3:m7b5@4 b2:dom7@4 e3:minor7@2 eb3:dom7@2 d3:minor7@2 db3:do
 
 const chords = note(cat(sectionA, sectionA, sectionB, sectionC))
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. WALKING BASS
 const bass = note(cat(
@@ -145,7 +145,7 @@ const bass = note(cat(
 )).slow(2)
   .s("bass")
   .struct("x*4")
-  .gain(0.7)
+  .amp(0.7)
 
 stack(
   melody,
@@ -172,7 +172,7 @@ const melody = note(cat(a1, a2))
 const section = "a3:minor7@4 d3:minor7@4 g3:dom7@4 c3:maj7@4 f3:maj7@4 b2:m7b5@4 e3:dom7@4 a2:minor7@4"
 const chords = note(cat(section, section))
   .s("supermandolin")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. DRUMS (Swing)
 const drums = stack(
@@ -210,7 +210,7 @@ const chords = note(cat(
 
   .s("superpiano")
   .struct("x ~ x x ~ x x ~") // Bossa rhythm
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. DRUMS (Bossa Nova)
 const drums = stack(
@@ -267,10 +267,10 @@ const chords = note(cat(
 )).slow(4)
 
   .s("supersaw").attack(0.1).release(0.8)
-  .gain(0.4)
+  .amp(0.4)
 
 // 4. DRUMS
-const drums = s("oh*6").gain(0.5)
+const drums = s("oh*6").amp(0.5)
 
 stack(
   melody,
@@ -298,12 +298,12 @@ const melody = note(cat(
 const chords = note("a3:m6 e3:dom7")
   .s("superpiano")
   .slow(2)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. BASS
 const bass = note("a2 e2 a2 e2")
   .s("bass")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -337,12 +337,12 @@ const chords = note(cat(
 )).slow(3)
   .s("supermandolin")
   .struct("x ~ x x ~ x x ~") // Bossa
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
   chords,
-  s("shaker*8").gain(0.5),
+  s("shaker*8").amp(0.5),
   note("f2 g2 g2 gb2").s("bass").slow(4)
 )
 ```
@@ -350,7 +350,7 @@ stack(
 ## 9. Giant Steps (John Coltrane)
 ```javascript
 // Giant Steps - Full 16-Bar Cycle
-setcps(0.8)
+setcps(0.4)
 
 // 1. MELODY
 // The "Giant Steps" phrase
@@ -387,13 +387,13 @@ const bass = note(cat(
 )).slow(1.75)
   .s("bass")
   .struct("x*2")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
   chords,
   bass,
-  s("oh*4").gain(0.8)
+  s("oh*4").amp(0.8)
 )
 ```
 
@@ -414,11 +414,11 @@ const melody = note(cat(
 // 2. CHORDS (Em9 - Cmaj7)
 const chords = note("e3:m9@3 c3:maj7@3")
   .s("superpiano")
-  .gain(0.5)
+  .amp(0.5)
 
 // 3. DRUMS (Waltz)
 const drums = s("oh hh hh")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -450,7 +450,7 @@ const chords = note(cat(
 ))
   .s("superpiano")
   .struct("~ x ~ x")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. BASS
 const bass = note("d2 g2 e2 a2")
@@ -483,7 +483,7 @@ const melody = note(cat(
 const chords = note("eb3:minor7@2 ab3:dom7@2")
   .s("superpiano")
   .slow(2)
-  .gain(0.5)
+  .amp(0.5)
 
 // 3. BASS
 const bass = note("eb2 ab2")
@@ -524,7 +524,7 @@ const chords = note(cat(
 
   .s("superpwm")
   .lpf(2000)
-  .gain(0.5)
+  .amp(0.5)
 
 // 3. WALKING BASS
 const bass = note(cat(
@@ -533,13 +533,13 @@ const bass = note(cat(
   "f2 a2 c3 eb3 f2 a2 c3 eb3 bb1 d2 f2 ab2 f2 a2 c3 eb3"
 )).slow(4)
   .s("bass")
-  .gain(0.8)
+  .amp(0.8)
 
 stack(
   melody,
   chords,
   bass,
-  s("oh*4").gain(0.6)
+  s("oh*4").amp(0.6)
 )
 ```
 
@@ -559,12 +559,12 @@ const melody = note(cat(
 // 2. PIANO VAMP (Fm7)
 const piano = note("f3:minor7@2.5 ab3:minor7@1.5")
   .s("superpiano")
-  .gain(0.7)
+  .amp(0.7)
 
 // 3. BASS LINE
 const bass = note("f2@2.5 ab2@1.5")
   .s("bass")
-  .gain(0.8)
+  .amp(0.8)
 
 // 4. DRUMS (Funky)
 const drums = stack(
@@ -597,13 +597,13 @@ const melody = note(cat(
 // 2. PIANO GROOVE (F7)
 const piano = note("f3:dom7@2.5 eb3:dom7@1.5")
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. BASS
 const bass = note("f2 f2 eb2 f2")
   .s("bass")
   .struct("x ~ x x")
-  .gain(0.7)
+  .amp(0.7)
 
 stack(
   melody,
@@ -629,13 +629,13 @@ const melody = note(cat(
 // 2. BASS LINE (Signature)
 const bass = note("f2@1.5 f2@0.5 c3@1 c2@1")
   .s("bass")
-  .gain(0.8)
+  .amp(0.8)
 
 // 3. CHORDS (Fm7 - Eb7)
 const chords = note("f3:minor7 eb3:dom7")
   .s("superpiano")
   .struct("x ~ x ~")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -659,12 +659,12 @@ const call = note("f3@0.5 ab3@0.5 f3@0.5 c4@0.5")
 const response = note("f3:dom7@0.5 eb3:dom7@0.5 c3:dom7@0.5 ab2:dom7@0.5 f2:dom7@1")
   .s("sawtooth").lpf(2000)
   .delay(0.5) // Wait for call
-  .gain(0.7)
+  .amp(0.7)
 
 // 3. SHUFFLE
 const drums = s("oh*3")
   .n("0 2 0") // Shuffle feel
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   call,
@@ -690,10 +690,10 @@ const melody = note(cat(
 // 2. CHORDS (Bm - A - G - F#)
 const chords = note("b3:minor a3:major g3:major f#3:major")
   .s("supersaw").attack(0.1).release(0.8)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. PERC
-const perc = s("clap*2").gain(0.5)
+const perc = s("clap*2").amp(0.5)
 
 stack(
   melody,
@@ -711,13 +711,13 @@ setcps(0.55)
 const bass = note("bb1@1.5 ab1@0.5 bb1@0.5 db2@0.5 c2@0.5 bb1@0.5")
   .s("moog") // or synth
   .lpf(400)
-  .gain(0.9)
+  .amp(0.9)
 
 // 2. CHORDS
 const chords = note("ab2:minor7 g2:minor7")
   .s("superpiano").lpf(1000)
   .struct("~ x ~ x")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. DRUMS
 const drums = stack(
@@ -742,7 +742,7 @@ setcps(0.7)
 const bass = note("eb2 d2 db2 c2")
   .s("bass")
   .struct("x x x x")
-  .gain(0.8)
+  .amp(0.8)
 
 // 2. MELODY
 const melody = note(cat(
@@ -756,7 +756,7 @@ const melody = note(cat(
 const chords = note("eb3:dom7 d3:minor")
   .s("superpiano")
   .struct("x ~ x ~")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   bass,
@@ -783,7 +783,7 @@ const melody = note(cat(
 const chords = note("c3:major g3:major c3:major")
   .s("superpiano")
   .struct("x ~ x x") // Calypso rhythm
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. DRUMS
 const drums = stack(
@@ -801,7 +801,7 @@ stack(
 ## 22. Scrapple From The Apple
 ```javascript
 // Scrapple From The Apple
-setcps(0.8)
+setcps(0.4)
 
 // 1. MELODY
 const melody = note(cat(
@@ -815,13 +815,13 @@ const melody = note(cat(
 const chords = note("g3:minor7 c3:dom7 f3:maj7")
   .s("superpiano")
   .struct("x ~ x ~ x ~")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. WALKING BASS
 const bass = note("g2 a2 bb2 b2 c3 bb2 a2 g2")
   .s("bass")
   .struct("x*2")
-  .gain(0.7)
+  .amp(0.7)
 
 stack(
   melody,
@@ -851,7 +851,7 @@ const chords = note(cat(
 )).slow(2)
 
   .s("superpiano")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -881,7 +881,7 @@ const chords = note(cat(
   "ab3:maj7@4"
 )).slow(2)
   .s("supersaw").attack(0.1).release(0.8)
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -909,7 +909,7 @@ const melody = note(cat(
 const chords = note("eb3:minor7 bb3:dom7 eb3:minor7")
   .s("superpiano")
   .slow(2)
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -935,13 +935,13 @@ const melody = note(cat(
 const ostinato = note("f3 a3 c4 a3")
   .s("superpiano")
   .struct("x x x x")
-  .gain(0.5)
+  .amp(0.5)
 
 // 3. CHORDS (Dm)
 const chords = note("d3:minor7 g3:dom7 c3:maj7 f3:maj7")
   .s("supersaw").attack(0.5)
   .slow(4)
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -967,7 +967,7 @@ const melody = note(cat(
 const chords = note("e3:m7b5 a3:dom7 c3:minor7 f3:dom7")
   .s("superpiano")
   .struct("x ~ x ~")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -994,13 +994,13 @@ const melody = note(cat(
 const chords = note("eb3:maj7 d3:m7b5 g3:dom7")
   .s("superpiano")
   .struct("x ~ x x")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. WALKING BASS
 const bass = note("eb2 f2 g2 bb2 d3 c3 bb2 g2")
   .s("bass")
   .struct("x*2")
-  .gain(0.7)
+  .amp(0.7)
 
 stack(
   melody,
@@ -1030,7 +1030,7 @@ const chords = note(cat(
   "eb3:dom7@4 ab3:maj7@4"
 )).slow(2)
   .s("supermandolin")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -1057,7 +1057,7 @@ const melody = note(cat(
 const chords = note("c3:minor")
   .s("superpiano")
   .struct("x")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -1084,7 +1084,7 @@ const melody = note(cat(
 const chords = note("eb3:maj7 eb3:minor7 f3:minor7 bb3:dom7")
   .s("superpiano")
   .struct("x ~ x ~")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -1111,7 +1111,7 @@ const melody = note(cat(
 const chords = note("e3:minor7 a3:dom7 d3:maj7")
   .s("superpiano")
   .struct("x ~ x x")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -1137,7 +1137,7 @@ const melody = note(cat(
 // 2. CHORDS (Fmaj7...)
 const chords = note("f3:maj7 g3:minor7 c3:dom7 f3:maj7")
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -1163,7 +1163,7 @@ const melody = note(cat(
 // 2. CHORDS
 const chords = note("eb3:maj7")
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -1190,7 +1190,7 @@ const melody = note(cat(
 const chords = note("f2:dom7 bb2:dom7 f2:dom7 c3:dom7")
   .s("superpwm")
   .slow(4)
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1217,7 +1217,7 @@ const melody = note(cat(
 const chords = note("f3:dom7 gb3:dom7")
   .s("superpiano")
   .struct("x x")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -1249,10 +1249,10 @@ const chords = note(cat(
 ))
  // Sus chord sound
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. DRUMS (Straight 8ths)
-const drums = s("oh*8").gain(0.6)
+const drums = s("oh*8").amp(0.6)
 
 stack(
   melody,
@@ -1279,7 +1279,7 @@ const melody = note(cat(
 const chords = note("bb2:dom7 eb3:dom7 bb2:dom7 f3:dom7")
   .s("superpiano")
   .slow(4)
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -1305,7 +1305,7 @@ const melody = note(cat(
 // 2. BASS LINE (Funky)
 const bass = note("eb2@1.5 db2@0.5 eb2@1 g2@1")
   .s("bass")
-  .gain(0.8)
+  .amp(0.8)
 
 // 3. DRUMS (Boogaloo)
 const drums = stack(
@@ -1328,13 +1328,13 @@ setcps(0.65)
 // 1. BASS (Soul Intro)
 const bass = note("bb1@1 bb1@0.5 bb1@0.5 b1@1 c2@1")
   .s("bass")
-  .gain(0.9)
+  .amp(0.9)
 
 // 2. CHORDS (Bb7)
 const chords = note("bb2:dom7")
   .s("supermandolin")
   .struct("~ x ~ x")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. MELODY
 const melody = note(cat(
@@ -1361,7 +1361,7 @@ setcps(0.7)
 const bass = note("g2@1 b2@1 d3@1 g3@1")
   .s("bass")
   .lpf(1000)
-  .gain(0.8)
+  .amp(0.8)
 
 // 2. MELODY
 const melody = note(cat(
@@ -1372,7 +1372,7 @@ const melody = note(cat(
   .velocity(0.8)
 
 // 3. DRUMS
-const drums = s("hh*8").gain(0.6)
+const drums = s("hh*8").amp(0.6)
 
 stack(
   bass,
@@ -1399,7 +1399,7 @@ const melody = note(cat(
 const chords = note("bb2:dom7")
   .s("superpiano")
   .struct("x ~ x ~")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -1426,7 +1426,7 @@ const melody = note(cat(
 const chords = note("bb3:minor7 ab3:maj7")
   .s("superpiano")
   .struct("x ~ x ~")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -1445,7 +1445,7 @@ setcps(0.6)
 const bass = note("c2 c3 f2 g2")
   .s("bass")
   .struct("x x x x")
-  .gain(0.8)
+  .amp(0.8)
 
 // 2. MELODY
 const melody = note(cat(
@@ -1459,13 +1459,13 @@ const melody = note(cat(
 const chords = note("c3:m11")
   .s("superpiano")
   .slow(2)
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   bass,
   melody,
   chords,
-  s("oh*6").gain(0.6)
+  s("oh*6").amp(0.6)
 )
 ```
 
@@ -1486,7 +1486,7 @@ const melody = note(cat(
 const chords = note("f3:m7")
   .s("superpiano")
   .struct("x ~ ~")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. DRUMS (Polyrhythm)
 const drums = stack(
@@ -1520,7 +1520,7 @@ const melody = note(cat(
 const chords = note("e3:minor f3:maj7")
   .s("superpiano")
   .struct("x ~ x ~")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -1547,13 +1547,13 @@ const melody = note(cat(
 const chords = note("c3:minor7 f3:minor7 c3:minor7 g3:minor7")
   .s("superpiano")
   .slow(4)
-  .gain(0.5)
+  .amp(0.5)
 
 // 3. WALKING BASS
 const bass = note("c2 eb2 f2 g2 c3 bb2 g2 f2")
   .s("bass")
   .struct("x*2")
-  .gain(0.7)
+  .amp(0.7)
 
 stack(
   melody,
@@ -1580,7 +1580,7 @@ const melody = note(cat(
 const chords = note("bb3:dom7 eb3:dom7 bb3:dom7 f3:dom7")
   .s("superpiano")
   .slow(4)
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -1619,7 +1619,7 @@ const chords = note(cat(
 )).slow(4)
 
   .s("superpwm")
-  .gain(0.6)
+  .amp(0.6)
 
 stack(
   melody,
@@ -1645,16 +1645,16 @@ const melody = note(cat(
 // 2. CHORDS (C7b9 - Fm)
 const chords = note("c3:dom7@4 f3:minor@4")
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. BASS (Latin/Swing)
 const bass = note("c2 f2")
   .s("bass")
   .slow(2)
-  .gain(0.8)
+  .amp(0.8)
 
 // 4. DRUMS
-const drums = s("conga*8").gain(0.7)
+const drums = s("conga*8").amp(0.7)
 
 stack(
   melody,

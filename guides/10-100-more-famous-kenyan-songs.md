@@ -27,13 +27,13 @@ const melody = note(cat(
 const chords = note("c3:major f3:major g3:major c3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("C:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -60,11 +60,11 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Shaker)
 const shaker = s("hh").hpf(5000)
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -91,11 +91,11 @@ const melody = note(cat(
 const chords = note("e3:minor a3:minor b3:minor e3:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Rim)
 const rim = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -121,11 +121,11 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -152,13 +152,13 @@ const melody = note(cat(
 const chords = note("d3:major g3:major a3:major d3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("D:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -185,11 +185,11 @@ const melody = note(cat(
 const chords = note("c3:major g3:major c3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Knock)
 const knock = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -209,20 +209,20 @@ const melody = note(cat(
   "e4@1 g4@1 b4@1 e5@1"
 ))
   .s("sine").portamento(0.1)
-  .gain(0.4)
+  .amp(0.4)
   .velocity(0.8)
 
 // 2. CHORDS (Em)
 const chords = note("e3:minor b2:minor e3:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("E:minor")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -249,11 +249,11 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Fill)
 const fill = s("sd")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -280,11 +280,11 @@ const melody = note(cat(
 const chords = note("f3:major bb3:major c3:major f3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Crowd)
 const crowd = s("glitch")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -310,13 +310,13 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("G:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -343,11 +343,11 @@ const melody = note(cat(
 const chords = note("d3:major g3:major a3:major d3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Drum)
 const drum = s("bd")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -373,11 +373,11 @@ const melody = note(cat(
 const chords = note("c3:major f3:major g3:major c3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Rim)
 const rim = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -404,13 +404,13 @@ const melody = note(cat(
 const chords = note("e3:minor b2:minor e3:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("E:minor")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -437,11 +437,11 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Hit)
 const hit = s("bd")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -468,11 +468,11 @@ const melody = note(cat(
 const chords = note("d3:minor g3:minor a3:minor d3:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -499,13 +499,13 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("G:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -532,11 +532,11 @@ const melody = note(cat(
 const chords = note("c3:major g3:major c3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Siren)
 const siren = s("sine").shape(0.5)
-  .gain(0.3)
+  .amp(0.3)
 
 stack(
   melody,
@@ -563,11 +563,11 @@ const melody = note(cat(
 const chords = note("f3:major c3:major f3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Fill)
 const fill = s("sd")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -593,13 +593,13 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("G:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -626,11 +626,11 @@ const melody = note(cat(
 const chords = note("d3:major g3:major a3:major d3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -656,11 +656,11 @@ const melody = note(cat(
 const chords = note("e3:minor b2:minor e3:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Rim)
 const rim = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -687,13 +687,13 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("A:minor")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -720,11 +720,11 @@ const melody = note(cat(
 const chords = note("c3:major g3:major c3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Shaker)
 const shaker = s("hh").hpf(5000)
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -750,11 +750,11 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Rim)
 const rim = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -781,13 +781,13 @@ const melody = note(cat(
 const chords = note("d3:major g3:major a3:major d3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("D:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -817,11 +817,11 @@ const melody = note(cat(
 const chords = note("c3:major f3:major g3:major c3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.5)
+  .amp(0.5)
 
 // 3. IMPROV (Snap)
 const snap = s("snap")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -848,13 +848,13 @@ const melody = note(cat(
 const chords = note("e3:major a3:major b3:major e3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("E:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -880,11 +880,11 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Rim)
 const rim = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -911,11 +911,11 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Shaker)
 const shaker = s("hh").hpf(5000)
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -942,11 +942,11 @@ const melody = note(cat(
 const chords = note("c3:major g3:major c3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -973,13 +973,13 @@ const melody = note(cat(
 const chords = note("f3:major c3:major f3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("F:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -1006,11 +1006,11 @@ const melody = note(cat(
 const chords = note("d3:major g3:major a3:major d3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Conga)
 const conga = s("bongo")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1037,11 +1037,11 @@ const melody = note(cat(
 const chords = note("e3:major a3:major b3:major e3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1068,11 +1068,11 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Rim)
 const rim = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1099,13 +1099,13 @@ const melody = note(cat(
 const chords = note("c3:major f3:major c3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("C:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -1131,13 +1131,13 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("A:minor")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -1163,11 +1163,11 @@ const melody = note(cat(
 const chords = note("f3:major c3:major f3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Rim)
 const rim = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1194,11 +1194,11 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Hat)
 const hat = s("hh")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -1224,13 +1224,13 @@ const melody = note(cat(
 const chords = note("c3:major f3:major g3:major c3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("C:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -1257,11 +1257,11 @@ const melody = note(cat(
 const chords = note("d3:major g3:major a3:major d3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Snap)
 const snap = s("snap")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1287,11 +1287,11 @@ const melody = note(cat(
 const chords = note("e3:major a3:major b3:major e3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Rim)
 const rim = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1318,13 +1318,13 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("A:minor")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -1351,11 +1351,11 @@ const melody = note(cat(
 const chords = note("c3:major g3:major c3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1381,11 +1381,11 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Rim)
 const rim = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1411,13 +1411,13 @@ const melody = note(cat(
 const chords = note("f3:major c3:major f3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("F:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -1444,11 +1444,11 @@ const melody = note(cat(
 const chords = note("d3:major g3:major a3:major d3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1475,11 +1475,11 @@ const melody = note(cat(
 const chords = note("e3:major a3:major b3:major e3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Snap)
 const snap = s("snap")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1505,13 +1505,13 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("A:minor")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -1538,11 +1538,11 @@ const melody = note(cat(
 const chords = note("c3:major g3:major c3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Fill)
 const fill = s("sd")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1568,13 +1568,13 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("G:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -1605,13 +1605,13 @@ const melody = note(cat(
 const chords = note("c2:minor g2:minor c2:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Sub)
 const sub = note("0")
   .scale("C:minor")
   .s("sine")
-  .gain(0.7)
+  .amp(0.7)
 
 stack(
   melody,
@@ -1638,11 +1638,11 @@ const melody = note(cat(
 const chords = note("e2:minor b1:minor e2:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Trap Hat)
 const hat = s("hh*8")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1668,11 +1668,11 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (808)
 const bass808 = s("808")
-  .gain(0.7)
+  .amp(0.7)
 
 stack(
   melody,
@@ -1699,11 +1699,11 @@ const melody = note(cat(
 const chords = note("d3:minor g3:minor a3:minor d3:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Snare)
 const snare = s("sd")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1730,11 +1730,11 @@ const melody = note(cat(
 const chords = note("g2:minor d2:minor g2:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Chant)
 const chant = s("glitch")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1761,11 +1761,11 @@ const melody = note(cat(
 const chords = note("f2:minor c2:minor f2:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Kick)
 const kick = s("bd*4")
-  .gain(0.8)
+  .amp(0.8)
 
 stack(
   melody,
@@ -1791,13 +1791,13 @@ const melody = note(cat(
 const chords = note("e2:minor b1:minor e2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("E:minor")
   .s("bass")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1824,11 +1824,11 @@ const melody = note(cat(
 const chords = note("c3:minor g2:minor c3:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Hat)
 const hat = s("hh*4")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1854,11 +1854,11 @@ const melody = note(cat(
 const chords = note("d3:minor a2:minor d3:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1885,13 +1885,13 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("A:minor")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -1918,11 +1918,11 @@ const melody = note(cat(
 const chords = note("g2:minor d2:minor g2:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (808)
 const bass808 = s("808")
-  .gain(0.7)
+  .amp(0.7)
 
 stack(
   melody,
@@ -1949,11 +1949,11 @@ const melody = note(cat(
 const chords = note("e2:minor b1:minor e2:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Snare Roll)
 const roll = s("sd*4")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -1979,13 +1979,13 @@ const melody = note(cat(
 const chords = note("f2:minor c2:minor f2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("F:minor")
   .s("bass")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2012,11 +2012,11 @@ const melody = note(cat(
 const chords = note("c3:minor g2:minor c3:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Atmosphere)
 const atmo = s("noise")
-  .gain(0.3)
+  .amp(0.3)
 
 stack(
   melody,
@@ -2043,11 +2043,11 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2074,13 +2074,13 @@ const melody = note(cat(
 const chords = note("g2:minor d2:minor g2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("G:minor")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -2107,11 +2107,11 @@ const melody = note(cat(
 const chords = note("e3:major a3:major b3:major e3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Snap)
 const snap = s("snap")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2138,11 +2138,11 @@ const melody = note(cat(
 const chords = note("d3:minor g3:minor a3:minor d3:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Drum)
 const drum = s("bd")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2168,13 +2168,13 @@ const melody = note(cat(
 const chords = note("c3:major g3:major c3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("C:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -2201,11 +2201,11 @@ const melody = note(cat(
 const chords = note("f3:major c3:major f3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2235,11 +2235,11 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Shout)
 const shout = s("glitch")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2266,13 +2266,13 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("A:minor")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -2299,11 +2299,11 @@ const melody = note(cat(
 const chords = note("c3:major g3:major c3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Fill)
 const fill = s("sd")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2330,11 +2330,11 @@ const melody = note(cat(
 const chords = note("d3:major g3:major a3:major d3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Chant)
 const chant = s("glitch")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2361,11 +2361,11 @@ const melody = note(cat(
 const chords = note("e2:minor b1:minor e2:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (808)
 const bass808 = s("808")
-  .gain(0.7)
+  .amp(0.7)
 
 stack(
   melody,
@@ -2391,11 +2391,11 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Rim)
 const rim = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2422,13 +2422,13 @@ const melody = note(cat(
 const chords = note("f3:major c3:major f3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("F:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -2454,11 +2454,11 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2485,13 +2485,13 @@ const melody = note(cat(
 const chords = note("c3:major g3:major c3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("C:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -2517,13 +2517,13 @@ const melody = note(cat(
 const chords = note("d3:major g3:major a3:major d3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("D:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -2550,11 +2550,11 @@ const melody = note(cat(
 const chords = note("e3:minor b2:minor e3:minor")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Fill)
 const fill = s("sd")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2581,11 +2581,11 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2612,13 +2612,13 @@ const melody = note(cat(
 const chords = note("g2:major d2:major g2:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("G:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -2644,11 +2644,11 @@ const melody = note(cat(
 const chords = note("c3:major g3:major c3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Rim)
 const rim = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2674,13 +2674,13 @@ const melody = note(cat(
 const chords = note("d3:major g3:major a3:major d3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("D:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -2707,11 +2707,11 @@ const melody = note(cat(
 const chords = note("e3:major a3:major b3:major e3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Conga)
 const conga = s("bongo")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2737,11 +2737,11 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Rim)
 const rim = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2768,11 +2768,11 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2803,11 +2803,11 @@ const melody = note(cat(
 const chords = note("c3:major g3:major c3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Snare)
 const snare = s("sd")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2834,11 +2834,11 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Hit)
 const hit = s("bd")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2864,13 +2864,13 @@ const melody = note(cat(
 const chords = note("d3:major g3:major a3:major d3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("D:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -2897,11 +2897,11 @@ const melody = note(cat(
 const chords = note("e3:major a3:major b3:major e3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Rim)
 const rim = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2928,13 +2928,13 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("A:minor")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -2961,11 +2961,11 @@ const melody = note(cat(
 const chords = note("c3:major g3:major c3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -2992,11 +2992,11 @@ const melody = note(cat(
 const chords = note("f3:major c3:major f3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Fill)
 const fill = s("sd")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -3022,13 +3022,13 @@ const melody = note(cat(
 const chords = note("g3:major c3:major d3:major g3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("G:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -3055,11 +3055,11 @@ const melody = note(cat(
 const chords = note("d3:major g3:major a3:major d3:major")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Clap)
 const clap = s("cp")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -3085,11 +3085,11 @@ const melody = note(cat(
 const chords = note("c3:major f3:major g3:major c3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Rim)
 const rim = s("rm")
-  .gain(0.5)
+  .amp(0.5)
 
 stack(
   melody,
@@ -3116,13 +3116,13 @@ const melody = note(cat(
 const chords = note("e3:major a3:major b3:major e3:major")
 
   .s("supersaw").attack(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bass)
 const bass = note("0")
   .scale("E:major")
   .s("bass")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,
@@ -3149,13 +3149,13 @@ const melody = note(cat(
 const chords = note("a2:minor e2:minor a2:minor")
 
   .s("superpiano")
-  .gain(0.6)
+  .amp(0.6)
 
 // 3. IMPROV (Bubble)
 const bubble = note("0")
   .scale("A:minor")
   .s("sine")
-  .gain(0.4)
+  .amp(0.4)
 
 stack(
   melody,

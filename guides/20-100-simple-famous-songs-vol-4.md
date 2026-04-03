@@ -454,7 +454,7 @@ stack(
 ### 23. Rocket Man (Elton John)
 ```javascript
 // Rocket Man
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "g4@0.5 g4@0.5 d4@0.5 e4@0.5 g4@1 g4@1",
   "a4@0.5 b4@0.5 c5@1 g4@2"
@@ -474,7 +474,7 @@ stack(
 ### 24. Space Oddity (David Bowie)
 ```javascript
 // Space Oddity
-setcps(0.8)
+setcps(0.4)
 const chords = note(cat(
   "f3@2 e3@2",
   "f3@2 e3@2"
@@ -496,7 +496,7 @@ stack(
 ### 25. Imagine (John Lennon)
 ```javascript
 // Imagine
-setcps(0.8)
+setcps(0.4)
 const piano = note(cat(
   "c4@0.5 e4@0.5 c4@0.5 e4@0.5 f4@0.5 a4@0.5 f4@0.5 a4@0.5"
 ))
@@ -789,7 +789,7 @@ const bass = note(cat(
   .s("bass")
 
 const guitar = note("f#5@4")
-  .s("sine").gain(0.2)
+  .s("sine").amp(0.2)
 
 stack(
   bass,
@@ -845,7 +845,7 @@ stack(
 ### 43. Breaking Bad
 ```javascript
 // Breaking Bad
-setcps(0.8)
+setcps(0.4)
 const slide = note(cat(
   "d3@1.5 g3@0.5 bb3@2"
 ))
@@ -1114,7 +1114,7 @@ stack(
 ### 58. Over the Rainbow (Wizard of Oz)
 ```javascript
 // Over the Rainbow
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "c4@2 c5@2 b4@1 g4@1 a4@1 b4@1 c5@2"
 )).slow(2.5)
@@ -1148,7 +1148,7 @@ stack(
 ### 60. I Dreamed a Dream (Les Mis)
 ```javascript
 // I Dreamed a Dream
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "f4@0.5 f4@0.5 f4@0.5 g4@0.5 a4@0.5 g4@0.5 f4@0.5 d4@0.5",
   "d4@0.5 d4@0.5 d4@0.5 f4@0.5 g4@2"
@@ -1473,7 +1473,7 @@ stack(
 ### 78. Yellow (Coldplay)
 ```javascript
 // Yellow
-setcps(0.8)
+setcps(0.4)
 const chords = note(cat(
   "b3:major@4 f#3:major@4 e3:major@4"
 )).slow(3)
@@ -1629,7 +1629,7 @@ stack(
 ### 87. Skyrim (Dragonborn)
 ```javascript
 // Dragonborn
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "b3@1 a3@0.5 b3@0.5 c#4@1 b3@1",
   "d4@0.5 c#4@0.5 b3@0.5 a3@0.5 g3@1 a3@1",
@@ -1637,7 +1637,7 @@ const melody = note(cat(
 ))
   .s("sawtooth").lpf(1000)
 
-const drums = s("bd*2").gain(1.2)
+const drums = s("bd*2").amp(1.2)
 
 stack(
   melody,

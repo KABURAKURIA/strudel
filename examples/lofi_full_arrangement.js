@@ -16,7 +16,7 @@ setcps(80/60/16)
 // These are used across multiple sections for consistency.
 
 const vinyl = s("noise")
-  .gain(0.04)
+  .amp(0.04)
   .lpf(2000)
   .loopAt(1) // Ensure noise loops smoothly
 
@@ -63,7 +63,7 @@ const chorusMelody = note("g5 ~ f5 eb5 ~ c5 bb4 ~")
 // INTRO: Just keys and vinyl crackle
 const intro = stack(
   vinyl,
-  keysSound.note("eb4:major7 c4:minor7 f3:minor7 bb3:dom7").gain(0.8)
+  keysSound.note("eb4:major7 c4:minor7 f3:minor7 bb3:dom7").amp(0.8)
 )
 
 // VERSE: Add bass and simple drums

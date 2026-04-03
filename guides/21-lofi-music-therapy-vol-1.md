@@ -27,7 +27,7 @@ setcps(0.37)
 
 // --- Sound Design ---
 const pianoTone = x => x.s("superpiano").lpf(3000).room(0.6).velocity(0.7)
-const subBass = x => x.s("sine").shape(0.4).lpf(200).gain(1.1)
+const subBass = x => x.s("sine").shape(0.4).lpf(200).amp(1.1)
 
 // --- Harmony (Chords) ---
 // Dmaj9 - F#m7 - Bm9 - A6
@@ -39,19 +39,19 @@ const chords = note("d3 f#3 a3 c#4 e4 . f#3 a3 c#4 e4 . b2 d3 f#3 a3 c#4 . a2 c#
 // A clear, descending motif
 const melody = note("a5 . f#5 . e5 . c#5 . d5 c#5 . b4 . a4 . ~")
   .apply(pianoTone)
-  .gain(0.9)
+  .amp(0.9)
 
 // --- Rhythm (Solid Boom Bap) ---
 // Kick on 1 and the "and of 2", Snare on 2 and 4.
 const kick = s("bd ~ ~ bd ~ ~ ~ ~")
 const snare = s("~ ~ sd ~ ~ ~ sd ~").hpf(400)
-const hats = s("hh*8").gain("0.8 0.4 0.6 0.4 0.8 0.4 0.5 0.4") // Dynamic hats
+const hats = s("hh*8").amp("0.8 0.4 0.6 0.4 0.8 0.4 0.5 0.4") // Dynamic hats
 
 const beat = stack(kick, snare, hats).swing(0.1)
 
 // --- Texture ---
-const wind = s("noise").lpf(1000).gain(0.05).pan(sine.slow(8))
-const crackle = s("noise").hpf(2000).gain(0.03)
+const wind = s("noise").lpf(1000).amp(0.05).pan(sine.slow(8))
+const crackle = s("noise").hpf(2000).amp(0.03)
 
 // --- Arrangement ---
 const A = stack(chords, beat, subBass("d2 . f#2 . b1 . a1"), wind, crackle)
@@ -124,7 +124,7 @@ setcps(0.35)
 
 // --- Sound Design ---
 const guitarTone = x => x.s("supermandolin").lpf(2500).legato(1.2).room(0.4)
-const bassTone = x => x.s("triangle").lpf(300).gain(1.2)
+const bassTone = x => x.s("triangle").lpf(300).amp(1.2)
 
 // --- Harmony (Loop) ---
 // Am7 - D7 (Dorian Vamp)
@@ -137,7 +137,7 @@ const guitarChords = note("a2 c3 e3 g3 . d3 f#3 a3 c4")
 const riff = note("e4 g4 a4 ~ . b4 a4 g4 e4")
   .apply(guitarTone)
   .transpose(12)
-  .gain(0.9)
+  .amp(0.9)
 
 // --- Rhythm (Heavy Swing) ---
 // A "Dilla" feel with late snares and loose hats
@@ -148,7 +148,7 @@ const hats = s("hh*8").nudge("0 0.02 0 0.03 0 0.02 0 0.04")
 const beat = stack(kick, snare, hats).swing(0.15)
 
 // --- Texture ---
-const vinyl = s("noise").gain(0.1).hpf(1000)
+const vinyl = s("noise").amp(0.1).hpf(1000)
 
 // --- Arrangement ---
 const main = stack(guitarChords, beat, bassTone(note("a1 . d2")), vinyl)
@@ -221,8 +221,8 @@ cat([
 setcps(0.33)
 
 // --- Sound Design ---
-const rhodes = x => x.s("superpiano").lpf(1000).tremolo(3, 0.2).gain(0.8)
-const sax = x => x.s("sawtooth").lpf(1500).attack(0.2).release(0.5).gain(0.6)
+const rhodes = x => x.s("superpiano").lpf(1000).tremolo(3, 0.2).amp(0.8)
+const sax = x => x.s("sawtooth").lpf(1500).attack(0.2).release(0.5).amp(0.6)
 
 // --- Harmony (Chords) ---
 // Em9 - Fmaj7 (Phrygian)
@@ -239,15 +239,15 @@ const melody = note("~ b4 ~ c5 . b4 a4 g4 ~")
 // Clean and minimal
 const kick = s("bd ~ bd ~")
 const rim = s("~ sd ~ sd").nudge(0.02).hpf(1000) // Rimshot
-const hats = s("hh*8").gain("0.6 0.3 0.5 0.3")
+const hats = s("hh*8").amp("0.6 0.3 0.5 0.3")
 
 const beat = stack(kick, rim, hats).swing(0.1)
 
 // --- Texture ---
-const rain = s("noise").lpf(800).gain(0.15).jux(rev)
+const rain = s("noise").lpf(800).amp(0.15).jux(rev)
 
 // --- Arrangement ---
-const bass = note("e1 . f1").s("sine").gain(1.1)
+const bass = note("e1 . f1").s("sine").amp(1.1)
 const main = stack(chords, bass, beat, rain)
 const full = stack(chords, bass, beat, rain, melody)
 
@@ -317,7 +317,7 @@ cat([
 setcps(0.316)
 
 // --- Sound Design ---
-const revPiano = x => x.s("superpiano").rev().lpf(1500).slow(2).gain(0.8)
+const revPiano = x => x.s("superpiano").rev().lpf(1500).slow(2).amp(0.8)
 
 // --- Harmony ---
 // G - F - C (Mixolydian Rock)
@@ -327,20 +327,20 @@ const chords = note("g2 b2 d3 . f2 a2 c3 . c2 e2 g2 . g2 b2 d3")
 // --- Melody (Bell) ---
 // Simple, nostalgic top line
 const bell = note("d5 ~ ~ e5 . d5 ~ b4 ~")
-  .s("sine").gain(0.4).delay(0.4)
+  .s("sine").amp(0.4).delay(0.4)
 
 // --- Rhythm (Heavy Break) ---
-const kick = s("bd(3,8)").gain(1.2).lpf(120)
+const kick = s("bd(3,8)").amp(1.2).lpf(120)
 const snare = s("sd(2,8)").shape(0.4)
-const hats = s("hh*16").gain("1 0.2 0.8 0.2")
+const hats = s("hh*16").amp("1 0.2 0.8 0.2")
 
 const beat = stack(kick, snare, hats).swing(0.05)
 
 // --- Texture ---
-const crackle = s("noise").gain(0.1).hpf(2000)
+const crackle = s("noise").amp(0.1).hpf(2000)
 
 // --- Arrangement ---
-const bass = note("g1 . f1 . c1 . g1").s("sine").gain(1.0)
+const bass = note("g1 . f1 . c1 . g1").s("sine").amp(1.0)
 const groove = stack(chords, bass, beat, crackle)
 
 cat([
@@ -410,8 +410,8 @@ cat([
 setcps(0.375)
 
 // --- Sound Design ---
-const strings = x => x.s("supersaw").attack(0.5).release(1).lpf(2000).gain(0.7)
-const flute = x => x.s("triangle").vowel("u").delay(0.3).gain(0.8)
+const strings = x => x.s("supersaw").attack(0.5).release(1).lpf(2000).amp(0.7)
+const flute = x => x.s("triangle").vowel("u").delay(0.3).amp(0.8)
 
 // --- Harmony ---
 // Fmaj7 - G6 (Lydian)
@@ -424,14 +424,14 @@ const melody = note("c5 e5 g5 a5 . b5 a5 g5 e5")
   .apply(flute)
 
 // --- Rhythm (Crisp) ---
-const kick = s("bd ~ bd ~").gain(1.2)
+const kick = s("bd ~ bd ~").amp(1.2)
 const snare = s("~ sd ~ sd").hpf(400)
-const hats = s("hh*8").gain("0.8 0.4 0.6 0.4")
+const hats = s("hh*8").amp("0.8 0.4 0.6 0.4")
 
 const beat = stack(kick, snare, hats).swing(0.1)
 
 // --- Arrangement ---
-const bass = note("f1 . g1").s("sawtooth").lpf(300).gain(0.9)
+const bass = note("f1 . g1").s("sawtooth").lpf(300).amp(0.9)
 const main = stack(chords, bass, beat)
 
 cat([
@@ -500,7 +500,7 @@ cat([
 setcps(0.358)
 
 // --- Sound Design ---
-const piano = x => x.s("superpiano").lpf(1500).gain(0.8)
+const piano = x => x.s("superpiano").lpf(1500).amp(0.8)
 
 // --- Harmony ---
 // Cm7 - Bbmaj7 - Abmaj7 - G7
@@ -508,9 +508,9 @@ const chords = note("c3 eb3 g3 bb3 . bb2 d3 f3 a3 . ab2 c3 eb3 g3 . g2 b2 d3 f3"
   .apply(piano)
 
 // --- Rhythm (Driving) ---
-const kick = s("bd ~ ~ bd . ~ bd ~ ~").gain(1.2)
-const snare = s("~ sd ~ sd").gain(0.9)
-const hats = s("hh*8").gain("1 0.3 0.8 0.3")
+const kick = s("bd ~ ~ bd . ~ bd ~ ~").amp(1.2)
+const snare = s("~ sd ~ sd").amp(0.9)
+const hats = s("hh*8").amp("1 0.3 0.8 0.3")
 
 const beat = stack(kick, snare, hats).swing(0.1)
 
@@ -519,7 +519,7 @@ const melody = note("g5 bb5 c6 ~ . bb5 g5 f5 ~")
   .s("sawtooth").lpf(1000).delay(0.3)
 
 // --- Arrangement ---
-const bass = note("c2 . bb1 . ab1 . g1").s("sine").gain(1.0)
+const bass = note("c2 . bb1 . ab1 . g1").s("sine").amp(1.0)
 const main = stack(chords, bass, beat)
 
 cat([
@@ -597,17 +597,17 @@ const arps = note("eb3 g3 bb3 d4 . f3 a3 c4 e4")
   .struct("x*8")
 
 // --- Rhythm (Steady) ---
-const kick = s("bd(3,8)").gain(1.1)
-const hats = s("hh*16").gain("0.5 0.2 0.4 0.2")
-const snare = s("sd(2,8)").gain(0.8)
+const kick = s("bd(3,8)").amp(1.1)
+const hats = s("hh*16").amp("0.5 0.2 0.4 0.2")
+const snare = s("sd(2,8)").amp(0.8)
 
 const beat = stack(kick, hats, snare)
 
 // --- Texture ---
-const water = s("noise").lpf(800).gain(0.1)
+const water = s("noise").lpf(800).amp(0.1)
 
 // --- Arrangement ---
-const bass = note("eb2 . f2").s("sawtooth").lpf(300).gain(0.9)
+const bass = note("eb2 . f2").s("sawtooth").lpf(300).amp(0.9)
 const main = stack(arps, bass, beat, water)
 
 cat([
@@ -675,7 +675,7 @@ cat([
 setcps(0.354)
 
 // --- Sound Design ---
-const bassFx = x => x.s("triangle").attack(0.05).decay(0.5).lpf(500).gain(1.0)
+const bassFx = x => x.s("triangle").attack(0.05).decay(0.5).lpf(500).amp(1.0)
 const pianoFx = x => x.s("superpiano").lpf(1000).room(0.3)
 
 // --- Bass (Walking) ---
@@ -690,12 +690,12 @@ const chords = note("a3 c4 e4 . d3 f3 a3 . e3 g#3 b3 . a3 c4 e4")
 // --- Rhythm (Brush) ---
 const kick = s("bd ~ ~ bd")
 const snare = s("~ sd ~ sd").nudge(0.02)
-const hats = s("hh*8").gain("0.5 0.2 0.4 0.2")
+const hats = s("hh*8").amp("0.5 0.2 0.4 0.2")
 
 const beat = stack(kick, snare, hats).swing(0.2)
 
 // --- Texture ---
-const dust = s("noise").hpf(3000).gain(0.05)
+const dust = s("noise").hpf(3000).amp(0.05)
 
 // --- Arrangement ---
 const main = stack(bass, chords, beat, dust)
@@ -765,7 +765,7 @@ cat([
 setcps(0.325)
 
 // --- Sound Design ---
-const padFx = x => x.s("supersaw").lpf(1000).attack(1).release(2).gain(0.5)
+const padFx = x => x.s("supersaw").lpf(1000).attack(1).release(2).amp(0.5)
 
 // --- Harmony ---
 const chords = note("b2 d3 f#3 . g2 b3 d4 . a2 c#3 e3 . b2 d3 f#3")
@@ -774,16 +774,16 @@ const chords = note("b2 d3 f#3 . g2 b3 d4 . a2 c#3 e3 . b2 d3 f#3")
 
 // --- Melody ---
 const melody = note("f#5 ~ e5 ~ d5 ~ c#5 ~")
-  .s("sine").gain(0.4).delay(0.5)
+  .s("sine").amp(0.4).delay(0.5)
 
 // --- Rhythm ---
 const kick = s("bd ~ ~ ~")
-const shaker = s("hh*16").gain(sine.fast(4).range(0.1, 0.4))
+const shaker = s("hh*16").amp(sine.fast(4).range(0.1, 0.4))
 
 const beat = stack(kick, shaker)
 
 // --- Arrangement ---
-const bass = note("b1 . g1 . a1 . b1").s("sine").gain(1.0)
+const bass = note("b1 . g1 . a1 . b1").s("sine").amp(1.0)
 const main = stack(chords, bass, beat)
 
 cat([
@@ -852,7 +852,7 @@ cat([
 setcps(0.29)
 
 // --- Sound Design ---
-const padFx = x => x.s("supersaw").lpf(800).room(2).gain(0.6)
+const padFx = x => x.s("supersaw").lpf(800).room(2).amp(0.6)
 
 // --- Harmony ---
 const chords = note("g2 c3 e3 . c2 e3 g3 . d2 f#3 a3 . g2 b2 d3")
@@ -860,14 +860,14 @@ const chords = note("g2 c3 e3 . c2 e3 g3 . d2 f#3 a3 . g2 b2 d3")
   .sustain(4)
 
 // --- Rhythm ---
-const kick = s("bd ~ bd ~").lpf(300).gain(1.2)
+const kick = s("bd ~ bd ~").lpf(300).amp(1.2)
 
 // --- Melody ---
 const lead = note("b4 ~ a4 ~ g4 ~")
-  .s("triangle").delay(1).gain(0.5)
+  .s("triangle").delay(1).amp(0.5)
 
 // --- Arrangement ---
-const bass = note("g1 . c1 . d1 . g1").s("sine").gain(1.0)
+const bass = note("g1 . c1 . d1 . g1").s("sine").amp(1.0)
 const main = stack(chords, bass, kick)
 
 cat([

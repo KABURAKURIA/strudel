@@ -89,7 +89,7 @@ stack(
     .scale("C:major")
     .arp("pinkyup")
     .s("triangle")
-    .gain(0.8)
+    .amp(0.8)
     .delay(0.5)
 )
 ```

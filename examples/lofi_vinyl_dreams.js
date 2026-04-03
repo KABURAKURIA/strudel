@@ -6,7 +6,7 @@ setcps(88/60/4)
 
 // 1. Vinyl Crackle
 const vinyl = s("noise")
-  .gain(0.08)
+  .amp(0.08)
   .lpf(3000)
 
 // 2. Chopped Sample (Simulated)
@@ -40,7 +40,7 @@ const melodicGroup = stack(
   sampleChops,
   bass,
   vinyl
-).gain(
+).amp(
     // Simple sidechain simulation: Volume drops on beats 0, 0.375, 0.75 (approx tresillo)
     pattern("0.4 1 1 0.4 1 1 0.4 1").smooth(0.05)
 )
