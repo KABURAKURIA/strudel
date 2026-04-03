@@ -471,7 +471,7 @@ The most famous Kenyan song globally, featured in many films.
 stack(
   s("sine").note("g4@1 a4@1 b4@2 . a4@1 g4@1 e4@2").decay(0.8), // Nyatiti feel
   s("supermandolin").note("g3 d4 g4 b4").arp("up").slow(2),
-  s("bd").struct("x ~ ~ ~").gain(0.5)
+  s("bd").struct("x ~ ~ ~").amp(0.5)
 )
 ```
 

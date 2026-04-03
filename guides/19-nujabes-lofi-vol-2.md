@@ -12,14 +12,14 @@ Continuing from the Masterclass, here are three more original, full-length Lo-Fi
 setcps(0.2) // Slow cycle for full progression
 
 // 1. Atmosphere: Rain and distant traffic
-const rain = s("noise").lpf(1000).hpf(200).gain(0.15).jux(rev)
+const rain = s("noise").lpf(1000).hpf(200).amp(0.15).jux(rev)
 
 // 2. Chords: Tremolo Rhodes
 // Progression: Fmaj7 - Em7 - Dm7 - G13
 const keys = note("f3:maj7 e3:min7 d3:min7 g2:dom13")
   .s("superpiano")
   .lpf(sine.slow(4).range(500, 1500)) // Auto-wah / filter sweep
-  .gain(0.8)
+  .amp(0.8)
   .room(0.6)
 
 // 3. Melody: Simple, lonely lead
@@ -27,7 +27,7 @@ const melody = note("~ a4 g4 ~ f4 e4 d4 ~")
   .s("triangle")
   .lpf(800)
   .delay(0.5)
-  .gain(0.6)
+  .amp(0.6)
 
 // 4. Bass: Subby and simple
 const bass = note("f2 e2 d2 g1").s("sine").shape(0.4)
@@ -59,7 +59,7 @@ cat([
 setcps(0.25)
 
 // 1. Texture: Heavy Vinyl
-const vinyl = s("noise").gain(0.08).lpf(3000)
+const vinyl = s("noise").amp(0.08).lpf(3000)
 
 // 2. Guitar/Mandolin Strumming
 // We use 'supermandolin' for an acoustic pluck sound
@@ -106,7 +106,7 @@ const pads = note("db4:min9 bb3:min9 gb3:maj7 ab3:dom7")
   .s("supersaw")
   .lpf(800) // Dark
   .attack(0.1).release(1)
-  .gain("[0 1 0 1]*8") // Ducking effect on kicks
+  .amp("[0 1 0 1]*8") // Ducking effect on kicks
 
 // 2. Bass: Reeses (Detuned saws)
 const reese = note("db2 bb1 gb1 ab1")

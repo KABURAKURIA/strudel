@@ -60,7 +60,7 @@ setcps(70/60/4) // Slow tempo (70 BPM)
 const ambience = s("noise")
   .lpf(1000)
   .hpf(100)
-  .gain(0.05)
+  .amp(0.05)
   .pan(sine.slow(32)) // Slowly moves L <-> R
 
 // 2. The Main Loop (Rhodes)
@@ -84,7 +84,7 @@ const beat = stack(
 const sparkles = note(irand(12).segment(16))
   .scale("C:major")
   .s("sine")
-  .gain(0.3)
+  .amp(0.3)
   .delay(0.5)
   .struct("x?0.1") // Only 10% chance to play a note
   .slow(4)

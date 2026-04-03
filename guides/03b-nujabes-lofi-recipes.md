@@ -33,7 +33,7 @@ Uses `struct` for more complex kick patterns.
 const dilla = stack(
   s("bd").struct("x ~ ~ x ~ ~ x ~"), // Tresillo feel
   s("sd").struct("~ x ~ x").nudge(0.05),
-  s("hh*16").velocity(sine.slow(4).range(0.2, 0.5))
+  s("hh*16").amp(sine.slow(4).range(0.2, 0.5))
 ).swing(0.15)
 ```
 
@@ -108,7 +108,7 @@ Add these to any `stack` to give it that vintage vibe.
 The most essential Lo-Fi element.
 
 ```javascript
-s("noise").gain(0.05).lpf(2000)
+s("noise").amp(0.05).lpf(2000)
 ```
 
 ### Cassette Tape (Wobble)
@@ -123,7 +123,7 @@ Simulates the unstable pitch of a tape deck.
 Atmospheric background noise.
 
 ```javascript
-s("noise").lpf(800).hpf(200).gain(0.1).jux(rev)
+s("noise").lpf(800).hpf(200).amp(0.1).jux(rev)
 ```
 
 ## 5. Full Recipe: "Rainy Cafe"
@@ -132,7 +132,7 @@ Putting it all together:
 
 ```javascript
 // Ingredients
-const rain = s("noise").lpf(800).hpf(200).gain(0.1).jux(rev)
+const rain = s("noise").lpf(800).hpf(200).amp(0.1).jux(rev)
 const drums = stack(
   s("bd ~ bd ~"),
   s("~ sd ~ sd").nudge(0.04),

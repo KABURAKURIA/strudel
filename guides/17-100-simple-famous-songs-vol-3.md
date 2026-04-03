@@ -135,7 +135,7 @@ stack(
 ### 7. Beauty and the Beast
 ```javascript
 // Beauty and the Beast
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "c4@1 d4@1 e4@1 f4@1 e4@2 c4@2",
   "d4@1 e4@1 f4@1 g4@1 f4@2 d4@2"
@@ -219,7 +219,7 @@ stack(
 ### 11. Hey Jude
 ```javascript
 // Hey Jude
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "g4@2 e4@1 e4@2",
   "e4@0.5 g4@0.5 a4@1 d5@2 c5@1 b4@0.5 c5@0.5",
@@ -276,7 +276,7 @@ stack(
 ### 14. Yesterday
 ```javascript
 // Yesterday
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "g3@0.5 f3@2.5",
   "a3@0.5 b3@0.5 c#4@0.5 d4@0.5 e4@0.5 f4@0.5 e4@0.5 d4@0.5 c4@1"
@@ -459,7 +459,7 @@ stack(
 ### 24. Stairway to Heaven (Intro)
 ```javascript
 // Stairway to Heaven
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "c4@1 e4@1 a4@1 b4@1",
   "e4@1 c4@1 b4@1 c5@1"
@@ -468,14 +468,14 @@ const melody = note(cat(
 
 stack(
   melody,
-  s("noise").gain(0.05)
+  s("noise").amp(0.05)
 )
 ```
 
 ### 25. Hotel California (Intro)
 ```javascript
 // Hotel California
-setcps(0.8)
+setcps(0.4)
 const chords = note(cat(
   "b3:minor@4 f#3:minor@4 a3:minor@4 e3:minor@4"
 )).slow(4)
@@ -1018,7 +1018,7 @@ stack(
 ### 54. The Shire (Lord of the Rings)
 ```javascript
 // The Shire
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "d4@0.5 e4@0.5 f#4@1 a4@0.5 g4@0.5 f#4@0.5 e4@0.5",
   "d4@1 e4@0.5 a3@1.5"
@@ -1089,7 +1089,7 @@ stack(
 ### 58. The Godfather
 ```javascript
 // The Godfather
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "e4@0.5 a4@0.5 c5@0.5 b4@0.5 a4@0.5 c5@0.5 a4@0.5 b4@0.5",
   "a4@0.5 f4@0.5 g4@0.5 e4@2"
@@ -1192,14 +1192,14 @@ const melody = note(cat(
 
 stack(
   melody,
-  s("noise").gain(0.05)
+  s("noise").amp(0.05)
 )
 ```
 
 ### 64. Stranger Things
 ```javascript
 // Stranger Things
-setcps(0.8)
+setcps(0.4)
 const arp = note(cat(
   "c4@0.25 e4@0.25 g4@0.25 b4@0.25 c5@0.25 b4@0.25 g4@0.25 e4@0.25"
 ))
@@ -1410,7 +1410,7 @@ stack(
 ### 76. Halo Theme
 ```javascript
 // Halo Theme
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "e4@2 b4@1 e5@0.5 d#5@0.5",
   "e5@1 f#5@2 b4@1",
@@ -1474,7 +1474,7 @@ const arp = note(cat(
 
 stack(
   arp,
-  s("noise").gain(0.05)
+  s("noise").amp(0.05)
 )
 ```
 
@@ -1522,7 +1522,7 @@ stack(
 ### 82. What a Wonderful World
 ```javascript
 // What a Wonderful World
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "f4@0.5 a4@0.5 bb4@0.5 a4@0.5 g4@1 f4@1",
   "f4@0.5 a4@0.5 bb4@0.5 a4@0.5 g4@2"
@@ -1541,7 +1541,7 @@ stack(
 ### 83. Summertime
 ```javascript
 // Summertime
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "c5@1.5 g4@0.5 a4@0.5 c5@1.5",
   "a4@0.5 g4@0.5 e4@0.5 d4@0.5 c4@2"
@@ -1662,7 +1662,7 @@ stack(
 ### 89. Moon River
 ```javascript
 // Moon River
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "g4@3 d5@2 c5@1",
   "b4@1 a4@1 g4@1"
@@ -1681,7 +1681,7 @@ stack(
 ### 90. Georgia on My Mind
 ```javascript
 // Georgia on My Mind
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "g4@1.5 e4@0.5 d4@0.5 c4@1.5",
   "e4@1 d4@0.5 c4@2.5"
@@ -1746,7 +1746,7 @@ const melody = note(cat(
 ))
   .s("sawtooth").lpf(1500)
 
-const cannon = s("bd").gain(1.5).slow(4)
+const cannon = s("bd").amp(1.5).slow(4)
 
 stack(
   melody,
@@ -1864,7 +1864,7 @@ const melody = note(cat(
 ))
   .s("vowel")
 
-const timp = s("bd").gain(1.2).shape(0.5)
+const timp = s("bd").amp(1.2).shape(0.5)
 
 stack(
   melody,

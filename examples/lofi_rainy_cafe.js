@@ -9,7 +9,7 @@ setcps(80/60/4)
 const rain = s("noise")
   .lpf(800)       // Cut high frequencies
   .hpf(200)       // Cut low frequencies
-  .gain(0.15)     // Low volume
+  .amp(0.15)     // Low volume
   .jux(rev)       // Wide stereo image
   .slow(16)       // Evolve slowly
 

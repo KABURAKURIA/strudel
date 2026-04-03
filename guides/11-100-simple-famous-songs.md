@@ -301,7 +301,7 @@ stack(
 ### 14. Hot Cross Buns (Drone)
 ```javascript
 // Hot Cross Buns
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "e4@1 d4@1 c4@2",
   "e4@1 d4@1 c4@2",
@@ -416,7 +416,7 @@ stack(
 ### 20. Rock-a-bye Baby (Lullaby)
 ```javascript
 // Rock-a-bye Baby
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "e4@1.5 g4@0.5 a4@2",
   "e4@1.5 g4@0.5 a4@2"
@@ -574,7 +574,7 @@ stack(
 ### 28. Danny Boy (Ethereal)
 ```javascript
 // Danny Boy
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "b3@0.5 c4@0.5 d4@1 b3@1.5 g3@0.5 g3@1 b3@1",
   "c4@1 d4@1 e4@1 c4@1"
@@ -987,7 +987,7 @@ stack(
 ### 50. Aloha Oe (Hawaiian)
 ```javascript
 // Aloha Oe
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "g3@1 c4@1 e4@1 g4@2.5 a4@0.5",
   "a4@1 g4@3"
@@ -1067,7 +1067,7 @@ stack(
 ### 54. Canon in D (Pachelbel)
 ```javascript
 // Canon in D
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "f#5@2 e5@2 d5@2 c#5@2",
   "b4@2 a4@2 b4@2 c#5@2"
@@ -1359,7 +1359,7 @@ stack(
 ### 69. Gymnopédie No.1 (Minimal)
 ```javascript
 // Gymnopédie No.1
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "f#4@2 a4@2 g4@2 f#4@2 c#4@2 b3@2 c#4@2 d4@2"
 )).slow(4)
@@ -1378,7 +1378,7 @@ stack(
 ### 70. Ave Maria (Choral)
 ```javascript
 // Ave Maria
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "g4@2 a4@4 c5@1.5 a4@0.5",
   "g4@2 e4@2"
@@ -1427,7 +1427,7 @@ const melody = note(cat(
 
 stack(
   melody,
-  s("bd").slow(8).gain(1.5)
+  s("bd").slow(8).amp(1.5)
 )
 ```
 
@@ -1775,7 +1775,7 @@ const melody = note(cat(
 )).slow(2)
   .s("sawtooth").lpf(2000)
 
-const timp = s("bd").gain(1.2).shape(0.5)
+const timp = s("bd").amp(1.2).shape(0.5)
 
 stack(
   melody,
@@ -1791,7 +1791,7 @@ stack(
 ### 91. Star Spangled Banner (Anthem)
 ```javascript
 // Star Spangled Banner
-setcps(0.8)
+setcps(0.4)
 const melody = note(cat(
   "g3@1.5 e3@0.5 c3@2 e3@2 g3@2 c4@4",
   "e4@1.5 d4@0.5 c4@2 e3@2 f#3@2 g3@4"

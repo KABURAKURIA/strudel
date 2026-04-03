@@ -35,7 +35,7 @@ const drums = stack(
 // Adding background noise for texture
 const noise = s("noise")
   .lpf(1000)
-  .gain(0.05) // Very quiet
+  .amp(0.05) // Very quiet
   .slow(8)
 
 // 5. Saxophone Melody (Improv style)

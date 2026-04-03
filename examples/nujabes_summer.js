@@ -50,7 +50,7 @@ const melody = stack(
     bass,
     vocals,
     flute
-).gain(
+).amp(
     "<1 0.6 1 0.6>" // Simple volume ducking pattern
 )
 
