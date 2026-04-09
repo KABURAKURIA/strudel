@@ -34,9 +34,9 @@ const progression = note("eb4:major7 c4:minor7 f3:minor7 bb3:dom7")
 
 // 2. Bass Line (4 bars)
 const bassLine = note("eb2 c2 f2 bb2")
+  .smooth(0.1)
   .s("triangle")
   .lpf(200)
-  .smooth(0.1)
 
 // 3. Drums (4 bars)
 // Since the cycle is 4 bars long, we need to speed up the drum pattern
