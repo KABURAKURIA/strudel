@@ -82,8 +82,8 @@ const keys = note("c4:minor7 f3:dom7 bb3:major7 g3:minor7")
 
 // 2. Bass: Simple root movement
 const bass = note("c2 f2 bb2 g2")
-  .s("bass")
   .smooth(0.1)
+  .s("bass")
   .slow(2)
 
 // 3. Drums: Classic Boom Bap

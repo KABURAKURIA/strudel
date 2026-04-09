@@ -99,9 +99,9 @@ stack(
 
   // The Sub Bass
   note("c1(3,8)")
+    .smooth(0.1)
     .s("sine")
     .amp(1.2)
-    .smooth(0.1)
 )
 ```
 
