@@ -25,7 +25,6 @@ const melody = note(cat(
 
 // 2. Jazz Chords
 const chords = note("c3:dom7@3 g3:dom7@3 c3:dom7@3 f3:dom7@3")
-
   .s("superpiano")
 
 stack(
@@ -1117,7 +1116,6 @@ const melody = note(cat(
   "d4@0.5 d4@0.5 e4@0.5 f#4@0.5 g4@0.5 a4@0.5 b4@1"
 ))
   .s("triangle")
-  .s("triangle")
 
 const bass = note("g3 d3")
   .s("bass")
@@ -1263,7 +1261,6 @@ const chords = note(cat(
   "c4:major@1.5 c4:major@0.5 f4:major@1 g4:major@1",
   "g4:major@1 g4:major@0.5 a4:major@1 f4:major@1 c4:major@1"
 ))
-
   .s("supersaw")
 
 stack(
@@ -1343,9 +1340,7 @@ const chords = note(cat(
   "f3:power@1.5 f3:power@0.5 bb3:power@1.5 bb3:power@0.5",
   "ab3:power@1.5 ab3:power@0.5 db4:power@1.5 db4:power@0.5"
 ))
-
   .s("distortion-guitar")
-  .s("sawtooth").distort(0.8)
 
 stack(
   chords,
@@ -1374,7 +1369,6 @@ stack(
 // Wonderwall
 setcps(0.45)
 const chords = note("f#3:min7 a3:min7 e3:min7 b3:min7")
-
   .s("supermandolin")
 
 stack(
@@ -1406,7 +1400,6 @@ setcps(0.6)
 const chords = note(cat(
   "db4:major@4 eb4:major@4 ab3:major@4 f3:major@4"
 )).slow(4)
-
   .s("supersaw").attack(0.2)
 
 stack(
@@ -1523,7 +1516,6 @@ const melody = note(cat(
   .s("supersaw")
 
 const chords = note("f3:major g3:major e3:major a3:major")
-
   .s("superpiano")
 
 stack(
@@ -1579,7 +1571,6 @@ setcps(0.4)
 const chords = note(cat(
   "g#3:major@2 b3:major@2 f#3:major@2 eb3:major@2"
 )).slow(2)
-
   .s("superpiano")
 
 const melody = note(cat(
@@ -1788,7 +1779,6 @@ const chords = note(cat(
   "f#3:min@1 a3:min@1 c#4:min@1 e4:min@1",
   "d4:min@1 f#4:min@1 b3:min@1 d#4:min@1"
 ))
-
   .s("superpiano")
 
 const melody = note(cat(
@@ -1876,7 +1866,6 @@ setcps(0.45)
 const chords = note(cat(
   "f#3:min@4 d3:min@4 a2:min@4 e3:min@4"
 )).slow(4)
-
   .s("superpiano")
 
 const melody = note(cat(

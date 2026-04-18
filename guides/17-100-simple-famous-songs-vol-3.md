@@ -41,7 +41,6 @@ const melody = note(cat(
   .s("supersaw").lpf(2000)
 
 const chords = note("e3:minor c3:minor d3:minor a2:minor")
-
   .s("superpiano")
 
 stack(
@@ -315,7 +314,6 @@ setcps(0.6)
 const chords = note(cat(
   "d4:major@1 g4:major@1 a4:major@2"
 ))
-
   .s("supersaw")
 
 const vocal = note("a4@0.5 b4@0.5 c#5@1 d5@2")
@@ -411,7 +409,6 @@ const melody = note(cat(
   .s("vowel")
 
 const chords = note("bb3:major g3:major c4:major f3:major")
-
   .s("superpiano")
 
 stack(
@@ -479,7 +476,6 @@ setcps(0.4)
 const chords = note(cat(
   "b3:minor@4 f#3:minor@4 a3:minor@4 e3:minor@4"
 )).slow(4)
-
   .s("supermandolin")
 
 const bass = note("b2 f#2 a2 e2")
@@ -568,7 +564,6 @@ const chords = note(cat(
   "e3:power@1 d3:power@1 a3:power@1",
   "~ ~ ~"
 ))
-
   .s("sawtooth").distort(0.8)
 
 const lick = note(cat(
@@ -614,7 +609,6 @@ const melody = note(cat(
   .s("supermandolin")
 
 const chords = note("f#3:major d3:major a3:major")
-
   .s("superpiano")
 
 stack(
@@ -722,7 +716,6 @@ const melody = note(cat(
   .s("superpiano")
 
 const chords = note("c3:major g3:major a3:major e3:major")
-
   .s("superpiano")
 
 stack(
@@ -922,7 +915,6 @@ const melody = note(cat(
   .s("supersaw")
 
 const chords = note("e3:major b3:major c#4:major a3:major")
-
   .s("superpiano")
 
 stack(
@@ -1609,7 +1601,6 @@ const bass = note(cat(
   .s("bass")
 
 const chords = note("d3:minor7")
-
   .s("superpiano")
   .struct("~ x")
 
