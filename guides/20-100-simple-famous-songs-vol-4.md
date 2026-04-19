@@ -22,7 +22,6 @@ const melody = note(cat(
 
 // 2. Chords (The Skank - on the "and")
 const chords = note("~ c3:major ~ g3:major")
-
   .s("superpiano").attack(0.05).release(0.1)
 
 stack(
@@ -333,7 +332,6 @@ setcps(0.6)
 const chords = note(cat(
   "bb3:major@4 g3:major@4 f3:major@4 eb3:major@4"
 )).slow(4)
-
   .s("supersaw").attack(0.5)
 
 const melody = note(cat(
@@ -1445,7 +1443,6 @@ setcps(0.6)
 const chords = note(cat(
   "g3:major@4 c4:major@4 d4:major@2 e4:major@4"
 )).slow(3.5)
-
   .s("supersaw").attack(0.1)
 
 stack(
@@ -1477,7 +1474,6 @@ setcps(0.4)
 const chords = note(cat(
   "b3:major@4 f#3:major@4 e3:major@4"
 )).slow(3)
-
   .s("supermandolin") // acoustic guitar
 
 stack(
@@ -1509,7 +1505,6 @@ setcps(0.6)
 const chords = note(cat(
   "db4:major@4 eb4:major@4 ab3:major@4 f3:major@4"
 )).slow(4)
-
   .s("supersaw").attack(0.2)
 
 stack(
@@ -1576,7 +1571,6 @@ setcps(0.6)
 const chords = note(cat(
   "b3:minor7@2 d4:minor7@2 f#4:minor7@2 e4:minor7@2"
 )).slow(2)
-
   .s("superpiano") // funky guitar
 
 const bass = note("b2 d3 f#3 e3")

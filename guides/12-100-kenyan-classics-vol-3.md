@@ -26,7 +26,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -58,7 +57,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -91,7 +89,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major f3:major g3:major c3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -121,7 +118,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -154,7 +150,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Am)
 const chords = note("a2:minor e2:minor a2:minor")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -184,7 +179,6 @@ const melody = note(cat(
 
 // 2. CHORDS (F Major)
 const chords = note("f3:major c3:major f3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -217,7 +211,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g2:major d2:major g2:major")
-
   .s("sine")
   .amp(0.5)
 
@@ -247,7 +240,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -280,7 +272,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -310,7 +301,6 @@ const melody = note(cat(
 
 // 2. CHORDS (E Major)
 const chords = note("e3:major a3:major b3:major e3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -343,7 +333,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Am)
 const chords = note("a2:minor e2:minor a2:minor")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -373,7 +362,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -406,7 +394,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -437,7 +424,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -469,7 +455,6 @@ const melody = note(cat(
 
 // 2. CHORDS (F Major)
 const chords = note("f3:major c3:major f3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -500,7 +485,6 @@ const melody = note(cat(
 
 // 2. CHORDS (E Major)
 const chords = note("e3:major a3:major b3:major e3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -532,7 +516,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Am)
 const chords = note("a2:minor e2:minor a2:minor")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -563,7 +546,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -595,7 +577,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -626,7 +607,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -664,7 +644,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Em)
 const chords = note("e3:minor b2:minor e3:minor")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -696,7 +675,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -727,7 +705,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -759,7 +736,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -790,7 +766,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Am)
 const chords = note("a2:minor e2:minor a2:minor")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -822,7 +797,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -853,7 +827,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -885,7 +858,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -916,7 +888,6 @@ const melody = note(cat(
 
 // 2. CHORDS (E Major)
 const chords = note("e3:major a3:major b3:major e3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -947,7 +918,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -979,7 +949,6 @@ const melody = note(cat(
 
 // 2. CHORDS (F Major)
 const chords = note("f3:major c3:major f3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1010,7 +979,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1043,7 +1011,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1073,7 +1040,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Am)
 const chords = note("a2:minor e2:minor a2:minor")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1105,7 +1071,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1136,7 +1101,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1168,7 +1132,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Em)
 const chords = note("e3:minor b2:minor e3:minor")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1199,7 +1162,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1231,7 +1193,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1262,7 +1223,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1297,7 +1257,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major f3:major g3:major c3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1328,7 +1287,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1361,7 +1319,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1394,7 +1351,6 @@ const melody = note(cat(
 
 // 2. CHORDS (E Major)
 const chords = note("e3:major a3:major b3:major e3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1427,7 +1383,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1457,7 +1412,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1488,7 +1442,6 @@ const melody = note(cat(
 
 // 2. CHORDS (F Major)
 const chords = note("f3:major c3:major f3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1521,7 +1474,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1551,7 +1503,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1583,7 +1534,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Am)
 const chords = note("a2:minor e2:minor a2:minor")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1614,7 +1564,6 @@ const melody = note(cat(
 
 // 2. CHORDS (E Major)
 const chords = note("e3:major a3:major b3:major e3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1647,7 +1596,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1679,7 +1627,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1712,7 +1659,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1742,7 +1688,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Am)
 const chords = note("a2:minor e2:minor a2:minor")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1775,7 +1720,6 @@ const melody = note(cat(
 
 // 2. CHORDS (F Major)
 const chords = note("f3:major c3:major f3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1805,7 +1749,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1838,7 +1781,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1868,7 +1810,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1900,7 +1841,6 @@ const melody = note(cat(
 
 // 2. CHORDS (E Major)
 const chords = note("e3:major a3:major b3:major e3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1935,7 +1875,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Em)
 const chords = note("e3:minor b2:minor e3:minor")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -1968,7 +1907,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -1999,7 +1937,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2031,7 +1968,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2062,7 +1998,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Am)
 const chords = note("a2:minor e2:minor a2:minor")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2094,7 +2029,6 @@ const melody = note(cat(
 
 // 2. CHORDS (F Major)
 const chords = note("f3:major c3:major f3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2125,7 +2059,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2158,7 +2091,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Em)
 const chords = note("e3:minor b2:minor e3:minor")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2188,7 +2120,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2219,7 +2150,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2251,7 +2181,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Am)
 const chords = note("a2:minor e2:minor a2:minor")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2282,7 +2211,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2315,7 +2243,6 @@ const melody = note(cat(
 
 // 2. CHORDS (F Major)
 const chords = note("f3:major c3:major f3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2346,7 +2273,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2376,7 +2302,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2407,7 +2332,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Em)
 const chords = note("e3:minor b2:minor e3:minor")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2437,7 +2361,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Am)
 const chords = note("a2:minor e2:minor a2:minor")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2470,7 +2393,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2501,7 +2423,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2531,7 +2452,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2569,7 +2489,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2599,7 +2518,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2629,7 +2547,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2662,7 +2579,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Am)
 const chords = note("a2:minor e2:minor a2:minor")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2692,7 +2608,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major f3:major g3:major c3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2722,7 +2637,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2755,7 +2669,6 @@ const melody = note(cat(
 
 // 2. CHORDS (F Major)
 const chords = note("f3:major c3:major f3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2786,7 +2699,6 @@ const melody = note(cat(
 
 // 2. CHORDS (E Major)
 const chords = note("e3:major a3:major b3:major e3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2817,7 +2729,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Am)
 const chords = note("a2:minor e2:minor a2:minor")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2849,7 +2760,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2880,7 +2790,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2911,7 +2820,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -2941,7 +2849,6 @@ const melody = note(cat(
 
 // 2. CHORDS (E Major)
 const chords = note("e3:major a3:major b3:major e3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -2974,7 +2881,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Am)
 const chords = note("a2:minor e2:minor a2:minor")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -3004,7 +2910,6 @@ const melody = note(cat(
 
 // 2. CHORDS (F Major)
 const chords = note("f3:major c3:major f3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -3034,7 +2939,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -3067,7 +2971,6 @@ const melody = note(cat(
 
 // 2. CHORDS (G Major)
 const chords = note("g3:major c3:major d3:major g3:major")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -3097,7 +3000,6 @@ const melody = note(cat(
 
 // 2. CHORDS (D Major)
 const chords = note("d3:major g3:major a3:major d3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 
@@ -3129,7 +3031,6 @@ const melody = note(cat(
 
 // 2. CHORDS (Am)
 const chords = note("a2:minor e2:minor a2:minor")
-
   .s("superpiano")
   .amp(0.6)
 
@@ -3160,7 +3061,6 @@ const melody = note(cat(
 
 // 2. CHORDS (C Major)
 const chords = note("c3:major g3:major c3:major")
-
   .s("supersaw").attack(0.5)
   .amp(0.6)
 

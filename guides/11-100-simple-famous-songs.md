@@ -32,7 +32,6 @@ const chords = note(cat(
   "c3:major@6 f3:major@6",
   "f3:major@4 c3:major@2 g3:major@2 c3:major@4"
 )).slow(3)
-
   .s("superpiano")
 
 // 3. IMPROV (Glitch Fills)
@@ -59,7 +58,6 @@ const chords = note(cat(
   "c3:major7@2 f3:major7@1 c3:major7@1 f3:major7@1 c3:major7@1 g3:major7@2",
   "f3:major7@1 c3:major7@1 g3:major7@1 c3:major7@1 g3:major7@1 c3:major7@1 g3:major7@2"
 )).slow(2)
-
   .s("superpiano")
 
 // 3. IMPROV (Sparkles)
@@ -86,7 +84,6 @@ const chords = note(cat(
   "c3:major@4 c3:major@4",
   "g3:major@4 c3:major@4"
 )).slow(2)
-
   .s("supersaw")
 
 // 3. IMPROV (Acid)
@@ -129,7 +126,6 @@ const melody = note(cat(
 const harmony = note(cat(
   "c3:major@4", "c3:major@4", "c3:major@4", "c3:major@4"
 ))
-
   .s("superpiano")
 
 stack(
@@ -175,7 +171,6 @@ const melody = note(cat(
   .s("square")
 
 const chords = note("g3:major c3:major g3:major d3:major")
-
   .s("superpiano")
 
 stack(
@@ -196,7 +191,6 @@ const melody = note(cat(
   .s("superpiano").lpf(1000)
 
 const chords = note("c3:major g3:major f3:major c3:major")
-
   .s("superpiano")
 
 stack(
@@ -234,7 +228,6 @@ const melody = note(cat(
   .s("superpwm")
 
 const chords = note("f3:major c3:major f3:major")
-
   .s("superpiano")
 
 stack(
@@ -367,7 +360,6 @@ const melody = note(cat(
   .s("square")
 
 const chords = note("c3:major g3:major")
-
   .s("superpiano")
 
 stack(
@@ -542,7 +534,6 @@ const melody = note(cat(
   .s("superpwm")
 
 const chords = note("g2:major c3:major g3:major d3:major")
-
   .s("supersaw").attack(0.5)
 
 stack(
@@ -1976,7 +1967,6 @@ const melody = note(cat(
 
 // 2. CHORDS
 const chords = note("c3:major9 g3:major9 c3:major9 f3:major9")
-
   .s("supersaw").attack(0.5)
 
 // 3. IMPROV (Arp)
@@ -2002,7 +1992,6 @@ const melody = note(cat(
   .s("superpiano")
 
 const chords = note("c3:major g3:major c3:major f3:major c3:major g3:major c3:major")
-
   .s("superpiano")
 
 stack(

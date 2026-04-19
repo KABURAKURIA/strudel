@@ -38,7 +38,6 @@ const piano = note(cat(
   bridge, bridge, // B
   vamp, vamp, vamp, vamp // A
 ))
-
   .s("superpiano")
   .voicings("root")
   .velocity(0.6)
@@ -90,7 +89,6 @@ const chords = note(cat(
   soWhatEb, soWhatEb, soWhatEb, soWhatEb, // B (Modulate up semitone)
   soWhatD, soWhatD, soWhatD, soWhatD  // A
 ))
-
   .s("superpiano")
   .velocity(0.7)
 
@@ -207,7 +205,6 @@ const chords = note(cat(
   "c3:minor7@8 f3:minor7@4 bb2:m7b5@4",
   "d3:minor7@4 g2:minor7@4 c3:m7b5@8"
 )).slow(4)
-
   .s("superpiano")
   .struct("x ~ x x ~ x x ~") // Bossa rhythm
   .amp(0.6)
@@ -265,7 +262,6 @@ const chords = note(cat(
   "g3:dom7@8",
   "d3:dom7@4 eb3:dom7@4 g3:dom7@8"
 )).slow(4)
-
   .s("supersaw").attack(0.1).release(0.8)
   .amp(0.4)
 
@@ -374,7 +370,6 @@ const chords = note(cat(
   "eb3:maj7@4 a3:dom7@2 d3:maj7@2 g3:dom7@4 cs3:maj7@2 fs3:dom7@2",
   "b3:maj7@4 f3:dom7@2 bb3:maj7@2 eb3:dom7@4 cs3:maj7@2 fs3:dom7@2"
 )).slow(4)
-
   .s("superpiano")
   .velocity(0.7)
 
@@ -521,7 +516,6 @@ const chords = note(cat(
   "eb3:dom7@4 eb3:dom7@4 bb2:dom7@4 bb2:dom7@4",  // IV - IV - I - I
   "f3:dom7@4 f3:dom7@4 bb2:dom7@4 f3:dom7@4"      // V - V - I - V
 )).slow(4)
-
   .s("superpwm")
   .lpf(2000)
   .amp(0.5)
@@ -849,7 +843,6 @@ const chords = note(cat(
   "bb3:maj7@2 g3:minor7@2 c3:minor7@2 f3:dom7@2",
   "bb3:maj7@2 eb3:minor7@2 bb3:minor7@4"
 )).slow(2)
-
   .s("superpiano")
   .amp(0.5)
 
@@ -1617,7 +1610,6 @@ const chords = note(cat(
   "g3:dom7@4 f3:dom7@4", // G7 - F7
   "c3:dom7@8"   // C7
 )).slow(4)
-
   .s("superpwm")
   .amp(0.6)
 
