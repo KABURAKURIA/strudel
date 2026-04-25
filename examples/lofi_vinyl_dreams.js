@@ -42,7 +42,7 @@ const melodicGroup = stack(
   vinyl
 ).amp(
     // Simple sidechain simulation: Volume drops on beats 0, 0.375, 0.75 (approx tresillo)
-    pattern("0.4 1 1 0.4 1 1 0.4 1").smooth(0.05)
+    mini("0.4 1 1 0.4 1 1 0.4 1").smooth(0.05)
 )
 
 stack(
