@@ -101,7 +101,7 @@ stack(
 setcps(0.22)
 
 // 1. Chords: Sidechained Pads
-// We simulate sidechain by using a volume envelope or 'gain' pattern
+// We simulate sidechain by using a volume envelope or 'amp' pattern
 const pads = note("db4:min9 bb3:min9 gb3:maj7 ab3:dom7")
   .s("supersaw")
   .lpf(800) // Dark

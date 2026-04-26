@@ -15,7 +15,7 @@ Use `.slow()` on your LFOs (Low Frequency Oscillators) so parameters change over
 
 ```javascript
 // The filter opens and closes over 32 cycles
-.lpf(sine.slow(32).range(500, 3000))
+s("chords").lpf(sine.slow(32).range(500, 3000))
 ```
 
 ### Generative Panning
@@ -23,7 +23,7 @@ Move sounds slowly around the stereo field.
 
 ```javascript
 // Pan slowly from left to right
-.pan(sine.slow(16))
+s("hihat").pan(sine.slow(16))
 ```
 
 ### Random Variation (`randcat`)
