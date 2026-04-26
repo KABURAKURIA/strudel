@@ -116,7 +116,7 @@ Simulates the unstable pitch of a tape deck.
 
 ```javascript
 // Apply this to your melodic elements
-.lpf(sine.slow(8).range(500, 1500))
+s("melody").lpf(sine.slow(8).range(500, 1500))
 ```
 
 ### Rainy Window

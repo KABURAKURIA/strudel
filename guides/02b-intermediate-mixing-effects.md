@@ -51,7 +51,7 @@ note("c3").s("sawtooth").vowel("o")
 
 Control volume and add grit.
 
-- **`gain(amount)`**: Volume control. Default is 1.
+- **`amp(amount)`**: Volume control. Default is 1.
 - **`velocity(amount)`**: Similar to gain but often affects timbre on sampled instruments (like piano).
 - **`shape(amount)`**: Distortion/Saturation. Adds harmonics and "fatness".
 

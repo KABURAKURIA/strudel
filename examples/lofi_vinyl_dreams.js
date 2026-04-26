@@ -33,8 +33,8 @@ const bass = note("eb2 . c2 . f2 . bb2")
   .slow(2)
 
 // 5. Sidechain Effect
-// A simpler way in Strudel is to sequence the gain directly:
-// We will apply a gain pattern to the mix group
+// A simpler way in Strudel is to sequence the amp directly:
+// We will apply an amp pattern to the mix group
 
 const melodicGroup = stack(
   sampleChops,
