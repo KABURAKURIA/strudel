@@ -41,13 +41,13 @@ const bassLine = note("eb2 c2 f2 bb2")
 // 3. Drums (4 bars)
 // Since the cycle is 4 bars long, we need to speed up the drum pattern
 // so it repeats 4 times (or write a 4-bar drum pattern).
-// Here we use .fast(16) to make a 16-step pattern fit, or construct a 4-bar loop.
+// Here we use .fast(4) to make a 16-step pattern fit, or construct a 4-bar loop.
 const kickSnare = s("bd ~ sd ~")
-  .fast(16) // Repeat this 1-beat pattern 16 times in the cycle
+  .fast(4) // Repeat this 1-beat pattern 4 times in the cycle
   .swing(0.1)
 
 const hihats = s("hh*8")
-  .fast(16)
+  .fast(4)
   .velocity(rand.range(0.3, 0.6))
 
 // 4. Melody (Chorus)
