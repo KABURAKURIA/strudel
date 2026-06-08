@@ -82,7 +82,7 @@ const keys = note("c4:minor7 f3:dom7 bb3:major7 g3:minor7")
 
 // 2. Bass: Simple root movement
 const bass = note("c2 f2 bb2 g2")
-  .smooth(0.1)
+  .legato(1)
   .s("bass")
   .slow(2)
 
@@ -222,7 +222,7 @@ const intro = stack(
 const verse = stack(
   crackle,
   keys,
-  note("eb2 . c2 . f2 . bb2").smooth(0.1).s("bass"), // Roots
+  note("eb2 . c2 . f2 . bb2").legato(1).s("bass"), // Roots
   s("bd ~ sd ~").fast(4).nudge(0.04) // 4 bars of beats
 )
 
