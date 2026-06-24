@@ -29,7 +29,7 @@ A gritty tale of life in the ghetto.
 // setcps(0.46)
 stack(
   s("supersaw").note("g2@2 bb2@2").lpf(400),
-  s("bd(3,8)"),
+  s("bd").struct("x(3,8)"),
   s("snare").struct("~ x ~ x")
 )
 ```
@@ -52,7 +52,7 @@ The diss track that ironically became a hit.
 // setcps(0.48)
 stack(
   s("supermandolin").note("g3 b3 d4 g4"),
-  s("bd(4,4)"),
+  s("bd").struct("x(4,4)"),
   s("hh*8")
 )
 ```
@@ -75,7 +75,7 @@ The warning shot.
 // setcps(0.49)
 stack(
   s("supersquare").note("a3 c4 e4 a4").lpf(600),
-  s("bd(3,8)"),
+  s("bd").struct("x(3,8)"),
   s("hh*16")
 )
 ```
@@ -98,7 +98,7 @@ The comeback hit that ruled the airwaves.
 // setcps(0.55)
 stack(
   s("supersaw").note("f3 a3 c4 f4 . e4 c4 a3 g3"),
-  s("bd(4,4)"),
+  s("bd").struct("x(4,4)"),
   s("hh*8")
 )
 ```
@@ -110,7 +110,7 @@ Connecting the old school to the new school.
 // setcps(0.25)
 stack(
   s("supersquare").note("c3@4").lpf(300),
-  s("bd(3,8)"),
+  s("bd").struct("x(3,8)"),
   s("hc*8")
 )
 ```
@@ -133,7 +133,7 @@ Welcoming visitors to the city under the sun.
 // setcps(0.52)
 stack(
   s("supermandolin").note("c4 e4 g4 c5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -155,7 +155,7 @@ The ultimate drinking song.
 // setcps(0.53)
 stack(
   s("supersaw").note("g3 g3 b3 d4").lpf(1000),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -177,7 +177,7 @@ Feel good vibes.
 // setcps(0.54)
 stack(
   s("superpiano").note("f3 a3 c4 f4 . e4 c4 a3 g3"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -199,7 +199,7 @@ Fire on the system.
 // setcps(0.46)
 stack(
   s("supersaw").note("c3 eb3 g3 c4").lpf(800),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -221,7 +221,7 @@ Making moves.
 // setcps(0.47)
 stack(
   s("supermandolin").note("d3 f#3 a3 d4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -269,7 +269,7 @@ A prayer for the home.
 // setcps(0.48)
 stack(
   s("superrhodes").note("a3 c4 e4 a4").lpf(800),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -291,7 +291,7 @@ A song about haters.
 // setcps(0.5)
 stack(
   s("superpiano").note("e4 g4 b4 e5 . d5 b4 g4 e4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -324,7 +324,7 @@ The international collaboration.
 // setcps(0.5)
 stack(
   s("superpiano").note("g3 b3 d4 g4 . f#4 d4 b3 a3"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -346,7 +346,7 @@ Pure dancehall vibes.
 // setcps(0.55)
 stack(
   s("supersaw").note("a3 c4 e4 a4 . g4 e4 c4 b3"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -368,7 +368,7 @@ Heavy bass and rhythm.
 // setcps(0.54)
 stack(
   s("supersaw").note("d3 f#3 a3 d4").lpf(1000),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -390,7 +390,7 @@ The supergroup's hit.
 // setcps(0.5)
 stack(
   s("superrhodes").note("c4 eb4 g4 c5").lpf(800),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -423,7 +423,7 @@ Another massive hit.
 // setcps(0.54)
 stack(
   s("superpiano").note("a3 c4 e4 a4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -445,7 +445,7 @@ Another smooth love song.
 // setcps(0.5)
 stack(
   s("superrhodes").note("d4 f#4 a4 d5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -504,7 +504,7 @@ A blend of Kenyan vocals and modern beats.
 // setcps(0.42)
 stack(
   s("superguitar").note("e3 g3 b3 e4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -548,7 +548,7 @@ Romantic ballad.
 // setcps(0.38)
 stack(
   s("superrhodes").note("a3 c4 e4 a4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -581,7 +581,7 @@ Jazz-infused Luo tunes.
 // setcps(0.45)
 stack(
   s("sawtooth").lpf(2000).note("c4 e4 g4 c5").legato(0.6),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -651,7 +651,7 @@ Another classic from Limpopo International.
 // setcps(0.25)
 stack(
   s("supermandolin").note("g3 b3 d4 g4 . f#4 d4 b3 a3"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -684,7 +684,7 @@ Sleep well.
 // setcps(0.21)
 stack(
   s("supermandolin").note("f3 a3 c4 f4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -706,7 +706,7 @@ The song that refuses to fade.
 // setcps(0.26)
 stack(
   s("superpiano").note("c4 c4 a3 f3 . g3 g3 e3 c3").velocity(1.1),
-  s("bd(4,4)"),
+  s("bd").struct("x(4,4)"),
   s("hh*8")
 )
 ```
@@ -729,7 +729,7 @@ Victoria Jazz classic.
 // setcps(0.22)
 stack(
   s("superguitar").note("e4 g#4 b4 e5 . d5 b4 g#4 e4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -751,7 +751,7 @@ New school Ohangla king.
 // setcps(0.25)
 stack(
   s("superpiano").note("g3 b3 d4 g4 . f#4 d4 b3 a3"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -762,7 +762,7 @@ Celebrating the wife.
 // setcps(0.24)
 stack(
   s("supersaw").note("c4 e4 g4 c5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -784,7 +784,7 @@ High energy.
 // setcps(0.28)
 stack(
   s("superpiano").note("g3 b3 d4 g4").velocity(1.2),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -795,7 +795,7 @@ Celebrating the US President's roots.
 // setcps(0.25)
 stack(
   s("supermandolin").note("c4 e4 g4 c5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -820,7 +820,7 @@ A powerful collaboration.
 // setcps(0.48)
 stack(
   s("superpiano").note("g3 b3 d4 g4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -842,7 +842,7 @@ Biblical storytelling at its finest.
 // setcps(0.4)
 stack(
   s("superpiano").note("e4 g4 b4 e5 . d5 b4 g4 e4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -875,7 +875,7 @@ Dance praise.
 // setcps(0.6)
 stack(
   s("supersquare").note("c4 e4 g4 c5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -897,7 +897,7 @@ Salute to God.
 // setcps(0.52)
 stack(
   s("supersaw").note("a3 c4 e4 a4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -930,7 +930,7 @@ Surrender.
 // setcps(0.48)
 stack(
   s("superrhodes").note("d4 f#4 a4 d5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -963,7 +963,7 @@ The Lord is my shepherd.
 // setcps(0.4)
 stack(
   s("superrhodes").note("g3 b3 d4 g4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -977,7 +977,7 @@ Drill hit.
 // setcps(0.25)
 stack(
   s("supersquare").note("c3@4").lpf(300),
-  s("bd(3,8)"),
+  s("bd").struct("x(3,8)"),
   s("hc*8")
 )
 ```
@@ -1000,7 +1000,7 @@ Hard hitting bars.
 // setcps(0.25)
 stack(
   s("supersaw").note("d3 f3 a3 d4").lpf(800),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -1033,7 +1033,7 @@ Send something.
 // setcps(0.46)
 stack(
   s("superpiano").note("e3 g3 b3 e4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -1055,7 +1055,7 @@ Dismissive and confident.
 // setcps(0.48)
 stack(
   s("supersquare").note("g3 bb3 d4 g4"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -1077,7 +1077,7 @@ Queen of Drill.
 // setcps(0.26)
 stack(
   s("superpiano").note("c3 eb3 g3 c4").lpf(500),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -1110,7 +1110,7 @@ Street slang.
 // setcps(0.26)
 stack(
   s("superpiano").note("a2 c3 e3 a3"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -1132,7 +1132,7 @@ The Scar.
 // setcps(0.28)
 stack(
   s("supersaw").note("c3 eb3 g3 c4").lpf(300),
-  s("bd(4,4)"),
+  s("bd").struct("x(4,4)"),
   s("hc*16")
 )
 ```

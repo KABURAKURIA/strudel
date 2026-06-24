@@ -131,7 +131,7 @@ const harmony = note(cat(
 stack(
   melody,
   harmony,
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -252,7 +252,7 @@ const clap = s("cp*2")
 stack(
   melody,
   clap,
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 

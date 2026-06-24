@@ -330,8 +330,8 @@ const bell = note("d5 ~ ~ e5 . d5 ~ b4 ~")
   .s("sine").amp(0.4).delay(0.4)
 
 // --- Rhythm (Heavy Break) ---
-const kick = s("bd(3,8)").amp(1.2).lpf(120)
-const snare = s("sd(2,8)").shape(0.4)
+const kick = s("bd").struct("x(3,8)").amp(1.2).lpf(120)
+const snare = s("sd").struct("x(2,8)").shape(0.4)
 const hats = s("hh*16").amp("1 0.2 0.8 0.2")
 
 const beat = stack(kick, snare, hats).swing(0.05)
@@ -597,9 +597,9 @@ const arps = note("eb3 g3 bb3 d4 . f3 a3 c4 e4")
   .struct("x*8")
 
 // --- Rhythm (Steady) ---
-const kick = s("bd(3,8)").amp(1.1)
+const kick = s("bd").struct("x(3,8)").amp(1.1)
 const hats = s("hh*16").amp("0.5 0.2 0.4 0.2")
-const snare = s("sd(2,8)").amp(0.8)
+const snare = s("sd").struct("x(2,8)").amp(0.8)
 
 const beat = stack(kick, hats, snare)
 

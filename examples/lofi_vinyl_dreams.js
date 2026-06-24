@@ -21,7 +21,7 @@ const sampleChops = note("eb4:major7 c4:minor7 f3:minor7 bb3:dom7")
 // 3. Drums (Dilla Style)
 // Unquantized/Drunk feel using random nudge
 const drums = stack(
-  s("bd(3,8)"), // Tresillo kick
+  s("bd").struct("x(3,8)"), // Tresillo kick
   s("sd").struct("~ x ~ x").nudge(0.06), // Very late snare
   s("hh*16").nudge(rand.range(-0.03, 0.03)) // Random timing on hats
 ).shape(0.4) // Saturation/Distortion

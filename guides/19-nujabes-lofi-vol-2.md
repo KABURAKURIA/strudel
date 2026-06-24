@@ -78,7 +78,7 @@ const upright = note("c2 a1 f1 g1")
 
 // 4. Drums: Brush kit feel
 const brushes = stack(
-  s("bd(3,8)"), // Soft kick
+  s("bd").struct("x(3,8)"), // Soft kick
   s("hh*16").velocity(rand.range(0.1, 0.4)).hpf(4000) // Shaker/Brush
 ).swing(0.3) // Heavy swing
 
