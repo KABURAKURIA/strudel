@@ -127,7 +127,7 @@ const pads = note("d3:minor9 g3:minor9")
 
 // 3. Drums: Syncopated kick and undulating hi-hats
 const beat = stack(
-  s("bd(3,8)"), // Tresillo-ish kick pattern
+  s("bd").struct("x(3,8)"), // Tresillo-ish kick pattern
   s("sd").struct("~ x ~ x"),
   s("hh*16").amp(sine.slow(4).range(0.2, 0.6)) // Volume swells
 ).swing(0.1)

@@ -1404,7 +1404,7 @@ const chords = note(cat(
 
 stack(
   chords,
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 

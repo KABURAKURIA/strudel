@@ -35,7 +35,7 @@ const bass = note("c2 . g2 . f2 . c3 . bb2 . f2 . g2 . b2")
 // Using high-pass filtered noise bursts for brushes if samples aren't available,
 // but here we use standard kit with manipulation.
 const drums = stack(
-  s("bd(3,8)"), // Tresillo kick
+  s("bd").struct("x(3,8)"), // Tresillo kick
   s("~ sd").nudge(0.06), // Late snare
   s("hh*8").amp(sine.slow(8).range(0.2, 0.5)).hpf(5000) // Shaker-like hats
 ).swing(0.15)

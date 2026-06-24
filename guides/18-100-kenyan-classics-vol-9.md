@@ -29,7 +29,7 @@ The party drink song.
 // setcps(0.5)
 stack(
   s("supersaw").note("g3 b3 d4 g4"),
-  s("bd(3,8)"),
+  s("bd").struct("x(3,8)"),
   s("cp").struct("~ x ~ x")
 )
 ```
@@ -41,7 +41,7 @@ Come here.
 // setcps(0.52)
 stack(
   s("supersquare").note("d4 f#4 a4 d5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -63,7 +63,7 @@ Music.
 // setcps(0.53)
 stack(
   s("superguitar").note("e4 g#4 b4 e5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -85,7 +85,7 @@ Beautiful baby.
 // setcps(0.54)
 stack(
   s("supersaw").note("f3 a3 c4 f4"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -107,7 +107,7 @@ Years.
 // setcps(0.58)
 stack(
   s("supermandolin").note("d4 f#4 a4 d5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -129,7 +129,7 @@ Just like that.
 // setcps(0.55)
 stack(
   s("supersquare").note("e4 g#4 b4 e5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -151,7 +151,7 @@ Love song.
 // setcps(0.52)
 stack(
   s("supersaw").note("g3 b3 d4 g4"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -162,7 +162,7 @@ stack(
 // setcps(0.5)
 stack(
   s("superguitar").note("d4 f#4 a4 d5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -184,7 +184,7 @@ Keggah's beat.
 // setcps(0.6)
 stack(
   s("sawtooth").note("e4 g#4 b4 e5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -206,7 +206,7 @@ Hot/Cool.
 // setcps(0.62)
 stack(
   s("supersaw").note("g3 b3 d4 g4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -217,7 +217,7 @@ Way up high.
 // setcps(0.65)
 stack(
   s("supersquare").note("d4 f#4 a4 d5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -264,7 +264,7 @@ Jesus' love.
 // setcps(0.48)
 stack(
   s("supermandolin").note("d4 f#4 a4 d5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -286,7 +286,7 @@ Salute.
 // setcps(0.6)
 stack(
   s("supersaw").note("e4 g#4 b4 e5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -297,7 +297,7 @@ Three minutes.
 // setcps(0.62)
 stack(
   s("supersquare").note("c4 e4 g4 c5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -319,7 +319,7 @@ Demons.
 // setcps(0.6)
 stack(
   s("superpiano").note("d4 f#4 a4 d5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -341,7 +341,7 @@ Beautiful one.
 // setcps(0.5)
 stack(
   s("superguitar").note("e4 g#4 b4 e5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -363,7 +363,7 @@ I accept.
 // setcps(0.55)
 stack(
   s("supersaw").note("g3 b3 d4 g4"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -385,7 +385,7 @@ Who is like You.
 // setcps(0.58)
 stack(
   s("superrhodes").note("a3 c4 e4 a4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -407,7 +407,7 @@ Ole!
 // setcps(0.62)
 stack(
   s("superpiano").note("c4 e4 g4 c5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -418,7 +418,7 @@ Amen.
 // setcps(0.6)
 stack(
   s("superguitar").note("g3 b3 d4 g4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -451,7 +451,7 @@ Glory.
 // setcps(0.45)
 stack(
   s("superrhodes").note("e4 g#4 b4 e5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -488,7 +488,7 @@ Love is feelings.
 // setcps(0.48)
 stack(
   s("supersaw").note("d4 f#4 a4 d5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -510,7 +510,7 @@ How she loved me.
 // setcps(0.5)
 stack(
   s("superrhodes").note("e4 g#4 b4 e5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -521,7 +521,7 @@ Badly (in love).
 // setcps(0.58)
 stack(
   s("supersquare").note("c4 e4 g4 c5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -554,7 +554,7 @@ Love on the radio.
 // setcps(0.55)
 stack(
   s("supersaw").note("a3 c4 e4 a4"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -576,7 +576,7 @@ Prayers.
 // setcps(0.58)
 stack(
   s("superrhodes").note("c4 e4 g4 c5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -598,7 +598,7 @@ Mine.
 // setcps(0.52)
 stack(
   s("supermandolin").note("d4 f#4 a4 d5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -609,7 +609,7 @@ Kolo dance.
 // setcps(0.65)
 stack(
   s("supersquare").note("a3 c4 e4 a4"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -642,7 +642,7 @@ Shake it.
 // setcps(0.62)
 stack(
   s("superpiano").note("g3 b3 d4 g4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -664,7 +664,7 @@ Baby.
 // setcps(0.58)
 stack(
   s("supermandolin").note("a3 c4 e4 a4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -675,7 +675,7 @@ Celebration.
 // setcps(0.65)
 stack(
   s("supersaw").note("e4 g#4 b4 e5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -689,7 +689,7 @@ The heartbreak classic.
 // setcps(0.6)
 stack(
   s("supersaw").note("c4 e4 g4 c5").lpf(800),
-  s("bd(3,8)"),
+  s("bd").struct("x(3,8)"),
   s("hc*8")
 )
 ```
@@ -712,7 +712,7 @@ Love is wealth.
 // setcps(0.64)
 stack(
   s("sawtooth").note("d4 f#4 a4 d5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -723,7 +723,7 @@ Remembering Owino.
 // setcps(0.6)
 stack(
   s("superpiano").note("a3 c4 e4 a4").lpf(500),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -745,7 +745,7 @@ Marriage.
 // setcps(0.58)
 stack(
   s("superguitar").note("c4 e4 g4 c5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -767,7 +767,7 @@ Christina.
 // setcps(0.62)
 stack(
   s("supersquare").note("d4 f#4 a4 d5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -789,7 +789,7 @@ Saida.
 // setcps(0.68)
 stack(
   s("superpiano").note("e4 g#4 b4 e5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -800,7 +800,7 @@ Friends.
 // setcps(0.6)
 stack(
   s("supermandolin").note("c4 e4 g4 c5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -833,7 +833,7 @@ G.G.
 // setcps(0.6)
 stack(
   s("superguitar").note("a3 c4 e4 a4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -844,7 +844,7 @@ Rosy.
 // setcps(0.62)
 stack(
   s("supersquare").note("e4 g#4 b4 e5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -877,7 +877,7 @@ Mayaka.
 // setcps(0.65)
 stack(
   s("supermandolin").note("d4 f#4 a4 d5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -899,7 +899,7 @@ Son of Gumbo.
 // setcps(0.66)
 stack(
   s("supersaw").note("e4 g#4 b4 e5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -913,7 +913,7 @@ Funeral.
 // setcps(0.6)
 stack(
   s("superguitar").note("c4 e4 g4 c5 . b4 g4 e4 d4"),
-  s("bd(3,8)"),
+  s("bd").struct("x(3,8)"),
   s("hh*8")
 )
 ```
@@ -947,7 +947,7 @@ Tribal unity.
 // setcps(0.62)
 stack(
   s("supersaw").note("a3 c4 e4 a4"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -969,7 +969,7 @@ My house your house.
 // setcps(0.6)
 stack(
   s("superrhodes").note("c4 e4 g4 c5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -991,7 +991,7 @@ Go away.
 // setcps(0.6)
 stack(
   s("supermandolin").note("d4 f#4 a4 d5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -1013,7 +1013,7 @@ Champion.
 // setcps(0.64)
 stack(
   s("supersaw").note("e4 g#4 b4 e5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -1035,7 +1035,7 @@ You fools (Political).
 // setcps(0.62)
 stack(
   s("superguitar").note("g3 b3 d4 g4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -1057,7 +1057,7 @@ How much money?
 // setcps(0.58)
 stack(
   s("superpiano").note("a3 c4 e4 a4"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
@@ -1079,7 +1079,7 @@ Add.
 // setcps(0.6)
 stack(
   s("sawtooth").note("c4 e4 g4 c5"),
-  s("bd(4,4)")
+  s("bd").struct("x(4,4)")
 )
 ```
 
@@ -1101,7 +1101,7 @@ Slaughterhouse.
 // setcps(0.6)
 stack(
   s("superguitar").note("d4 f#4 a4 d5"),
-  s("bd(3,8)")
+  s("bd").struct("x(3,8)")
 )
 ```
 
