@@ -26,7 +26,7 @@ const chords = note("c3:minor9 f3:minor9 bb2:dom13 g2:dom7sharp9")
 // 3. Upright Bass
 // Walking bass pattern
 const bass = note("c2 . g2 . f2 . c3 . bb2 . f2 . g2 . b2")
-  .smooth(0.05) // Smooth transitions
+  .legato(1) // Smooth transitions
   .s("bass")
   .lpf(400)
   .slow(4)

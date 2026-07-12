@@ -41,7 +41,7 @@ const drums = stack(
 // 5. Bass
 // Simple root notes
 const bass = note("d2 g2 c2 a2")
-  .smooth(0.1)
+  .legato(1)
   .s("bass") // or 'sawtooth' with lpf
   .lpf(400)
   .slow(2)
