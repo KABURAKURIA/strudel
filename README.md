@@ -1,15 +1,10 @@
-# 🎶 Algorithmic Music Live-Coding & Composition Suite (Strudel REPL)
-
-[![Strudel](https://img.shields.io/badge/Strudel-Live--Coding-green.svg)](https://strudel.cc/)
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E.svg?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Music](https://img.shields.io/badge/Domain-Algorithmic%20Composition-blueviolet.svg)](https://github.com/KABURAKURIA/strudel)
+# Algorithmic Music Live-Coding & Composition Suite (Strudel REPL)
 
 A comprehensive algorithmic composition repository for [Strudel REPL](https://strudel.cc/) (the JavaScript web port of TidalCycles), featuring live-coded arrangements spanning lofi study beats, jazz chord progressions, and traditional Kenyan musical transcriptions.
 
 ---
 
-## 🎵 Composition Libraries & Guides
+## Composition Libraries & Guides
 
 ```
 guides/
@@ -25,7 +20,7 @@ guides/
 
 ---
 
-## 🎧 Sample Strudel Pattern
+## Sample Strudel Pattern
 
 ```javascript
 // Lofi Jazz Beat with Swing & Sidechain Ducking
@@ -44,12 +39,12 @@ note("<[c4'maj7, e4, g4, b4] [a3'm7, c4, e4, g4] [d4'm7, f4, a4, c5] [g3'7, b3, 
 
 ---
 
-## 🚀 Live Testing
+## Live Testing
 
 Open [strudel.cc](https://strudel.cc/), paste any of the examples from `/examples/` or `/guides/`, and click **Play** (or press `Ctrl+Enter`).
 
 ---
 
-## 📄 License
+## License
 
 MIT License.
